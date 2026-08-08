@@ -1,6 +1,5 @@
 site_name: Infra Replicant Lab
 site_description: Documentación viva de infraestructura, hosts, red, despliegues y operación
-site_author: Raúl Atienza
 repo_name: ratienza/infra-replicant-lab
 repo_url: https://github.com/ratienza/infra-replicant-lab
 
@@ -32,6 +31,7 @@ nav:
       - SSH: operacion/ssh.md
       - Comandos útiles: operacion/comandos-utiles.md
       - Mantenimiento: operacion/mantenimiento.md
+  - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Cambios:
       - 2026-08: cambios/2026-08.md
