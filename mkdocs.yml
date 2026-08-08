@@ -26,11 +26,13 @@ nav:
   - Aplicaciones:
       - Índice: aplicaciones/index.md
       - Salones AV: aplicaciones/salones-av.md
+      - Reserva-Pistas-UTP: aplicaciones/reserva-pistas-utp.md
       - Cartera Estratégica: aplicaciones/cartera-estrategica.md
   - Operación:
       - SSH: operacion/ssh.md
       - Comandos útiles: operacion/comandos-utiles.md
       - Mantenimiento: operacion/mantenimiento.md
+  - Pendientes Codex: pendientes-codex.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Cambios:

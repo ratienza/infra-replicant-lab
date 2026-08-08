@@ -5,6 +5,15 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 !!! info "Objetivo"
     Mantener una visión única, entendible y versionada de **concepto, hosts, red, seguridad, Git, Docker y operación**. La documentación funcional de cada aplicación vive en su propio repositorio.
 
+## Descargas
+
+Las versiones portables se mantienen en el propio repositorio para no depender de una entrega manual cada vez que se actualiza la documentación.
+
+[⬇ HTML autónomo](https://github.com/ratienza/infra-replicant-lab/raw/main/standalone/Replicant-Lab.html){ .md-button .md-button--primary }
+[⬇ PDF](https://github.com/ratienza/infra-replicant-lab/raw/main/standalone/Replicant-Lab.pdf){ .md-button }
+
+> El repositorio es privado: la descarga desde GitHub requiere una sesión con acceso al repositorio. El HTML autónomo no necesita servidor una vez descargado.
+
 ## Arquitectura de un vistazo
 
 <div class="replicant-architecture" style="overflow-x:auto; margin:1rem 0;">
@@ -20,34 +29,27 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
   <rect x="35" y="35" width="210" height="90" rx="14" class="rb"/>
   <text x="140" y="70" text-anchor="middle" class="rt">Router O2</text>
   <text x="140" y="98" text-anchor="middle" class="rs">192.168.18.1 · GW / DHCP</text>
-
   <rect x="330" y="35" width="210" height="90" rx="14" class="rb"/>
   <text x="435" y="70" text-anchor="middle" class="rt">Linksys Mesh</text>
   <text x="435" y="98" text-anchor="middle" class="rs">Bridge · Wi-Fi / capa 2</text>
-
   <rect x="35" y="205" width="240" height="110" rx="14" class="rb"/>
   <text x="155" y="242" text-anchor="middle" class="rt">Replicant</text>
   <text x="155" y="270" text-anchor="middle" class="rs">Windows 11 Pro · 192.168.18.200</text>
   <text x="155" y="294" text-anchor="middle" class="rs">Hyper-V · puesto de trabajo</text>
-
   <rect x="360" y="205" width="240" height="110" rx="14" class="rb"/>
   <text x="480" y="242" text-anchor="middle" class="rt">Nexus</text>
   <text x="480" y="270" text-anchor="middle" class="rs">Ubuntu 24.04 · 192.168.18.220</text>
   <text x="480" y="294" text-anchor="middle" class="rs">Docker · Git · UFW</text>
-
   <rect x="790" y="35" width="245" height="90" rx="14" class="rb"/>
   <text x="912" y="70" text-anchor="middle" class="rt">GitHub</text>
   <text x="912" y="98" text-anchor="middle" class="rs">Código + configuración versionable</text>
-
   <rect x="790" y="205" width="245" height="110" rx="14" class="rb"/>
   <text x="912" y="242" text-anchor="middle" class="rt">DigitalOcean</text>
   <text x="912" y="270" text-anchor="middle" class="rs">app.raulatienza.com</text>
   <text x="912" y="294" text-anchor="middle" class="rs">Servicios públicos / 24×7</text>
-
   <rect x="360" y="380" width="240" height="70" rx="14" class="rb"/>
   <text x="480" y="410" text-anchor="middle" class="rt">Docker Apps</text>
-  <text x="480" y="435" text-anchor="middle" class="rs">Salones AV · futuras apps</text>
-
+  <text x="480" y="435" text-anchor="middle" class="rs">Salones AV · Reserva Pistas · futuras apps</text>
   <line x1="245" y1="80" x2="330" y2="80" class="rl"/>
   <line x1="140" y1="125" x2="150" y2="205" class="rl"/>
   <line x1="275" y1="260" x2="360" y2="260" class="rl"/>
@@ -79,10 +81,12 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 | UFW | ✅ Activo |
 | Docker / Compose | ✅ Operativo |
 | GitHub desde Nexus | ✅ Operativo |
-| Salones AV | ✅ PoC desplegada |
+| Salones AV | ✅ Desplegada · `8081` |
+| Replicant Lab | ✅ Documentación · `8082` |
+| Reserva-Pistas-UTP | ✅ Docker Compose validado · `8083` |
+| Reserva-Pistas histórico en Nexus | ⏳ Pendiente de sincronizar desde DigitalOcean |
 | Backups | ⏳ Pendiente |
 | DNS local | ⏳ Pendiente |
-| Reverse proxy | ⏳ Pendiente |
 
 ## Cómo usar esta documentación
 
@@ -93,4 +97,5 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 - **Despliegue** fija los patrones Git/Docker.
 - **Aplicaciones** contiene solo la ficha de infraestructura de cada app.
 - **Operación** concentra comandos y procedimientos cortos.
+- **Pendientes Codex** conserva los encargos que deben retomarse sin depender de memoria de chat.
 - **Decisiones** registra criterios que no conviene redescubrir cada vez.
