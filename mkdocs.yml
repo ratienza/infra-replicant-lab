@@ -31,6 +31,7 @@ nav:
       - SSH: operacion/ssh.md
       - Comandos útiles: operacion/comandos-utiles.md
       - Mantenimiento: operacion/mantenimiento.md
+  - Pendientes Codex: pendientes-codex.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Cambios:
