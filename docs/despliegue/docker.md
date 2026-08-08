@@ -30,10 +30,11 @@ Los servicios web locales se asignan de forma secuencial para que el mapa sea f�
 
 | Puerto | Servicio | Estado |
 |---:|---|---|
-| `8080` | Launch-pad de Nexus | Reservado |
-| `8081` | Salones AV | Operativo |
-| `8082` | Replicant Lab · documentación | Operativo |
-| `8083+` | Próximos servicios | Asignación secuencial |
+|  `8080` | Launch-pad de Nexus           | Reservado             |
+|  `8081` | Salones AV                    | Operativo             |
+|  `8082` | Replicant Lab · documentación | Operativo             |
+|  `8083` | Reserva-Pistas-UTP            | Operativo             |
+| `8084+` | Próximos servicios            | Asignación secuencial |
 
 Reglas:
 
@@ -50,3 +51,12 @@ git switch main
 git pull
 docker compose up -d
 ```
+## Replicant Lab · documentación en vivo
+
+La documentación de Replicant Lab se ejecuta en Nexus mediante MkDocs Material en modo `serve`, en lugar de construir una imagen Nginx estática.
+
+El repositorio se monta dentro del contenedor mediante bind mounts:
+
+```text
+./mkdocs.yml  → /docs/mkdocs.yml
+./docs        → /docs/docs

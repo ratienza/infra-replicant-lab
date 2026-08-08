@@ -1,9 +1,12 @@
 services:
   docs:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: squidfunk/mkdocs-material:9
     container_name: infra-replicant-docs
     restart: unless-stopped
+    working_dir: /docs
+    command: serve --dev-addr=0.0.0.0:8000
     ports:
-      - "192.168.18.220:8082:80"
+      - "192.168.18.220:8082:8000"
+    volumes:
+      - ./mkdocs.yml:/docs/mkdocs.yml:ro
+      - ./docs:/docs/docs:ro
