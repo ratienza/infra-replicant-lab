@@ -2,7 +2,7 @@
 
 Documentación viva de infraestructura, hosts, red, despliegues y operación del laboratorio.
 
-La documentación se escribe en **Markdown**, se publica con **MkDocs Material** y usa **Mermaid** para diagramas mantenibles como código.
+La documentación se escribe en **Markdown**, se construye con **MkDocs Material** y usa **Mermaid** para diagramas mantenibles como código. El resultado se sirve como sitio estático con **Nginx**.
 
 ## Alcance
 
@@ -14,13 +14,20 @@ La documentación funcional y de desarrollo de cada aplicación permanece en su 
 
 ```bash
 cd /opt/apps/infra-replicant-lab
-docker compose up -d
+docker compose up -d --build
 ```
 
 La web quedará disponible en:
 
 ```text
 http://192.168.18.220:8088
+```
+
+Cada cambio documental requiere reconstruir la imagen estática:
+
+```bash
+git pull
+docker compose up -d --build
 ```
 
 ## Flujo de cambios
