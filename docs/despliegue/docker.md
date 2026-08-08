@@ -33,7 +33,8 @@ Los servicios web locales se asignan de forma secuencial para que el mapa sea f�
 | `8080` | Launch-pad de Nexus | Reservado |
 | `8081` | Salones AV | Operativo |
 | `8082` | Replicant Lab · documentación | Operativo |
-| `8083+` | Próximos servicios | Asignación secuencial |
+| `8083` | Reserva-Pistas-UTP · staging | Operativo |
+| `8084+` | Próximos servicios | Asignación secuencial |
 
 Reglas:
 
@@ -41,6 +42,14 @@ Reglas:
 - A partir de `8081`, los servicios se numeran consecutivamente salvo necesidad técnica justificada.
 - Cada nuevo servicio debe quedar documentado aquí al asignar su puerto.
 - Siempre que sea posible, publicar el servicio ligado a `192.168.18.220` y no a `0.0.0.0`.
+
+## Reserva-Pistas-UTP · staging actual
+
+La aplicación Python sigue escuchando sin cambios en `127.0.0.1:8765`. Para las pruebas en Nexus se utiliza un Nginx temporal en Docker con `--network host`, que publica `192.168.18.220:8083` y reenvía al backend local.
+
+UFW permite `8083/tcp` solo desde `192.168.18.0/24`.
+
+Este montaje es deliberadamente de staging: permite validar la app en Linux sin modificar producción ni el código de negocio antes de formalizar el despliegue definitivo.
 
 ## Operación estándar
 
