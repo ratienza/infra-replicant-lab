@@ -1,4 +1,4 @@
-# Infra Replicant Lab
+# Replicant Lab
 
 Documentación viva de la infraestructura local y cloud del laboratorio.
 
@@ -9,14 +9,14 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 
 ```mermaid
 flowchart LR
-    O2[Router O2\n192.168.18.1] --> MESH[Linksys Mesh\nBridge / Wi-Fi]
-    O2 --> R[Replicant\nWindows 11 Pro\n192.168.18.200]
-    R -->|Hyper-V| N[Nexus\nUbuntu 24.04 LTS\n192.168.18.220]
-    GH[GitHub\nFuente de verdad] --> N
-    GH --> DO[DigitalOcean\napp.raulatienza.com]
-    N --> D[Docker]
-    D --> SA[Salones AV\n8081]
-    N --> DATA[/opt/data · /opt/secrets]
+    O2["Router O2<br/>192.168.18.1"] --> MESH["Linksys Mesh<br/>Bridge / Wi-Fi"]
+    O2 --> R["Replicant<br/>Windows 11 Pro<br/>192.168.18.200"]
+    R -->|Hyper-V| N["Nexus<br/>Ubuntu 24.04 LTS<br/>192.168.18.220"]
+    GH["GitHub<br/>Fuente de verdad"] --> N
+    GH --> DO["DigitalOcean<br/>app.raulatienza.com"]
+    N --> D["Docker"]
+    D --> SA["Salones AV<br/>8081"]
+    N --> DATA["/opt/data · /opt/secrets"]
 ```
 
 ## Principios
