@@ -7,4 +7,5 @@ La documentación funcional, de negocio o de desarrollo detallada permanece en e
 | Aplicación | Repo | Host | Estado |
 |---|---|---|---|
 | Salones AV | `ratienza/salones-av-valencia-palace` | Nexus | ✅ Desplegada |
+| Reserva-Pistas-UTP | `ratienza/Reserva-Pistas-UTP` | Nexus (staging) / DigitalOcean (producción) | ✅ Staging operativo · producción sin tocar |
 | Cartera Estratégica | `ratienza/cartera-estrategica` | Por definir / Nexus objetivo | ⏳ Pendiente de adaptación Linux/Docker |
