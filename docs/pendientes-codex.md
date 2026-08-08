@@ -23,8 +23,24 @@ Para **cada app** que Codex toque dentro de Replicant Lab, debe aplicar este cic
 6. **Cerrar la verdad en Git**: rama lógica → commit → push → PR → merge → `main`.
 7. **Actualizar la ficha de la app** con la arquitectura realmente validada, no con una previsión o staging ya descartado.
 8. **Actualizar Replicant Lab**: índice de aplicaciones, mapa de puertos, cambios, pendientes Codex y cualquier decisión operativa afectada.
-9. **Actualizar las salidas portables**: `standalone/Replicant-Lab.html` y el PDF cuando forme parte del cierre documental de la app.
+9. **Actualizar y publicar siempre las salidas portables** del lab: `standalone/Replicant-Lab.html` y `standalone/Replicant-Lab.pdf`.
 10. **Promover a producción solo por encargo explícito**, preservando datos privados y comprobando servicio, logs y salud al finalizar.
+
+### Regla obligatoria de descargas HTML/PDF
+
+Cada cierre documental debe dejar disponibles **dos descargas reales y vigentes** desde la documentación web:
+
+- **Índice HTML autónomo**: `standalone/Replicant-Lab.html`, autocontenido y utilizable sin servidor una vez descargado.
+- **PDF Pro**: `standalone/Replicant-Lab.pdf`, generado con formato profesional y coherente con la documentación vigente.
+
+Requisitos para Codex:
+
+- La portada web (`docs/index.md`) debe mantener botones visibles para descargar ambos artefactos.
+- El propio HTML autónomo debe incluir también controles visibles para **descargar/guardar el índice HTML autónomo** y **descargar el PDF Pro**.
+- No basta con dejar enlaces: Codex debe comprobar que ambos ficheros existen realmente en `main` y que los enlaces no devuelven 404.
+- Cada vez que cambie de forma material la documentación de arquitectura, una ficha de aplicación, el mapa de puertos, operación o pendientes, Codex debe regenerar **HTML + PDF** antes de cerrar el PR.
+- El HTML autónomo y el PDF deben reflejar la misma versión/fecha de la documentación.
+- Si el PDF todavía no existe o está desactualizado, el trabajo documental **no está cerrado**.
 
 ### Regla específica de la documentación de Replicant Lab
 
@@ -75,6 +91,7 @@ Debe cubrir como mínimo:
 - Actualizar la documentación de Replicant Lab cuando cambie la arquitectura o la operación.
 - Mantener una ficha por aplicación con su arquitectura, operación, datos, red, seguridad, despliegue y diferencias por entorno.
 - Aplicar la regla de documentación live de Replicant Lab descrita arriba.
+- Regenerar y publicar siempre el HTML autónomo y el PDF Pro, verificando sus botones de descarga.
 
 ## Encargo 2 · Reserva-Pistas-UTP
 
