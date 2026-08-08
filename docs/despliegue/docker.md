@@ -106,3 +106,34 @@ Un `down` elimina contenedores y la red del proyecto, pero no debe eliminar dato
 Docker Engine arranca con Ubuntu. Los contenedores existentes con `restart: unless-stopped` se recuperan automáticamente después de reiniciar Nexus.
 
 Compose no necesita ejecutarse manualmente durante el arranque para recuperar esos contenedores ya creados; su fichero YAML sigue siendo la definición reproducible para recrearlos o actualizarlos.
+
+## Replicant Lab · documentación en vivo
+
+La documentación de Replicant Lab se ejecuta en Nexus mediante MkDocs Material en modo `serve`, en lugar de construir una imagen Nginx estática.
+
+El repositorio se monta dentro del contenedor mediante bind mounts:
+
+```text
+./mkdocs.yml  → /docs/mkdocs.yml
+./docs        → /docs/docs
+```
+
+MkDocs vigila ambos paths y regenera automáticamente el sitio cuando cambia un fichero Markdown o `mkdocs.yml`.
+
+Flujo normal:
+
+```text
+git pull
+   ↓
+cambian los Markdown
+   ↓
+MkDocs detecta el cambio
+   ↓
+regenera la web automáticamente
+   ↓
+http://192.168.18.220:8082
+```
+
+No es necesario reconstruir la imagen ni reiniciar Docker tras actualizar documentación.
+
+El contenedor solo necesita recrearse si cambia `compose.yml`, la imagen utilizada o los parámetros de ejecución.
