@@ -1,8 +1,10 @@
-# Infra Replicant Lab
+# Replicant Lab
 
 Documentación viva de infraestructura, hosts, red, despliegues y operación del laboratorio.
 
 La documentación se escribe en **Markdown**, se construye con **MkDocs Material** y usa **Mermaid** para diagramas mantenibles como código. El resultado se sirve como sitio estático con **Nginx**.
+
+Además, el repositorio mantiene una copia **HTML autónoma** para poder consultar toda la documentación sin depender de Nexus ni de ningún servicio.
 
 ## Alcance
 
@@ -29,6 +31,16 @@ Cada cambio documental requiere reconstruir la imagen estática:
 git pull
 docker compose up -d --build
 ```
+
+## Copia offline
+
+La copia autocontenida se conserva en:
+
+```text
+standalone/Replicant-Lab.html
+```
+
+Debe poder abrirse directamente en cualquier navegador sin Nexus y sin dependencias externas.
 
 ## Flujo de cambios
 
