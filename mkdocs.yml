@@ -1,0 +1,74 @@
+site_name: Replicant Lab
+site_description: Documentación viva de infraestructura, hosts, red, despliegues y operación
+repo_name: ratienza/infra-replicant-lab
+repo_url: https://github.com/ratienza/infra-replicant-lab
+
+nav:
+  - Inicio: index.md
+  - Arquitectura: arquitectura.md
+  - Fases:
+      - 01 · Concepto: fases/01-concepto.md
+      - 02 · Replicant: fases/02-replicant.md
+      - 03 · Nexus: fases/03-nexus.md
+      - 04 · Docker y Git: fases/04-docker-git.md
+      - 05 · PoC Salones AV: fases/05-poc-salones.md
+  - Hosts:
+      - Replicant: hosts/replicant.md
+      - Nexus: hosts/nexus.md
+      - DigitalOcean: hosts/digitalocean.md
+      - GitHub: hosts/github.md
+  - Red:
+      - Visión general: red/overview.md
+      - Inventario provisional: red/inventario.md
+  - Despliegue:
+      - Git: despliegue/git.md
+      - Docker: despliegue/docker.md
+  - Aplicaciones:
+      - Índice: aplicaciones/index.md
+      - Salones AV: aplicaciones/salones-av.md
+      - Cartera Estratégica: aplicaciones/cartera-estrategica.md
+  - Operación:
+      - SSH: operacion/ssh.md
+      - Comandos útiles: operacion/comandos-utiles.md
+      - Mantenimiento: operacion/mantenimiento.md
+  - Autodocumentación: autodocumentacion.md
+  - Decisiones: decisiones.md
+  - Cambios:
+      - 2026-08: cambios/2026-08.md
+
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+
+extra:
+  generator: false

@@ -1,0 +1,9 @@
+services:
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: infra-replicant-docs
+    restart: unless-stopped
+    ports:
+      - "192.168.18.220:8088:80"

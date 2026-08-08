@@ -1,0 +1,38 @@
+name: Docs check
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "Dockerfile"
+      - "compose.yml"
+      - ".github/workflows/docs-check.yml"
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "Dockerfile"
+      - "compose.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install MkDocs Material 9
+        run: pip install 'mkdocs-material==9.*'
+
+      - name: Build documentation strictly
+        run: mkdocs build --strict
+
+      - name: Build runtime container
+        run: docker build -t infra-replicant-docs:test .

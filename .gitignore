@@ -1,0 +1,19 @@
+# MkDocs build output
+site/
+.cache/
+
+# Python / local tooling
+__pycache__/
+*.pyc
+.venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets / local environment
+.env
+.env.*
+secrets/
