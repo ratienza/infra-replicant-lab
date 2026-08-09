@@ -7,12 +7,12 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 
 ## Descargas
 
-Las versiones portables se mantienen en el propio repositorio para no depender de una entrega manual cada vez que se actualiza la documentación.
+Las versiones portables se descargan directamente desde **Replicant Lab en Nexus**, sin pasar por `raw.githubusercontent.com` ni depender de la autenticación de GitHub.
 
-[⬇ HTML autónomo](https://github.com/ratienza/infra-replicant-lab/raw/main/standalone/Replicant-Lab.html){ .md-button .md-button--primary }
-[⬇ PDF](https://github.com/ratienza/infra-replicant-lab/raw/main/standalone/Replicant-Lab.pdf){ .md-button }
+[⬇ HTML autónomo](/downloads/Replicant-Lab.html){ .md-button .md-button--primary }
+[⬇ PDF Pro](/downloads/Replicant-Lab.pdf){ .md-button }
 
-> El repositorio es privado: la descarga desde GitHub requiere una sesión con acceso al repositorio. El HTML autónomo no necesita servidor una vez descargado.
+> Ambos ficheros se sirven desde la propia aplicación de documentación. También están disponibles en la pestaña **Descargas**.
 
 ## Arquitectura de un vistazo
 
