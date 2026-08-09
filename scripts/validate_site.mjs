@@ -25,6 +25,7 @@ const routes = [
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
   { route: "/pendientes-codex/", name: "pending", diagrams: 0 },
+  { route: "/cambios/", name: "changelog-index", diagrams: 0 },
   { route: "/cambios/2026-08-09/", name: "changelog", diagrams: 0 },
   { route: "/cambios/2026-08-08/", name: "changelog-previous", diagrams: 0 },
   { route: "/descargas/", name: "downloads", diagrams: 0 },
