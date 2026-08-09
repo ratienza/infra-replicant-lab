@@ -116,7 +116,8 @@ def source_fingerprint() -> str:
     for path in source_inputs():
         relative = path.relative_to(ROOT).as_posix()
         digest.update(relative.encode("utf-8") + b"\0")
-        digest.update(path.read_bytes())
+        source_bytes = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        digest.update(source_bytes)
         digest.update(b"\0")
     return digest.hexdigest()
 
