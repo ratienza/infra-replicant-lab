@@ -36,7 +36,8 @@ MERMAID_PACKAGE_RUNTIME = ROOT / "node_modules" / "mermaid" / "dist" / "mermaid.
 PORTABLE_CSS = ROOT / "scripts" / "portable.css"
 NODE_RENDERER = ROOT / "scripts" / "render_portables.mjs"
 EXPECTED_MERMAID = 5
-PIPELINE_VERSION = "1"
+EXPECTED_PDF_PAGES = 42
+PIPELINE_VERSION = "2"
 
 MERMAID_FENCE = re.compile(r"^```mermaid\s*$\n(.*?)^```\s*$", re.MULTILINE | re.DOTALL)
 ID_ATTR = re.compile(r'\bid="([^"]+)"')
@@ -45,15 +46,15 @@ HREF_ANCHOR = re.compile(r'href="#([^"]+)"')
 class ResourceParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
-        self.references: list[str] = []
+        self.references: list[tuple[str, str, str]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         for name, value in attrs:
             if name.lower() in {"src", "href"} and value:
-                self.references.append(value)
+                self.references.append((tag.lower(), name.lower(), value))
 
 
-def resource_references(document: str) -> list[str]:
+def resource_references(document: str) -> list[tuple[str, str, str]]:
     parser = ResourceParser()
     parser.feed(document)
     return parser.references
@@ -171,11 +172,30 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
         rendered, mermaid_count = render_markdown(source, index)
         mermaid_total += mermaid_count
         sources.append(relative)
-        toc_items.append(f'<li><a href="#page-{index}">{html.escape(label)}</a></li>')
+        search_text = html.escape(f"{label} {relative}", quote=True)
+        toc_items.append(
+            f'<li data-search="{search_text}"><a href="#page-{index}" data-page-link="page-{index}">'
+            f'{html.escape(label)}</a></li>'
+        )
+        if index > 1:
+            previous_label = " › ".join(pages[index - 2][0])
+            previous_link = (
+                f'<a class="previous" href="#page-{index - 1}">← {html.escape(previous_label)}</a>'
+            )
+        else:
+            previous_link = '<span class="previous disabled">Inicio de la documentación</span>'
+        if index < len(pages):
+            next_label = " › ".join(pages[index][0])
+            next_link = f'<a class="next" href="#page-{index + 1}">{html.escape(next_label)} →</a>'
+        else:
+            next_link = '<span class="next disabled">Fin de la documentación</span>'
         sections.append(
-            f'<section class="doc-page" id="page-{index}" data-source="{html.escape(relative)}">'
+            f'<section class="doc-page" id="page-{index}" data-source="{html.escape(relative)}" '
+            f'data-page-label="{html.escape(label, quote=True)}">'
             f'<p class="source-path">{index:02d} · {html.escape(label)} · {html.escape(relative)}</p>'
-            f'<div class="doc-content">{rendered}</div></section>'
+            f'<div class="doc-content">{rendered}</div>'
+            f'<nav class="page-controls" aria-label="Navegación entre páginas">'
+            f'{previous_link}{next_link}</nav></section>'
         )
 
     if mermaid_total != EXPECTED_MERMAID:
@@ -200,16 +220,79 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
     <p class="lead">Infraestructura, hosts, red, despliegues y operación.</p>
     <dl class="build-meta"><dt>Versión reproducible</dt><dd>sha256:{fingerprint}</dd><dt>Páginas fuente</dt><dd>{len(pages)}</dd><dt>Diagramas Mermaid</dt><dd>{mermaid_total}</dd></dl>
   </header>
-  <nav class="portable-nav" aria-label="Índice completo"><h2>Índice</h2><ol>{''.join(toc_items)}</ol></nav>
-  <main>{''.join(sections)}</main>
+  <div class="portable-layout">
+    <aside class="portable-sidebar">
+      <button class="portable-menu-button" type="button" aria-expanded="false" aria-controls="portable-nav">☰ Índice y búsqueda</button>
+      <nav class="portable-nav" id="portable-nav" aria-label="Índice completo">
+        <h2>Índice</h2>
+        <label class="portable-search" for="portable-search">Buscar en la documentación
+          <input id="portable-search" type="search" autocomplete="off" placeholder="Página o contenido">
+        </label>
+        <p class="search-status" id="portable-search-status" aria-live="polite"></p>
+        <ol>{''.join(toc_items)}</ol>
+      </nav>
+    </aside>
+    <main class="portable-main" id="portable-content">{''.join(sections)}</main>
+  </div>
   <footer class="document-footer">Generado exclusivamente desde <code>mkdocs.yml</code>, <code>docs/</code> y recursos versionados · sha256:{fingerprint}</footer>
   <script>{mermaid}</script>
   <script>
   (() => {{
+    const root = document.documentElement;
+    const pages = [...document.querySelectorAll('.doc-page')];
+    const links = [...document.querySelectorAll('[data-page-link]')];
+    const sidebar = document.querySelector('.portable-sidebar');
+    const menuButton = document.querySelector('.portable-menu-button');
+    const search = document.querySelector('#portable-search');
+    const searchStatus = document.querySelector('#portable-search-status');
+    const baseTitle = 'Replicant Lab · Documentación completa';
     const done = (ok, detail) => {{
-      document.documentElement.dataset.mermaid = ok ? 'ready' : 'error';
-      document.documentElement.dataset.mermaidDetail = detail || '';
+      root.dataset.mermaid = ok ? 'ready' : 'error';
+      root.dataset.mermaidDetail = detail || '';
     }};
+    const targetPage = target => {{
+      if (!target) return pages[0];
+      const element = document.getElementById(target);
+      return element?.classList.contains('doc-page') ? element : element?.closest('.doc-page') || pages[0];
+    }};
+    const showPage = (target, scroll) => {{
+      const page = targetPage(target);
+      pages.forEach(item => item.classList.toggle('is-active', item === page));
+      links.forEach(link => {{
+        if (link.dataset.pageLink === page.id) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      }});
+      root.dataset.activePage = page.id;
+      document.title = (page.dataset.pageLabel || baseTitle) + ' · Replicant Lab';
+      if (scroll) requestAnimationFrame(() => (document.getElementById(target) || page).scrollIntoView({{ block: 'start' }}));
+    }};
+    const route = () => {{
+      const target = decodeURIComponent(location.hash.slice(1));
+      showPage(target || pages[0].id, Boolean(target));
+    }};
+    window.addEventListener('hashchange', route);
+    menuButton.addEventListener('click', () => {{
+      const open = sidebar.classList.toggle('is-open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    }});
+    links.forEach(link => link.addEventListener('click', () => {{
+      if (matchMedia('(max-width: 760px)').matches) {{
+        sidebar.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }}
+    }}));
+    search.addEventListener('input', () => {{
+      const query = search.value.trim().toLocaleLowerCase('es');
+      let visible = 0;
+      document.querySelectorAll('.portable-nav li').forEach(item => {{
+        const page = targetPage(item.querySelector('a').dataset.pageLink);
+        const haystack = (item.dataset.search + ' ' + page.textContent).toLocaleLowerCase('es');
+        item.hidden = Boolean(query) && !haystack.includes(query);
+        if (!item.hidden) visible += 1;
+      }});
+      searchStatus.textContent = query ? visible + ' página(s) coincidente(s)' : '';
+    }});
+    showPage(decodeURIComponent(location.hash.slice(1)) || pages[0].id, false);
     mermaid.initialize({{
       startOnLoad: false,
       securityLevel: 'loose',
@@ -219,7 +302,11 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
       themeVariables: {{ primaryColor: '#e8f1f8', primaryTextColor: '#173f65', primaryBorderColor: '#52728d', lineColor: '#667085', fontSize: '15px' }}
     }});
     mermaid.run({{ querySelector: '.mermaid', suppressErrors: false }})
-      .then(() => done(true, String(document.querySelectorAll('.mermaid svg').length)))
+      .then(() => {{
+        done(true, String(document.querySelectorAll('.mermaid svg').length));
+        root.dataset.portable = 'ready';
+        route();
+      }})
       .catch(error => {{ done(false, String(error)); console.error(error); }});
   }})();
   </script>
@@ -305,21 +392,30 @@ def validate_portable_html(path: Path, expected_fingerprint: str, expected_sourc
             raise ValueError(f"{path} is missing {source}")
     if data.count('class="mermaid"') != EXPECTED_MERMAID:
         raise ValueError(f"{path} does not contain exactly {EXPECTED_MERMAID} Mermaid sources")
+    if data.count('data-page-link=') != len(expected_sources):
+        raise ValueError(f"{path} does not contain one navigation link per source page")
+    if data.count('class="page-controls"') != len(expected_sources):
+        raise ValueError(f"{path} does not contain one previous/next control per source page")
+    required_multipage = ['id="portable-search"', "hashchange", "data-portable", "activePage"]
+    missing_multipage = [token for token in required_multipage if token not in data]
+    if missing_multipage:
+        raise ValueError(f"Portable multipage controls missing in {path}: {missing_multipage}")
     forbidden = ["livereload", "ws://", "wss://", "127.0.0.1:", "localhost:"]
     lowered = data.lower()
     found = [token for token in forbidden if token in lowered]
     if found:
         raise ValueError(f"Development residue in {path}: {found}")
-    for reference in resource_references(data):
+    for tag, attribute, reference in resource_references(data):
         parsed = urlparse(html.unescape(reference))
-        if parsed.scheme in {"http", "https", "ws", "wss"} or reference.startswith("//"):
-            raise ValueError(f"External resource in offline HTML: {reference}")
+        external = parsed.scheme in {"http", "https", "ws", "wss"} or reference.startswith("//")
+        if external and tag != "a":
+            raise ValueError(f"External resource in offline HTML: {tag}[{attribute}]={reference}")
 
 
 def validate_pdf(path: Path, expected_fingerprint: str) -> dict[str, int]:
     reader = PdfReader(str(path))
-    if len(reader.pages) < 10:
-        raise ValueError(f"PDF is unexpectedly short: {len(reader.pages)} pages")
+    if len(reader.pages) != EXPECTED_PDF_PAGES:
+        raise ValueError(f"PDF page count drift: expected={EXPECTED_PDF_PAGES}, actual={len(reader.pages)}")
     text = "\n".join((page.extract_text() or "") for page in reader.pages)
     required = [
         "Replicant Lab",
@@ -327,7 +423,7 @@ def validate_pdf(path: Path, expected_fingerprint: str) -> dict[str, int]:
         "Arquitectura",
         "Host · Nexus",
         "Aplicaciones",
-        "Pendientes Codex",
+        "Pendientes",
         "Descargas",
     ]
     compact_text = "".join(text.split())
@@ -356,7 +452,7 @@ def validate_site_resources() -> None:
         lowered = data.lower()
         if "livereload" in lowered or "ws://" in lowered or "wss://" in lowered:
             raise ValueError(f"Development residue in static site: {page}")
-        for reference in resource_references(data):
+        for _tag, _attribute, reference in resource_references(data):
             reference = html.unescape(reference).split("#", 1)[0].split("?", 1)[0]
             if not reference or reference.startswith(("#", "mailto:", "tel:", "data:", "javascript:")):
                 continue
