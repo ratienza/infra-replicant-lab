@@ -15,5 +15,9 @@ Registro corto de decisiones que no conviene redescubrir.
 | Ramas por cambio lógico | Facilitar revisión y mantener `main` estable |
 | MkDocs es la fuente documental canónica | `mkdocs.yml`, `docs/` y sus recursos definen contenido, estructura y presentación |
 | HTML/PDF son artefactos derivados | Deben sincronizarse mediante un proceso reproducible; nunca prevalecen sobre MkDocs |
-| Nexus sirve MkDocs en vivo | `compose.yml` y sus bind mounts describen el runtime; el `Dockerfile` estático cumple otra función |
+| Nexus sirve una imagen estática Nginx | `Dockerfile`, Compose y CI comparten build MkDocs estricto; el despliegue requiere reconstrucción |
 | Validación por entorno | Git, prueba local, Nexus y producción son estados distintos y no se extrapolan |
+| Dependencias documentales fijadas | Python/Node, MkDocs, Mermaid y Playwright se resuelven desde lockfiles versionados |
+| Huella SHA-256 para portables | Evita timestamps variables y permite demostrar sincronía inequívoca con las fuentes |
+| PDF tratado como binario | `.gitattributes` anula `diff=astextplain` y conversiones CRLF de Git para Windows |
+| Rutas portables únicas | HTML y PDF viven exclusivamente en `docs/downloads/` |

@@ -53,3 +53,6 @@
 - Reserva-Pistas-UTP ejecutándose como backend privado y proxy Nginx en `192.168.18.220:8083`.
 
 Esta observación confirma el estado del laboratorio privado en esa fecha; no valida DigitalOcean ni sustituye las definiciones versionadas de cada repositorio.
+## Runtime documental previsto tras 2B.1
+
+La rama 2B.1 sustituye `mkdocs serve` y los bind mounts por una imagen construida desde el `Dockerfile`: MkDocs estricto en la etapa builder y Nginx estático en runtime, manteniendo `192.168.18.220:8082`. Este estado está implementado y probado localmente, pero permanece pendiente de merge, despliegue y validación en Nexus mediante el Encargo 2B.2.

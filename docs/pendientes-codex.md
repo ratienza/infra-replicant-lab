@@ -9,29 +9,21 @@ Esta página conserva encargos reales y discrepancias comprobadas. Los estados d
 - Separar código/configuración reproducible de secretos, datos e históricos vivos.
 - Registrar como hechos solo lo implementado o validado con evidencia; identificar expresamente el entorno.
 - Promover o modificar producción únicamente por encargo explícito.
-- Actualizar la fuente MkDocs del lab cuando cambie su arquitectura u operación.
-- Tratar HTML/PDF como artefactos derivados. Su generación obligatoria empezará cuando exista un proceso versionado y reproducible.
+- Regenerar HTML/PDF mediante el pipeline versionado cuando cambie materialmente la fuente MkDocs.
 
 ## Encargos
 
 | Nº | Encargo | Estado | Criterio de cierre |
 |---:|---|---|---|
-| 1 | Contrato operativo raíz | ✅ Completado | `AGENTS.md` integrado en `main` mediante PR #7. |
-| 2 | Reserva-Pistas-UTP · promoción controlada a producción | ⏳ Nexus validado; producción pendiente | Encargo explícito, sincronización segura de estado vivo, promoción de lo validado y verificación final en DigitalOcean. |
-| 3 | Portables reproducibles de Replicant Lab | ⏳ Pendiente | Generador versionado desde MkDocs, HTML offline limpio y PDF completo, rutas canónicas únicas, validación automática y documentación del proceso. |
-| 4 | Reconciliar el bind de Salones AV | ⏳ Pendiente en repo de la app | El bind LAN observado en Nexus queda versionado o se revierte de forma deliberada; checkout de Nexus limpio y acorde con `main`. |
-| 5 | Alinear runtime y comprobación CI de Replicant Lab | ⏳ Pendiente de decisión | Se documenta y valida si deben coexistir `compose.yml` con MkDocs en vivo y el `Dockerfile` Nginx estático, sin confundir sus funciones. |
-| 6 | Activar y validar el renderizado Mermaid | ⏳ Pendiente | Elegir un runtime reproducible, incorporarlo al proyecto MkDocs y verificar visualmente los cinco diagramas; hoy se generan bloques `mermaid` sin librería de renderizado. |
+| 1 | Contrato operativo raíz | ✅ Completado | `AGENTS.md` integrado mediante PR #7. |
+| 2 | Reserva-Pistas-UTP · promoción controlada a producción | ⏳ Nexus validado; producción pendiente | Encargo explícito, sincronización segura de estado vivo, promoción y verificación final en DigitalOcean. |
+| 3 | Portables reproducibles de Replicant Lab | 🧪 Implementado en 2B.1; pendiente merge/Nexus | HTML y PDF completos generados y validados desde MkDocs; cierre de entorno tras despliegue y prueba en Nexus. |
+| 4 | Reconciliar el bind de Salones AV | ⏳ Pendiente en repo de la app | El bind LAN queda versionado o se revierte deliberadamente; checkout de Nexus limpio y acorde con `main`. |
+| 5 | Alinear runtime y CI de Replicant Lab | 🧪 Implementado en 2B.1; pendiente merge/Nexus | Dockerfile, Compose y CI usan build MkDocs estricto y Nginx estático; validar servicio desplegado. |
+| 6 | Activar y validar Mermaid | 🧪 Implementado en 2B.1; pendiente merge/Nexus | Mermaid fijado y local, cinco SVG verificados en web/HTML/PDF; repetir validación visual tras despliegue. |
+| 7 | Desplegar y validar el sistema documental 2B.1 | ⏳ Encargo 2B.2 | Merge aprobado, reconstrucción controlada en Nexus, HTTP/descargas/diagramas verificados y rollback disponible. |
 
 ## Encargo 2 · Reserva-Pistas-UTP
-
-Estado comprobado en Nexus:
-
-- `reserva-pistas-app` y `reserva-pistas-nginx` operativos mediante Docker Compose;
-- solo Nginx publica `192.168.18.220:8083` y el backend permanece en `app:8765`;
-- persistencia en `/opt/data/reserva-pistas:/app/data` y backend con UID/GID `1000:1000`;
-- checkout de Nexus limpio y coincidente con `main` del repositorio de la aplicación el 09/08/2026;
-- DigitalOcean siguió siendo la fuente del estado vivo y no fue inspeccionado durante la reconciliación documental.
 
 Antes de cualquier activación o promoción real:
 
@@ -43,15 +35,15 @@ Antes de cualquier activación o promoción real:
 6. promover únicamente código/configuración ya validado;
 7. verificar servicio, logs, acceso y salud en el entorno final.
 
-## Encargo 3 · Portables reproducibles
+## Encargo 7 · Paso a 2B.2
 
-Hechos que debe resolver un encargo separado:
+El siguiente encargo debe operar exclusivamente sobre el PR 2B.1 aprobado y su commit fusionado:
 
-- `docs/downloads/Replicant-Lab.html` y `standalone/Replicant-Lab.html` son copias del mismo resumen autónomo;
-- el PDF existente está solo en `docs/downloads/Replicant-Lab.pdf` y resume una página;
-- no existe un generador versionado ni `standalone/Replicant-Lab.pdf`;
-- el HTML obtenido desde Nexus incorpora el cliente `livereload` de `mkdocs serve`;
-- la configuración Git de Windows aplica un filtro de texto al PDF, circunstancia que debe investigarse sin modificar el binario en este encargo;
-- la navegación y los botones deben validarse sobre las rutas finales generadas.
-
-Este encargo definirá una única convención de rutas y un pipeline reproducible antes de volver a exigir la regeneración de portables en cada cierre documental.
+1. verificar SHA, checks y artefactos;
+2. conservar evidencia y rollback del contenedor actual;
+3. actualizar el checkout de Nexus sin leer secretos ni datos;
+4. ejecutar `docker compose up -d --build`;
+5. comprobar Nginx en `192.168.18.220:8082`;
+6. verificar las páginas principales, los cinco Mermaid y ambas descargas;
+7. comprobar que los ficheros servidos son idénticos a Git y no contienen inyección;
+8. actualizar estados documentales únicamente con evidencia de Nexus.
