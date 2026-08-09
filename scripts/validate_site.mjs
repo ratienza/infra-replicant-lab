@@ -25,6 +25,7 @@ const routes = [
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
   { route: "/pendientes-codex/", name: "pending", diagrams: 0 },
+  { route: "/cambios/2026-08/", name: "changelog", diagrams: 0 },
   { route: "/descargas/", name: "downloads", diagrams: 0 },
   { route: "/fases/05-poc-salones/", name: "mermaid-salones", diagrams: 1 },
   { route: "/red/overview/", name: "mermaid-network", diagrams: 1 },
@@ -70,7 +71,7 @@ for (const item of routes) {
   if (consoleErrors.length) failures.push(`${item.route}: console ${consoleErrors.join(" | ")}`);
   if (requestFailures.length) failures.push(`${item.route}: requests ${requestFailures.join(" | ")}`);
   if (responseFailures.length) failures.push(`${item.route}: responses ${responseFailures.join(" | ")}`);
-  if (screenshots && ["home", "architecture", "nexus", "applications", "pending", "downloads"].includes(item.name)) {
+  if (screenshots && ["home", "architecture", "nexus", "applications", "pending", "changelog", "downloads"].includes(item.name)) {
     await page.screenshot({ path: path.join(screenshots, `${item.name}-desktop.png`), fullPage: true });
   }
   page.off("console", onConsole);
@@ -103,7 +104,7 @@ const downloads = {
 if (totalDiagrams !== 5) failures.push(`Expected five Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
-const report = { routes: routes.length, desktopScreenshots: screenshots ? 6 : 0, mobileScreenshots: screenshots ? 2 : 0, mermaid: totalDiagrams, downloads };
+const report = { routes: routes.length, desktopScreenshots: screenshots ? 7 : 0, mobileScreenshots: screenshots ? 2 : 0, mermaid: totalDiagrams, downloads };
 await fs.mkdir(path.dirname(reportPath), { recursive: true });
 await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 await browser.close();

@@ -92,7 +92,7 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 - **Despliegue** fija los patrones Git/Docker.
 - **Aplicaciones** contiene solo la ficha de infraestructura de cada app.
 - **Operación** concentra comandos y procedimientos cortos.
-- **Pendientes Codex** conserva los encargos que deben retomarse sin depender de memoria de chat.
+- **Pendientes** conserva el estado y los encargos que deben retomarse sin depender de memoria de chat.
 - **Decisiones** registra criterios que no conviene redescubrir cada vez.
 
 Los estados distinguen entre contenido **implementado en Git**, **probado localmente**, **validado u observado en Nexus** y **validado en producción**. Una evidencia de un entorno no se extrapola a otro.
