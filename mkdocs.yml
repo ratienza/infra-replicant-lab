@@ -5,6 +5,7 @@ repo_url: https://github.com/ratienza/infra-replicant-lab
 
 nav:
   - Inicio: index.md
+  - Descargas: descargas.md
   - Arquitectura: arquitectura.md
   - Fases:
       - 01 · Concepto: fases/01-concepto.md
