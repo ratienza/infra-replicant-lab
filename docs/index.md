@@ -75,8 +75,7 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 | Docker / Compose | ✅ Operativo |
 | GitHub desde Nexus | ✅ Operativo |
 | Salones AV | ✅ Observada en Nexus · `8081` |
-| Replicant Lab observado en Nexus | ✅ MkDocs en vivo · 8082 |
-| Replicant Lab runtime estático 2B.1 | 🧪 Implementado/probado localmente · pendiente Nexus |
+| Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ MVP local en Replicant · no desplegada en Nexus |
 | Reserva-Pistas histórico en Nexus | ⏳ Pendiente de sincronizar desde DigitalOcean |

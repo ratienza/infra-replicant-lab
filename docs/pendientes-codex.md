@@ -17,11 +17,11 @@ Esta página conserva encargos reales y discrepancias comprobadas. Los estados d
 |---:|---|---|---|
 | 1 | Contrato operativo raíz | ✅ Completado | `AGENTS.md` integrado mediante PR #7. |
 | 2 | Reserva-Pistas-UTP · promoción controlada a producción | ⏳ Nexus validado; producción pendiente | Encargo explícito, sincronización segura de estado vivo, promoción y verificación final en DigitalOcean. |
-| 3 | Portables reproducibles de Replicant Lab | 🧪 Implementado en 2B.1; pendiente merge/Nexus | HTML y PDF completos generados y validados desde MkDocs; cierre de entorno tras despliegue y prueba en Nexus. |
+| 3 | Portables reproducibles de Replicant Lab | ✅ Completado y validado en Nexus | HTML y PDF completos generados desde MkDocs, descargados del servicio y comparados byte a byte con Git. |
 | 4 | Reconciliar el bind de Salones AV | ⏳ Pendiente en repo de la app | El bind LAN queda versionado o se revierte deliberadamente; checkout de Nexus limpio y acorde con `main`. |
-| 5 | Alinear runtime y CI de Replicant Lab | 🧪 Implementado en 2B.1; pendiente merge/Nexus | Dockerfile, Compose y CI usan build MkDocs estricto y Nginx estático; validar servicio desplegado. |
-| 6 | Activar y validar Mermaid | 🧪 Implementado en 2B.1; pendiente merge/Nexus | Mermaid fijado y local, cinco SVG verificados en web/HTML/PDF; repetir validación visual tras despliegue. |
-| 7 | Desplegar y validar el sistema documental 2B.1 | ⏳ Encargo 2B.2 | Merge aprobado, reconstrucción controlada en Nexus, HTTP/descargas/diagramas verificados y rollback disponible. |
+| 5 | Alinear runtime y CI de Replicant Lab | ✅ Completado y validado en Nexus | Dockerfile, Compose y CI usan build MkDocs estricto y Nginx estático; servicio desplegado y estable. |
+| 6 | Activar y validar Mermaid | ✅ Completado y validado en Nexus | Mermaid fijado y local; cinco diagramas verificados en web, HTML y PDF. |
+| 7 | Desplegar y validar el sistema documental 2B.1 | ✅ Completado | PR #9 fusionado, reconstrucción controlada en Nexus y validación integral realizada el 09/08/2026. |
 
 ## Encargo 2 · Reserva-Pistas-UTP
 
@@ -35,15 +35,16 @@ Antes de cualquier activación o promoción real:
 6. promover únicamente código/configuración ya validado;
 7. verificar servicio, logs, acceso y salud en el entorno final.
 
-## Encargo 7 · Paso a 2B.2
+## Encargo 7 · Cierre del gestor documental
 
-El siguiente encargo debe operar exclusivamente sobre el PR 2B.1 aprobado y su commit fusionado:
+El 09/08/2026 se completó el ciclo aprobado:
 
-1. verificar SHA, checks y artefactos;
-2. conservar evidencia y rollback del contenedor actual;
-3. actualizar el checkout de Nexus sin leer secretos ni datos;
-4. ejecutar `docker compose up -d --build`;
-5. comprobar Nginx en `192.168.18.220:8082`;
-6. verificar las páginas principales, los cinco Mermaid y ambas descargas;
-7. comprobar que los ficheros servidos son idénticos a Git y no contienen inyección;
-8. actualizar estados documentales únicamente con evidencia de Nexus.
+1. se verificaron el head aprobado, los checks y la ausencia de revisiones pendientes del PR #9;
+2. se fusionó mediante squash y se sincronizaron los checkouts local y de Nexus;
+3. se reconstruyó y recreó exclusivamente `infra-replicant-lab` con `docker compose up -d --build`;
+4. se comprobó Nginx en `192.168.18.220:8082`, su estabilidad y sus logs;
+5. se verificaron navegación, recursos, cinco Mermaid y ambas descargas;
+6. se compararon byte a byte los artefactos servidos con Git;
+7. se validaron el HTML offline y el PDF completo, sin clientes de desarrollo ni dependencias esenciales externas.
+
+DigitalOcean y los repositorios, contenedores y datos de las aplicaciones quedan fuera de esta validación.

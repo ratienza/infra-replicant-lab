@@ -36,4 +36,4 @@ CI ejecuta el modo `check`, vuelve a renderizar un PDF de control, verifica la h
 
 ## Estado de despliegue
 
-El pipeline y el runtime estático quedan implementados y probados localmente en el Encargo 2B.1. Su publicación y validación en Nexus pertenecen al Encargo 2B.2; hasta entonces, el runtime observado en Nexus sigue siendo el anterior.
+El pipeline y el runtime estático están implementados, probados localmente y validados en Nexus. El 09/08/2026 se comprobaron el sitio publicado, los cinco diagramas y las descargas reales; los ficheros servidos coincidieron byte a byte con los artefactos versionados. Esta validación corresponde al laboratorio privado y no se extrapola a producción.
