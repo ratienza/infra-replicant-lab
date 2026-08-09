@@ -34,7 +34,7 @@
   function addHeaderDownloadButton() {
     if (document.querySelector('[data-replicant-downloads]')) return;
 
-    const palette = document.querySelector('label[for^="__palette_"]');
+    const palette = document.querySelector('[data-md-component="palette"]');
     if (!palette || !palette.parentNode) return;
 
     const link = document.createElement('a');
@@ -53,8 +53,5 @@
   }
 
   document.addEventListener('DOMContentLoaded', init);
-  document.addEventListener('DOMContentSwitch', init);
-  if (typeof document$ !== 'undefined') {
-    document$.subscribe(init);
-  }
+  if (typeof document$ !== 'undefined') document$.subscribe(init);
 })();
