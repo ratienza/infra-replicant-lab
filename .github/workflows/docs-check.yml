@@ -3,22 +3,41 @@ name: Docs check
 on:
   pull_request:
     paths:
+      - "README.md"
+      - "AGENTS.md"
       - "docs/**"
+      - "scripts/**"
       - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".gitattributes"
+      - ".gitignore"
+      - ".dockerignore"
       - "Dockerfile"
       - "compose.yml"
       - ".github/workflows/docs-check.yml"
   push:
     branches: [main]
     paths:
+      - "README.md"
+      - "AGENTS.md"
       - "docs/**"
+      - "scripts/**"
       - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".gitattributes"
+      - ".gitignore"
+      - ".dockerignore"
       - "Dockerfile"
       - "compose.yml"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,13 +45,59 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.12.10"
+          cache: pip
+          cache-dependency-path: requirements-docs.txt
 
-      - name: Install MkDocs Material 9
-        run: pip install 'mkdocs-material==9.*'
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "11.16.0"
+          run_install: false
 
-      - name: Build documentation strictly
-        run: mkdocs build --strict
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.14.0"
+          cache: pnpm
 
-      - name: Build runtime container
-        run: docker build -t infra-replicant-docs:test .
+      - name: Install fixed dependencies
+        run: |
+          python -m pip install --requirement requirements-docs.txt
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps chromium
+
+      - name: Check generated documentation and portables
+        run: python scripts/docs_pipeline.py check
+
+      - name: Confirm generated files are synchronized
+        run: git diff --exit-code -- docs/javascripts/mermaid.min.js docs/downloads/Replicant-Lab.html docs/downloads/Replicant-Lab.pdf
+
+      - name: Build static runtime image
+        run: docker build --tag infra-replicant-docs:test .
+
+      - name: Smoke-test Nginx and downloads
+        shell: bash
+        run: |
+          set -euo pipefail
+          trap 'docker rm -f infra-replicant-docs-test >/dev/null 2>&1 || true' EXIT
+          docker run --detach --name infra-replicant-docs-test --publish 127.0.0.1:8082:80 infra-replicant-docs:test
+          for attempt in {1..20}; do
+            curl --fail --silent http://127.0.0.1:8082/ >/dev/null && break
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:8082/ >/dev/null
+          curl --fail --silent --output /tmp/Replicant-Lab.html http://127.0.0.1:8082/downloads/Replicant-Lab.html
+          curl --fail --silent --output /tmp/Replicant-Lab.pdf http://127.0.0.1:8082/downloads/Replicant-Lab.pdf
+          cmp docs/downloads/Replicant-Lab.html /tmp/Replicant-Lab.html
+          cmp docs/downloads/Replicant-Lab.pdf /tmp/Replicant-Lab.pdf
+          ! grep -Eqi 'livereload|wss?://|localhost:' /tmp/Replicant-Lab.html
+
+      - name: Upload portable documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: replicant-lab-portables
+          path: |
+            docs/downloads/Replicant-Lab.html
+            docs/downloads/Replicant-Lab.pdf
+          if-no-files-found: error

@@ -1,10 +1,16 @@
-FROM squidfunk/mkdocs-material:9 AS builder
+FROM python:3.12.10-slim-bookworm AS builder
 
-WORKDIR /docs
-COPY mkdocs.yml /docs/mkdocs.yml
-COPY docs /docs/docs
-RUN mkdocs build --strict
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
 
-FROM nginx:alpine
-COPY --from=builder /docs/site /usr/share/nginx/html
+WORKDIR /project
+COPY requirements-docs.txt ./requirements-docs.txt
+RUN python -m pip install --no-cache-dir --requirement requirements-docs.txt
+
+COPY mkdocs.yml ./mkdocs.yml
+COPY docs ./docs
+RUN python -m mkdocs build --strict --clean --site-dir /project/site
+
+FROM nginx:1.27.4-alpine
+COPY --from=builder /project/site /usr/share/nginx/html
 EXPOSE 80

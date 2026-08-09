@@ -1,7 +1,5 @@
 site_name: Replicant Lab
 site_description: Documentación viva de infraestructura, hosts, red, despliegues y operación
-repo_name: ratienza/infra-replicant-lab
-repo_url: https://github.com/ratienza/infra-replicant-lab
 
 nav:
   - Inicio: index.md
@@ -27,6 +25,7 @@ nav:
       - SSH: operacion/ssh.md
       - Comandos útiles: operacion/comandos-utiles.md
       - Mantenimiento: operacion/mantenimiento.md
+  - Descargas: descargas.md
   - Pendientes Codex: pendientes-codex.md
   - Aplicaciones:
       - Índice: aplicaciones/index.md
@@ -41,6 +40,7 @@ nav:
 theme:
   name: material
   language: es
+  favicon: assets/favicon.svg
   features:
     - navigation.tabs
     - navigation.sections
@@ -59,6 +59,8 @@ theme:
         name: Cambiar a modo claro
 
 extra_javascript:
+  - javascripts/mermaid.min.js
+  - javascripts/mermaid-init.js
   - javascripts/downloads.js
 
 markdown_extensions:

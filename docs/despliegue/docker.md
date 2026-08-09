@@ -107,35 +107,35 @@ Docker Engine arranca con Ubuntu. Los contenedores existentes con `restart: unle
 
 Compose no necesita ejecutarse manualmente durante el arranque para recuperar esos contenedores ya creados; su fichero YAML sigue siendo la definición reproducible para recrearlos o actualizarlos.
 
-## Replicant Lab · documentación en vivo
+## Replicant Lab · sitio estático reproducible
 
-La documentación de Replicant Lab se ejecuta en Nexus mediante MkDocs Material en modo `serve`, en lugar de construir una imagen Nginx estática.
-
-El repositorio se monta dentro del contenedor mediante bind mounts:
+La definición versionada converge en un único modelo:
 
 ```text
-./mkdocs.yml  → /docs/mkdocs.yml
-./docs        → /docs/docs
+mkdocs.yml + docs/
+        ↓
+Dockerfile · MkDocs build --strict
+        ↓
+sitio estático
+        ↓
+Nginx :80
+        ↓
+192.168.18.220:8082
 ```
 
-MkDocs vigila ambos paths y regenera automáticamente el sitio cuando cambia un fichero Markdown o `mkdocs.yml`.
+`compose.yml` construye el `Dockerfile`, publica únicamente `192.168.18.220:8082 → 80` y no monta fuentes ni ejecuta `mkdocs serve`.
 
-Flujo normal:
+### Actualización desplegada
 
-```text
-git pull
-   ↓
-cambian los Markdown
-   ↓
-MkDocs detecta el cambio
-   ↓
-regenera la web automáticamente
-   ↓
-http://192.168.18.220:8082
+```bash
+cd /opt/apps/infra-replicant-lab
+git switch main
+git pull --ff-only origin main
+docker compose up -d --build
 ```
 
-No es necesario reconstruir la imagen ni reiniciar Docker tras actualizar documentación.
+Cada cambio documental desplegado requiere reconstruir la imagen porque Nginx sirve la copia estática incluida durante el build. Las dependencias viven en las etapas versionadas; no se instalan en Nexus.
 
-El contenedor solo necesita recrearse si cambia `compose.yml`, la imagen utilizada o los parámetros de ejecución.
+### Separación de estados
 
-El `Dockerfile` del repositorio construye una salida estática servida por Nginx y se usa en la comprobación CI actual. No describe el runtime observado en Nexus, que viene definido por `compose.yml`. Esta doble finalidad debe mantenerse explícita mientras ambos mecanismos coexistan.
+El modelo estático está implementado y probado localmente en el Encargo 2B.1. No se considera validado en Nexus hasta completar el Encargo 2B.2 con comprobaciones HTTP, diagramas y descargas reales.
