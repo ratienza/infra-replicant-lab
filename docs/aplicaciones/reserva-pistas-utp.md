@@ -18,6 +18,8 @@ La documentación funcional y de negocio permanece en el repositorio de la aplic
 | URL producción | `https://app.raulatienza.com/padel/` |
 | Producción modificada durante la adaptación | No |
 
+El 09/08/2026 se observó en Nexus que ambos contenedores estaban activos, el backend no publicaba puerto al host y Nginx exponía `192.168.18.220:8083`. El checkout de Nexus coincidía con `main` del repositorio de la aplicación. DigitalOcean no se inspeccionó durante esa comprobación.
+
 ## Arquitectura Nexus
 
 La versión de Nexus se ejecuta completamente en Docker Compose con dos servicios:

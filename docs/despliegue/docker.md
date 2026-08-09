@@ -137,3 +137,5 @@ http://192.168.18.220:8082
 No es necesario reconstruir la imagen ni reiniciar Docker tras actualizar documentación.
 
 El contenedor solo necesita recrearse si cambia `compose.yml`, la imagen utilizada o los parámetros de ejecución.
+
+El `Dockerfile` del repositorio construye una salida estática servida por Nginx y se usa en la comprobación CI actual. No describe el runtime observado en Nexus, que viene definido por `compose.yml`. Esta doble finalidad debe mantenerse explícita mientras ambos mecanismos coexistan.
