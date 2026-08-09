@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Replicant Lab — Índice autónomo</title>
+<style>
+body{font:15px/1.55 Segoe UI,Arial,sans-serif;margin:0;background:#f5f7fa;color:#202833}header{background:linear-gradient(135deg,#102a43,#1f5f99);color:#fff;padding:36px 28px}header div,main{max-width:1100px;margin:auto}.downloads{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:#fff;color:#173f65;text-decoration:none;font-weight:700}.btn.alt{background:transparent;color:#fff;border:1px solid #fff}main{padding:26px 18px}section{background:#fff;border:1px solid #d9e0e7;border-radius:12px;padding:22px;margin-bottom:18px}h2{color:#173f65}table{width:100%;border-collapse:collapse}th,td{border:1px solid #d9e0e7;padding:8px;text-align:left}th{background:#eef4f8}pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}.warn{border-left:4px solid #9a6700;background:#fff7e6;padding:10px 14px}
+</style>
+<script>
+function descargarHtml(){const b=new Blob([document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Replicant-Lab.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
+</script>
+</head>
+<body>
+<header><div><h1>Replicant Lab</h1><p>Índice autónomo · actualizado 09/08/2026</p><div class="downloads"><a class="btn" href="#" onclick="descargarHtml();return false">⬇ Descargar este HTML</a><a class="btn alt" href="Replicant-Lab.pdf" download>⬇ Descargar PDF Pro</a></div></div></header>
+<main>
+<section><h2>Arquitectura</h2><pre>Router O2 192.168.18.1
+  ├─ Replicant · 192.168.18.200
+  │    └─ Hyper-V → Nexus · 192.168.18.220
+  │                    ├─ Salones AV :8081
+  │                    ├─ Replicant Lab :8082
+  │                    └─ Reserva-Pistas :8083
+  ├─ GitHub
+  └─ DigitalOcean</pre></section>
+<section><h2>Aplicaciones</h2><table><tr><th>Aplicación</th><th>Host</th><th>Estado</th></tr><tr><td>Salones AV</td><td>Nexus</td><td>Operativa · 8081</td></tr><tr><td>Replicant Lab</td><td>Nexus</td><td>Operativa · 8082</td></tr><tr><td>Reserva-Pistas-UTP</td><td>Nexus / DigitalOcean</td><td>Compose validado · 8083</td></tr><tr><td>Cartera Estratégica</td><td>Nexus objetivo</td><td>Pendiente adaptación</td></tr></table></section>
+<section><h2>Reserva-Pistas-UTP</h2><pre>LAN :8083
+   ↓
+reserva-pistas-nginx
+   ↓ red privada Docker
+app:8765
+   ↓
+reserva-pistas-app
+   ↓
+/app/data ← bind mount → /opt/data/reserva-pistas</pre><div class="warn"><b>Regla crítica:</b> no ejecutar simultáneamente tareas reales equivalentes en Nexus y DigitalOcean.</div></section>
+<section><h2>Documentación live</h2><p>Los Markdown y <code>mkdocs.yml</code> se sirven por bind mount. Para cambios normales basta <code>git pull</code>; no hay que reconstruir Docker salvo que cambie el propio Compose, imagen o mounts.</p></section>
+</main>
+</body>
+</html>
