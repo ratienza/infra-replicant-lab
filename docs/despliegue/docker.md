@@ -138,4 +138,4 @@ Cada cambio documental desplegado requiere reconstruir la imagen porque Nginx si
 
 ### Separación de estados
 
-El modelo estático está implementado y probado localmente en el Encargo 2B.1. No se considera validado en Nexus hasta completar el Encargo 2B.2 con comprobaciones HTTP, diagramas y descargas reales.
+El modelo estático está implementado, probado localmente y validado en Nexus. La validación del 09/08/2026 incluyó el contenedor Nginx estable, HTTP y navegación, cinco diagramas Mermaid, descargas reales idénticas a Git, HTML offline y PDF completo. No implica validación en producción.
