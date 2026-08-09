@@ -5,14 +5,7 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 !!! info "Objetivo"
     Mantener una visión única, entendible y versionada de **concepto, hosts, red, seguridad, Git, Docker y operación**. La documentación funcional de cada aplicación vive en su propio repositorio.
 
-## Descargas
-
-Las versiones portables se descargan directamente desde **Replicant Lab en Nexus**, sin pasar por `raw.githubusercontent.com` ni depender de la autenticación de GitHub.
-
-[⬇ HTML autónomo](/downloads/Replicant-Lab.html){ .md-button .md-button--primary }
-[⬇ PDF Pro](/downloads/Replicant-Lab.pdf){ .md-button }
-
-> Ambos ficheros se sirven desde la propia aplicación de documentación. También están disponibles en la pestaña **Descargas**.
+> Las versiones portables se descargan desde el icono **⬇ Descargas** de la cabecera, junto al selector claro/oscuro.
 
 ## Arquitectura de un vistazo
 
