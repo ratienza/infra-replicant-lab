@@ -6,10 +6,14 @@ Estas reglas se aplican a todo el repositorio. Las instrucciones explícitas del
 
 ## Fuentes de verdad
 
-- GitHub y el contenido vigente del repositorio son la fuente de verdad técnica reproducible.
+- El contenido técnico versionado del repositorio es la fuente de verdad técnica reproducible.
+- La documentación MkDocs del proyecto —incluidos `mkdocs.yml`, `docs/` y sus recursos— es la referencia canónica de contenido, estructura y presentación documental.
+- La instancia publicada en Nexus debe reflejar fielmente esa documentación MkDocs.
+- Los HTML/PDF descargables o `standalone`, las exportaciones y los archivos adjuntos son artefactos derivados, no fuentes de verdad ni referencias prioritarias.
+- Ningún `index.html` exportado, externo o antiguo debe emplearse como plantilla ni prevalecer sobre la documentación MkDocs del proyecto.
+- Los artefactos derivados deben mantenerse sincronizados con la documentación MkDocs mediante un proceso reproducible cuando exista o sea implementado.
 - Antes de actuar, comprueba el remoto correcto, actualiza `origin/main`, revisa rama, divergencia y working tree, y lee la documentación e instrucciones aplicables.
 - Contrasta Git con el estado desplegado cuando el encargo lo autorice. Si difieren, registra estado esperado, estado observado e impacto; no elijas silenciosamente una versión.
-- La documentación versionada conserva la verdad técnica. El HTML es su salida visible y debe mantenerse completo y sincronizado. HTML/PDF portables o adjuntos son referencias canónicas de presentación, nunca sustitutos de la información verificada en el repositorio.
 
 ## Entornos y aplicaciones
 
