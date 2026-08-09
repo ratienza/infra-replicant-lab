@@ -131,7 +131,7 @@ await waitForActive("page-2");
 await page.goForward();
 await waitForActive(nextHref.slice(1));
 
-await page.fill("#portable-search", "Consumos_Cupra");
+await page.fill("#portable-search", "reconciliación pendiente del bind LAN");
 const searchResult = await page.evaluate(() => ({
   visible: [...document.querySelectorAll(".portable-nav [data-page-item]")].filter(item => !item.hidden).length,
   status: document.querySelector("#portable-search-status")?.textContent ?? "",
