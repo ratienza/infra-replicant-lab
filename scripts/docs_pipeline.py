@@ -92,6 +92,45 @@ def nav_pages() -> list[tuple[list[str], str]]:
     return result
 
 
+def portable_nav_html(pages: list[tuple[list[str], str]]) -> str:
+    config = load_config(config_file=str(ROOT / "mkdocs.yml"))
+    page_lookup = {
+        relative: (index, trail)
+        for index, (trail, relative) in enumerate(pages, start=1)
+    }
+
+    def page_item(label: str, relative: str) -> str:
+        index, trail = page_lookup[relative]
+        search_text = html.escape(f"{' › '.join(trail)} {relative}", quote=True)
+        return (
+            f'<li class="nav-page" data-page-item data-search="{search_text}">'
+            f'<a href="#page-{index}" data-page-link="page-{index}">{html.escape(label)}</a></li>'
+        )
+
+    def render(items: list[object], depth: int = 0) -> str:
+        css_class = "nav-level nav-root" if depth == 0 else "nav-level nav-children"
+        result = [f'<ul class="{css_class}">']
+        for item in items:
+            if isinstance(item, str):
+                result.append(page_item(Path(item).stem, item))
+            elif isinstance(item, dict):
+                for label, value in item.items():
+                    if isinstance(value, str):
+                        result.append(page_item(str(label), value))
+                    elif isinstance(value, list):
+                        result.append(
+                            f'<li class="nav-group"><span class="nav-group-label">{html.escape(str(label))}</span>'
+                            f'{render(value, depth + 1)}</li>'
+                        )
+                    else:
+                        raise ValueError(f"Unsupported nav entry for {label!r}: {value!r}")
+            else:
+                raise ValueError(f"Unsupported nav item: {item!r}")
+        result.append("</ul>")
+        return "".join(result)
+
+    return render(config["nav"])
+
 def source_inputs() -> list[Path]:
     pages = [DOCS / path for _, path in nav_pages()]
     resources = [
@@ -161,7 +200,7 @@ def render_markdown(source: str, page_number: int) -> tuple[str, int]:
 def portable_html_bytes() -> tuple[bytes, str, list[str]]:
     pages = nav_pages()
     fingerprint = source_fingerprint()
-    toc_items: list[str] = []
+    toc_html = portable_nav_html(pages)
     sections: list[str] = []
     sources: list[str] = []
     mermaid_total = 0
@@ -172,11 +211,7 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
         rendered, mermaid_count = render_markdown(source, index)
         mermaid_total += mermaid_count
         sources.append(relative)
-        search_text = html.escape(f"{label} {relative}", quote=True)
-        toc_items.append(
-            f'<li data-search="{search_text}"><a href="#page-{index}" data-page-link="page-{index}">'
-            f'{html.escape(label)}</a></li>'
-        )
+
         if index > 1:
             previous_label = " › ".join(pages[index - 2][0])
             previous_link = (
@@ -229,7 +264,7 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
           <input id="portable-search" type="search" autocomplete="off" placeholder="Página o contenido">
         </label>
         <p class="search-status" id="portable-search-status" aria-live="polite"></p>
-        <ol>{''.join(toc_items)}</ol>
+        {toc_html}
       </nav>
     </aside>
     <main class="portable-main" id="portable-content">{''.join(sections)}</main>
@@ -284,11 +319,14 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
     search.addEventListener('input', () => {{
       const query = search.value.trim().toLocaleLowerCase('es');
       let visible = 0;
-      document.querySelectorAll('.portable-nav li').forEach(item => {{
+      document.querySelectorAll('.portable-nav [data-page-item]').forEach(item => {{
         const page = targetPage(item.querySelector('a').dataset.pageLink);
         const haystack = (item.dataset.search + ' ' + page.textContent).toLocaleLowerCase('es');
         item.hidden = Boolean(query) && !haystack.includes(query);
         if (!item.hidden) visible += 1;
+      }});
+      document.querySelectorAll('.portable-nav .nav-group').forEach(group => {{
+        group.hidden = Boolean(query) && !group.querySelector('[data-page-item]:not([hidden])');
       }});
       searchStatus.textContent = query ? visible + ' página(s) coincidente(s)' : '';
     }});
@@ -394,6 +432,8 @@ def validate_portable_html(path: Path, expected_fingerprint: str, expected_sourc
         raise ValueError(f"{path} does not contain exactly {EXPECTED_MERMAID} Mermaid sources")
     if data.count('data-page-link=') != len(expected_sources):
         raise ValueError(f"{path} does not contain one navigation link per source page")
+    if data.count('class="nav-page" data-page-item') != len(expected_sources):
+        raise ValueError(f"{path} does not preserve the canonical nav page structure")
     if data.count('class="page-controls"') != len(expected_sources):
         raise ValueError(f"{path} does not contain one previous/next control per source page")
     required_multipage = ['id="portable-search"', "hashchange", "data-portable", "activePage"]

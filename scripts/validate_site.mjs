@@ -25,7 +25,8 @@ const routes = [
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
   { route: "/pendientes-codex/", name: "pending", diagrams: 0 },
-  { route: "/cambios/2026-08/", name: "changelog", diagrams: 0 },
+  { route: "/cambios/2026-08-09/", name: "changelog", diagrams: 0 },
+  { route: "/cambios/2026-08-08/", name: "changelog-previous", diagrams: 0 },
   { route: "/descargas/", name: "downloads", diagrams: 0 },
   { route: "/fases/05-poc-salones/", name: "mermaid-salones", diagrams: 1 },
   { route: "/red/overview/", name: "mermaid-network", diagrams: 1 },
@@ -57,6 +58,15 @@ for (const item of routes) {
     } catch (error) {
       const detail = await page.evaluate(() => ({ state: document.documentElement.dataset.mermaid, markup: document.querySelector('.mermaid, .mermaid-rendered')?.innerHTML.slice(0, 200) }));
       failures.push(`${item.route}: Mermaid timeout ${JSON.stringify(detail)}`);
+    }
+  }
+  if (item.name === "pending") {
+    const details = await page.locator(".status-panel details").count();
+    const initiallyOpen = await page.locator(".status-panel details[open]").count();
+    if (details !== 8 || initiallyOpen !== 0) failures.push(`${item.route}: compact details ${details}/${initiallyOpen}`);
+    await page.locator(".status-panel details summary").first().click();
+    if (!await page.locator(".status-panel details").first().evaluate(element => element.open)) {
+      failures.push(`${item.route}: detail did not open`);
     }
   }
   const state = await page.evaluate(() => ({

@@ -31,9 +31,11 @@ pre code { padding: 0; background: transparent; }
 .portable-search { display: grid; gap: 6px; margin-bottom: 14px; color: var(--muted); font-size: 12px; font-weight: 700; }
 .portable-search input { min-width: 0; width: 100%; padding: 9px 10px; border: 1px solid #b9c7d2; border-radius: 7px; color: var(--ink); background: #fff; }
 .search-status { min-height: 1.3em; margin: -6px 0 12px; color: var(--muted); font-size: 11px; }
-.portable-nav ol { margin: 0; padding-left: 24px; }
+.portable-nav .nav-level { margin: 0; padding: 0; list-style: none; }
+.portable-nav .nav-children { margin: 5px 0 10px 12px; padding-left: 13px; border-left: 1px solid #ccd8e1; }
 .portable-nav li { margin: 0 0 6px; break-inside: avoid; }
 .portable-nav li[hidden] { display: none; }
+.portable-nav .nav-group-label { display: block; margin-top: 9px; color: var(--brand); font-size: 12px; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
 .portable-nav a { display: inline-block; padding: 2px 4px; border-radius: 5px; }
 .portable-nav a[aria-current="page"] { color: #fff; background: var(--brand); text-decoration: none; }
 .portable-main { width: min(1120px, calc(100% - 56px)); min-width: 0; margin: 0 auto; }
@@ -50,6 +52,16 @@ table { width: 100%; margin: 18px 0 26px; border-collapse: collapse; font-size: 
 th, td { padding: 9px 11px; border: 1px solid #cbd6df; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
 th { color: var(--brand); background: #eaf1f6; }
 tr:nth-child(even) td { background: #fafcfd; }
+.status-panel table { table-layout: fixed; }
+.status-panel th:nth-child(1) { width: 25%; }
+.status-panel th:nth-child(2) { width: 26%; }
+.status-panel th:nth-child(3) { width: 24%; }
+.status-panel th:nth-child(4) { width: 10%; text-align: center; }
+.status-panel th:nth-child(5) { width: 15%; }
+.status-panel td:nth-child(4) { text-align: center; font-weight: 700; }
+.status-panel details { margin: 0; padding: 0; border: 0; background: transparent; }
+.status-panel details summary { margin: 0; cursor: pointer; color: #0d5f9a; }
+.status-panel details p { margin: 9px 0; }
 .admonition, details { margin: 20px 0; padding: 15px 18px; border: 1px solid #b9cddd; border-left: 5px solid #2c7cad; border-radius: 7px; background: #f2f8fc; }
 .admonition-title, details summary { margin: 0 0 8px; color: var(--brand); font-weight: 700; }
 .mermaid { display: flex; justify-content: center; width: 100%; margin: 24px 0; padding: 14px; overflow: visible; border: 1px solid var(--line); border-radius: 10px; background: #fff; white-space: pre-wrap; }
@@ -88,7 +100,7 @@ tr:nth-child(even) td { background: #fafcfd; }
   .portable-sidebar { position: static; height: auto; overflow: visible; border: 0; break-after: page; }
   .portable-menu-button, .portable-search, .search-status { display: none !important; }
   .portable-nav { display: block !important; padding: 8mm 4mm; border: 0; }
-  .portable-nav ol { columns: 2; }
+  .portable-nav .nav-root { columns: 2; }
   .portable-main { visibility: visible !important; width: 100%; }
   .doc-page, html[data-portable="ready"] .doc-page:not(.is-active) { display: block !important; min-height: 0; padding: 0; border: 0; break-before: page; }
   .source-path { margin-bottom: 6mm; font-size: 7.5pt; }
@@ -98,6 +110,17 @@ tr:nth-child(even) td { background: #fafcfd; }
   p, li { orphans: 3; widows: 3; }
   pre { font-size: 7.2pt; line-height: 1.35; white-space: pre-wrap; break-inside: auto; }
   table { display: table; font-size: 7.6pt; break-inside: auto; }
+  .doc-page[data-source="pendientes-codex.md"] { font-size: 6.5pt; line-height: 1.15; }
+  .doc-page[data-source="pendientes-codex.md"] .source-path { margin-bottom: 2mm; }
+  .doc-page[data-source="pendientes-codex.md"] .doc-content h1 { margin: 0 0 2mm; font-size: 16pt; }
+  .doc-page[data-source="pendientes-codex.md"] .doc-content h2 { margin: 2mm 0 1mm; font-size: 10pt; }
+  .status-panel table { font-size: 5.4pt; line-height: 1.05; }
+  .status-panel th, .status-panel td { padding: 1px 2px; }
+  .status-panel tr, .status-panel details { break-inside: auto; }
+  .status-panel details { font-size: 5.4pt; line-height: 1.05; }
+  .status-panel details summary { display: none; }
+  .status-panel details p { display: inline; margin: 0; }
+  .status-panel details p + p::before { content: ' '; }
   tr, .admonition, details { break-inside: avoid; }
   .mermaid { break-inside: avoid; padding: 3mm; }
   .mermaid svg { max-height: 190mm !important; }

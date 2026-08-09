@@ -133,7 +133,7 @@ await waitForActive(nextHref.slice(1));
 
 await page.fill("#portable-search", "Consumos_Cupra");
 const searchResult = await page.evaluate(() => ({
-  visible: [...document.querySelectorAll(".portable-nav li")].filter(item => !item.hidden).length,
+  visible: [...document.querySelectorAll(".portable-nav [data-page-item]")].filter(item => !item.hidden).length,
   status: document.querySelector("#portable-search-status")?.textContent ?? "",
 }));
 if (searchResult.visible !== 1 || !searchResult.status) {
@@ -141,8 +141,30 @@ if (searchResult.visible !== 1 || !searchResult.status) {
 }
 await page.fill("#portable-search", "");
 
+const changeLogDates = await page.evaluate(() => {
+  const group = [...document.querySelectorAll(".portable-nav .nav-group")]
+    .find(item => item.querySelector(":scope > .nav-group-label")?.textContent.trim() === "Change Log");
+  return group ? [...group.querySelectorAll(":scope > .nav-children > [data-page-item] > a")].map(item => item.textContent.trim()) : [];
+});
+if (JSON.stringify(changeLogDates) !== JSON.stringify(["9 de agosto de 2026", "8 de agosto de 2026"])) {
+  throw new Error(`Change Log hierarchy differs from MkDocs nav: ${JSON.stringify(changeLogDates)}`);
+}
+
 const pendingPage = await page.evaluate(() => document.querySelector('[data-source="pendientes-codex.md"]')?.id);
 if (!pendingPage) throw new Error("Pending page not found");
+await page.goto(fileUrl + "#" + pendingPage, { waitUntil: "load" });
+await waitForActive(pendingPage);
+const pendingDetails = await page.evaluate(() => ({
+  total: document.querySelectorAll(".doc-page.is-active .status-panel details").length,
+  open: document.querySelectorAll(".doc-page.is-active .status-panel details[open]").length,
+}));
+if (pendingDetails.total !== 8 || pendingDetails.open !== 0) {
+  throw new Error(`Pending details are not initially compact: ${JSON.stringify(pendingDetails)}`);
+}
+await page.click(".doc-page.is-active .status-panel details summary");
+if (!await page.locator(".doc-page.is-active .status-panel details").first().evaluate(item => item.open)) {
+  throw new Error("Pending detail did not open");
+}
 await page.goto(fileUrl + "#page-2", { waitUntil: "load" });
 await waitForActive("page-2");
 if (screenshots) await page.screenshot({ path: path.join(screenshots, "portable-desktop.png"), fullPage: true });
@@ -168,6 +190,7 @@ if (consoleErrors.length) throw new Error(`Browser console errors: ${consoleErro
 if (failedRequests.length) throw new Error(`Failed requests: ${failedRequests.join(" | ")}`);
 
 await page.setViewportSize({ width: 1440, height: 1000 });
+await page.evaluate(() => document.querySelectorAll(".status-panel details").forEach(item => { item.open = true; }));
 await page.emulateMedia({ media: "print" });
 await page.pdf({
   path: pdfPath,
@@ -189,6 +212,8 @@ const report = {
     backForward: true,
     previousNext: true,
     search: searchResult,
+    changeLogDates,
+    pendingDetails,
     mobile,
   },
   consoleErrors,
