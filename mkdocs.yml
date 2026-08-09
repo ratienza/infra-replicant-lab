@@ -5,7 +5,6 @@ repo_url: https://github.com/ratienza/infra-replicant-lab
 
 nav:
   - Inicio: index.md
-  - Descargas: descargas.md
   - Arquitectura: arquitectura.md
   - Fases:
       - 01 · Concepto: fases/01-concepto.md
@@ -24,16 +23,16 @@ nav:
   - Despliegue:
       - Git: despliegue/git.md
       - Docker: despliegue/docker.md
-  - Aplicaciones:
-      - Índice: aplicaciones/index.md
-      - Salones AV: aplicaciones/salones-av.md
-      - Reserva-Pistas-UTP: aplicaciones/reserva-pistas-utp.md
-      - Cartera Estratégica: aplicaciones/cartera-estrategica.md
   - Operación:
       - SSH: operacion/ssh.md
       - Comandos útiles: operacion/comandos-utiles.md
       - Mantenimiento: operacion/mantenimiento.md
   - Pendientes Codex: pendientes-codex.md
+  - Aplicaciones:
+      - Índice: aplicaciones/index.md
+      - Salones AV: aplicaciones/salones-av.md
+      - Reserva-Pistas-UTP: aplicaciones/reserva-pistas-utp.md
+      - Cartera Estratégica: aplicaciones/cartera-estrategica.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Cambios:
@@ -58,6 +57,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Cambiar a modo claro
+
+extra_javascript:
+  - javascripts/downloads.js
 
 markdown_extensions:
   - admonition
