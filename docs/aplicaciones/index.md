@@ -7,5 +7,5 @@ La documentación funcional, de negocio o de desarrollo detallada permanece en e
 | Aplicación | Repo | Host | Estado |
 |---|---|---|---|
 | Salones AV | `ratienza/salones-av-valencia-palace` | Nexus | ✅ Desplegada |
-| Reserva-Pistas-UTP | `ratienza/Reserva-Pistas-UTP` | Nexus / DigitalOcean | ✅ Nexus Docker Compose validado · producción vigente en DigitalOcean |
-| Cartera Estratégica | `ratienza/cartera-estrategica` | Por definir / Nexus objetivo | ⏳ Pendiente de adaptación Linux/Docker |
+| Reserva-Pistas-UTP | `ratienza/Reserva-Pistas-UTP` | Nexus / DigitalOcean | ✅ Nexus validado · producción documentada en DigitalOcean, no verificada aquí |
+| Cartera Estratégica | `ratienza/cartera-estrategica` | Replicant / Windows local | ✅ MVP Streamlit v1.2.0 · Nexus no definido |

@@ -2,9 +2,9 @@
 
 Documentación viva de infraestructura, hosts, red, despliegues y operación del laboratorio.
 
-La documentación se escribe en **Markdown**, se construye con **MkDocs Material** y usa **Mermaid** para diagramas mantenibles como código. El resultado se sirve como sitio estático con **Nginx**.
+La documentación se escribe en **Markdown**, se construye con **MkDocs Material** y usa **Mermaid** para diagramas mantenibles como código. `mkdocs.yml`, `docs/` y sus recursos son la fuente canónica de contenido, estructura y presentación documental.
 
-Además, el repositorio mantiene una copia **HTML autónoma** para poder consultar toda la documentación sin depender de Nexus ni de ningún servicio.
+El repositorio contiene también salidas HTML y PDF portables. Son artefactos derivados: no sustituyen a MkDocs y, hasta disponer de un generador reproducible, su sincronización debe verificarse expresamente.
 
 ## Alcance
 
@@ -16,31 +16,30 @@ La documentación funcional y de desarrollo de cada aplicación permanece en su 
 
 ```bash
 cd /opt/apps/infra-replicant-lab
-docker compose up -d --build
+git pull --ff-only
 ```
 
 La web quedará disponible en:
 
 ```text
-http://192.168.18.220:8088
+http://192.168.18.220:8082
 ```
 
-Cada cambio documental requiere reconstruir la imagen estática:
+En Nexus, `compose.yml` ejecuta `mkdocs serve` con `mkdocs.yml` y `docs/` montados en solo lectura. Un cambio normal de contenido se detecta sin reconstruir la imagen ni reiniciar el contenedor. Solo se recrea el servicio cuando cambia su definición, imagen o montaje.
 
 ```bash
-git pull
-docker compose up -d --build
+git pull --ff-only
 ```
 
 ## Copia offline
 
-La copia autocontenida se conserva en:
+La copia HTML autocontenida se conserva en:
 
 ```text
 standalone/Replicant-Lab.html
 ```
 
-Debe poder abrirse directamente en cualquier navegador sin Nexus y sin dependencias externas.
+La web publicada ofrece además copias en `docs/downloads/`. El HTML y el PDF actuales deben tratarse como referencias derivadas con limitaciones conocidas, descritas en la página **Descargas**.
 
 ## Flujo de cambios
 

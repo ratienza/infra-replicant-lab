@@ -74,10 +74,12 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 | UFW | ✅ Activo |
 | Docker / Compose | ✅ Operativo |
 | GitHub desde Nexus | ✅ Operativo |
-| Salones AV | ✅ Desplegada · `8081` |
-| Replicant Lab | ✅ Documentación · `8082` |
-| Reserva-Pistas-UTP | ✅ Docker Compose validado · `8083` |
+| Salones AV | ✅ Observada en Nexus · `8081` |
+| Replicant Lab | ✅ Observada en Nexus con MkDocs en vivo · `8082` |
+| Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
+| Cartera Estratégica | ✅ MVP local en Replicant · no desplegada en Nexus |
 | Reserva-Pistas histórico en Nexus | ⏳ Pendiente de sincronizar desde DigitalOcean |
+| Producción DigitalOcean | ⚠️ Documentada desde Git; no validada en esta reconciliación |
 | Backups | ⏳ Pendiente |
 | DNS local | ⏳ Pendiente |
 
@@ -92,3 +94,5 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 - **Operación** concentra comandos y procedimientos cortos.
 - **Pendientes Codex** conserva los encargos que deben retomarse sin depender de memoria de chat.
 - **Decisiones** registra criterios que no conviene redescubrir cada vez.
+
+Los estados distinguen entre contenido **implementado en Git**, **probado localmente**, **validado u observado en Nexus** y **validado en producción**. Una evidencia de un entorno no se extrapola a otro.

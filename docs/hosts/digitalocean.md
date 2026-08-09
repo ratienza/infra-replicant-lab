@@ -14,3 +14,7 @@ DigitalOcean debe seguir el mismo principio que Nexus: **despliegue desde Git**,
 ## Límite importante
 
 Los datos sensibles no se sincronizan automáticamente entre Nexus y DigitalOcean. Solo se trasladan cuando exista una decisión explícita.
+
+## Nivel de validación
+
+La configuración de producción descrita en este proyecto procede de la documentación versionada del repositorio de Reserva-Pistas-UTP. DigitalOcean no se inspeccionó durante la reconciliación documental del 09/08/2026, por lo que no se afirma una validación viva de su servicio, datos, procesos o configuración.

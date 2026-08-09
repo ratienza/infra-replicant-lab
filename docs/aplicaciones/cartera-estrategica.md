@@ -2,18 +2,18 @@
 
 ## Estado
 
-Aplicación Python/Streamlit actualmente orientada al entorno local Windows, con SQLite privada fuera del repositorio.
+Aplicación Python/Streamlit operativa como MVP local en Windows, con versión documental `v1.2.0` y SQLite privada fuera del repositorio. El repositorio de la aplicación registra las fases 0–7B integradas y mantiene pendientes el endurecimiento y una eventual publicación privada.
 
-## Objetivo de infraestructura
+## Entorno comprobado
 
-Adaptarla oficialmente a Linux/Docker **desde el propio repositorio**, evitando parchear Nexus de forma manual.
+El entorno vigente es Replicant/Windows con ejecución local de Streamlit. No existe en la documentación actual de la aplicación una decisión aprobada que convierta Nexus o Docker/Linux en su siguiente destino.
 
 ## Consideraciones
 
 - La base privada no debe entrar en Git.
 - Tokens como EODHD deben inyectarse como secreto/entorno.
 - Los datos de inversión pueden permanecer solo en local.
-- El soporte Docker/Linux debe llegar mediante rama + PR.
+- Cualquier soporte Docker/Linux o despliegue remoto deberá decidirse e implementarse en el repositorio de la aplicación mediante rama y PR.
 
 !!! note "Pendiente"
-    No se considera desplegada en Nexus todavía.
+    No está desplegada ni validada en Nexus. Tampoco debe presentarse Nexus como objetivo acordado hasta que exista una decisión versionada en el repositorio de la aplicación.

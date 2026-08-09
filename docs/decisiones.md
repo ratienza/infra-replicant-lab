@@ -13,3 +13,7 @@ Registro corto de decisiones que no conviene redescubrir.
 | UFW restringe SSH a LAN | Reducir superficie de exposición |
 | No usar Portainer/Webmin/Cockpit por defecto | Evitar complejidad innecesaria |
 | Ramas por cambio lógico | Facilitar revisión y mantener `main` estable |
+| MkDocs es la fuente documental canónica | `mkdocs.yml`, `docs/` y sus recursos definen contenido, estructura y presentación |
+| HTML/PDF son artefactos derivados | Deben sincronizarse mediante un proceso reproducible; nunca prevalecen sobre MkDocs |
+| Nexus sirve MkDocs en vivo | `compose.yml` y sus bind mounts describen el runtime; el `Dockerfile` estático cumple otra función |
+| Validación por entorno | Git, prueba local, Nexus y producción son estados distintos y no se extrapolan |
