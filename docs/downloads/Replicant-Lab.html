@@ -4,25 +4,25 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Replicant Lab — Índice autónomo</title>
 <style>
-body{font:15px/1.55 Segoe UI,Arial,sans-serif;margin:0;background:#f5f7fa;color:#202833}header{background:linear-gradient(135deg,#102a43,#1f5f99);color:#fff;padding:36px 28px}header div,main{max-width:1100px;margin:auto}.downloads{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:#fff;color:#173f65;text-decoration:none;font-weight:700}.btn.alt{background:transparent;color:#fff;border:1px solid #fff}main{padding:26px 18px}section{background:#fff;border:1px solid #d9e0e7;border-radius:12px;padding:22px;margin-bottom:18px}h2{color:#173f65}table{width:100%;border-collapse:collapse}th,td{border:1px solid #d9e0e7;padding:8px;text-align:left}th{background:#eef4f8}pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:8px;overflow:auto}.warn{border-left:4px solid #9a6700;background:#fff7e6;padding:10px 14px}
+:root{--bg:#f5f7fa;--paper:#fff;--text:#202833;--muted:#667085;--line:#d9e0e7;--blue:#1f5f99;--soft:#edf5fb;--green:#16724a;--warn:#9a6700}*{box-sizing:border-box}body{margin:0;font:15px/1.55 "Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text)}header{background:linear-gradient(135deg,#102a43,#1f5f99);color:#fff;padding:38px 28px}header div{max-width:1180px;margin:auto}h1{margin:0 0 6px;font-size:40px}header p{margin:0;color:#dbe8f4;font-size:18px}.downloads{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;background:#fff;color:#173f65;border:1px solid rgba(255,255,255,.55);padding:10px 14px;border-radius:8px;font-weight:700}.btn.secondary{background:transparent;color:#fff}main{max-width:1120px;margin:26px auto;padding:0 18px}section{background:#fff;border:1px solid var(--line);border-radius:13px;padding:24px;margin-bottom:20px;box-shadow:0 4px 14px rgba(15,23,42,.04)}h2{margin:0 0 15px;padding-bottom:8px;border-bottom:1px solid var(--line);color:#173f65}h3{color:#315b7f}table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}th,td{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}th{background:#eef4f8}code{font-family:Consolas,monospace;background:#f0f3f6;padding:1px 5px;border-radius:4px}pre{background:#111827;color:#e5e7eb;padding:15px;border-radius:9px;overflow:auto}.note{background:var(--soft);border-left:4px solid var(--blue);padding:11px 14px;border-radius:6px}.warn{background:#fff7e6;border-left:4px solid var(--warn);padding:11px 14px;border-radius:6px}.ok{color:var(--green);font-weight:700}@media print{.downloads{display:none}body{background:#fff}section{box-shadow:none}}
 </style>
 <script>
-function descargarHtml(){const b=new Blob([document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Replicant-Lab.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
+function saveThisHtml(){const blob=new Blob([document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Replicant-Lab.html';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
 </script>
 </head>
 <body>
-<header><div><h1>Replicant Lab</h1><p>Índice autónomo · actualizado 09/08/2026</p><div class="downloads"><a class="btn" href="#" onclick="descargarHtml();return false">⬇ Descargar este HTML</a><a class="btn alt" href="Replicant-Lab.pdf" download>⬇ Descargar PDF Pro</a></div></div></header>
+<header><div><h1>Replicant Lab</h1><p>Índice autónomo · infraestructura local + cloud · actualizado 09/08/2026</p><div class="downloads"><a class="btn" href="#" onclick="saveThisHtml();return false">⬇ Descargar este índice HTML</a><a class="btn secondary" href="Replicant-Lab.pdf" download>⬇ Descargar PDF Pro</a></div></div></header>
 <main>
-<section><h2>Arquitectura</h2><pre>Router O2 192.168.18.1
-  ├─ Replicant · 192.168.18.200
-  │    └─ Hyper-V → Nexus · 192.168.18.220
+<section><h2>Visión general</h2><p>Replicant Lab separa estación de trabajo, servidor Linux local, repositorios Git y servicios cloud. GitHub es la fuente de verdad del código y de la configuración versionable; datos, secretos y backups permanecen fuera de Git.</p><pre>Router O2 192.168.18.1
+  ├─ Replicant · 192.168.18.200 · Windows 11 Pro
+  │    └─ Hyper-V → Nexus · 192.168.18.220 · Ubuntu 24.04
   │                    ├─ Salones AV :8081
   │                    ├─ Replicant Lab :8082
   │                    └─ Reserva-Pistas :8083
-  ├─ GitHub
-  └─ DigitalOcean</pre></section>
-<section><h2>Aplicaciones</h2><table><tr><th>Aplicación</th><th>Host</th><th>Estado</th></tr><tr><td>Salones AV</td><td>Nexus</td><td>Operativa · 8081</td></tr><tr><td>Replicant Lab</td><td>Nexus</td><td>Operativa · 8082</td></tr><tr><td>Reserva-Pistas-UTP</td><td>Nexus / DigitalOcean</td><td>Compose validado · 8083</td></tr><tr><td>Cartera Estratégica</td><td>Nexus objetivo</td><td>Pendiente adaptación</td></tr></table></section>
-<section><h2>Reserva-Pistas-UTP</h2><pre>LAN :8083
+  ├─ GitHub · código/configuración
+  └─ DigitalOcean · producción pública</pre></section>
+<section><h2>Aplicaciones</h2><table><tr><th>Aplicación</th><th>Host</th><th>Estado</th></tr><tr><td>Salones AV</td><td>Nexus</td><td class="ok">Operativa · 8081</td></tr><tr><td>Replicant Lab</td><td>Nexus</td><td class="ok">Operativa · 8082</td></tr><tr><td>Reserva-Pistas-UTP</td><td>Nexus / DigitalOcean</td><td class="ok">Compose validado · 8083 / producción vigente</td></tr><tr><td>Cartera Estratégica</td><td>Nexus objetivo</td><td>Pendiente adaptación</td></tr></table></section>
+<section><h2>Reserva-Pistas-UTP</h2><table><tr><th>Repositorio</th><td><code>ratienza/Reserva-Pistas-UTP</code></td></tr><tr><th>Ruta Nexus</th><td><code>/opt/apps/Reserva-Pistas-UTP</code></td></tr><tr><th>URL Nexus</th><td><code>http://192.168.18.220:8083</code></td></tr><tr><th>Producción</th><td><code>https://app.raulatienza.com/padel/</code></td></tr><tr><th>Persistencia Nexus</th><td><code>/opt/data/reserva-pistas</code></td></tr></table><h3>Arquitectura Nexus</h3><pre>LAN :8083
    ↓
 reserva-pistas-nginx
    ↓ red privada Docker
@@ -30,8 +30,9 @@ app:8765
    ↓
 reserva-pistas-app
    ↓
-/app/data ← bind mount → /opt/data/reserva-pistas</pre><div class="warn"><b>Regla crítica:</b> no ejecutar simultáneamente tareas reales equivalentes en Nexus y DigitalOcean.</div></section>
-<section><h2>Documentación live</h2><p>Los Markdown y <code>mkdocs.yml</code> se sirven por bind mount. Para cambios normales basta <code>git pull</code>; no hay que reconstruir Docker salvo que cambie el propio Compose, imagen o mounts.</p></section>
-</main>
-</body>
-</html>
+/app/data ← bind mount → /opt/data/reserva-pistas</pre><p>Backend con <code>python:3.12-slim</code>, UID/GID <code>1000:1000</code>, <code>APP_DATA_DIR=/app/data</code>. Ambos servicios usan <code>restart: unless-stopped</code> y el reboot completo de Nexus está validado.</p><div class="warn"><b>Regla crítica:</b> no ejecutar simultáneamente tareas reales equivalentes en Nexus y DigitalOcean. Antes de activar Nexus con estado real debe sincronizarse de forma controlada el <code>tasks.local.json</code> vivo de producción.</div></section>
+<section><h2>Documentación y descargas</h2><pre>./mkdocs.yml  → /docs/mkdocs.yml
+./docs        → /docs/docs</pre><p>Replicant Lab usa MkDocs Material en modo <code>serve</code> con bind mounts. Para cambios normales en Markdown o <code>mkdocs.yml</code>, basta <code>git pull</code>; no hace falta rebuild ni reiniciar Docker.</p><p>La interfaz web usa un icono de descarga en la cabecera, junto al control claro/oscuro. Ese icono abre una página única con las opciones HTML autónomo y PDF Pro. Las descargas se fuerzan desde Nexus mediante JavaScript y <code>fetch()</code>, sin depender de GitHub Raw ni de cómo el navegador interprete el MIME del HTML.</p></section>
+<section><h2>Contrato Codex por aplicación</h2><p>Codex debe leer primero la ficha real de cada aplicación y no asumir que dos despliegues son iguales. Debe identificar host, puertos, Compose/systemd, persistencia, secretos, proxy, datos y diferencias Nexus/producción antes de actuar.</p><p>El cierre por app exige: validar técnicamente, cerrar en Git, actualizar ficha e índice, y regenerar/publicar <b>HTML autónomo + PDF Pro</b>.</p><div class="note"><b>Invariante documental:</b> la documentación web debe ofrecer un acceso visible a la página de descargas y ambas opciones deben descargar realmente desde Nexus. Codex debe verificar que los ficheros existen, están actualizados y no abren GitHub, no muestran código en pantalla y no devuelven 404.</div></section>
+<section><h2>Pendiente Codex · Reserva-Pistas</h2><ol><li>Obtener el <code>tasks.local.json</code> más reciente de DigitalOcean.</li><li>Validarlo y preservar todo el histórico.</li><li>Revisar <code>queued</code>/<code>running</code>.</li><li>Neutralizar solo la copia de Nexus si es necesario.</li><li>No modificar producción para facilitar el handover.</li><li>No arrancar Nexus si existe riesgo de doble ejecución.</li><li>Preservar credenciales, notificaciones y estado Telegram fuera de Git.</li><li>Promover solo cambios ya validados y verificar servicio, logs y salud.</li></ol></section>
+</main></body></html>
