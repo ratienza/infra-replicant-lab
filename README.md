@@ -14,22 +14,32 @@ La documentación funcional y de desarrollo de cada aplicación permanece en su 
 
 ## Ejecutar la documentación en Nexus
 
+### Primer arranque o recreación necesaria
+
 ```bash
 cd /opt/apps/infra-replicant-lab
-git pull --ff-only
+git switch main
+git pull --ff-only origin main
+docker compose up -d
 ```
 
-La web quedará disponible en:
+`docker compose up -d` inicia el servicio y lo recrea cuando hayan cambiado `compose.yml`, la imagen, los montajes o los parámetros de ejecución. El Compose vigente usa directamente `squidfunk/mkdocs-material:9`, por lo que no requiere `--build` ni construye el `Dockerfile`.
+
+La web queda disponible en:
 
 ```text
 http://192.168.18.220:8082
 ```
 
-En Nexus, `compose.yml` ejecuta `mkdocs serve` con `mkdocs.yml` y `docs/` montados en solo lectura. Un cambio normal de contenido se detecta sin reconstruir la imagen ni reiniciar el contenedor. Solo se recrea el servicio cuando cambia su definición, imagen o montaje.
+### Actualización documental ordinaria
 
 ```bash
-git pull --ff-only
+cd /opt/apps/infra-replicant-lab
+git switch main
+git pull --ff-only origin main
 ```
+
+Si el contenedor ya está activo, los cambios normales en `docs/` o `mkdocs.yml` se detectan mediante los bind mounts y `mkdocs serve`, sin reconstruir ni reiniciar el servicio.
 
 ## Copia offline
 
