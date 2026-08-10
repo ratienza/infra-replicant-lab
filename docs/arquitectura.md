@@ -20,6 +20,7 @@ flowchart TB
     GH -->|clone / pull| N
     GH -->|deploy| DO
     N -->|Docker| APPS["Aplicaciones locales"]
+    N <-->|"Reserva-Pistas · sincronización bajo demanda · SSH restringido"| DO
 ```
 
 ## Reparto de responsabilidades

@@ -45,14 +45,14 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `53` | systemd-resolved | localhost |
 
-## Estado observado el 09/08/2026
+## Estado observado el 10/08/2026
 
 - Docker y `unattended-upgrades` activos.
 - Replicant Lab ejecutándose como sitio estático en Nginx, construido desde el `Dockerfile` y publicado en `192.168.18.220:8082 → 80`, sin bind mounts ni servidor de desarrollo.
 - Salones AV accesible mediante Nginx en `192.168.18.220:8081`.
-- Reserva-Pistas-UTP ejecutándose como backend privado y proxy Nginx en `192.168.18.220:8083`.
+- Reserva-Pistas-UTP ejecutándose como backend privado y proxy Nginx en `192.168.18.220:8083`, con autenticación, datos persistentes separados y canal saliente SSH restringido hacia DigitalOcean.
 
-Esta observación confirma el estado del laboratorio privado en esa fecha; no valida DigitalOcean ni sustituye las definiciones versionadas de cada repositorio.
+Esta observación confirma el estado del laboratorio privado en esa fecha. DigitalOcean se validó por separado y de forma acotada para el cierre de Reserva-Pistas-UTP; cada repositorio conserva sus definiciones operativas.
 
 ## Runtime documental validado en Nexus
 

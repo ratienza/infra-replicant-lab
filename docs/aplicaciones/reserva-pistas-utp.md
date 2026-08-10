@@ -1,232 +1,148 @@
 # Reserva-Pistas-UTP
 
-Ficha de infraestructura de la aplicación de reservas de pádel de Torre de Porta-Coeli.
+Ficha de infraestructura y operación de la aplicación de reservas de pádel de Torre de Porta-Coeli. La documentación funcional y de desarrollo permanece en `ratienza/Reserva-Pistas-UTP`; esta página registra el montaje real en Raul Lab y producción.
 
-La documentación funcional y de negocio permanece en el repositorio de la aplicación: `ratienza/Reserva-Pistas-UTP`. Esta ficha describe exclusivamente cómo se despliega y opera dentro de Replicant Lab y cómo se diferencia de producción.
-
-## Estado
+## Estado validado
 
 | Elemento | Valor |
 |---|---|
 | Repositorio | `ratienza/Reserva-Pistas-UTP` |
-| Nexus | ✅ Operativo en Docker Compose |
-| Ruta Nexus | `/opt/apps/Reserva-Pistas-UTP` |
-| URL LAN | `http://192.168.18.220:8083` |
-| Backend interno Docker | `app:8765` |
-| Datos persistentes Nexus | `/opt/data/reserva-pistas` |
-| Producción | DigitalOcean |
-| URL producción | `https://app.raulatienza.com/padel/` |
-| Producción modificada durante la adaptación | No |
+| `main` validado | `6fb055e16eb232d47cc2d759bed0ce2caff4cec9` (runtime) + `6df1698d3346db5c35f7d173b5d7dc2567ce8a5e` (guía operativa) |
+| Nexus | ✅ Docker Compose operativo |
+| Ruta / URL Nexus | `/opt/apps/Reserva-Pistas-UTP` · `http://192.168.18.220:8083` |
+| Datos Nexus | `/opt/data/reserva-pistas` → `/app/data` |
+| DigitalOcean | ✅ `reserva-pistas.service` en `loopback:8765` |
+| Ruta / URL producción | `/opt/reserva-pistas` · `https://app.raulatienza.com/padel/` |
+| Publicación | Nginx + HTTPS + HTTP Basic existente |
+| Sincronización | ✅ Bidireccional, por registros y exclusivamente bajo demanda |
+| Issue de handover | [#2](https://github.com/ratienza/Reserva-Pistas-UTP/issues/2) cerrado con evidencias |
 
-El 09/08/2026 se observó en Nexus que ambos contenedores estaban activos, el backend no publicaba puerto al host y Nginx exponía `192.168.18.220:8083`. El checkout de Nexus coincidía con `main` del repositorio de la aplicación. DigitalOcean no se inspeccionó durante esa comprobación.
+Validación final: **10/08/2026**. No se cambiaron puertos, UFW, DNS, certificados, Nginx, autenticación pública ni otros servicios.
 
-## Arquitectura Nexus
-
-La versión de Nexus se ejecuta completamente en Docker Compose con dos servicios:
-
-```text
-Replicant / LAN
-      ↓
-192.168.18.220:8083
-      ↓
-reserva-pistas-nginx
-      ↓
-red privada Docker
-      ↓
-app:8765
-      ↓
-reserva-pistas-app
-      ↓
-/app/data
-      ↓ bind mount
-/opt/data/reserva-pistas
-```
-
-Solo Nginx publica un puerto hacia la LAN. El backend Python no se publica directamente.
-
-### Servicio `app`
-
-- Imagen propia construida desde `Dockerfile` sobre `python:3.12-slim`.
-- Ejecuta `python app.py`.
-- Escucha en `0.0.0.0:8765` dentro del contenedor mediante variables de entorno.
-- Ejecuta con UID/GID `1000:1000`, evitando crear datos persistentes como `root`.
-- Usa `restart: unless-stopped`.
-
-### Servicio `nginx`
-
-- Imagen oficial `nginx:alpine`.
-- Publica `192.168.18.220:8083 -> 80/tcp`.
-- Resuelve el backend mediante el nombre de servicio Docker `app:8765`.
-- Usa `restart: unless-stopped`.
-
-## Qué aprendimos del montaje
-
-La primera prueba se hizo con Python ejecutado manualmente en Nexus y un Nginx temporal con `--network host`. Sirvió para validar compatibilidad Linux sin tocar producción, pero no era un despliegue autónomo.
-
-El montaje definitivo elimina esa dependencia manual:
-
-1. `Dockerfile` empaqueta el backend Python.
-2. `compose.yml` define backend y proxy como una sola aplicación desplegable.
-3. Compose crea una red privada y registra los nombres de servicio.
-4. Nginx puede resolver `app` sin conocer una IP fija del contenedor.
-5. Solo Nginx publica `8083` en la LAN.
-6. El estado vive fuera de los contenedores.
-7. Docker reinicia ambos servicios automáticamente después de reiniciar Nexus.
-
-## Configuración por entorno
-
-`app.py` conserva compatibilidad con el despliegue previo usando valores por defecto y permite cambiar el comportamiento mediante variables de entorno:
+## Arquitectura real
 
 ```text
-APP_HOST
-APP_PORT
-APP_DATA_DIR
-```
-
-Valores por defecto:
-
-```text
-APP_HOST=127.0.0.1
-APP_PORT=8765
-APP_DATA_DIR=.
-```
-
-En Nexus, Compose define:
-
-```text
-APP_HOST=0.0.0.0
-APP_PORT=8765
-APP_DATA_DIR=/app/data
-```
-
-Esto permite que el mismo código sirva para distintos entornos sin mantener dos variantes de `app.py`.
-
-## Persistencia
-
-Los datos locales no forman parte de la imagen ni del repositorio Git.
-
-En Nexus:
-
-```text
-/opt/data/reserva-pistas
+Nexus · 192.168.18.220:8083
+  reserva-pistas-nginx
+        ↓ red privada Docker
+  reserva-pistas-app · app:8765 · UID/GID 1000
         ↓
-/app/data
+  /app/data ↔ /opt/data/reserva-pistas
+        │
+        │ SSH dedicado: restrict + comando forzado
+        │ solo ping/export/apply/backups/restore
+        ↕
+DigitalOcean · app.raulatienza.com/padel/
+  Nginx · HTTPS · HTTP Basic
+        ↓
+  reserva-pistas.service · reserva:reserva
+  loopback · puerto 8765
+        ↓
+  /opt/reserva-pistas
 ```
 
-El bind mount contiene los ficheros de estado/configuración local que la aplicación utiliza:
+Nexus coordina ambas direcciones. La clave dedicada está montada de solo lectura, la huella del host DigitalOcean fue contrastada con el canal SSH administrativo ya confiable y el `authorized_keys` remoto no concede shell, TTY ni forwarding. El comando forzado baja privilegios a `reserva` antes de ejecutar `sync_peer.py`.
 
-```text
-credentials.local.json
-notifications.local.json
-tasks.local.json
-telegram.offset.local
-telegram.state.local
-```
+## Datos y exclusiones
 
-La persistencia se validó recreando contenedores y comprobando que los datos permanecían disponibles.
+| Estado | Clasificación | Sincronización |
+|---|---|---|
+| Registros de `tasks.local.json` | Funcional e histórico | Sí, por `id` |
+| `_sync` por registro | Origen, creación, modificación, revisión, tombstone y hash | Sí |
+| `credentials.local.json` | Credencial local | Nunca |
+| `notifications.local.json` | Token/configuración local | Nunca |
+| `telegram.users.local` | Autorizaciones locales | Nunca |
+| `telegram.offset.local`, `telegram.state.local` | Estado efímero | Nunca |
+| `sync-state.local.json` | Base de comparación Nexus | No |
+| `sync-audit.local.jsonl` | Auditoría sin valores privados | No |
+| `backups/`, logs, PID, red y `app.local.env` | Backup/configuración/estado local | Nunca |
 
-## Seguridad y Git
+La migración idempotente conservó los 18 registros y eliminó `username` y `password` del histórico. Las tareas consultan `credentials.local.json` únicamente al ejecutarse. `/api/settings` ya no devuelve la contraseña al navegador.
 
-`.gitignore` protege los ficheros locales de la aplicación y `.dockerignore` evita que `.git`, `.venv`, bytecode y ficheros `*.local*` entren en el contexto de construcción de Docker.
+## Fusión y conflictos
 
-Los secretos, credenciales, estado y datos reales permanecen fuera de Git.
+El motor valida JSON e identificadores, calcula hashes canónicos por registro y compara cada lado con la base de la última sincronización:
 
-## Firewall
+1. incorpora registros presentes solo en el origen;
+2. propaga cambios únicamente del origen;
+3. conserva e informa cambios únicamente del destino;
+4. conserva registros presentes solo en el destino;
+5. propaga cancelaciones y tombstones explícitos;
+6. si el mismo `id` cambió en ambos lados, no escribe hasta elegir Nexus, DigitalOcean o cancelar;
+7. propaga el lado elegido por la persona;
+8. una segunda simulación sin cambios no escribe ni crea un backup innecesario.
 
-UFW permite `8083/tcp` exclusivamente desde la LAN:
+Los conflictos visibles se limitan a campos operativos no sensibles. Cada escritura usa bloqueo entre procesos, fichero temporal, `fsync`, reemplazo atómico, verificación de la huella simulada y backup previo.
 
-```text
-8083/tcp    ALLOW    192.168.18.0/24
-```
+## Tareas activas
 
-Regla aplicada:
+El destino no se modifica mientras tenga tareas `queued` o `running`. Si una tarea activa del origen se incorpora al otro servidor, la copia queda neutralizada como `cancelled` / `sync_neutralized`; conserva el histórico pero no inicia un segundo ejecutor. No existe sincronización automática ni periódica.
+
+## Panel administrativo
+
+En **Ajustes → Sincronización administrativa** aparecen:
+
+- `DigitalOcean → Nexus`;
+- `Nexus → DigitalOcean`;
+- estado del canal seguro;
+- simulación con nuevos, actualizados, sin cambios, cancelaciones, conflictos, tareas activas y backup previsto;
+- resolución humana por `id`;
+- confirmación explícita, protección contra doble clic y una sola operación concurrente;
+- listado y restauración confirmada de backups.
+
+En Nexus todo el backend usa Basic Auth local guardado fuera de Git. En DigitalOcean se conserva el Basic Auth de Nginx. Si falta conectividad o permisos, los botones quedan deshabilitados.
+
+## Backups y recuperación
+
+Backups verificados:
+
+| Servidor | Backup | Resultado |
+|---|---|---|
+| DigitalOcean | `predeploy-20260810T014853+0200` | Datos, configuración, código, plantilla y unidad systemd; JSON y manifiesto SHA-256 válidos |
+| Nexus | `tasks.local.json.20260810T015121+0200.bak` | Estado vacío previo a la primera escritura; JSON válido y restaurable |
+
+Restaurar desde el panel exige confirmación y crea antes otro backup del estado reemplazado. Backups, credenciales y logs nunca atraviesan el canal de sincronización.
+
+## Primera sincronización comprobada
+
+| Paso | Resultado real |
+|---|---|
+| DigitalOcean antes de migrar | 18 registros: 12 cancelados, 6 reservados, 0 activos, 0 duplicados |
+| Migración de secretos | Sin credenciales incrustadas; hash funcional anterior y posterior idéntico |
+| Simulación DigitalOcean → Nexus | 18 nuevos, 12 cancelaciones históricas, 0 conflictos, 0 activos |
+| Simulación Nexus → DigitalOcean | 18 solo en destino, 0 conflictos; producción no se escribió |
+| Aplicación | Solo DigitalOcean → Nexus |
+| Segunda simulación, ambas direcciones | 18 sin cambios, 0 nuevos, 0 actualizados, 0 conflictos |
+| Hash normalizado común | `db9a806429479d9e83c83724ca67b5e072ca2ab29b94fbde9dbd19475342dc09` |
+| Configuración local | Credenciales y notificaciones de producción conservaron hash; Nexus no recibió secretos ni estado Telegram |
+
+## Pruebas y entrega
+
+- 21 pruebas: cambios unilaterales, altas en ambos lados, conflictos, cancelaciones, duplicados, repetición, interrupción, JSON inválido, conectividad, tareas activas, confirmación y restauración.
+- Compilación Python y sintaxis JavaScript.
+- CI con build Docker y ejecución real como UID/GID 1000.
+- Nexus: build, Compose, HTTP 401/200, panel, persistencia, responsive CSS y logs sin errores.
+- DigitalOcean: systemd, backend, Nginx, HTTP 401 público, migración equivalente y logs sin warnings.
+- PR funcional [#4](https://github.com/ratienza/Reserva-Pistas-UTP/pull/4), corrección de runtime [#5](https://github.com/ratienza/Reserva-Pistas-UTP/pull/5) y guía validada [#6](https://github.com/ratienza/Reserva-Pistas-UTP/pull/6), todos fusionados mediante squash.
+- El PR borrador #1 quedó cerrado al quedar incorporado y reconciliado en #4.
+
+## Operación
 
 ```bash
-sudo ufw allow from 192.168.18.0/24 to any port 8083 proto tcp
-```
-
-## Operación Nexus
-
-### Arranque / actualización
-
-```bash
+# Nexus
 cd /opt/apps/Reserva-Pistas-UTP
 git switch main
-git pull
+git pull --ff-only origin main
 docker compose up -d --build
-```
 
-### Estado
-
-```bash
+# Estado
+curl -I http://192.168.18.220:8083/
 docker compose ps
+
+# Producción
+systemctl is-active reserva-pistas nginx
+nginx -t
+journalctl -u reserva-pistas -n 100 --no-pager
 ```
 
-### Logs
-
-```bash
-docker logs reserva-pistas-app --tail 50
-docker logs reserva-pistas-nginx --tail 50
-```
-
-### Reinicio
-
-```bash
-docker compose restart
-```
-
-### Parada completa
-
-```bash
-docker compose down
-```
-
-Los contenedores usan `restart: unless-stopped`; tras un reinicio del host, Docker recupera automáticamente ambos servicios sin necesidad de ejecutar Compose manualmente.
-
-## Validaciones realizadas
-
-- Imagen Python construida correctamente.
-- Backend ejecutado dentro de Docker con UID/GID `1000:1000`.
-- Comunicación `nginx -> app` mediante red privada de Compose.
-- `GET /` responde HTTP `200` en `http://192.168.18.220:8083/`.
-- Interfaz cargada correctamente desde Replicant.
-- Bind mount `/opt/data/reserva-pistas:/app/data` validado.
-- Persistencia conservada después de recrear contenedores.
-- `restart: unless-stopped` validado.
-- Reinicio completo de Nexus validado: la aplicación vuelve a quedar operativa automáticamente.
-
-## Diferencias Nexus / producción
-
-| Aspecto | Nexus / Lab | DigitalOcean / Producción |
-|---|---|---|
-| Objetivo | Desarrollo, prueba, staging y ejecución controlada | Servicio público 24x7 |
-| Backend | Contenedor `reserva-pistas-app` | Python gestionado por `systemd` |
-| Proxy | Contenedor `reserva-pistas-nginx` | Nginx del host |
-| Entrada | `192.168.18.220:8083` | `https://app.raulatienza.com/padel/` |
-| Acceso | LAN | Internet + HTTPS + Basic Auth |
-| Persistencia | `/opt/data/reserva-pistas` | Ficheros locales privados en `/opt/reserva-pistas/` |
-| Git | Misma base de código | Misma base de código tras promoción controlada |
-| Disponibilidad | Depende de Replicant/Nexus | 24x7 |
-
-Nexus puede ejecutar reservas reales porque usa el mismo código y puede disponer de credenciales válidas, pero no debe competir simultáneamente con producción sobre las mismas tareas.
-
-## Estado de `tasks.local.json`
-
-La aplicación no utiliza una base SQL: el histórico, programaciones y estado operativo se conservan principalmente en `tasks.local.json`.
-
-Antes de considerar Nexus plenamente sincronizado con producción, debe copiarse de forma controlada el `tasks.local.json` vigente de DigitalOcean.
-
-Regla obligatoria:
-
-1. DigitalOcean es la fuente del estado vivo actual hasta la sincronización.
-2. Obtener el `tasks.local.json` más reciente de producción.
-3. Validar integridad y conservar el histórico completo.
-4. Revisar tareas con estado `queued` o `running`.
-5. Si existen, neutralizarlas únicamente en la copia de Nexus antes de activar la ejecución allí.
-6. No modificar producción durante esta operación.
-
-## Regla operativa crítica
-
-No ejecutar simultáneamente tareas reales equivalentes en Nexus y DigitalOcean. Ambas instancias podrían intentar reservar la misma pista.
-
-La promoción a producción y la sincronización autónoma del estado quedan dentro del encargo específico de Codex para esta aplicación.
+No ejecutar reservas ni enviar notificaciones para probar el handover. Las comprobaciones de datos se realizan con simulación, hashes, recuentos e identificadores normalizados.
