@@ -78,8 +78,8 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ MVP local en Replicant · no desplegada en Nexus |
-| Reserva-Pistas histórico en Nexus | ⏳ Pendiente de sincronizar desde DigitalOcean |
-| Producción DigitalOcean | ⚠️ Documentada desde Git; no validada en esta reconciliación |
+| Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
+| Producción DigitalOcean | ✅ Reserva-Pistas validada de forma acotada el 10/08/2026 |
 | Backups | ⏳ Pendiente |
 | DNS local | ⏳ Pendiente |
 
