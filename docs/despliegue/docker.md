@@ -31,7 +31,8 @@ servicios
 
 | Puerto | Servicio | Estado |
 |---:|---|---|
-| `8080` | Launch-pad de Nexus | Reservado |
+| `80` | App Launch Nexus | Operativo |
+| `8080` | Sin asignar | Libre |
 | `8081` | Salones AV | Operativo |
 | `8082` | Replicant Lab · documentación | Operativo |
 | `8083` | Reserva-Pistas-UTP | Operativo |
@@ -39,10 +40,13 @@ servicios
 
 Reglas:
 
-- `8080` queda reservado como puerta de entrada del laboratorio y futuro launch-pad.
+- App Launch usa el puerto estándar `80`, sin puerto explícito en la URL.
+- `8080` queda libre y no se reserva para App Launch.
 - A partir de `8081`, los servicios se numeran consecutivamente salvo necesidad técnica justificada.
 - Cada nuevo servicio debe quedar documentado aquí al asignar su puerto.
 - Siempre que sea posible, publicar el servicio ligado a `192.168.18.220` y no a `0.0.0.0`.
+
+App Launch es la excepción deliberada: publica `80` en todas las interfaces de Nexus para actuar como entrada de la LAN. No se publica por HTTPS.
 
 ## Reserva-Pistas-UTP · patrón validado
 

@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="es" data-source-fingerprint="5067fce7c71f6d39cefbc9c815fd1d1a13f93a788c987dfda45e36880ecd92ef">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="Replicant documentation pipeline 3">
+  <meta name="source-fingerprint" content="sha256:5067fce7c71f6d39cefbc9c815fd1d1a13f93a788c987dfda45e36880ecd92ef">
+  <title>Reserva-Pistas-UTP · Ficha técnica · 5067fce7c71f</title>
+  <style>:root {
+  color-scheme: light;
+  --ink: #172b3a;
+  --muted: #5d6b78;
+  --line: #d7e0e7;
+  --brand: #173f65;
+  --brand-2: #52728d;
+  --soft: #eef4f8;
+  --code: #f4f6f8;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: #f5f7f9; }
+body { margin: 0; color: var(--ink); background: #fff; font: 15px/1.58 Arial, Helvetica, sans-serif; }
+a { color: #0d5f9a; text-decoration-thickness: .08em; text-underline-offset: .14em; }
+button, input { font: inherit; }
+code, pre { font-family: Consolas, "Liberation Mono", monospace; }
+code { background: var(--code); border-radius: 4px; padding: .08em .3em; }
+pre { max-width: 100%; overflow-x: auto; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--code); white-space: pre-wrap; overflow-wrap: anywhere; }
+pre code { padding: 0; background: transparent; }
+.cover { padding: 28px max(4vw, 28px); color: white; background: linear-gradient(135deg, #122f4a 0%, #225d87 60%, #52728d 100%); }
+.cover h1 { margin: .08em 0; color: white; font-size: clamp(36px, 5vw, 62px); line-height: 1; letter-spacing: -.04em; }
+.eyebrow { margin: 0 0 10px; font-weight: 700; letter-spacing: .16em; font-size: 11px; }
+.lead { margin: 12px 0 18px; font-size: clamp(17px, 2vw, 23px); }
+.build-meta { display: grid; grid-template-columns: max-content 1fr; gap: 3px 12px; max-width: 820px; padding: 12px 16px; border: 1px solid rgba(255,255,255,.35); border-radius: 10px; background: rgba(255,255,255,.1); font-size: 12px; }
+.build-meta dt { font-weight: 700; }.build-meta dd { margin: 0; overflow-wrap: anywhere; }
+.portable-layout { display: grid; grid-template-columns: minmax(260px, 320px) minmax(0, 1fr); align-items: start; min-height: 75vh; }
+.portable-sidebar { position: sticky; top: 0; z-index: 10; height: 100vh; overflow: auto; border-right: 1px solid var(--line); background: #f8fafb; }
+.portable-menu-button { display: none; width: 100%; padding: 13px 18px; border: 0; border-bottom: 1px solid var(--line); color: var(--brand); background: #f8fafb; text-align: left; font-weight: 700; }
+.portable-nav { padding: 24px 22px 32px; }
+.portable-nav h2 { margin: 0 0 14px; color: var(--brand); font-size: 25px; }
+.portable-search { display: grid; gap: 6px; margin-bottom: 14px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.portable-search input { min-width: 0; width: 100%; padding: 9px 10px; border: 1px solid #b9c7d2; border-radius: 7px; color: var(--ink); background: #fff; }
+.search-status { min-height: 1.3em; margin: -6px 0 12px; color: var(--muted); font-size: 11px; }
+.portable-nav .nav-level { margin: 0; padding: 0; list-style: none; }
+.portable-nav .nav-children { margin: 5px 0 10px 12px; padding-left: 13px; border-left: 1px solid #ccd8e1; }
+.portable-nav li { margin: 0 0 6px; break-inside: avoid; }
+.portable-nav li[hidden] { display: none; }
+.portable-nav .nav-group-label { display: block; margin-top: 9px; color: var(--brand); font-size: 12px; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+.portable-nav a { display: inline-block; padding: 2px 4px; border-radius: 5px; }
+.portable-nav a[aria-current="page"] { color: #fff; background: var(--brand); text-decoration: none; }
+.portable-main { width: min(1120px, calc(100% - 56px)); min-width: 0; margin: 0 auto; }
+html:not([data-portable="ready"]) .portable-main { visibility: hidden; }
+html[data-portable="ready"] .doc-page:not(.is-active) { display: none; }
+.doc-page { min-height: 68vh; padding: 42px 0 52px; scroll-margin-top: 16px; }
+.source-path { margin: 0 0 24px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.doc-content h1 { color: var(--brand); font-size: clamp(31px, 4vw, 46px); line-height: 1.12; letter-spacing: -.025em; }
+.doc-content h2 { margin-top: 1.6em; color: var(--brand); font-size: 27px; line-height: 1.2; }
+.doc-content h3 { margin-top: 1.4em; color: #284f6f; font-size: 21px; }
+.doc-content h4 { color: #365c78; }
+.doc-content img, .doc-content svg { max-width: 100%; min-width: 0 !important; height: auto; }
+table { width: 100%; margin: 18px 0 26px; border-collapse: collapse; font-size: .94em; }
+th, td { padding: 9px 11px; border: 1px solid #cbd6df; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+th { color: var(--brand); background: #eaf1f6; }
+tr:nth-child(even) td { background: #fafcfd; }
+.status-panel table { table-layout: fixed; }
+.status-panel th:nth-child(1) { width: 25%; }
+.status-panel th:nth-child(2) { width: 26%; }
+.status-panel th:nth-child(3) { width: 24%; }
+.status-panel th:nth-child(4) { width: 10%; text-align: center; }
+.status-panel th:nth-child(5) { width: 15%; }
+.status-panel td:nth-child(4) { text-align: center; font-weight: 700; }
+.status-panel details { margin: 0; padding: 0; border: 0; background: transparent; }
+.status-panel details summary { margin: 0; cursor: pointer; color: #0d5f9a; }
+.status-panel details p { margin: 9px 0; }
+.admonition, details { margin: 20px 0; padding: 15px 18px; border: 1px solid #b9cddd; border-left: 5px solid #2c7cad; border-radius: 7px; background: #f2f8fc; }
+.admonition-title, details summary { margin: 0 0 8px; color: var(--brand); font-weight: 700; }
+.mermaid { display: flex; justify-content: center; width: 100%; margin: 24px 0; padding: 14px; overflow: visible; border: 1px solid var(--line); border-radius: 10px; background: #fff; white-space: pre-wrap; }
+.mermaid svg { display: block; width: 100% !important; max-width: 100% !important; height: auto !important; max-height: 720px; }
+.page-controls { display: flex; justify-content: space-between; gap: 14px; margin-top: 42px; padding-top: 22px; border-top: 1px solid var(--line); }
+.page-controls a, .page-controls span { max-width: 48%; padding: 10px 13px; border-radius: 7px; }
+.page-controls a { border: 1px solid #b9cddd; background: var(--soft); text-decoration: none; }
+.page-controls .next { margin-left: auto; text-align: right; }
+.page-controls .disabled { color: #8a96a0; background: #f5f7f9; }
+.document-footer { padding: 24px max(4vw, 28px); color: var(--muted); background: #eef3f6; font-size: 12px; overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  body { font-size: 14px; }
+  .cover { padding: 24px 20px; }
+  .build-meta { grid-template-columns: 1fr; }
+  .build-meta dd { margin-bottom: 6px; }
+  .portable-layout { display: block; }
+  .portable-sidebar { position: sticky; height: auto; max-height: 48vh; border-right: 0; border-bottom: 1px solid var(--line); }
+  .portable-menu-button { display: block; }
+  .portable-nav { display: none; padding: 18px 20px 24px; }
+  .portable-sidebar.is-open .portable-nav { display: block; }
+  .portable-main { width: min(100% - 32px, 1120px); }
+  .doc-page { min-height: 58vh; padding: 30px 0 38px; }
+  table { display: block; overflow-x: auto; }
+  .page-controls { flex-direction: column; }
+  .page-controls a, .page-controls span { max-width: 100%; }
+  .page-controls .next { margin-left: 0; text-align: left; }
+}
+@media print {
+  @page { size: A4; margin: 14mm 12mm 16mm; }
+  html, body { background: #fff; font-size: 9.4pt; line-height: 1.4; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .cover { min-height: 250mm; margin: -14mm -12mm -16mm; padding: 54mm 24mm; display: flex; flex-direction: column; justify-content: center; break-after: page; }
+  .cover h1 { font-size: 52pt; }
+  .lead { font-size: 18pt; }
+  .build-meta { font-size: 9.4pt; padding: 18px 22px; }
+  .portable-layout { display: block; min-height: 0; }
+  .portable-sidebar { position: static; height: auto; overflow: visible; border: 0; break-after: page; }
+  .portable-menu-button, .portable-search, .search-status { display: none !important; }
+  .portable-nav { display: block !important; padding: 8mm 4mm; border: 0; }
+  .portable-nav .nav-root { columns: 2; }
+  .portable-main { visibility: visible !important; width: 100%; }
+  .doc-page, html[data-portable="ready"] .doc-page:not(.is-active) { display: block !important; min-height: 0; padding: 0; border: 0; break-before: page; }
+  .source-path { margin-bottom: 6mm; font-size: 7.5pt; }
+  .doc-content h1 { font-size: 24pt; }
+  .doc-content h2 { font-size: 17pt; break-after: avoid; }
+  .doc-content h3 { font-size: 13pt; break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  pre { font-size: 7.2pt; line-height: 1.35; white-space: pre-wrap; break-inside: auto; }
+  table { display: table; font-size: 7.6pt; break-inside: auto; }
+  .doc-page[data-source="pendientes-codex.md"] { font-size: 6.5pt; line-height: 1.15; }
+  .doc-page[data-source="pendientes-codex.md"] .source-path { margin-bottom: 2mm; }
+  .doc-page[data-source="pendientes-codex.md"] .doc-content h1 { margin: 0 0 2mm; font-size: 16pt; }
+  .doc-page[data-source="pendientes-codex.md"] .doc-content h2 { margin: 2mm 0 1mm; font-size: 10pt; }
+  .status-panel table { font-size: 5.4pt; line-height: 1.05; }
+  .status-panel th, .status-panel td { padding: 1px 2px; }
+  .status-panel tr, .status-panel details { break-inside: auto; }
+  .status-panel details { font-size: 5.4pt; line-height: 1.05; }
+  .status-panel details summary { display: none; }
+  .status-panel details p { display: inline; margin: 0; }
+  .status-panel details p + p::before { content: ' '; }
+  tr, .admonition, details { break-inside: avoid; }
+  .mermaid { break-inside: avoid; padding: 3mm; }
+  .mermaid svg { max-height: 190mm !important; }
+  .page-controls, .document-footer { display: none; }
+}
+</style>
+</head>
+<body>
+  <header class="cover">
+    <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
+    <h1>Reserva-Pistas-UTP</h1>
+    <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/reserva-pistas-utp.md</dd><dt>Versión reproducible</dt><dd>sha256:5067fce7c71f6d39cefbc9c815fd1d1a13f93a788c987dfda45e36880ecd92ef</dd></dl>
+  </header>
+  <main class="portable-main">
+    <section class="doc-page is-active" data-source="aplicaciones/reserva-pistas-utp.md">
+      <p class="source-path">aplicaciones/reserva-pistas-utp.md</p>
+      <div class="doc-content"><h1 id="p1-reserva-pistas-utp">Reserva-Pistas-UTP</h1>
+<p>Ficha de infraestructura y operación de la aplicación de reservas de pádel de Torre de Porta-Coeli. La documentación funcional y de desarrollo permanece en <code>ratienza/Reserva-Pistas-UTP</code>; esta página registra el montaje real en Raul Lab y producción.</p>
+<h2 id="p1-estado-validado">Estado validado</h2>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repositorio</td>
+<td><code>ratienza/Reserva-Pistas-UTP</code></td>
+</tr>
+<tr>
+<td><code>main</code> validado</td>
+<td><code>6fb055e16eb232d47cc2d759bed0ce2caff4cec9</code> (runtime) + <code>6df1698d3346db5c35f7d173b5d7dc2567ce8a5e</code> (guía operativa)</td>
+</tr>
+<tr>
+<td>Nexus</td>
+<td>✅ Docker Compose operativo</td>
+</tr>
+<tr>
+<td>Ruta / URL Nexus</td>
+<td><code>/opt/apps/Reserva-Pistas-UTP</code> · <code>http://192.168.18.220:8083</code></td>
+</tr>
+<tr>
+<td>Datos Nexus</td>
+<td><code>/opt/data/reserva-pistas</code> → <code>/app/data</code></td>
+</tr>
+<tr>
+<td>DigitalOcean</td>
+<td>✅ <code>reserva-pistas.service</code> en <code>loopback:8765</code></td>
+</tr>
+<tr>
+<td>Ruta / URL producción</td>
+<td><code>/opt/reserva-pistas</code> · <code>https://app.raulatienza.com/padel/</code></td>
+</tr>
+<tr>
+<td>Publicación</td>
+<td>Nginx + HTTPS + HTTP Basic existente</td>
+</tr>
+<tr>
+<td>Sincronización</td>
+<td>✅ Bidireccional, por registros y exclusivamente bajo demanda</td>
+</tr>
+<tr>
+<td>Issue de handover</td>
+<td><a href="https://github.com/ratienza/Reserva-Pistas-UTP/issues/2">#2</a> cerrado con evidencias</td>
+</tr>
+</tbody>
+</table>
+<p>Validación de sincronización: <strong>10/08/2026</strong>. Revalidación de servicio y código: <strong>13/08/2026</strong>. No se cambiaron puertos, UFW, DNS, certificados, Nginx, autenticación pública ni otros servicios.</p>
+<h2 id="p1-arquitectura-real">Arquitectura real</h2>
+<div class="highlight"><pre><span></span><code>Nexus · 192.168.18.220:8083
+  reserva-pistas-nginx
+        ↓ red privada Docker
+  reserva-pistas-app · app:8765 · UID/GID 1000
+        ↓
+  /app/data ↔ /opt/data/reserva-pistas
+        │
+        │ SSH dedicado: restrict + comando forzado
+        │ solo ping/export/apply/backups/restore
+        ↕
+DigitalOcean · app.raulatienza.com/padel/
+  Nginx · HTTPS · HTTP Basic
+        ↓
+  reserva-pistas.service · reserva:reserva
+  loopback · puerto 8765
+        ↓
+  /opt/reserva-pistas
+</code></pre></div>
+<p>Nexus coordina ambas direcciones. La clave dedicada está montada de solo lectura, la huella del host DigitalOcean fue contrastada con el canal SSH administrativo ya confiable y el <code>authorized_keys</code> remoto no concede shell, TTY ni forwarding. El comando forzado baja privilegios a <code>reserva</code> antes de ejecutar <code>sync_peer.py</code>.</p>
+<h2 id="p1-datos-y-exclusiones">Datos y exclusiones</h2>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Clasificación</th>
+<th>Sincronización</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registros de <code>tasks.local.json</code></td>
+<td>Funcional e histórico</td>
+<td>Sí, por <code>id</code></td>
+</tr>
+<tr>
+<td><code>_sync</code> por registro</td>
+<td>Origen, creación, modificación, revisión, tombstone y hash</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><code>credentials.local.json</code></td>
+<td>Credencial local</td>
+<td>Nunca</td>
+</tr>
+<tr>
+<td><code>notifications.local.json</code></td>
+<td>Token/configuración local</td>
+<td>Nunca</td>
+</tr>
+<tr>
+<td><code>telegram.users.local</code></td>
+<td>Autorizaciones locales</td>
+<td>Nunca</td>
+</tr>
+<tr>
+<td><code>telegram.offset.local</code>, <code>telegram.state.local</code></td>
+<td>Estado efímero</td>
+<td>Nunca</td>
+</tr>
+<tr>
+<td><code>sync-state.local.json</code></td>
+<td>Base de comparación Nexus</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>sync-audit.local.jsonl</code></td>
+<td>Auditoría sin valores privados</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>backups/</code>, logs, PID, red y <code>app.local.env</code></td>
+<td>Backup/configuración/estado local</td>
+<td>Nunca</td>
+</tr>
+</tbody>
+</table>
+<p>La migración idempotente conservó los 18 registros y eliminó <code>username</code> y <code>password</code> del histórico. Las tareas consultan <code>credentials.local.json</code> únicamente al ejecutarse. <code>/api/settings</code> ya no devuelve la contraseña al navegador.</p>
+<h2 id="p1-runtime-revalidado-el-13082026">Runtime revalidado el 13/08/2026</h2>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Evidencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub / Nexus</td>
+<td><code>main</code> · <code>6df1698d3346db5c35f7d173b5d7dc2567ce8a5e</code></td>
+</tr>
+<tr>
+<td>Contenedores</td>
+<td><code>reserva-pistas-nginx</code> y <code>reserva-pistas-app</code> activos</td>
+</tr>
+<tr>
+<td>Publicación Nexus</td>
+<td>Nginx <code>192.168.18.220:8083 → 80</code>; backend sin puerto host</td>
+</tr>
+<tr>
+<td>Persistencia</td>
+<td><code>/opt/data/reserva-pistas → /app/data</code> en lectura/escritura</td>
+</tr>
+<tr>
+<td>Usuario de app</td>
+<td>UID/GID <code>1000:1000</code></td>
+</tr>
+<tr>
+<td>Autoarranque</td>
+<td><code>restart: unless-stopped</code></td>
+</tr>
+<tr>
+<td>DigitalOcean</td>
+<td><code>reserva-pistas.service</code> activo como <code>reserva:reserva</code></td>
+</tr>
+<tr>
+<td>Producción</td>
+<td><code>/padel/</code> devolvió <code>401</code> sin credenciales, como se esperaba</td>
+</tr>
+</tbody>
+</table>
+<p>Los hashes de <code>app.py</code>, <code>templates/index.html</code> y <code>sync_engine.py</code> desplegados en DigitalOcean coincidieron con <code>main</code>. Se ejecutaron <strong>21 pruebas</strong> locales sobre una copia limpia y todas terminaron correctamente. No se hicieron reservas, cancelaciones, sincronizaciones, notificaciones ni escrituras sobre datos reales.</p>
+<h2 id="p1-fusion-y-conflictos">Fusión y conflictos</h2>
+<p>El motor valida JSON e identificadores, calcula hashes canónicos por registro y compara cada lado con la base de la última sincronización:</p>
+<ol>
+<li>incorpora registros presentes solo en el origen;</li>
+<li>propaga cambios únicamente del origen;</li>
+<li>conserva e informa cambios únicamente del destino;</li>
+<li>conserva registros presentes solo en el destino;</li>
+<li>propaga cancelaciones y tombstones explícitos;</li>
+<li>si el mismo <code>id</code> cambió en ambos lados, no escribe hasta elegir Nexus, DigitalOcean o cancelar;</li>
+<li>propaga el lado elegido por la persona;</li>
+<li>una segunda simulación sin cambios no escribe ni crea un backup innecesario.</li>
+</ol>
+<p>Los conflictos visibles se limitan a campos operativos no sensibles. Cada escritura usa bloqueo entre procesos, fichero temporal, <code>fsync</code>, reemplazo atómico, verificación de la huella simulada y backup previo.</p>
+<h2 id="p1-tareas-activas">Tareas activas</h2>
+<p>El destino no se modifica mientras tenga tareas <code>queued</code> o <code>running</code>. Si una tarea activa del origen se incorpora al otro servidor, la copia queda neutralizada como <code>cancelled</code> / <code>sync_neutralized</code>; conserva el histórico pero no inicia un segundo ejecutor. No existe sincronización automática ni periódica.</p>
+<h2 id="p1-panel-administrativo">Panel administrativo</h2>
+<p>En <strong>Ajustes → Sincronización administrativa</strong> aparecen:</p>
+<ul>
+<li><code>DigitalOcean → Nexus</code>;</li>
+<li><code>Nexus → DigitalOcean</code>;</li>
+<li>estado del canal seguro;</li>
+<li>simulación con nuevos, actualizados, sin cambios, cancelaciones, conflictos, tareas activas y backup previsto;</li>
+<li>resolución humana por <code>id</code>;</li>
+<li>confirmación explícita, protección contra doble clic y una sola operación concurrente;</li>
+<li>listado y restauración confirmada de backups.</li>
+</ul>
+<p>En Nexus todo el backend usa Basic Auth local guardado fuera de Git. En DigitalOcean se conserva el Basic Auth de Nginx. Si falta conectividad o permisos, los botones quedan deshabilitados.</p>
+<h2 id="p1-backups-y-recuperacion">Backups y recuperación</h2>
+<p>Backups verificados:</p>
+<table>
+<thead>
+<tr>
+<th>Servidor</th>
+<th>Backup</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DigitalOcean</td>
+<td><code>predeploy-20260810T014853+0200</code></td>
+<td>Datos, configuración, código, plantilla y unidad systemd; JSON y manifiesto SHA-256 válidos</td>
+</tr>
+<tr>
+<td>Nexus</td>
+<td><code>tasks.local.json.20260810T015121+0200.bak</code></td>
+<td>Estado vacío previo a la primera escritura; JSON válido y restaurable</td>
+</tr>
+</tbody>
+</table>
+<p>Restaurar desde el panel exige confirmación y crea antes otro backup del estado reemplazado. Backups, credenciales y logs nunca atraviesan el canal de sincronización.</p>
+<h2 id="p1-primera-sincronizacion-comprobada">Primera sincronización comprobada</h2>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Resultado real</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DigitalOcean antes de migrar</td>
+<td>18 registros: 12 cancelados, 6 reservados, 0 activos, 0 duplicados</td>
+</tr>
+<tr>
+<td>Migración de secretos</td>
+<td>Sin credenciales incrustadas; hash funcional anterior y posterior idéntico</td>
+</tr>
+<tr>
+<td>Simulación DigitalOcean → Nexus</td>
+<td>18 nuevos, 12 cancelaciones históricas, 0 conflictos, 0 activos</td>
+</tr>
+<tr>
+<td>Simulación Nexus → DigitalOcean</td>
+<td>18 solo en destino, 0 conflictos; producción no se escribió</td>
+</tr>
+<tr>
+<td>Aplicación</td>
+<td>Solo DigitalOcean → Nexus</td>
+</tr>
+<tr>
+<td>Segunda simulación, ambas direcciones</td>
+<td>18 sin cambios, 0 nuevos, 0 actualizados, 0 conflictos</td>
+</tr>
+<tr>
+<td>Hash normalizado común</td>
+<td><code>db9a806429479d9e83c83724ca67b5e072ca2ab29b94fbde9dbd19475342dc09</code></td>
+</tr>
+<tr>
+<td>Configuración local</td>
+<td>Credenciales y notificaciones de producción conservaron hash; Nexus no recibió secretos ni estado Telegram</td>
+</tr>
+</tbody>
+</table>
+<h2 id="p1-pruebas-y-entrega">Pruebas y entrega</h2>
+<ul>
+<li>21 pruebas: cambios unilaterales, altas en ambos lados, conflictos, cancelaciones, duplicados, repetición, interrupción, JSON inválido, conectividad, tareas activas, confirmación y restauración.</li>
+<li>Compilación Python y sintaxis JavaScript.</li>
+<li>CI con build Docker y ejecución real como UID/GID 1000.</li>
+<li>Nexus: build, Compose, HTTP 401/200, panel, persistencia, responsive CSS y logs sin errores.</li>
+<li>DigitalOcean: systemd, backend, Nginx, HTTP 401 público, migración equivalente y logs sin warnings.</li>
+<li>PR funcional <a href="https://github.com/ratienza/Reserva-Pistas-UTP/pull/4">#4</a>, corrección de runtime <a href="https://github.com/ratienza/Reserva-Pistas-UTP/pull/5">#5</a> y guía validada <a href="https://github.com/ratienza/Reserva-Pistas-UTP/pull/6">#6</a>, todos fusionados mediante squash.</li>
+<li>El PR borrador #1 quedó cerrado al quedar incorporado y reconciliado en #4.</li>
+</ul>
+<h2 id="p1-operacion">Operación</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Nexus</span>
+<span class="nb">cd</span><span class="w"> </span>/opt/apps/Reserva-Pistas-UTP
+git<span class="w"> </span>switch<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>--ff-only<span class="w"> </span>origin<span class="w"> </span>main
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+
+<span class="c1"># Estado</span>
+curl<span class="w"> </span>-I<span class="w"> </span>http://192.168.18.220:8083/
+docker<span class="w"> </span>compose<span class="w"> </span>ps
+
+<span class="c1"># Producción</span>
+systemctl<span class="w"> </span>is-active<span class="w"> </span>reserva-pistas<span class="w"> </span>nginx
+nginx<span class="w"> </span>-t
+journalctl<span class="w"> </span>-u<span class="w"> </span>reserva-pistas<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>--no-pager
+</code></pre></div>
+<p>No ejecutar reservas ni enviar notificaciones para probar el handover. Las comprobaciones de datos se realizan con simulación, hashes, recuentos e identificadores normalizados.</p></div>
+    </section>
+  </main>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:5067fce7c71f6d39cefbc9c815fd1d1a13f93a788c987dfda45e36880ecd92ef</footer>
+</body>
+</html>

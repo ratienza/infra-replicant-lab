@@ -100,7 +100,7 @@ for (const pageId of diagramPageIds) {
   }), pageId);
   diagrams.push(...metrics);
 }
-if (diagrams.length !== 5) throw new Error(`Expected 5 Mermaid diagrams, got ${diagrams.length}`);
+if (diagrams.length !== 6) throw new Error(`Expected 6 Mermaid diagrams, got ${diagrams.length}`);
 if (diagrams.some(item => !item.hasSvg || item.width < 100 || item.height < 35 || item.overflowX || item.overflowY)) {
   throw new Error(`Invalid Mermaid layout: ${JSON.stringify(diagrams)}`);
 }
@@ -131,7 +131,7 @@ await waitForActive("page-2");
 await page.goForward();
 await waitForActive(nextHref.slice(1));
 
-await page.fill("#portable-search", "reconciliación pendiente del bind LAN");
+await page.fill("#portable-search", "da941d232fa937433c109f4c3daf3854711957f9");
 const searchResult = await page.evaluate(() => ({
   visible: [...document.querySelectorAll(".portable-nav [data-page-item]")].filter(item => !item.hidden).length,
   status: document.querySelector("#portable-search-status")?.textContent ?? "",
@@ -146,7 +146,7 @@ const changeLogDates = await page.evaluate(() => {
     .find(item => item.querySelector(":scope > .nav-group-label")?.textContent.trim() === "Change Log");
   return group ? [...group.querySelectorAll(":scope > .nav-children > [data-page-item] > a")].map(item => item.textContent.trim()) : [];
 });
-if (JSON.stringify(changeLogDates) !== JSON.stringify(["9 de agosto de 2026", "8 de agosto de 2026"])) {
+if (JSON.stringify(changeLogDates) !== JSON.stringify(["Índice", "13 de agosto de 2026", "9 de agosto de 2026", "8 de agosto de 2026"])) {
   throw new Error(`Change Log hierarchy differs from MkDocs nav: ${JSON.stringify(changeLogDates)}`);
 }
 

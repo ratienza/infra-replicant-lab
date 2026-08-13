@@ -27,3 +27,12 @@ DigitalOcean se inspeccionó de forma acotada el **10/08/2026** durante el cierr
 - Tras la primera réplica DigitalOcean → Nexus, las vistas previas de ambas direcciones mostraron 18 elementos sin cambios y cero conflictos.
 
 La inspección no modificó DNS, certificados, puertos ni la topología pública. El detalle operativo y de recuperación está en la ficha de la aplicación.
+
+## Revalidación del 13/08/2026
+
+- App Launch respondió `200` por HTTP y HTTPS, sin puerto explícito.
+- `index.html`, `apps.json` y el fondo PNG respondieron correctamente.
+- El catálogo público coincidió exactamente con `catalogs/public.json` y no contenía referencias internas de Nexus.
+- `reserva-pistas.service`, `consumos-cupra.service` y Nginx estaban activos.
+- `/padel/` y `/consumos/` devolvieron `401` sin credenciales; `/salones/` devolvió `200`.
+- No se modificaron servicios, datos, autenticación, certificados ni configuración Nginx durante esta revalidación.
