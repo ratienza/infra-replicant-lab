@@ -76,7 +76,7 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 | GitHub desde Nexus | ✅ Operativo |
 | App Launch | ✅ Multientorno validado · Nexus `80` + DigitalOcean HTTP/HTTPS |
 | Puerto `8080` | ✅ Libre y no asignado |
-| Salones AV | ⚠️ Operativa en Nexus · `8081` · deriva Compose documentada |
+| Salones AV | ✅ Operativa en Nexus · `8081` · Git/Nexus reconciliados en `8c0bc08` |
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ MVP local en Replicant · no desplegada en Nexus |
