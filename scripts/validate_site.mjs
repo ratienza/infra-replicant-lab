@@ -22,6 +22,7 @@ const screenshots = args.get("screenshots") ? path.resolve(args.get("screenshots
 const routes = [
   { route: "/", name: "home", diagrams: 0 },
   { route: "/arquitectura/", name: "architecture", diagrams: 2 },
+  { route: "/fases/", name: "evolution", diagrams: 0 },
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
   { route: "/aplicaciones/app-launch/", name: "app-launch", diagrams: 0 },
@@ -84,6 +85,19 @@ for (const item of routes) {
       failures.push(`${item.route}: incomplete pending summary ${JSON.stringify(pendingSummary)}`);
     }
   }
+  if (item.name === "applications") {
+    const catalog = await page.evaluate(() => ({
+      cards: document.querySelectorAll(".app-catalog .app-card").length,
+      links: [...document.querySelectorAll(".app-card .tech-link a")].map(link => link.getAttribute("href")),
+      legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
+    }));
+    if (
+      catalog.cards !== 8 || catalog.links.length !== 8 || catalog.legacyMarkdownLinks !== 0
+      || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
+    ) {
+      failures.push(`${item.route}: invalid application catalog ${JSON.stringify(catalog)}`);
+    }
+  }
   const state = await page.evaluate(() => ({
     title: document.title,
     diagrams: document.querySelectorAll('.mermaid-rendered svg').length,
@@ -113,7 +127,7 @@ for (const item of routes) {
 for (const item of [
   { route: "/", name: "home" },
   { route: "/descargas/", name: "downloads" },
-  { route: "/aplicaciones/app-launch/", name: "app-launch" },
+  { route: "/aplicaciones/", name: "applications" },
 ]) {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(new URL(item.route.replace(/^\//, ""), base).href, { waitUntil: "networkidle" });
