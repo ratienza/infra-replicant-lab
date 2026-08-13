@@ -44,13 +44,19 @@ const desktop = await page.evaluate(() => ({
   externalResources: performance.getEntriesByType("resource")
     .map(entry => entry.name)
     .filter(url => /^https?:|^wss?:/i.test(url)),
+  contentVisible: getComputedStyle(document.querySelector(".portable-main")).visibility === "visible",
+  technicalSections: document.querySelectorAll(".doc-content h2").length,
+  technicalCharacters: document.querySelector(".doc-content")?.innerText.trim().length ?? 0,
 }));
 
 await page.setViewportSize({ width: 390, height: 844 });
 const mobileOverflow = await page.evaluate(
   () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,
 );
-if (desktop.overflow || mobileOverflow || !desktop.source || !desktop.fingerprint) {
+if (
+  desktop.overflow || mobileOverflow || !desktop.source || !desktop.fingerprint
+  || !desktop.contentVisible || desktop.technicalSections < 3 || desktop.technicalCharacters < 1_200
+) {
   throw new Error(`Invalid individual portable layout: ${JSON.stringify({ desktop, mobileOverflow })}`);
 }
 if (desktop.externalResources.length || consoleErrors.length || failedRequests.length) {
