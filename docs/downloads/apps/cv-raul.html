@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" data-source-fingerprint="2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e">
+<html lang="es" data-source-fingerprint="74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 3">
-  <meta name="source-fingerprint" content="sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e">
-  <title>CV de Raúl · Ficha técnica · 2754c619d9d6</title>
+  <meta name="source-fingerprint" content="sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3">
+  <title>CV de Raúl · Ficha técnica · 74c870a9cbe9</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -141,14 +141,14 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>CV de Raúl</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cv-raul.md</dd><dt>Versión reproducible</dt><dd>sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cv-raul.md</dd><dt>Versión reproducible</dt><dd>sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/cv-raul.md">
       <p class="source-path">aplicaciones/cv-raul.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-cv-de-raul">Aplicación · CV de Raúl</h1>
-<p>Currículum y portafolio profesional interactivo de Raúl Atienza, con descarga de PDF generada durante la compilación.</p>
-<h2 id="p1-estado-auditado">Estado auditado</h2>
+<p>Currículum y portfolio profesional público creado con AI Studio, con frontend Vite/Tailwind y descarga de PDF generada durante la compilación.</p>
+<h2 id="p1-estado-actual">Estado actual</h2>
 <table>
 <thead>
 <tr>
@@ -166,38 +166,47 @@ tr:nth-child(even) td { background: #fafcfd; }
 <td><code>0da08cfa98e5ad9e5e81ed48ac4cd4428360d618</code></td>
 </tr>
 <tr>
-<td>Nexus</td>
-<td>Checkout de solo lectura en <code>/opt/apps/CV-Raul-IA-Estudio-Google-</code>; sin contenedor ni puerto</td>
-</tr>
-<tr>
 <td>Producción</td>
-<td>Google Cloud/Firebase, no Nexus</td>
+<td>Firebase Hosting · proyecto <code>replicant-lab</code></td>
 </tr>
 <tr>
-<td>URL comprobada</td>
-<td><code>https://ais-pre-unrkdmpgbtoiyyarc3mwzd-499871679551.europe-west2.run.app/</code></td>
+<td>Versión activa observada</td>
+<td><code>092bfc</code></td>
 </tr>
 <tr>
-<td>Respuesta observada</td>
-<td><code>200</code> tras redirección a comprobación de cookies</td>
+<td>Backend público identificado</td>
+<td><code>cv-backend</code></td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>https://cv.raulatienza.com</code> · HTTP <code>200</code></td>
+</tr>
+<tr>
+<td>Nexus</td>
+<td>Checkout limpio de consulta; sin contenedor, servicio o puerto</td>
 </tr>
 </tbody>
 </table>
-<h2 id="p1-arquitectura-y-funciones-comprobadas">Arquitectura y funciones comprobadas</h2>
-<p>La aplicación usa Vite, Tailwind y una etapa de generación PDF con PDFKit. El build crea <code>public/cv.pdf</code>, lo integra en la descarga del sitio y produce un frontend estático. El Dockerfile construye con Node y sirve el resultado con Nginx en el puerto interno <code>8080</code>.</p>
-<p>La compilación aislada <code>pnpm run build</code> terminó correctamente y generó tanto el PDF como el bundle Vite. No se modificó ni desplegó Firebase, Cloud Run o la configuración DNS.</p>
-<h2 id="p1-despliegue-y-rollback">Despliegue y rollback</h2>
-<p><code>firebase.json</code> define una reescritura hacia Cloud Run en <code>europe-west2</code>; <code>cloudbuild.yaml</code> describe otro nombre de servicio y <code>europe-west1</code>. La URL realmente enlazada usa además un servicio <code>ais-pre</code> de <code>europe-west2</code>. Esta divergencia impide afirmar qué fichero reproduce por sí solo la producción actual.</p>
-<p>El rollback debe realizarse en Google Cloud/Firebase a una revisión conocida, nunca desde el checkout de Nexus. El checkout interno sirve para consulta y no constituye un despliegue.</p>
-<h2 id="p1-seguridad-y-pendientes">Seguridad y pendientes</h2>
+<h2 id="p1-arquitectura-real">Arquitectura real</h2>
+<p>La cadena demostrada actualmente es:</p>
+<div class="highlight"><pre><span></span><code>despliegue manual Firebase Hosting → infraestructura Google/Firebase → cv.raulatienza.com
+</code></pre></div>
+<p>No está demostrada una cadena automática GitHub → producción ni la relación exacta entre el SHA actual y la versión Firebase <code>092bfc</code>.</p>
+<p>El servicio Cloud Run <code>cv-raulatienza-com</code> del proyecto <code>consumos-cupra</code>, región <code>europe-west1</code>, conserva una revisión placeholder y un trigger fallido. Es residual y no constituye la producción pública. La reescritura Cloud Run declarada en <code>firebase.json</code> tampoco corresponde al servicio público observado.</p>
+<h2 id="p1-build-validacion-y-rollback">Build, validación y rollback</h2>
+<p>El proyecto usa Vite, Tailwind, Node 20 y una generación PDF con PDFKit. El Dockerfile disponible construye con Node y sirve el resultado mediante Nginx, pero no describe el runtime canónico actual.</p>
+<p>Producción, <code>/health</code> y <code>/manifest.json</code> respondieron <code>200</code>; las dos últimas rutas son fallback de la SPA, no healthcheck ni manifest independientes. Firebase conserva versiones anteriores, por lo que existe capacidad de rollback desde Hosting.</p>
+<h2 id="p1-seguridad-y-deuda-post-cartera">Seguridad y deuda POST-CARTERA</h2>
+<p>No existe un problema crítico actual. Queda aceptado para después de Cartera:</p>
 <ul>
-<li>El CV es público y contiene datos profesionales; no deben añadirse datos privados no destinados a publicación.</li>
-<li>No se le atribuye persistencia ni secretos en Nexus.</li>
-<li>Pendiente: reconciliar en su repositorio la ruta real Firebase/Cloud Run, región, nombre de servicio y procedimiento de rollback.</li>
-<li>La pantalla de comprobación de cookies fue validada; no se afirma que la página final se renderizara en esa sesión.</li>
-</ul></div>
+<li>reconciliar Firebase, Cloud Build y configuraciones residuales;</li>
+<li>retirar o corregir el trigger obsoleto y demostrar trazabilidad SHA → versión Firebase;</li>
+<li>lockfile, reproducibilidad, CI, tests y typecheck;</li>
+<li>restos React, metadata Gemini, artefactos residuales, cabeceras, caché, protección de <code>main</code> y UX de revelado de contacto.</li>
+</ul>
+<p>El checkout de Nexus no debe ejecutarse ni utilizarse para desplegar o restaurar producción.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3</footer>
 </body>
 </html>

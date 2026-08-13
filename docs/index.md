@@ -1,6 +1,6 @@
 # Replicant Lab
 
-Documentación viva de la infraestructura local y cloud del laboratorio.
+Manual vivo de la infraestructura local y cloud del laboratorio: qué existe, dónde se ejecuta, cómo se opera y qué queda pendiente.
 
 !!! info "Objetivo"
     Mantener una visión única, entendible y versionada de **concepto, hosts, red, seguridad, Git, Docker y operación**. La documentación funcional de cada aplicación vive en su propio repositorio.
@@ -63,6 +63,7 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 - **Persistencia fuera de Git:** datos, secretos y backups no se mezclan con repositorios.
 - **Seguridad práctica:** SSH por clave, UFW y puertos publicados de forma explícita.
 - **Reproducibilidad:** un host debe poder reconstruirse sin depender de cambios manuales no documentados.
+- **Separación:** `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.
 
 ## Estado actual
 
@@ -81,20 +82,20 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ MVP local en Replicant · no desplegada en Nexus |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
-| Consumos Cupra | ⚠️ Operativo en DigitalOcean · despliegue por SHA pendiente |
-| CV | ⚠️ Cloud/Firebase · checkout Nexus no servido |
-| Control de Red | ⚠️ Herramienta local · checkout Nexus no servido |
-| Producción DigitalOcean | ✅ App Launch, Reservas, Consumos y Salones observados el 13/08/2026 |
-| Backups | ⏳ Pendiente |
+| Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
+| CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
+| Control de Red | ✅ Herramienta local · separación de datos POST-CARTERA |
+| Producción DigitalOcean | ✅ App Launch y Reservas; no es runtime de Consumos ni CV |
+| Backups Nexus | ⏳ POST-CARTERA |
 | Nombres locales | ✅ `replicant` y `nexus` mediante `hosts` en Replicant |
 
 ## Cómo usar esta documentación
 
 - **Arquitectura** explica cómo encajan las piezas.
-- **Fases** conserva el recorrido y las decisiones que llevaron al estado actual.
+- **Evolución** resume hitos y estado actual; el detalle histórico vive en Change Log.
 - **Hosts** describe cada máquina.
 - **Red** documenta direccionamiento e inventario.
-- **Despliegue** fija los patrones Git/Docker.
+- **Despliegue** explica los modelos heterogéneos: local, Docker, VPS, Cloud Run y Firebase.
 - **Aplicaciones** contiene solo la ficha de infraestructura de cada app.
 - **Operación** concentra comandos y procedimientos cortos.
 - **Pendientes** conserva el estado y los encargos que deben retomarse sin depender de memoria de chat.

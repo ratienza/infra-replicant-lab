@@ -1,33 +1,44 @@
 # Aplicación · CV de Raúl
 
-Currículum y portafolio profesional interactivo de Raúl Atienza, con descarga de PDF generada durante la compilación.
+Currículum y portfolio profesional público creado con AI Studio, con frontend Vite/Tailwind y descarga de PDF generada durante la compilación.
 
-## Estado auditado
+## Estado actual
 
 | Campo | Valor |
 |---|---|
 | Repositorio | `ratienza/CV-Raul-IA-Estudio-Google-` · privado |
 | `main` | `0da08cfa98e5ad9e5e81ed48ac4cd4428360d618` |
-| Nexus | Checkout de solo lectura en `/opt/apps/CV-Raul-IA-Estudio-Google-`; sin contenedor ni puerto |
-| Producción | Google Cloud/Firebase, no Nexus |
-| URL comprobada | `https://ais-pre-unrkdmpgbtoiyyarc3mwzd-499871679551.europe-west2.run.app/` |
-| Respuesta observada | `200` tras redirección a comprobación de cookies |
+| Producción | Firebase Hosting · proyecto `replicant-lab` |
+| Versión activa observada | `092bfc` |
+| Backend público identificado | `cv-backend` |
+| URL | `https://cv.raulatienza.com` · HTTP `200` |
+| Nexus | Checkout limpio de consulta; sin contenedor, servicio o puerto |
 
-## Arquitectura y funciones comprobadas
+## Arquitectura real
 
-La aplicación usa Vite, Tailwind y una etapa de generación PDF con PDFKit. El build crea `public/cv.pdf`, lo integra en la descarga del sitio y produce un frontend estático. El Dockerfile construye con Node y sirve el resultado con Nginx en el puerto interno `8080`.
+La cadena demostrada actualmente es:
 
-La compilación aislada `pnpm run build` terminó correctamente y generó tanto el PDF como el bundle Vite. No se modificó ni desplegó Firebase, Cloud Run o la configuración DNS.
+```text
+despliegue manual Firebase Hosting → infraestructura Google/Firebase → cv.raulatienza.com
+```
 
-## Despliegue y rollback
+No está demostrada una cadena automática GitHub → producción ni la relación exacta entre el SHA actual y la versión Firebase `092bfc`.
 
-`firebase.json` define una reescritura hacia Cloud Run en `europe-west2`; `cloudbuild.yaml` describe otro nombre de servicio y `europe-west1`. La URL realmente enlazada usa además un servicio `ais-pre` de `europe-west2`. Esta divergencia impide afirmar qué fichero reproduce por sí solo la producción actual.
+El servicio Cloud Run `cv-raulatienza-com` del proyecto `consumos-cupra`, región `europe-west1`, conserva una revisión placeholder y un trigger fallido. Es residual y no constituye la producción pública. La reescritura Cloud Run declarada en `firebase.json` tampoco corresponde al servicio público observado.
 
-El rollback debe realizarse en Google Cloud/Firebase a una revisión conocida, nunca desde el checkout de Nexus. El checkout interno sirve para consulta y no constituye un despliegue.
+## Build, validación y rollback
 
-## Seguridad y pendientes
+El proyecto usa Vite, Tailwind, Node 20 y una generación PDF con PDFKit. El Dockerfile disponible construye con Node y sirve el resultado mediante Nginx, pero no describe el runtime canónico actual.
 
-- El CV es público y contiene datos profesionales; no deben añadirse datos privados no destinados a publicación.
-- No se le atribuye persistencia ni secretos en Nexus.
-- Pendiente: reconciliar en su repositorio la ruta real Firebase/Cloud Run, región, nombre de servicio y procedimiento de rollback.
-- La pantalla de comprobación de cookies fue validada; no se afirma que la página final se renderizara en esa sesión.
+Producción, `/health` y `/manifest.json` respondieron `200`; las dos últimas rutas son fallback de la SPA, no healthcheck ni manifest independientes. Firebase conserva versiones anteriores, por lo que existe capacidad de rollback desde Hosting.
+
+## Seguridad y deuda POST-CARTERA
+
+No existe un problema crítico actual. Queda aceptado para después de Cartera:
+
+- reconciliar Firebase, Cloud Build y configuraciones residuales;
+- retirar o corregir el trigger obsoleto y demostrar trazabilidad SHA → versión Firebase;
+- lockfile, reproducibilidad, CI, tests y typecheck;
+- restos React, metadata Gemini, artefactos residuales, cabeceras, caché, protección de `main` y UX de revelado de contacto.
+
+El checkout de Nexus no debe ejecutarse ni utilizarse para desplegar o restaurar producción.

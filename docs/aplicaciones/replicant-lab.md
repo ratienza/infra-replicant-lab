@@ -6,8 +6,9 @@ Documentación canónica del laboratorio: arquitectura, hosts, red, despliegues,
 
 | Campo | Valor |
 |---|---|
+| Desarrollo | Codex / MkDocs / Mermaid |
 | Repositorio | `ratienza/infra-replicant-lab` · `main` |
-| Referencia previa a este cierre | `6e5f0dc216b0bf69d1b4b2634f8a292c53f5a13a` |
+| Punto de partida del cierre | `0134f5bdf932128de47545a03acab593027f797f` |
 | Nexus | `/opt/apps/infra-replicant-lab` · checkout limpio observado |
 | Servicio | Compose `docs` · contenedor `infra-replicant-docs` |
 | Imagen | `infra-replicant-docs:local`, construida desde el `Dockerfile` |
@@ -35,8 +36,8 @@ La actualización se realiza solo después de integrar el PR. Para rollback se r
 
 - `python scripts/docs_pipeline.py generate --screenshots`: correcto.
 - `python scripts/docs_pipeline.py check`: sincronía correcta.
-- 34 páginas fuente, seis diagramas Mermaid y 21 rutas previas a incorporar esta ficha.
-- Dossier global de 52 páginas y siete fichas previas validados; esta ficha eleva la cobertura individual a ocho y se regenera antes del commit.
+- 32 páginas fuente y seis diagramas Mermaid validados por el pipeline.
+- Dossier global de 52 páginas y ocho fichas individuales HTML/PDF sincronizadas.
 - Runtime Nexus observado con respuesta `200` el 13/08/2026; la nueva versión se valida de nuevo tras el merge.
 
 ## Seguridad, dependencias y pendientes

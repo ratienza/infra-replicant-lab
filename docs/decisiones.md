@@ -26,3 +26,6 @@ Registro corto de decisiones que no conviene redescubrir.
 | Checkouts no equivalen a servicios | CV y Control de Red pueden existir en disco de Nexus sin declararse desplegados |
 | Fichas técnicas derivadas por aplicación | Cada aplicación tiene HTML/PDF generado desde su Markdown canónico |
 | Salones AV liga `8081` a la IP LAN | `192.168.18.220:8081:80` evita publicar el servicio en todas las interfaces y queda versionado desde `8c0bc08` |
+| App Launch es navegación, no runtime | Una tarjeta puede apuntar a servicios locales o remotos sin trasladar su ejecución al host del launchpad |
+| Consumos Cupra usa Cloud Run | La cadena canónica es GitHub → Cloud Build → Artifact Registry → Cloud Run; DigitalOcean y Nexus no son su producción |
+| CV usa Firebase Hosting | La producción observada pertenece al proyecto `replicant-lab`; el Cloud Run placeholder no es producción |

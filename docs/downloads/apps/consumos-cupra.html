@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" data-source-fingerprint="2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e">
+<html lang="es" data-source-fingerprint="74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 3">
-  <meta name="source-fingerprint" content="sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e">
-  <title>Consumos Cupra · Ficha técnica · 2754c619d9d6</title>
+  <meta name="source-fingerprint" content="sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3">
+  <title>Consumos Cupra · Ficha técnica · 74c870a9cbe9</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -141,14 +141,14 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>Consumos Cupra</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/consumos-cupra.md</dd><dt>Versión reproducible</dt><dd>sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/consumos-cupra.md</dd><dt>Versión reproducible</dt><dd>sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/consumos-cupra.md">
       <p class="source-path">aplicaciones/consumos-cupra.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-consumos-cupra">Aplicación · Consumos Cupra</h1>
-<p>Aplicación personal para registrar y analizar consumos de combustible, con entrada manual, estadísticas, lectura y escritura mediante Google Sheets y extracción opcional de datos desde imágenes.</p>
-<h2 id="p1-estado-auditado">Estado auditado</h2>
+<p>Aplicación personal para registrar y analizar consumos de combustible. Fue creada inicialmente con AI Studio y remediada con Codex sin alterar su funcionalidad.</p>
+<h2 id="p1-estado-actual">Estado actual</h2>
 <table>
 <thead>
 <tr>
@@ -162,56 +162,51 @@ tr:nth-child(even) td { background: #fafcfd; }
 <td><code>ratienza/Consumos_Cupra</code> · privado</td>
 </tr>
 <tr>
-<td><code>main</code></td>
-<td><code>050535f9f36b1ea4708277e94ffecb9212bcd02a</code></td>
+<td><code>main</code> desplegado</td>
+<td><code>9f66a368a1dfd58e5b52741e263e77866397a7f7</code></td>
 </tr>
 <tr>
-<td>Nexus</td>
-<td>No existe checkout ni servicio; App Launch enlaza a DigitalOcean</td>
+<td>Build</td>
+<td><code>7db2eddf-8b54-46fa-a04b-1abcee75d72c</code></td>
 </tr>
 <tr>
-<td>DigitalOcean</td>
-<td><code>consumos-cupra.service</code> activo</td>
+<td>Imagen</td>
+<td><code>cosnumos-cupra:9f66a368...</code></td>
 </tr>
 <tr>
-<td>Ruta / URL</td>
-<td><code>/opt/consumos-cupra</code> · <code>https://app.raulatienza.com/consumos/</code></td>
+<td>Digest</td>
+<td><code>sha256:df935d3ace3ce6a319094dccfbae80606bc4a3c6d3044f87251d350443be8ed5</code></td>
 </tr>
 <tr>
 <td>Runtime</td>
-<td>Node/Express en <code>127.0.0.1:8766</code>, publicado por Nginx</td>
+<td>Google Cloud Run · revisión <code>cosnumos-cupra-00009-pon</code> · tráfico <code>100 %</code></td>
 </tr>
 <tr>
-<td>Acceso observado</td>
-<td><code>401</code> sin credenciales HTTP Basic</td>
+<td>Rollback disponible</td>
+<td><code>cosnumos-cupra-00007-b7b</code></td>
+</tr>
+<tr>
+<td>Nexus / DigitalOcean</td>
+<td>Sin runtime canónico; App Launch únicamente enlaza la aplicación</td>
 </tr>
 </tbody>
 </table>
-<h2 id="p1-arquitectura-y-funciones-comprobadas">Arquitectura y funciones comprobadas</h2>
-<p>El frontend usa React 19, Vite, Tailwind y Recharts. El backend Express sirve el frontend y expone endpoints para registros, configuración, pendientes, extracción de imágenes, escritura y diagnóstico de conectividad.</p>
-<p>El código versionado contempla Google Sheets/Apps Script, una clave Gemini opcional, webhooks de alertas y almacenamiento local de pendientes. La compilación de producción genera el frontend y <code>dist/server.cjs</code>.</p>
-<p>No se ejecutaron escrituras, extracción de imágenes, webhooks ni llamadas a servicios externos durante la auditoría.</p>
-<h2 id="p1-despliegue-persistencia-y-rollback">Despliegue, persistencia y rollback</h2>
-<p>DigitalOcean ejecuta el servicio como <code>www-data:www-data</code>, con <code>Restart=on-failure</code>. Nginx protege y reenvía <code>/consumos/</code> al loopback; el proceso Node no está publicado directamente.</p>
-<p>Los ficheros principales desplegados coinciden semánticamente con <code>main</code>; <code>server.ts</code> solo difiere en finales de línea. La ruta desplegada no es un checkout Git, por lo que falta una huella de versión runtime inequívoca y un procedimiento de rollback versionado.</p>
-<p>Rollback seguro: recuperar un artefacto construido desde un commit conocido, restaurar la configuración/persistencia separada y reiniciar exclusivamente <code>consumos-cupra.service</code>. No debe copiarse el estado vivo a Git.</p>
-<h2 id="p1-pruebas-realizadas">Pruebas realizadas</h2>
+<h2 id="p1-arquitectura-y-despliegue">Arquitectura y despliegue</h2>
+<div class="highlight"><pre><span></span><code>AI Studio / Codex → GitHub → Cloud Build → Artifact Registry → Cloud Run
+</code></pre></div>
+<p>React 19, Vite, Tailwind y Recharts forman el frontend. Express sirve el bundle y las APIs de registros, configuración, pendientes y diagnóstico. Google Sheets/Apps Script, Gemini y webhooks son dependencias externas opcionales; sus credenciales permanecen fuera de Git.</p>
+<p>El trigger productivo construye desde GitHub y crea una revisión candidata con <code>--no-traffic</code>, label <code>candidate</code>, <code>entrypoint: gcloud</code> y <code>CLOUD_LOGGING_ONLY</code>. La promoción de tráfico es un paso controlado posterior.</p>
+<h2 id="p1-validacion-y-operacion">Validación y operación</h2>
+<p>La revisión activa se validó con HTTP <code>200</code> en raíz, manifest, health, APIs GET no destructivas, configuración, pendientes, iconos, JavaScript y CSS. El build reproducible usa el lockfile y <code>npm ci</code>; lint, build e imagen Docker quedaron validados antes de la promoción.</p>
+<p>El rollback consiste en devolver el tráfico a <code>cosnumos-cupra-00007-b7b</code> o desplegar de nuevo su imagen conocida. No requiere reconstruir el código ni intervenir DigitalOcean o Nexus.</p>
+<h2 id="p1-seguridad-y-deuda">Seguridad y deuda</h2>
 <ul>
-<li><code>pnpm run lint</code>: correcto.</li>
-<li><code>pnpm run build</code>: correcto.</li>
-<li>Producción pública: <code>401</code> sin credenciales, confirmando la barrera de acceso.</li>
-<li>Servicio <code>systemd</code>: activo el 13/08/2026.</li>
-</ul>
-<h2 id="p1-seguridad-dependencias-y-pendientes">Seguridad, dependencias y pendientes</h2>
-<ul>
-<li>Gemini, Sheets, Apps Script y webhooks son dependencias externas; sus credenciales deben permanecer fuera de Git.</li>
-<li>El repositorio contiene URL y datos de ejemplo/configuración por defecto que deben tratarse como información privada de la aplicación.</li>
-<li>Los endpoints de configuración y escritura dependen de la protección externa de Nginx; no se validó autorización interna propia.</li>
-<li>No existe servicio de Consumos en Nexus.</li>
-<li>Pendiente: documentar un despliegue reproducible desde <code>main</code>, una huella de versión y un rollback probado.</li>
+<li>No mostrar valores de variables, secretos o integraciones externas.</li>
+<li>Los pushes a ramas conectadas pueden activar Cloud Build; los cambios productivos requieren revisar trigger, candidato y tráfico.</li>
+<li><code>npm audit</code> registra cuatro vulnerabilidades conocidas: una baja, una moderada y dos altas. No se ejecutó <code>npm audit fix</code>; su tratamiento debe hacerse en un cambio separado y probado.</li>
 </ul></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3</footer>
 </body>
 </html>

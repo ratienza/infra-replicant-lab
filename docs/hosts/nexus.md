@@ -9,6 +9,8 @@
 | Interfaz | `eth0` |
 | MAC | `00:15:5d:12:7b:00` |
 | Plataforma | VM Hyper-V Gen2 |
+| Acceso | `ssh raul@nexus` |
+| Función | Laboratorio Linux, Docker, servicios internos y copias de consulta |
 
 ## Software base
 
@@ -57,6 +59,7 @@
 - `8080` sin listener.
 - CV y Control de Red presentes solo como checkouts; no son servicios Nexus.
 - Consumos Cupra y Cartera Estratégica sin checkout servido ni puerto Nexus.
+- Una tarjeta de App Launch puede apuntar a una aplicación externa; no implica ejecución en Nexus.
 
 Esta observación confirma el estado del laboratorio privado en esa fecha. DigitalOcean se validó por separado y de forma acotada para el cierre de Reserva-Pistas-UTP; cada repositorio conserva sus definiciones operativas.
 

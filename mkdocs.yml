@@ -4,12 +4,7 @@ site_description: Documentación viva de infraestructura, hosts, red, despliegue
 nav:
   - Inicio: index.md
   - Arquitectura: arquitectura.md
-  - Fases:
-      - 01 · Concepto: fases/01-concepto.md
-      - 02 · Replicant: fases/02-replicant.md
-      - 03 · Nexus: fases/03-nexus.md
-      - 04 · Docker y Git: fases/04-docker-git.md
-      - 05 · PoC Salones AV: fases/05-poc-salones.md
+  - Evolución: fases/index.md
   - Hosts:
       - Replicant: hosts/replicant.md
       - Nexus: hosts/nexus.md
@@ -19,6 +14,7 @@ nav:
       - Visión general: red/overview.md
       - Inventario provisional: red/inventario.md
   - Despliegue:
+      - Modelos: despliegue/modelos.md
       - Git: despliegue/git.md
       - Docker: despliegue/docker.md
   - Operación:

@@ -154,16 +154,13 @@ const pendingPage = await page.evaluate(() => document.querySelector('[data-sour
 if (!pendingPage) throw new Error("Pending page not found");
 await page.goto(fileUrl + "#" + pendingPage, { waitUntil: "load" });
 await waitForActive(pendingPage);
-const pendingDetails = await page.evaluate(() => ({
-  total: document.querySelectorAll(".doc-page.is-active .status-panel details").length,
-  open: document.querySelectorAll(".doc-page.is-active .status-panel details[open]").length,
+const pendingSummary = await page.evaluate(() => ({
+  headings: [...document.querySelectorAll(".doc-page.is-active h2")].map(item => item.textContent.trim()),
+  postCartera: document.querySelector(".doc-page.is-active")?.textContent.includes("POST-CARTERA") ?? false,
 }));
-if (pendingDetails.total !== 8 || pendingDetails.open !== 0) {
-  throw new Error(`Pending details are not initially compact: ${JSON.stringify(pendingDetails)}`);
-}
-await page.click(".doc-page.is-active .status-panel details summary");
-if (!await page.locator(".doc-page.is-active .status-panel details").first().evaluate(item => item.open)) {
-  throw new Error("Pending detail did not open");
+const requiredPendingHeadings = ["Activos", "Deuda POST-CARTERA", "Mejoras opcionales"];
+if (!requiredPendingHeadings.every(item => pendingSummary.headings.includes(item)) || !pendingSummary.postCartera) {
+  throw new Error(`Pending summary is incomplete: ${JSON.stringify(pendingSummary)}`);
 }
 await page.goto(fileUrl + "#page-2", { waitUntil: "load" });
 await waitForActive("page-2");
@@ -213,7 +210,7 @@ const report = {
     previousNext: true,
     search: searchResult,
     changeLogDates,
-    pendingDetails,
+    pendingSummary,
     mobile,
   },
   consoleErrors,

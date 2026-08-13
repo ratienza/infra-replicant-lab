@@ -6,6 +6,7 @@ Ficha de infraestructura y operación de la aplicación de reservas de pádel de
 
 | Elemento | Valor |
 |---|---|
+| Desarrollo | Codex / GitHub |
 | Repositorio | `ratienza/Reserva-Pistas-UTP` |
 | `main` validado | `6fb055e16eb232d47cc2d759bed0ce2caff4cec9` (runtime) + `6df1698d3346db5c35f7d173b5d7dc2567ce8a5e` (guía operativa) |
 | Nexus | ✅ Docker Compose operativo |

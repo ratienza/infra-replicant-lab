@@ -2,12 +2,14 @@
 
 | Campo | Valor |
 |---|---|
+| Host | Replicant |
 | Rol | Estación de trabajo + host Hyper-V |
 | SO | Windows 11 Pro |
 | IP | `192.168.18.200` |
 | Gateway | `192.168.18.1` |
 | Virtualización | Hyper-V |
 | Switch | `Replicant Ethernet` |
+| Acceso | Sesión local de Windows; origen de la administración SSH |
 
 ## Responsabilidades
 

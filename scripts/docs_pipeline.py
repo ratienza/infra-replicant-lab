@@ -236,6 +236,8 @@ def rewrite_portable_page_links(
         route = posixpath.normpath(posixpath.join(base, parsed.path.lstrip("/")))
         route = "" if route == "." else route.removesuffix(".md").strip("/")
         page_number = page_targets.get(route)
+        if page_number is None and posixpath.basename(route) == "index":
+            page_number = page_targets.get(posixpath.dirname(route))
         if page_number is None:
             return match.group(0)
         target = f"p{page_number}-{parsed.fragment}" if parsed.fragment else f"page-{page_number}"

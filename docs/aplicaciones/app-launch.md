@@ -1,11 +1,12 @@
 # Aplicación · App Launch
 
-Launchpad común para acceder a las aplicaciones públicas y a los servicios internos de Replicant Lab. La presentación es única; cada entorno recibe exclusivamente su catálogo activo.
+Catálogo y capa de navegación para acceder a aplicaciones públicas y servicios internos. App Launch no es el runtime de las tarjetas: la presentación es única y cada entorno recibe exclusivamente su catálogo activo.
 
 ## Estado auditado
 
 | Campo | DigitalOcean | Nexus |
 |---|---|---|
+| Desarrollo | Codex · HTML/CSS/JavaScript | Mismo origen |
 | Repositorio | `ratienza/Apps_Lauch` · `main` · `ced6e149315ac14338b547a6773dbb817270b84a` | Mismo origen |
 | URL | `http://app.raulatienza.com` y `https://app.raulatienza.com` | `http://192.168.18.220` |
 | Publicación | Nginx del host · `/opt/portal` | Compose `app-launch` · Nginx `1.27-alpine` |
@@ -33,6 +34,9 @@ Usa una red Compose propia, no tiene persistencia funcional y se recupera con `r
 ## Catálogos comprobados
 
 El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace y CV. El catálogo Nexus contiene Replicant Lab, Reservas, Multimedia VPalace y enlaces externos a Consumos y CV. Un enlace presente en el catálogo interno no implica que su aplicación se ejecute en Nexus.
+
+!!! important "Regla"
+    `Tarjeta App Launch ≠ Runtime local`.
 
 ## Actualización y rollback
 

@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" data-source-fingerprint="2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e">
+<html lang="es" data-source-fingerprint="74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 3">
-  <meta name="source-fingerprint" content="sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e">
-  <title>App Launch · Ficha técnica · 2754c619d9d6</title>
+  <meta name="source-fingerprint" content="sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3">
+  <title>App Launch · Ficha técnica · 74c870a9cbe9</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -141,13 +141,13 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>App Launch</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/app-launch.md</dd><dt>Versión reproducible</dt><dd>sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/app-launch.md</dd><dt>Versión reproducible</dt><dd>sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/app-launch.md">
       <p class="source-path">aplicaciones/app-launch.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-app-launch">Aplicación · App Launch</h1>
-<p>Launchpad común para acceder a las aplicaciones públicas y a los servicios internos de Replicant Lab. La presentación es única; cada entorno recibe exclusivamente su catálogo activo.</p>
+<p>Catálogo y capa de navegación para acceder a aplicaciones públicas y servicios internos. App Launch no es el runtime de las tarjetas: la presentación es única y cada entorno recibe exclusivamente su catálogo activo.</p>
 <h2 id="p1-estado-auditado">Estado auditado</h2>
 <table>
 <thead>
@@ -158,6 +158,11 @@ tr:nth-child(even) td { background: #fafcfd; }
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Desarrollo</td>
+<td>Codex · HTML/CSS/JavaScript</td>
+<td>Mismo origen</td>
+</tr>
 <tr>
 <td>Repositorio</td>
 <td><code>ratienza/Apps_Lauch</code> · <code>main</code> · <code>ced6e149315ac14338b547a6773dbb817270b84a</code></td>
@@ -201,6 +206,10 @@ tr:nth-child(even) td { background: #fafcfd; }
 <p>Usa una red Compose propia, no tiene persistencia funcional y se recupera con <code>restart: unless-stopped</code>.</p>
 <h2 id="p1-catalogos-comprobados">Catálogos comprobados</h2>
 <p>El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace y CV. El catálogo Nexus contiene Replicant Lab, Reservas, Multimedia VPalace y enlaces externos a Consumos y CV. Un enlace presente en el catálogo interno no implica que su aplicación se ejecute en Nexus.</p>
+<div class="admonition important">
+<p class="admonition-title">Regla</p>
+<p><code>Tarjeta App Launch ≠ Runtime local</code>.</p>
+</div>
 <h2 id="p1-actualizacion-y-rollback">Actualización y rollback</h2>
 <div class="highlight"><pre><span></span><code><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">deploy</span><span class="p">\</span><span class="n">deploy</span><span class="p">.</span><span class="n">ps1</span> <span class="n">-Target</span> <span class="n">public</span>
 <span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">deploy</span><span class="p">\</span><span class="n">verify</span><span class="p">.</span><span class="n">ps1</span> <span class="n">-Target</span> <span class="n">public</span>
@@ -225,6 +234,6 @@ tr:nth-child(even) td { background: #fafcfd; }
 </ul></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:2754c619d9d6f36357ba35be78b3f1333a1880bc379bd381489e9bdd3dec1e1e</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:74c870a9cbe97df3313f0b24965c5011001ff02b47ec45b568c92af8c60a6dd3</footer>
 </body>
 </html>

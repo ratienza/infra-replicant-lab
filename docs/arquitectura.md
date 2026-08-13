@@ -5,69 +5,57 @@
 ```mermaid
 flowchart TB
     subgraph LAN["LAN 192.168.18.0/24"]
-        O2["Router O2<br/>Gateway / DHCP<br/>192.168.18.1"]
-        M["Linksys Mesh<br/>modo bridge"]
-        R["Replicant<br/>192.168.18.200<br/>Windows 11 Pro"]
-        N["Nexus<br/>192.168.18.220<br/>Ubuntu 24.04 LTS"]
-        O2 --> M
-        O2 --> R
-        R -->|Hyper-V + switch externo| N
+        R["Replicant<br/>Windows 11 Pro<br/>192.168.18.200"]
+        N["Nexus<br/>Ubuntu 24.04 LTS<br/>192.168.18.220"]
+        R -->|Hyper-V| N
+        N --> NR["Docker / servicios internos"]
+        NR --> NAL["App Launch Nexus"]
     end
-
-    GH["GitHub<br/>source of truth"]
-    DO["DigitalOcean<br/>app.raulatienza.com"]
-
-    GH -->|clone / pull| N
-    GH -->|deploy| DO
-    N -->|Docker| APPS["Aplicaciones locales"]
-    N <-->|"Reserva-Pistas · sincronización bajo demanda · SSH restringido"| DO
+    GH["GitHub<br/>fuente versionable"]
+    DO["DigitalOcean<br/>Nginx / servicios públicos"]
+    DAL["App Launch público"]
+    GC["Google Cloud<br/>Cloud Run / Firebase"]
+    GH --> N
+    GH --> DO
+    GH --> GC
+    DO --> DAL
+    NAL --> LINKS["Enlaces locales y remotos"]
+    DAL --> LINKS
+    LINKS --> GC
 ```
+
+App Launch es catálogo y capa de acceso. No ejecuta las aplicaciones enlazadas ni demuestra que residan en el mismo host.
 
 ## App Launch multientorno
 
 ```mermaid
 flowchart TD
-    A["Código común<br/>index.html + estilos + scripts"] --> B["Despliegue público"]
-    A --> C["Despliegue Nexus"]
-
-    D["catalogs/public.json<br/>Apps públicas"] --> B
-    E["catalogs/nexus.json<br/>Apps internas"] --> C
-
-    B --> F["VPS DigitalOcean<br/>app.raulatienza.com"]
-    C --> G["Nexus local<br/>192.168.18.220"]
-
-    F --> H["apps.json público"]
-    G --> I["apps.json Nexus"]
-
-    H --> J["El navegador muestra<br/>solo apps públicas"]
-    I --> K["El navegador muestra<br/>apps internas y públicas"]
+    CODE["Código común"] --> PUB["Deploy público"]
+    CODE --> LAB["Deploy Nexus"]
+    PC["Catálogo público"] --> PUB
+    NC["Catálogo Nexus"] --> LAB
+    PUB --> DO["DigitalOcean / Nginx"]
+    LAB --> NX["Nexus / Nginx"]
+    DO --> PURL["Enlaces públicos"]
+    NX --> NURL["Enlaces internos y externos"]
 ```
 
-El catálogo se selecciona durante el despliegue. Cada host recibe únicamente su `apps.json`; la lógica visual no contiene bifurcaciones por entorno.
+El catálogo se selecciona durante el despliegue. Cada host recibe únicamente su `apps.json`; la lógica visual es común.
 
-## Reparto de responsabilidades
+## Responsabilidades
 
 | Elemento | Responsabilidad |
 |---|---|
-| Replicant | Puesto de trabajo, UI, Hyper-V y administración del lab |
-| Nexus | Ejecución local de servicios Linux y contenedores |
+| Replicant | Estación principal Windows, desarrollo local, Hyper-V y administración |
+| Nexus | Laboratorio Linux, Docker, servicios internos y copias de consulta |
 | GitHub | Código, configuración versionable e histórico |
-| DigitalOcean | App Launch público, Reservas, Consumos y copia estática de Salones |
-| Google Cloud / Firebase | Producción del CV; no depende de Nexus |
-| `/opt/data` | Persistencia local |
-| `/opt/secrets` | Secretos y configuración privada fuera de Git |
-| `/opt/backups` | Copias; política aún pendiente |
+| DigitalOcean | App Launch público, Reservas y otros servicios publicados en el VPS |
+| Google Cloud Run | Producción canónica de Consumos Cupra |
+| Firebase Hosting | Producción pública del CV |
+| App Launch | Catálogo y navegación hacia aplicaciones locales o remotas |
+| `/opt/data`, `/opt/secrets`, `/opt/backups` | Datos, secretos y copias fuera de Git |
 
-## Regla arquitectónica
+!!! important "Dos reglas de lectura"
+    `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.
 
-!!! success "Regla base"
-    Si una necesidad puede resolverse como contenedor sin ensuciar el host, se prefiere Docker. El host Ubuntu se mantiene deliberadamente pequeño.
-
-## Qué no se instala por defecto
-
-- Un servidor DNS local. Replicant usa aliases puntuales en su archivo `hosts`.
-- Reverse proxy.
-- Portainer, Cockpit o Webmin.
-- Fail2ban mientras SSH permanezca restringido a la LAN.
-- Suites de monitorización complejas.
-- Automatización de backups hasta definir política.
+Docker es el patrón preferido para servicios internos de Nexus cuando encaja, no un requisito universal para todas las aplicaciones.
