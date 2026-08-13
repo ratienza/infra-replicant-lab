@@ -88,14 +88,27 @@ for (const item of routes) {
   if (item.name === "applications") {
     const catalog = await page.evaluate(() => ({
       cards: document.querySelectorAll(".app-catalog .app-card").length,
+      types: document.querySelectorAll(".app-catalog .app-type").length,
+      descriptions: [...document.querySelectorAll(".app-catalog .app-card")].map(card => card.textContent.trim().length),
       links: [...document.querySelectorAll(".app-card .tech-link a")].map(link => link.getAttribute("href")),
       legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
     }));
     if (
-      catalog.cards !== 8 || catalog.links.length !== 8 || catalog.legacyMarkdownLinks !== 0
+      catalog.cards !== 8 || catalog.types !== 8 || catalog.links.length !== 8 || catalog.legacyMarkdownLinks !== 0
+      || catalog.descriptions.some(length => length < 250)
       || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
     ) {
       failures.push(`${item.route}: invalid application catalog ${JSON.stringify(catalog)}`);
+    }
+  }
+  if (item.name === "architecture") {
+    const architecture = await page.evaluate(() => ({
+      concepts: [...document.querySelectorAll(".mermaid-rendered svg")].map(svg => svg.textContent.replace(/\s+/g, " ").trim()),
+      scrollable: [...document.querySelectorAll(".mermaid-rendered")].every(diagram => getComputedStyle(diagram).overflowX === "auto"),
+    }));
+    const expected = ["LAN 192.168.18.0/24", "App Launch Nexus", "App Launch público", "Cloud Run / Firebase", "Catálogo público", "Catálogo Nexus"];
+    if (!architecture.scrollable || expected.some(marker => !architecture.concepts.some(text => text.includes(marker)))) {
+      failures.push(`${item.route}: incomplete architecture representation ${JSON.stringify(architecture)}`);
     }
   }
   const state = await page.evaluate(() => ({

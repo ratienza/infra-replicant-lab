@@ -5,7 +5,7 @@
 | Alias SSH | `docean` |
 | Host | `app.raulatienza.com` |
 | SO | Linux en VPS DigitalOcean |
-| Acceso | SSH administrativo por clave |
+| Acceso | Desde Replicant: `ssh docean` (SSH administrativo por clave) |
 | Función | Nginx, App Launch público y servicios web alojados en el VPS |
 
 ## Modelo operativo

@@ -1,0 +1,23 @@
+.mermaid-rendered {
+  max-width: 100%;
+  margin: 1.25rem 0;
+  padding: 0.75rem;
+  overflow-x: auto;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.5rem;
+  background: var(--md-code-bg-color);
+}
+
+.mermaid-rendered svg {
+  display: block;
+  width: 100%;
+  min-width: 620px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .mermaid-rendered {
+    padding: 0.5rem;
+  }
+}

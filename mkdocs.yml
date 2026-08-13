@@ -59,6 +59,9 @@ extra_javascript:
   - javascripts/mermaid-init.js
   - javascripts/downloads.js
 
+extra_css:
+  - stylesheets/replicant.css
+
 markdown_extensions:
   - admonition
   - attr_list

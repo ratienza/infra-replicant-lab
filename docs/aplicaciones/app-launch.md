@@ -1,6 +1,6 @@
 # Aplicación · App Launch
 
-Catálogo y capa de navegación para acceder a aplicaciones públicas y servicios internos. App Launch no es el runtime de las tarjetas: la presentación es única y cada entorno recibe exclusivamente su catálogo activo.
+Catálogo **multientorno** y capa de navegación para acceder a aplicaciones públicas y servicios internos. Se publica en Nexus y DigitalOcean; la presentación es común, pero cada entorno puede recibir un catálogo diferente. App Launch no es el runtime de las aplicaciones enlazadas.
 
 ## Estado auditado
 
