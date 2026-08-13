@@ -6,6 +6,7 @@ Documentación operativa audiovisual para el personal del SH Valencia Palace: pa
 
 | Campo | Valor |
 |---|---|
+| Desarrollo | Codex / GitHub |
 | Repo | `ratienza/salones-av-valencia-palace` |
 | Host | Nexus |
 | Ruta | `/opt/apps/salones-av-valencia-palace` |

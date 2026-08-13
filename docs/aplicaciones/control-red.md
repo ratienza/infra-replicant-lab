@@ -6,6 +6,7 @@ Panel PowerShell para inventariar, nombrar y revisar dispositivos de la red loca
 
 | Campo | Valor |
 |---|---|
+| Desarrollo | PowerShell + Codex |
 | Repositorio | `ratienza/control-red` · privado |
 | `main` | `0e285d26f10ccb58e58d3ebbef35379b00a4b41d` |
 | Replicant | Herramienta local; no se ejecutó un escaneo durante la auditoría |

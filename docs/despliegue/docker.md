@@ -1,5 +1,7 @@
 # Despliegue · Docker
 
+Este patrón describe los servicios Docker de Nexus. No se extrapola a Cloud Run, Firebase Hosting, servicios del VPS ni aplicaciones locales; la comparación completa está en [Modelos de despliegue](modelos.md).
+
 ## Patrón
 
 ```text

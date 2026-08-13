@@ -1,46 +1,38 @@
 # Aplicación · Consumos Cupra
 
-Aplicación personal para registrar y analizar consumos de combustible, con entrada manual, estadísticas, lectura y escritura mediante Google Sheets y extracción opcional de datos desde imágenes.
+Aplicación personal para registrar y analizar consumos de combustible. Fue creada inicialmente con AI Studio y remediada con Codex sin alterar su funcionalidad.
 
-## Estado auditado
+## Estado actual
 
 | Campo | Valor |
 |---|---|
 | Repositorio | `ratienza/Consumos_Cupra` · privado |
-| `main` | `050535f9f36b1ea4708277e94ffecb9212bcd02a` |
-| Nexus | No existe checkout ni servicio; App Launch enlaza a DigitalOcean |
-| DigitalOcean | `consumos-cupra.service` activo |
-| Ruta / URL | `/opt/consumos-cupra` · `https://app.raulatienza.com/consumos/` |
-| Runtime | Node/Express en `127.0.0.1:8766`, publicado por Nginx |
-| Acceso observado | `401` sin credenciales HTTP Basic |
+| `main` desplegado | `9f66a368a1dfd58e5b52741e263e77866397a7f7` |
+| Build | `7db2eddf-8b54-46fa-a04b-1abcee75d72c` |
+| Imagen | `cosnumos-cupra:9f66a368...` |
+| Digest | `sha256:df935d3ace3ce6a319094dccfbae80606bc4a3c6d3044f87251d350443be8ed5` |
+| Runtime | Google Cloud Run · revisión `cosnumos-cupra-00009-pon` · tráfico `100 %` |
+| Rollback disponible | `cosnumos-cupra-00007-b7b` |
+| Nexus / DigitalOcean | Sin runtime canónico; App Launch únicamente enlaza la aplicación |
 
-## Arquitectura y funciones comprobadas
+## Arquitectura y despliegue
 
-El frontend usa React 19, Vite, Tailwind y Recharts. El backend Express sirve el frontend y expone endpoints para registros, configuración, pendientes, extracción de imágenes, escritura y diagnóstico de conectividad.
+```text
+AI Studio / Codex → GitHub → Cloud Build → Artifact Registry → Cloud Run
+```
 
-El código versionado contempla Google Sheets/Apps Script, una clave Gemini opcional, webhooks de alertas y almacenamiento local de pendientes. La compilación de producción genera el frontend y `dist/server.cjs`.
+React 19, Vite, Tailwind y Recharts forman el frontend. Express sirve el bundle y las APIs de registros, configuración, pendientes y diagnóstico. Google Sheets/Apps Script, Gemini y webhooks son dependencias externas opcionales; sus credenciales permanecen fuera de Git.
 
-No se ejecutaron escrituras, extracción de imágenes, webhooks ni llamadas a servicios externos durante la auditoría.
+El trigger productivo construye desde GitHub y crea una revisión candidata con `--no-traffic`, label `candidate`, `entrypoint: gcloud` y `CLOUD_LOGGING_ONLY`. La promoción de tráfico es un paso controlado posterior.
 
-## Despliegue, persistencia y rollback
+## Validación y operación
 
-DigitalOcean ejecuta el servicio como `www-data:www-data`, con `Restart=on-failure`. Nginx protege y reenvía `/consumos/` al loopback; el proceso Node no está publicado directamente.
+La revisión activa se validó con HTTP `200` en raíz, manifest, health, APIs GET no destructivas, configuración, pendientes, iconos, JavaScript y CSS. El build reproducible usa el lockfile y `npm ci`; lint, build e imagen Docker quedaron validados antes de la promoción.
 
-Los ficheros principales desplegados coinciden semánticamente con `main`; `server.ts` solo difiere en finales de línea. La ruta desplegada no es un checkout Git, por lo que falta una huella de versión runtime inequívoca y un procedimiento de rollback versionado.
+El rollback consiste en devolver el tráfico a `cosnumos-cupra-00007-b7b` o desplegar de nuevo su imagen conocida. No requiere reconstruir el código ni intervenir DigitalOcean o Nexus.
 
-Rollback seguro: recuperar un artefacto construido desde un commit conocido, restaurar la configuración/persistencia separada y reiniciar exclusivamente `consumos-cupra.service`. No debe copiarse el estado vivo a Git.
+## Seguridad y deuda
 
-## Pruebas realizadas
-
-- `pnpm run lint`: correcto.
-- `pnpm run build`: correcto.
-- Producción pública: `401` sin credenciales, confirmando la barrera de acceso.
-- Servicio `systemd`: activo el 13/08/2026.
-
-## Seguridad, dependencias y pendientes
-
-- Gemini, Sheets, Apps Script y webhooks son dependencias externas; sus credenciales deben permanecer fuera de Git.
-- El repositorio contiene URL y datos de ejemplo/configuración por defecto que deben tratarse como información privada de la aplicación.
-- Los endpoints de configuración y escritura dependen de la protección externa de Nginx; no se validó autorización interna propia.
-- No existe servicio de Consumos en Nexus.
-- Pendiente: documentar un despliegue reproducible desde `main`, una huella de versión y un rollback probado.
+- No mostrar valores de variables, secretos o integraciones externas.
+- Los pushes a ramas conectadas pueden activar Cloud Build; los cambios productivos requieren revisar trigger, candidato y tráfico.
+- `npm audit` registra cuatro vulnerabilidades conocidas: una baja, una moderada y dos altas. No se ejecutó `npm audit fix`; su tratamiento debe hacerse en un cambio separado y probado.

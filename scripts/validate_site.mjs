@@ -38,7 +38,7 @@ const routes = [
   { route: "/cambios/2026-08-09/", name: "changelog-previous", diagrams: 0 },
   { route: "/cambios/2026-08-08/", name: "changelog-oldest", diagrams: 0 },
   { route: "/descargas/", name: "downloads", diagrams: 0 },
-  { route: "/fases/05-poc-salones/", name: "mermaid-salones", diagrams: 1 },
+  { route: "/despliegue/modelos/", name: "mermaid-deploy-models", diagrams: 1 },
   { route: "/red/overview/", name: "mermaid-network", diagrams: 1 },
   { route: "/despliegue/git/", name: "mermaid-git", diagrams: 1 },
   { route: "/autodocumentacion/", name: "mermaid-autodoc", diagrams: 1 },
@@ -75,12 +75,13 @@ for (const item of routes) {
     }
   }
   if (item.name === "pending") {
-    const details = await page.locator(".status-panel details").count();
-    const initiallyOpen = await page.locator(".status-panel details[open]").count();
-    if (details !== 8 || initiallyOpen !== 0) failures.push(`${item.route}: compact details ${details}/${initiallyOpen}`);
-    await page.locator(".status-panel details summary").first().click();
-    if (!await page.locator(".status-panel details").first().evaluate(element => element.open)) {
-      failures.push(`${item.route}: detail did not open`);
+    const pendingSummary = await page.evaluate(() => ({
+      headings: [...document.querySelectorAll("main h2")].map(item => item.textContent.trim()),
+      postCartera: document.querySelector("main")?.textContent.includes("POST-CARTERA") ?? false,
+    }));
+    const required = ["Activos", "Deuda POST-CARTERA", "Mejoras opcionales"];
+    if (!required.every(value => pendingSummary.headings.includes(value)) || !pendingSummary.postCartera) {
+      failures.push(`${item.route}: incomplete pending summary ${JSON.stringify(pendingSummary)}`);
     }
   }
   const state = await page.evaluate(() => ({

@@ -3,9 +3,11 @@
 ## Desde Replicant
 
 ```powershell
-ssh nexus
+ssh raul@nexus
 ssh docean
 ```
+
+`ssh raul@nexus` es la referencia operativa principal. El alias corto puede depender de la configuración SSH local y no debe darse por supuesto.
 
 ## Configuración conceptual
 
