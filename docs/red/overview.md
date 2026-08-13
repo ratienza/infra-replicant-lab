@@ -25,4 +25,11 @@ flowchart LR
 
 ## DNS
 
-Se deja pendiente. Para dos equipos de trabajo, la operación por IP es aceptable y evita añadir una dependencia innecesaria por ahora.
+No existe servidor DNS local. Replicant mantiene dos aliases puntuales en el archivo `hosts` de Windows:
+
+| Nombre | IP | Uso |
+|---|---|---|
+| `replicant` | `192.168.18.200` | Escritorio remoto y herramientas del host |
+| `nexus` | `192.168.18.220` | SSH y `http://nexus/` |
+
+El alias solo resuelve el nombre. El protocolo, puerto, usuario y credenciales siguen perteneciendo a cada servicio.

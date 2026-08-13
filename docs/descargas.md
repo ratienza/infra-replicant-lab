@@ -11,14 +11,29 @@ La documentación MkDocs de este proyecto es la única referencia canónica. Los
 
 | Artefacto | Ruta | Cobertura |
 |---|---|---|
-| HTML autocontenido | `docs/downloads/Replicant-Lab.html` | Toda la navegación MkDocs, índice interno y cinco Mermaid |
-| PDF A4 | `docs/downloads/Replicant-Lab.pdf` | Portada, índice, documentación completa, numeración y cinco Mermaid |
+| HTML autocontenido | `docs/downloads/Replicant-Lab.html` | Toda la navegación MkDocs, índice interno y seis Mermaid |
+| PDF A4 | `docs/downloads/Replicant-Lab.pdf` | Portada, índice, documentación completa, numeración y seis Mermaid |
 
 No se mantiene ninguna copia alternativa.
 
+## Fichas técnicas individuales
+
+Cada pareja HTML/PDF se genera desde la misma página Markdown incluida en la navegación. El HTML funciona offline y el PDF está preparado para consulta o archivo.
+
+| Aplicación | HTML | PDF |
+|---|---|---|
+| App Launch | [Descargar](downloads/apps/app-launch.html) | [Descargar](downloads/apps/app-launch.pdf) |
+| Salones AV | [Descargar](downloads/apps/salones-av.html) | [Descargar](downloads/apps/salones-av.pdf) |
+| Reserva-Pistas-UTP | [Descargar](downloads/apps/reserva-pistas-utp.html) | [Descargar](downloads/apps/reserva-pistas-utp.pdf) |
+| Consumos Cupra | [Descargar](downloads/apps/consumos-cupra.html) | [Descargar](downloads/apps/consumos-cupra.pdf) |
+| CV de Raúl | [Descargar](downloads/apps/cv-raul.html) | [Descargar](downloads/apps/cv-raul.pdf) |
+| Control de Red | [Descargar](downloads/apps/control-red.html) | [Descargar](downloads/apps/control-red.pdf) |
+| Cartera Estratégica | [Descargar](downloads/apps/cartera-estrategica.html) | [Descargar](downloads/apps/cartera-estrategica.pdf) |
+| Replicant Lab | [Descargar](downloads/apps/replicant-lab.html) | [Descargar](downloads/apps/replicant-lab.pdf) |
+
 ## Propiedades verificables
 
-- Ambos artefactos muestran la misma huella SHA-256 de las fuentes.
+- Todos los artefactos muestran la misma huella SHA-256 de las fuentes.
 - El HTML incorpora CSS, JavaScript y Mermaid localmente y funciona mediante `file://` sin red.
 - El HTML no solicita CDN ni contiene clientes de recarga, conexiones dinámicas o referencias al servidor de desarrollo.
 - El PDF mantiene texto seleccionable, enlaces, tablas, código, avisos y diagramas.
@@ -36,4 +51,4 @@ CI ejecuta el modo `check`, vuelve a renderizar un PDF de control, verifica la h
 
 ## Estado de despliegue
 
-El pipeline y el runtime estático están implementados, probados localmente y validados en Nexus. El 09/08/2026 se comprobaron el sitio publicado, los cinco diagramas y las descargas reales; los ficheros servidos coincidieron byte a byte con los artefactos versionados. Esta validación corresponde al laboratorio privado y no se extrapola a producción.
+El pipeline y el runtime estático están implementados y probados localmente. El 13/08/2026 se comprobaron las 22 rutas del sitio, seis diagramas, el dossier global y las ocho parejas de fichas individuales; los ficheros servidos por el entorno de validación coincidieron byte a byte con los artefactos generados. La publicación en Nexus se valida de nuevo después de integrar el cambio en `main`; esta evidencia corresponde al laboratorio privado y no se extrapola a producción.

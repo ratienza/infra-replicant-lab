@@ -17,7 +17,7 @@ Ficha de infraestructura y operación de la aplicación de reservas de pádel de
 | Sincronización | ✅ Bidireccional, por registros y exclusivamente bajo demanda |
 | Issue de handover | [#2](https://github.com/ratienza/Reserva-Pistas-UTP/issues/2) cerrado con evidencias |
 
-Validación final: **10/08/2026**. No se cambiaron puertos, UFW, DNS, certificados, Nginx, autenticación pública ni otros servicios.
+Validación de sincronización: **10/08/2026**. Revalidación de servicio y código: **13/08/2026**. No se cambiaron puertos, UFW, DNS, certificados, Nginx, autenticación pública ni otros servicios.
 
 ## Arquitectura real
 
@@ -58,6 +58,21 @@ Nexus coordina ambas direcciones. La clave dedicada está montada de solo lectur
 | `backups/`, logs, PID, red y `app.local.env` | Backup/configuración/estado local | Nunca |
 
 La migración idempotente conservó los 18 registros y eliminó `username` y `password` del histórico. Las tareas consultan `credentials.local.json` únicamente al ejecutarse. `/api/settings` ya no devuelve la contraseña al navegador.
+
+## Runtime revalidado el 13/08/2026
+
+| Elemento | Evidencia |
+|---|---|
+| GitHub / Nexus | `main` · `6df1698d3346db5c35f7d173b5d7dc2567ce8a5e` |
+| Contenedores | `reserva-pistas-nginx` y `reserva-pistas-app` activos |
+| Publicación Nexus | Nginx `192.168.18.220:8083 → 80`; backend sin puerto host |
+| Persistencia | `/opt/data/reserva-pistas → /app/data` en lectura/escritura |
+| Usuario de app | UID/GID `1000:1000` |
+| Autoarranque | `restart: unless-stopped` |
+| DigitalOcean | `reserva-pistas.service` activo como `reserva:reserva` |
+| Producción | `/padel/` devolvió `401` sin credenciales, como se esperaba |
+
+Los hashes de `app.py`, `templates/index.html` y `sync_engine.py` desplegados en DigitalOcean coincidieron con `main`. Se ejecutaron **21 pruebas** locales sobre una copia limpia y todas terminaron correctamente. No se hicieron reservas, cancelaciones, sincronizaciones, notificaciones ni escrituras sobre datos reales.
 
 ## Fusión y conflictos
 

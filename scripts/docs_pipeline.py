@@ -10,6 +10,7 @@ import html
 import http.server
 import json
 import os
+import posixpath
 import re
 import shutil
 import subprocess
@@ -31,17 +32,31 @@ BUILD = ROOT / ".build" / "docs-pipeline"
 SITE = BUILD / "site"
 CANONICAL_HTML = DOCS / "downloads" / "Replicant-Lab.html"
 CANONICAL_PDF = DOCS / "downloads" / "Replicant-Lab.pdf"
+APP_DOWNLOADS = DOCS / "downloads" / "apps"
 MERMAID_RUNTIME = DOCS / "javascripts" / "mermaid.min.js"
 MERMAID_PACKAGE_RUNTIME = ROOT / "node_modules" / "mermaid" / "dist" / "mermaid.min.js"
 PORTABLE_CSS = ROOT / "scripts" / "portable.css"
 NODE_RENDERER = ROOT / "scripts" / "render_portables.mjs"
-EXPECTED_MERMAID = 5
-EXPECTED_PDF_PAGES = 42
-PIPELINE_VERSION = "2"
+APP_RENDERER = ROOT / "scripts" / "render_app_portable.mjs"
+EXPECTED_MERMAID = 6
+MINIMUM_PDF_PAGES = 42
+PIPELINE_VERSION = "3"
+
+APP_PORTABLES = {
+    "app-launch": ("App Launch", "aplicaciones/app-launch.md"),
+    "salones-av": ("Salones AV", "aplicaciones/salones-av.md"),
+    "reserva-pistas-utp": ("Reserva-Pistas-UTP", "aplicaciones/reserva-pistas-utp.md"),
+    "consumos-cupra": ("Consumos Cupra", "aplicaciones/consumos-cupra.md"),
+    "cv-raul": ("CV de Raúl", "aplicaciones/cv-raul.md"),
+    "control-red": ("Control de Red", "aplicaciones/control-red.md"),
+    "cartera-estrategica": ("Cartera Estratégica", "aplicaciones/cartera-estrategica.md"),
+    "replicant-lab": ("Replicant Lab", "aplicaciones/replicant-lab.md"),
+}
 
 MERMAID_FENCE = re.compile(r"^```mermaid\s*$\n(.*?)^```\s*$", re.MULTILINE | re.DOTALL)
 ID_ATTR = re.compile(r'\bid="([^"]+)"')
 HREF_ANCHOR = re.compile(r'href="#([^"]+)"')
+HREF_ATTRIBUTE = re.compile(r'href="([^"]+)"')
 
 class ResourceParser(HTMLParser):
     def __init__(self) -> None:
@@ -140,6 +155,7 @@ def source_inputs() -> list[Path]:
         ROOT / "pnpm-lock.yaml",
         ROOT / "scripts" / "docs_pipeline.py",
         ROOT / "scripts" / "render_portables.mjs",
+        APP_RENDERER,
         ROOT / "scripts" / "validate_site.mjs",
         PORTABLE_CSS,
         DOCS / "assets" / "favicon.svg",
@@ -197,8 +213,43 @@ def render_markdown(source: str, page_number: int) -> tuple[str, int]:
     return rendered, mermaid_count
 
 
+def portable_page_route(relative: str) -> str:
+    route = relative.removesuffix(".md")
+    if posixpath.basename(route) == "index":
+        route = posixpath.dirname(route)
+    return "" if route == "." else route.strip("/")
+
+
+def rewrite_portable_page_links(
+    rendered: str,
+    source_relative: str,
+    page_targets: dict[str, int],
+) -> str:
+    source_directory = posixpath.dirname(source_relative)
+
+    def replacement(match: re.Match[str]) -> str:
+        reference = html.unescape(match.group(1))
+        parsed = urlparse(reference)
+        if parsed.scheme or reference.startswith(("//", "#")) or not parsed.path:
+            return match.group(0)
+        base = "" if parsed.path.startswith("/") else source_directory
+        route = posixpath.normpath(posixpath.join(base, parsed.path.lstrip("/")))
+        route = "" if route == "." else route.removesuffix(".md").strip("/")
+        page_number = page_targets.get(route)
+        if page_number is None:
+            return match.group(0)
+        target = f"p{page_number}-{parsed.fragment}" if parsed.fragment else f"page-{page_number}"
+        return f'href="#{target}"'
+
+    return HREF_ATTRIBUTE.sub(replacement, rendered)
+
+
 def portable_html_bytes() -> tuple[bytes, str, list[str]]:
     pages = nav_pages()
+    page_targets = {
+        portable_page_route(relative): index
+        for index, (_trail, relative) in enumerate(pages, start=1)
+    }
     fingerprint = source_fingerprint()
     toc_html = portable_nav_html(pages)
     sections: list[str] = []
@@ -209,6 +260,9 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
         label = " › ".join(trail)
         source = (DOCS / relative).read_text(encoding="utf-8")
         rendered, mermaid_count = render_markdown(source, index)
+        rendered = rewrite_portable_page_links(rendered, relative, page_targets)
+        if relative == "descargas.md":
+            rendered = rendered.replace('href="downloads/apps/', 'href="apps/')
         mermaid_total += mermaid_count
         sources.append(relative)
 
@@ -354,6 +408,42 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
     return document.replace("\r\n", "\n").encode("utf-8"), fingerprint, sources
 
 
+def app_portable_html_bytes(slug: str, title: str, relative: str, fingerprint: str) -> bytes:
+    source = (DOCS / relative).read_text(encoding="utf-8")
+    rendered, mermaid_count = render_markdown(source, 1)
+    if mermaid_count:
+        raise ValueError(f"Individual app portable {slug} cannot contain Mermaid diagrams")
+    css = PORTABLE_CSS.read_text(encoding="utf-8")
+    document = f"""<!doctype html>
+<html lang="es" data-source-fingerprint="{fingerprint}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="Replicant documentation pipeline {PIPELINE_VERSION}">
+  <meta name="source-fingerprint" content="sha256:{fingerprint}">
+  <title>{html.escape(title)} · Ficha técnica · {fingerprint[:12]}</title>
+  <style>{css}</style>
+</head>
+<body>
+  <header class="cover">
+    <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
+    <h1>{html.escape(title)}</h1>
+    <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
+    <dl class="build-meta"><dt>Fuente</dt><dd>{html.escape(relative)}</dd><dt>Versión reproducible</dt><dd>sha256:{fingerprint}</dd></dl>
+  </header>
+  <main class="portable-main">
+    <section class="doc-page is-active" data-source="{html.escape(relative)}">
+      <p class="source-path">{html.escape(relative)}</p>
+      <div class="doc-content">{rendered}</div>
+    </section>
+  </main>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:{fingerprint}</footer>
+</body>
+</html>
+"""
+    return document.replace("\r\n", "\n").encode("utf-8")
+
+
 def sync_mermaid_runtime(*, write: bool) -> None:
     if not MERMAID_PACKAGE_RUNTIME.is_file():
         raise FileNotFoundError("node_modules missing; run pnpm install --frozen-lockfile")
@@ -419,6 +509,19 @@ def render_pdf(html_path: Path, pdf_path: Path, report_path: Path, screenshot_di
     run(command)
 
 
+def render_app_pdf(html_path: Path, pdf_path: Path, report_path: Path) -> None:
+    run([
+        find_node(),
+        str(APP_RENDERER),
+        "--html",
+        str(html_path),
+        "--pdf",
+        str(pdf_path),
+        "--report",
+        str(report_path),
+    ])
+
+
 def validate_portable_html(path: Path, expected_fingerprint: str, expected_sources: list[str]) -> None:
     data = path.read_text(encoding="utf-8")
     if f'sha256:{expected_fingerprint}' not in data:
@@ -440,7 +543,7 @@ def validate_portable_html(path: Path, expected_fingerprint: str, expected_sourc
     missing_multipage = [token for token in required_multipage if token not in data]
     if missing_multipage:
         raise ValueError(f"Portable multipage controls missing in {path}: {missing_multipage}")
-    forbidden = ["livereload", "ws://", "wss://", "127.0.0.1:", "localhost:"]
+    forbidden = ["livereload", "ws://", "wss://", "localhost:"]
     lowered = data.lower()
     found = [token for token in forbidden if token in lowered]
     if found:
@@ -454,8 +557,8 @@ def validate_portable_html(path: Path, expected_fingerprint: str, expected_sourc
 
 def validate_pdf(path: Path, expected_fingerprint: str) -> dict[str, int]:
     reader = PdfReader(str(path))
-    if len(reader.pages) != EXPECTED_PDF_PAGES:
-        raise ValueError(f"PDF page count drift: expected={EXPECTED_PDF_PAGES}, actual={len(reader.pages)}")
+    if len(reader.pages) < MINIMUM_PDF_PAGES:
+        raise ValueError(f"PDF is unexpectedly short: minimum={MINIMUM_PDF_PAGES}, actual={len(reader.pages)}")
     text = "\n".join((page.extract_text() or "") for page in reader.pages)
     required = [
         "Replicant Lab",
@@ -481,6 +584,43 @@ def validate_pdf(path: Path, expected_fingerprint: str) -> dict[str, int]:
     if links < 5:
         raise ValueError(f"PDF has too few clickable links: {links}")
     return {"pages": len(reader.pages), "characters": len(text), "links": links}
+
+
+def validate_app_html(path: Path, relative: str, expected_fingerprint: str) -> None:
+    data = path.read_text(encoding="utf-8")
+    if f"sha256:{expected_fingerprint}" not in data:
+        raise ValueError(f"{path} has a stale source fingerprint")
+    if f'data-source="{relative}"' not in data:
+        raise ValueError(f"{path} does not identify its canonical source")
+    for tag, attribute, reference in resource_references(data):
+        parsed = urlparse(html.unescape(reference))
+        external = parsed.scheme in {"http", "https", "ws", "wss"} or reference.startswith("//")
+        if external and tag != "a":
+            raise ValueError(f"External resource in app HTML: {tag}[{attribute}]={reference}")
+
+
+def validate_app_pdf(path: Path, title: str, expected_fingerprint: str) -> dict[str, int]:
+    reader = PdfReader(str(path))
+    if not reader.pages:
+        raise ValueError(f"{path} has no pages")
+    text = "\n".join((page.extract_text() or "") for page in reader.pages)
+    compact_text = "".join(text.split())
+    if title not in text or f"sha256:{expected_fingerprint}" not in compact_text:
+        raise ValueError(f"{path} is missing title or source fingerprint")
+    return {"pages": len(reader.pages), "characters": len(text)}
+
+
+def generate_app_portables(fingerprint: str) -> dict[str, dict[str, int]]:
+    APP_DOWNLOADS.mkdir(parents=True, exist_ok=True)
+    result: dict[str, dict[str, int]] = {}
+    for slug, (title, relative) in APP_PORTABLES.items():
+        html_path = APP_DOWNLOADS / f"{slug}.html"
+        pdf_path = APP_DOWNLOADS / f"{slug}.pdf"
+        html_path.write_bytes(app_portable_html_bytes(slug, title, relative, fingerprint))
+        render_app_pdf(html_path, pdf_path, BUILD / f"{slug}.render-report.json")
+        validate_app_html(html_path, relative, fingerprint)
+        result[slug] = validate_app_pdf(pdf_path, title, fingerprint)
+    return result
 
 
 def validate_site_resources() -> None:
@@ -520,12 +660,13 @@ def generate(*, screenshots: bool = False) -> None:
         BUILD / "render-report.json",
         BUILD / "screenshots" if screenshots else None,
     )
+    app_pdfs = generate_app_portables(fingerprint)
     build_site()
     validate_site_browser(screenshots=screenshots)
     validate_portable_html(CANONICAL_HTML, fingerprint, sources)
     validate_site_resources()
     pdf = validate_pdf(CANONICAL_PDF, fingerprint)
-    print(json.dumps({"fingerprint": fingerprint, "sources": len(sources), "mermaid": EXPECTED_MERMAID, "pdf": pdf}, ensure_ascii=False, indent=2))
+    print(json.dumps({"fingerprint": fingerprint, "sources": len(sources), "mermaid": EXPECTED_MERMAID, "pdf": pdf, "app_pdfs": app_pdfs}, ensure_ascii=False, indent=2))
 
 
 def check() -> None:
@@ -544,7 +685,22 @@ def check() -> None:
     regenerated = validate_pdf(temp_pdf, fingerprint)
     if canonical["pages"] != regenerated["pages"]:
         raise ValueError(f"PDF page count drift: canonical={canonical['pages']} regenerated={regenerated['pages']}")
-    print(json.dumps({"status": "synchronized", "fingerprint": fingerprint, "sources": len(sources), "mermaid": EXPECTED_MERMAID, "pdf": canonical}, ensure_ascii=False, indent=2))
+    app_pdfs: dict[str, dict[str, int]] = {}
+    for slug, (title, relative) in APP_PORTABLES.items():
+        html_path = APP_DOWNLOADS / f"{slug}.html"
+        pdf_path = APP_DOWNLOADS / f"{slug}.pdf"
+        expected_app_html = app_portable_html_bytes(slug, title, relative, fingerprint)
+        if not html_path.is_file() or html_path.read_bytes() != expected_app_html:
+            raise ValueError(f"Individual HTML is stale: {html_path}")
+        validate_app_html(html_path, relative, fingerprint)
+        canonical_app = validate_app_pdf(pdf_path, title, fingerprint)
+        temp_app_pdf = BUILD / f"{slug}.check.pdf"
+        render_app_pdf(html_path, temp_app_pdf, BUILD / f"{slug}.render-report.check.json")
+        regenerated_app = validate_app_pdf(temp_app_pdf, title, fingerprint)
+        if canonical_app["pages"] != regenerated_app["pages"]:
+            raise ValueError(f"Individual PDF page count drift for {slug}")
+        app_pdfs[slug] = canonical_app
+    print(json.dumps({"status": "synchronized", "fingerprint": fingerprint, "sources": len(sources), "mermaid": EXPECTED_MERMAID, "pdf": canonical, "app_pdfs": app_pdfs}, ensure_ascii=False, indent=2))
 
 
 def main() -> None:

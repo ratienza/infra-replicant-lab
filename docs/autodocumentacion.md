@@ -12,6 +12,8 @@ flowchart LR
     S --> H[HTML completo offline]
     H --> P[Playwright]
     P --> PDF[PDF A4 completo]
+    S --> F[Fichas por aplicación]
+    F --> FP[HTML + PDF individuales]
     H --> C[Validación Mermaid y recursos]
     WEB --> N[Nginx]
 ```
@@ -20,6 +22,7 @@ flowchart LR
 
 - `scripts/docs_pipeline.py`: orquesta construcción, generación, sincronía y validaciones estructurales.
 - `scripts/render_portables.mjs`: renderiza Mermaid en Chromium y produce PDF y evidencias.
+- `scripts/render_app_portable.mjs`: valida escritorio/móvil y genera cada PDF individual.
 - `scripts/portable.css`: presentación compartida por HTML offline y PDF.
 - `requirements-docs.txt`: dependencias Python exactas.
 - `package.json` y `pnpm-lock.yaml`: Mermaid, Playwright y árbol Node fijados.
@@ -27,7 +30,7 @@ flowchart LR
 
 ## Huella y reproducibilidad
 
-La huella incluye configuración MkDocs, páginas en `nav`, recursos y herramientas que afectan a los portables. El HTML debe coincidir byte a byte con la salida esperada. El PDF se comprueba mediante esa huella visible, cobertura textual, número de páginas, enlaces y equivalencia de paginación con una regeneración de control.
+La huella incluye configuración MkDocs, páginas en `nav`, recursos y herramientas que afectan a los portables. Los HTML deben coincidir byte a byte con la salida esperada. Los PDF se comprueban mediante esa huella visible, cobertura textual y equivalencia de paginación con una regeneración de control.
 
 ## Temporales
 

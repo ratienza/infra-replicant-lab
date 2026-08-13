@@ -74,14 +74,19 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 | UFW | ✅ Activo |
 | Docker / Compose | ✅ Operativo |
 | GitHub desde Nexus | ✅ Operativo |
-| Salones AV | ✅ Observada en Nexus · `8081` |
+| App Launch | ✅ Multientorno validado · Nexus `80` + DigitalOcean HTTP/HTTPS |
+| Puerto `8080` | ✅ Libre y no asignado |
+| Salones AV | ⚠️ Operativa en Nexus · `8081` · deriva Compose documentada |
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ MVP local en Replicant · no desplegada en Nexus |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
-| Producción DigitalOcean | ✅ Reserva-Pistas validada de forma acotada el 10/08/2026 |
+| Consumos Cupra | ⚠️ Operativo en DigitalOcean · despliegue por SHA pendiente |
+| CV | ⚠️ Cloud/Firebase · checkout Nexus no servido |
+| Control de Red | ⚠️ Herramienta local · checkout Nexus no servido |
+| Producción DigitalOcean | ✅ App Launch, Reservas, Consumos y Salones observados el 13/08/2026 |
 | Backups | ⏳ Pendiente |
-| DNS local | ⏳ Pendiente |
+| Nombres locales | ✅ `replicant` y `nexus` mediante `hosts` en Replicant |
 
 ## Cómo usar esta documentación
 
@@ -94,5 +99,6 @@ Documentación viva de la infraestructura local y cloud del laboratorio.
 - **Operación** concentra comandos y procedimientos cortos.
 - **Pendientes** conserva el estado y los encargos que deben retomarse sin depender de memoria de chat.
 - **Decisiones** registra criterios que no conviene redescubrir cada vez.
+- **Descargas** ofrece el documento global y las fichas HTML/PDF derivadas de cada aplicación.
 
 Los estados distinguen entre contenido **implementado en Git**, **probado localmente**, **validado u observado en Nexus** y **validado en producción**. Una evidencia de un entorno no se extrapola a otro.

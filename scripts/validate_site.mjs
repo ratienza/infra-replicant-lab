@@ -21,13 +21,22 @@ const reportPath = path.resolve(args.get("report"));
 const screenshots = args.get("screenshots") ? path.resolve(args.get("screenshots")) : null;
 const routes = [
   { route: "/", name: "home", diagrams: 0 },
-  { route: "/arquitectura/", name: "architecture", diagrams: 1 },
+  { route: "/arquitectura/", name: "architecture", diagrams: 2 },
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
+  { route: "/aplicaciones/app-launch/", name: "app-launch", diagrams: 0 },
+  { route: "/aplicaciones/salones-av/", name: "salones", diagrams: 0 },
+  { route: "/aplicaciones/reserva-pistas-utp/", name: "reservas", diagrams: 0 },
+  { route: "/aplicaciones/consumos-cupra/", name: "consumos", diagrams: 0 },
+  { route: "/aplicaciones/cv-raul/", name: "cv", diagrams: 0 },
+  { route: "/aplicaciones/control-red/", name: "control-red", diagrams: 0 },
+  { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 0 },
+  { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/pendientes-codex/", name: "pending", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
-  { route: "/cambios/2026-08-09/", name: "changelog", diagrams: 0 },
-  { route: "/cambios/2026-08-08/", name: "changelog-previous", diagrams: 0 },
+  { route: "/cambios/2026-08-13/", name: "changelog", diagrams: 0 },
+  { route: "/cambios/2026-08-09/", name: "changelog-previous", diagrams: 0 },
+  { route: "/cambios/2026-08-08/", name: "changelog-oldest", diagrams: 0 },
   { route: "/descargas/", name: "downloads", diagrams: 0 },
   { route: "/fases/05-poc-salones/", name: "mermaid-salones", diagrams: 1 },
   { route: "/red/overview/", name: "mermaid-network", diagrams: 1 },
@@ -40,6 +49,10 @@ const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
 const failures = [];
 let totalDiagrams = 0;
+
+function isOptionalFontFailure(value) {
+  return /^https:\/\/fonts\.(googleapis|gstatic)\.com\//.test(value);
+}
 
 for (const item of routes) {
   const consoleErrors = [];
@@ -79,8 +92,14 @@ for (const item of routes) {
   totalDiagrams += state.diagrams;
   if (state.diagrams !== item.diagrams || state.rawMermaid) failures.push(`${item.route}: Mermaid ${JSON.stringify(state)}`);
   if (state.horizontalOverflow) failures.push(`${item.route}: desktop horizontal overflow`);
-  if (consoleErrors.length) failures.push(`${item.route}: console ${consoleErrors.join(" | ")}`);
-  if (requestFailures.length) failures.push(`${item.route}: requests ${requestFailures.join(" | ")}`);
+  const optionalFontFailures = requestFailures.filter(isOptionalFontFailure);
+  const actionableRequestFailures = requestFailures.filter(value => !isOptionalFontFailure(value));
+  const actionableConsoleErrors = consoleErrors.filter(value => !(
+    optionalFontFailures.length
+    && value === "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+  ));
+  if (actionableConsoleErrors.length) failures.push(`${item.route}: console ${actionableConsoleErrors.join(" | ")}`);
+  if (actionableRequestFailures.length) failures.push(`${item.route}: requests ${actionableRequestFailures.join(" | ")}`);
   if (responseFailures.length) failures.push(`${item.route}: responses ${responseFailures.join(" | ")}`);
   if (screenshots && ["home", "architecture", "nexus", "applications", "pending", "changelog", "downloads"].includes(item.name)) {
     await page.screenshot({ path: path.join(screenshots, `${item.name}-desktop.png`), fullPage: true });
@@ -90,7 +109,11 @@ for (const item of routes) {
   page.off("response", onResponse);
 }
 
-for (const item of [{ route: "/", name: "home" }, { route: "/descargas/", name: "downloads" }]) {
+for (const item of [
+  { route: "/", name: "home" },
+  { route: "/descargas/", name: "downloads" },
+  { route: "/aplicaciones/app-launch/", name: "app-launch" },
+]) {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(new URL(item.route.replace(/^\//, ""), base).href, { waitUntil: "networkidle" });
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 2);
@@ -111,11 +134,27 @@ async function compareDownload(relative) {
 const downloads = {
   html: await compareDownload("downloads/Replicant-Lab.html"),
   pdf: await compareDownload("downloads/Replicant-Lab.pdf"),
+  apps: {},
 };
-if (totalDiagrams !== 5) failures.push(`Expected five Mermaid diagrams across site, got ${totalDiagrams}`);
+for (const slug of [
+  "app-launch",
+  "salones-av",
+  "reserva-pistas-utp",
+  "consumos-cupra",
+  "cv-raul",
+  "control-red",
+  "cartera-estrategica",
+  "replicant-lab",
+]) {
+  downloads.apps[slug] = {
+    html: await compareDownload(`downloads/apps/${slug}.html`),
+    pdf: await compareDownload(`downloads/apps/${slug}.pdf`),
+  };
+}
+if (totalDiagrams !== 6) failures.push(`Expected six Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
-const report = { routes: routes.length, desktopScreenshots: screenshots ? 7 : 0, mobileScreenshots: screenshots ? 2 : 0, mermaid: totalDiagrams, downloads };
+const report = { routes: routes.length, desktopScreenshots: screenshots ? 7 : 0, mobileScreenshots: screenshots ? 3 : 0, mermaid: totalDiagrams, downloads };
 await fs.mkdir(path.dirname(reportPath), { recursive: true });
 await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 await browser.close();

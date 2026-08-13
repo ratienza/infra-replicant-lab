@@ -40,17 +40,23 @@
 | Puerto | Uso | Ámbito |
 |---|---|---|
 | `22/tcp` | SSH | LAN |
+| `80/tcp` | App Launch | LAN |
+| `8080/tcp` | Libre | Sin listener |
 | `8081/tcp` | Salones AV | LAN |
 | `8082/tcp` | Replicant Lab · Nginx estático | LAN |
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `53` | systemd-resolved | localhost |
 
-## Estado observado el 10/08/2026
+## Estado observado el 13/08/2026
 
 - Docker y `unattended-upgrades` activos.
 - Replicant Lab ejecutándose como sitio estático en Nginx, construido desde el `Dockerfile` y publicado en `192.168.18.220:8082 → 80`, sin bind mounts ni servidor de desarrollo.
 - Salones AV accesible mediante Nginx en `192.168.18.220:8081`.
 - Reserva-Pistas-UTP ejecutándose como backend privado y proxy Nginx en `192.168.18.220:8083`, con autenticación, datos persistentes separados y canal saliente SSH restringido hacia DigitalOcean.
+- App Launch ejecutándose en el puerto `80` mediante Nginx `1.27-alpine`, con sitio y configuración montados en solo lectura.
+- `8080` sin listener.
+- CV y Control de Red presentes solo como checkouts; no son servicios Nexus.
+- Consumos Cupra y Cartera Estratégica sin checkout servido ni puerto Nexus.
 
 Esta observación confirma el estado del laboratorio privado en esa fecha. DigitalOcean se validó por separado y de forma acotada para el cierre de Reserva-Pistas-UTP; cada repositorio conserva sus definiciones operativas.
 

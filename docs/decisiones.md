@@ -6,7 +6,7 @@ Registro corto de decisiones que no conviene redescubrir.
 |---|---|
 | Nexus usa IP fija `.220` | Identidad estable del servidor local |
 | Replicant usa `.200` | Identidad estable del host físico |
-| DNS local se pospone | Con dos equipos de trabajo, las IP son suficientes |
+| Aliases locales sin servidor DNS | Replicant resuelve `nexus → 192.168.18.220` y `replicant → 192.168.18.200` mediante `hosts`; no se añade infraestructura DNS |
 | Docker como estándar | Mantener limpio el host Ubuntu |
 | GitHub como source of truth | Reproducibilidad e histórico |
 | Datos y secretos fuera de Git | Seguridad y separación de responsabilidades |
@@ -21,3 +21,7 @@ Registro corto de decisiones que no conviene redescubrir.
 | Huella SHA-256 para portables | Evita timestamps variables y permite demostrar sincronía inequívoca con las fuentes |
 | PDF tratado como binario | `.gitattributes` anula `diff=astextplain` y conversiones CRLF de Git para Windows |
 | Rutas portables únicas | HTML y PDF viven exclusivamente en `docs/downloads/` |
+| App Launch usa puerto `80` en Nexus | Permite `http://nexus/` sin puerto explícito; `8080` queda libre |
+| App Launch selecciona catálogo al desplegar | Una presentación común y un único `apps.json` activo por host evitan filtrar enlaces internos |
+| Checkouts no equivalen a servicios | CV y Control de Red pueden existir en disco de Nexus sin declararse desplegados |
+| Fichas técnicas derivadas por aplicación | Cada aplicación tiene HTML/PDF generado desde su Markdown canónico |
