@@ -9,7 +9,7 @@
 | Gateway | `192.168.18.1` |
 | Virtualización | Hyper-V |
 | Switch | `Replicant Ethernet` |
-| Acceso | Sesión local de Windows; origen de la administración SSH |
+| Acceso | Sesión local de Windows o Escritorio remoto: `mstsc /v:replicant` |
 
 ## Responsabilidades
 

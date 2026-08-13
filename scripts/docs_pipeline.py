@@ -557,6 +557,17 @@ def validate_portable_html(path: Path, expected_fingerprint: str, expected_sourc
     missing_multipage = [token for token in required_multipage if token not in data]
     if missing_multipage:
         raise ValueError(f"Portable multipage controls missing in {path}: {missing_multipage}")
+    architecture_markers = [
+        "LAN 192.168.18.0/24",
+        "App Launch Nexus",
+        "App Launch público",
+        "Cloud Run / Firebase",
+        "Catálogo público",
+        "Catálogo Nexus",
+    ]
+    missing_architecture = [marker for marker in architecture_markers if marker not in data]
+    if missing_architecture:
+        raise ValueError(f"Portable architecture is incomplete in {path}: {missing_architecture}")
     forbidden = ["livereload", "ws://", "wss://", "localhost:"]
     lowered = data.lower()
     found = [token for token in forbidden if token in lowered]
@@ -582,6 +593,11 @@ def validate_pdf(path: Path, expected_fingerprint: str) -> dict[str, int]:
         "Aplicaciones",
         "Pendientes",
         "Descargas",
+        "App Launch Nexus",
+        "App Launch público",
+        "Cloud Run / Firebase",
+        "Catálogo público",
+        "Catálogo Nexus",
     ]
     compact_text = "".join(text.split())
     if f"sha256:{expected_fingerprint}" not in compact_text:
