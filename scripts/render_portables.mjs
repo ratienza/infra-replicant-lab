@@ -131,7 +131,7 @@ await waitForActive("page-2");
 await page.goForward();
 await waitForActive(nextHref.slice(1));
 
-await page.fill("#portable-search", "da941d232fa937433c109f4c3daf3854711957f9");
+await page.fill("#portable-search", "8c0bc08446256974b7efa57c730cbeb1b6e81520");
 const searchResult = await page.evaluate(() => ({
   visible: [...document.querySelectorAll(".portable-nav [data-page-item]")].filter(item => !item.hidden).length,
   status: document.querySelector("#portable-search-status")?.textContent ?? "",

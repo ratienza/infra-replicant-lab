@@ -13,7 +13,7 @@ Documentación operativa audiovisual para el personal del SH Valencia Palace: pa
 | Imagen | `nginx:alpine` |
 | Puerto | `192.168.18.220:8081 → 80/tcp` |
 | Contenido | `proyecto_html` montado en solo lectura |
-| Rama / SHA | `main` · `da941d232fa937433c109f4c3daf3854711957f9` |
+| Rama / SHA | `main` · `8c0bc08446256974b7efa57c730cbeb1b6e81520` |
 | Red | Compose propia, sin dependencias con otros contenedores |
 | Inicio | `restart: unless-stopped` |
 
@@ -23,11 +23,11 @@ El contenido HTML se sirve mediante un bind mount. Por tanto, un `git pull` actu
 
 La actualización segura exige revisar primero el working tree, actualizar desde `main` y comprobar enlaces y páginas. El rollback consiste en volver a un commit aprobado y restaurar el contenido estático; no tiene base de datos ni persistencia funcional.
 
-## Diferencia observada entre Git y Nexus
+## Reconciliación Git y Nexus
 
-El `compose.yml` vigente en `main` publica `8081:80`, mientras el checkout desplegado en Nexus contiene un cambio local no versionado que lo restringe a `192.168.18.220:8081:80`. El contenedor observado usa efectivamente el bind a la IP de Nexus.
+La Fase 2A corrigió mediante el PR `salones-av-valencia-palace#2` la única deriva del checkout: `main` ahora versiona `192.168.18.220:8081:80`. El cambio se reconstruyó conscientemente en una rama; no se copió el checkout del servidor hacia GitHub.
 
-La restricción local mejora el alcance de red, pero constituye deriva respecto a GitHub. Debe reconciliarse en el repositorio propio de Salones AV antes de considerar el despliegue plenamente reproducible; esta documentación no corrige ni adopta silenciosamente ese cambio.
+Antes del avance rápido se demostró que el blob preparado, el archivo vivo y el stash preservativo eran idénticos: `686cfdd506fbd67b624bffae5f49ca640a799da6`. Después del merge, GitHub `main`, `origin/main` y el checkout Nexus quedaron en `8c0bc08446256974b7efa57c730cbeb1b6e81520`, sin cambios locales.
 
 ## Validación del 13/08/2026
 
@@ -35,6 +35,9 @@ La restricción local mejora el alcance de red, pero constituye deriva respecto 
 - `http://192.168.18.220:8081/` respondió `200`.
 - Las siete páginas del menú respondieron `200`.
 - Los enlaces HTML locales pasaron la comprobación estática.
+- `docker compose config --quiet` aceptó la definición versionada.
+- Docker confirmó el bind efectivo `192.168.18.220:8081`; no existe publicación de Salones en `0.0.0.0:8081`.
+- GitHub `main == checkout Nexus` en `8c0bc08` tras el despliegue dirigido al servicio `web`.
 - La copia pública `https://app.raulatienza.com/salones/` respondió `200`.
 - No se validaron equipos AV físicos, números de tomas ni procedimientos sobre hardware.
 

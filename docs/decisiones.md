@@ -25,3 +25,4 @@ Registro corto de decisiones que no conviene redescubrir.
 | App Launch selecciona catálogo al desplegar | Una presentación común y un único `apps.json` activo por host evitan filtrar enlaces internos |
 | Checkouts no equivalen a servicios | CV y Control de Red pueden existir en disco de Nexus sin declararse desplegados |
 | Fichas técnicas derivadas por aplicación | Cada aplicación tiene HTML/PDF generado desde su Markdown canónico |
+| Salones AV liga `8081` a la IP LAN | `192.168.18.220:8081:80` evita publicar el servicio en todas las interfaces y queda versionado desde `8c0bc08` |

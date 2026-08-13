@@ -48,6 +48,8 @@ Reglas:
 
 App Launch es la excepción deliberada: publica `80` en todas las interfaces de Nexus para actuar como entrada de la LAN. No se publica por HTTPS.
 
+Salones AV aplica explícitamente la regla LAN mediante `192.168.18.220:8081:80`. El PR `salones-av-valencia-palace#2` incorporó el bind a `main`; desde `8c0bc08` el checkout Nexus está limpio y la configuración es reproducible desde GitHub.
+
 ## Reserva-Pistas-UTP · patrón validado
 
 Reserva-Pistas utiliza un Compose de dos servicios:
