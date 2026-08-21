@@ -22,6 +22,7 @@ Cada pareja HTML/PDF se genera desde la misma página Markdown incluida en la na
 
 | Aplicación | HTML | PDF |
 |---|---|---|
+| PULA | [Descargar](downloads/apps/pula.html) | [Descargar](downloads/apps/pula.pdf) |
 | App Launch | [Descargar](downloads/apps/app-launch.html) | [Descargar](downloads/apps/app-launch.pdf) |
 | Salones AV | [Descargar](downloads/apps/salones-av.html) | [Descargar](downloads/apps/salones-av.pdf) |
 | Reserva-Pistas-UTP | [Descargar](downloads/apps/reserva-pistas-utp.html) | [Descargar](downloads/apps/reserva-pistas-utp.pdf) |
@@ -51,4 +52,4 @@ CI ejecuta el modo `check`, vuelve a renderizar un PDF de control, verifica la h
 
 ## Estado de despliegue
 
-El pipeline y el runtime estático están implementados y probados localmente. El 13/08/2026 se comprobaron las 22 rutas del sitio, seis diagramas, el dossier global y las ocho parejas de fichas individuales; los ficheros servidos por el entorno de validación coincidieron byte a byte con los artefactos generados. La publicación en Nexus se valida de nuevo después de integrar el cambio en `main`; esta evidencia corresponde al laboratorio privado y no se extrapola a producción.
+El pipeline y el runtime estático están implementados y probados localmente. El 21/08/2026 se comprobó el dossier global y las nueve parejas de fichas individuales, incluida PULA; los ficheros servidos por el entorno de validación coincidieron byte a byte con los artefactos generados. La publicación en Nexus se valida de nuevo después de integrar el cambio en `main`; esta evidencia corresponde al laboratorio privado y no se extrapola a producción.

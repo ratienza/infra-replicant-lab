@@ -20,6 +20,15 @@ Catálogo operativo del laboratorio. Cada ficha técnica se abre como documento 
 <div class="app-catalog" markdown>
 
 <article class="app-card" markdown>
+## PULA
+<p class="app-type">Búsqueda de alojamiento estudiantil</p>
+Centraliza anuncios para estudiantes en Pula, con scraping SCPU, importación asistida por Gemini y seguimiento Gmail. La etiqueta beta conserva la POC histórica ErasmusHomes de Bolonia.
+
+<dl><dt>Herramienta</dt><dd>AI Studio + Antigravity</dd><dt>Stack</dt><dd>React, Vite, Express, Gemini</dd><dt>Repositorio</dt><dd><code>ratienza/Pula</code></dd><dt>Deploy</dt><dd>Cloud Run declarado, no revalidado</dd><dt>Runtime</dt><dd>Google Cloud Run</dd><dt>Estado</dt><dd>POC beta / auditoría técnica</dd></dl>
+
+<p class="tech-link"><a href="../downloads/apps/pula.html">Ver ficha técnica</a></p>
+</article>
+<article class="app-card" markdown>
 ## App Launch
 <p class="app-type">Portal multientorno</p>
 Catálogo de acceso a aplicaciones públicas e internas. Se publica en Nexus y DigitalOcean con catálogos distintos por entorno; las tarjetas navegan hacia servicios, pero no constituyen su runtime.
