@@ -59,7 +59,7 @@
 - `8080` sin listener.
 - CV y Control de Red presentes solo como checkouts; no son servicios Nexus.
 - Consumos Cupra y Cartera Estratégica sin checkout servido ni puerto Nexus.
-- Una tarjeta de App Launch puede apuntar a una aplicación externa; no implica ejecución en Nexus.
+- La tarjeta PULA de App Launch apunta a la publicación pública externa y fue validada en el catálogo Nexus `2d265ee`; no implica ejecución de PULA en Nexus.
 
 Esta observación confirma el estado del laboratorio privado en esa fecha. DigitalOcean se validó por separado y de forma acotada para el cierre de Reserva-Pistas-UTP; cada repositorio conserva sus definiciones operativas.
 

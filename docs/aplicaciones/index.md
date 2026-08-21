@@ -24,9 +24,9 @@ Catálogo operativo del laboratorio. Cada ficha técnica se abre como documento 
 <p class="app-type">Búsqueda de alojamiento estudiantil</p>
 POC privada para localizar y gestionar apartamentos publicados por SCPU en Pula, Croacia. Incorpora scraping, importación asistida y seguimiento Gmail; no incluye el concepto independiente ErasmusHomes.
 
-<dl><dt>Herramienta</dt><dd>AI Studio + Antigravity</dd><dt>Stack</dt><dd>React, Vite, Express, Gemini</dd><dt>Repositorio</dt><dd><code>ratienza/Pula</code></dd><dt>Deploy</dt><dd>Cloud Run declarado, no revalidado</dd><dt>Runtime</dt><dd>Google Cloud Run</dd><dt>Estado</dt><dd>POC beta Pula / auditada</dd></dl>
+<dl><dt>Herramienta</dt><dd>AI Studio + Antigravity</dd><dt>Stack</dt><dd>React, Vite, Express, Gemini</dd><dt>Repositorio</dt><dd><code>ratienza/Pula</code></dd><dt>Deploy</dt><dd>Producción pública existente</dd><dt>Runtime</dt><dd>Google · no modificado</dd><dt>Estado</dt><dd>POC beta Pula / publicada en ambos App Launch</dd><dt>URL</dt><dd><a href="https://pula-erasmus-housing-automator.ai.studio/">Producción</a></dd></dl>
 
-<p class="web-link"><a href="pula/">Consultar en el gestor</a></p>
+<p class="web-link"><a href="https://pula-erasmus-housing-automator.ai.studio/">Abrir PULA</a> · <a href="pula/">Consultar en el gestor</a></p>
 <p class="tech-link"><a href="../downloads/apps/pula.html">Ver ficha técnica</a></p>
 </article>
 <article class="app-card" markdown>
