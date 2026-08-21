@@ -22,9 +22,9 @@ Catálogo operativo del laboratorio. Cada ficha técnica se abre como documento 
 <article class="app-card" markdown>
 ## PULA
 <p class="app-type">Búsqueda de alojamiento estudiantil</p>
-Centraliza anuncios para estudiantes en Pula, con scraping SCPU, importación asistida por Gemini y seguimiento Gmail. La etiqueta beta conserva la POC histórica ErasmusHomes de Bolonia.
+POC privada para localizar y gestionar apartamentos publicados por SCPU en Pula, Croacia. Incorpora scraping, importación asistida y seguimiento Gmail; no incluye el concepto independiente ErasmusHomes.
 
-<dl><dt>Herramienta</dt><dd>AI Studio + Antigravity</dd><dt>Stack</dt><dd>React, Vite, Express, Gemini</dd><dt>Repositorio</dt><dd><code>ratienza/Pula</code></dd><dt>Deploy</dt><dd>Cloud Run declarado, no revalidado</dd><dt>Runtime</dt><dd>Google Cloud Run</dd><dt>Estado</dt><dd>POC beta / auditoría técnica</dd></dl>
+<dl><dt>Herramienta</dt><dd>AI Studio + Antigravity</dd><dt>Stack</dt><dd>React, Vite, Express, Gemini</dd><dt>Repositorio</dt><dd><code>ratienza/Pula</code></dd><dt>Deploy</dt><dd>Cloud Run declarado, no revalidado</dd><dt>Runtime</dt><dd>Google Cloud Run</dd><dt>Estado</dt><dd>POC beta Pula / auditada</dd></dl>
 
 <p class="tech-link"><a href="../downloads/apps/pula.html">Ver ficha técnica</a></p>
 </article>

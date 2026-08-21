@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" data-portable="ready" data-source-fingerprint="7131c8ed29ecc9c2f9ee11ed24a9ffc7efeda3c9ff7865ff4bd2e42d0514eaaa">
+<html lang="es" data-portable="ready" data-source-fingerprint="462d1f8361447caa5ff0ffd28263c22c7b5d818168eac32960b42189fececc68">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:7131c8ed29ecc9c2f9ee11ed24a9ffc7efeda3c9ff7865ff4bd2e42d0514eaaa">
-  <title>PULA · Ficha técnica · 7131c8ed29ec</title>
+  <meta name="source-fingerprint" content="sha256:462d1f8361447caa5ff0ffd28263c22c7b5d818168eac32960b42189fececc68">
+  <title>PULA · Ficha técnica · 462d1f836144</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -141,13 +141,13 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>PULA</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/pula.md</dd><dt>Versión reproducible</dt><dd>sha256:7131c8ed29ecc9c2f9ee11ed24a9ffc7efeda3c9ff7865ff4bd2e42d0514eaaa</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/pula.md</dd><dt>Versión reproducible</dt><dd>sha256:462d1f8361447caa5ff0ffd28263c22c7b5d818168eac32960b42189fececc68</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/pula.md">
       <p class="source-path">aplicaciones/pula.md</p>
       <div class="doc-content"><h1 id="p1-pula">PULA</h1>
-<p>Auditoría técnica y manual funcional de <code>ratienza/Pula</code>. El repositorio contiene dos líneas distintas: la etiqueta <code>v0.1-poc-beta</code> conserva la POC <strong>ErasmusHomes</strong> para Bolonia/UNIBO, mientras que <code>main</code> implementa <strong>Pula Apartment Automation</strong> para alojamiento estudiantil en Pula, Croacia.</p>
+<p>Auditoría técnica y manual funcional de <code>ratienza/Pula</code>. <strong>PULA es exclusivamente una POC privada para localizar y gestionar apartamentos de la web oficial SCPU en Pula, Croacia.</strong> Su finalidad actual es ayudar en una búsqueda familiar concreta; no es ErasmusHomes ni una plataforma paneuropea.</p>
 <h2 id="p1-estado-comprobado">Estado comprobado</h2>
 <table>
 <thead>
@@ -166,12 +166,8 @@ tr:nth-child(even) td { background: #fafcfd; }
 <td><code>ff8165cf7c9d1d4c5ae670c56486c25900a5754b</code></td>
 </tr>
 <tr>
-<td>POC congelada</td>
-<td><code>v0.1-poc-beta</code> · <code>6441ca79f9980e7179cbaf7378958d2628a3f80b</code></td>
-</tr>
-<tr>
-<td>Relación Git</td>
-<td>Historias independientes; no existe ancestro común entre el tag y <code>main</code></td>
+<td>Alcance funcional</td>
+<td>Búsqueda SCPU, gestión de candidatos, contacto y seguimiento Gmail</td>
 </tr>
 <tr>
 <td>Checkout Nexus</td>
@@ -195,22 +191,10 @@ tr:nth-child(even) td { background: #fafcfd; }
 </tr>
 </tbody>
 </table>
-<p>Calidad general: <strong>5/10 para <code>main</code></strong>. La POC compila y concentra el flujo funcional, pero carece de tests, control de acceso, persistencia robusta y trazabilidad reproducible de Cloud Run. La etiqueta histórica obtiene <strong>4/10</strong> como prototipo: demuestra FastAPI/Gemini y el dossier, pero no es un producto endurecido.</p>
-<h2 id="p1-dos-estados-que-no-deben-mezclarse">Dos estados que no deben mezclarse</h2>
-<div class="highlight"><pre><span></span><code>v0.1-poc-beta · ErasmusHomes · Bolonia / UNIBO
-  ├─ FastAPI + SPA HTML
-  ├─ Smart Deposit Audit · Gemini 1.5 Flash
-  ├─ prototipo visual de cuatro pantallas
-  └─ dossier ReportLab de 12 páginas
-
-main · Pula Apartment Automation · Pula / SCPU
-  ├─ React 19 + Vite + Tailwind CSS 4
-  ├─ Express 5 + TypeScript
-  ├─ scraping SCPU + Gemini 2.5 Flash
-  ├─ Gmail API
-  └─ persistencia local en data.json
-</code></pre></div>
-<p>El tag representa otra raíz Git. Los flujos de Bolonia se documentan como <strong>POC histórica congelada</strong>, no como capacidades del runtime actual.</p>
+<p>Calidad general: <strong>5/10</strong>. La POC compila y concentra el flujo funcional para Pula, pero carece de tests, control de acceso, persistencia robusta y trazabilidad reproducible de Cloud Run.</p>
+<h2 id="p1-separacion-obligatoria-de-proyectos">Separación obligatoria de proyectos</h2>
+<p><a href="https://github.com/ratienza/ErasmusHomes"><code>ratienza/ErasmusHomes</code></a> es otro repositorio y otro proyecto. Contiene el concepto comercial paneuropeo, el ejemplo visual de Bolonia/UNIBO, Smart Deposit Audit y el dossier ReportLab. Actualmente debe tratarse como <strong>concepto no validado</strong>, no como funcionalidad implementada de PULA.</p>
+<p>La etiqueta <code>v0.1-poc-beta</code> y los artefactos ErasmusHomes presentes en el historial de <code>ratienza/Pula</code> son contaminación histórica y deuda de higiene del repositorio. No definen el alcance de PULA y no se usan como fuente funcional en esta ficha. Cualquier limpieza futura de esa historia o etiqueta requiere un encargo específico sobre el repositorio PULA.</p>
 <h2 id="p1-arquitectura-de-main">Arquitectura de <code>main</code></h2>
 <div class="highlight"><pre><span></span><code>Navegador · React 19 / Vite / Firebase Auth
         │ REST /api/* · token Gmail cuando procede
@@ -256,41 +240,8 @@ Express 5 · server.ts · 0.0.0.0:3000
 <p>Existe un defecto de integridad: el endpoint responde <code>success</code> y cambia el estado a <code>sent</code> incluso si falta un token utilizable o Gmail devuelve un error. “Enviado” no prueba que el correo haya salido.</p>
 <h3 id="p1-gestion-visual">Gestión visual</h3>
 <p>La SPA ofrece Nuevas Oportunidades, En Seguimiento, Enviados sin respuesta e Histórico, orden por fecha o precio y cambio manual de estado. Los botones de producto están presentes. <code>package.json</code> usa React 19, aunque la arquitectura escrita declara React 18.</p>
-<h2 id="p1-poc-historica-v01-poc-beta">POC histórica <code>v0.1-poc-beta</code></h2>
-<h3 id="p1-cuatro-flujos-visuales">Cuatro flujos visuales</h3>
-<table>
-<thead>
-<tr>
-<th>Flujo</th>
-<th>Cobertura comprobada</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Onboarding UNIBO</td>
-<td>Bolonia, Università di Bologna y fechas de movilidad</td>
-</tr>
-<tr>
-<td>Discover Feed</td>
-<td>Tarjetas de Via Zamboni y Santo Stefano</td>
-</tr>
-<tr>
-<td>Mapa de seguridad y precios</td>
-<td>Zamboni, Santo Stefano, Irnerio y Saragozza</td>
-</tr>
-<tr>
-<td>Ficha del piso</td>
-<td>Precio, ubicación y detalle de Shared Apt. Zamboni</td>
-</tr>
-</tbody>
-</table>
-<p>Son mockups y una SPA demostrativa; el tag no demuestra mapa real, base de datos, Gmail conectado ni transacciones de producción.</p>
-<h3 id="p1-smart-deposit-audit">Smart Deposit Audit</h3>
-<p>FastAPI expone <code>POST /api/v1/audit-deposit</code> con dos imágenes y descripción. <code>GeminiService</code> intenta usar <code>gemini-1.5-flash</code>; sin API o tras un fallo devuelve una respuesta simulada de devolución completa. Ese fallback no puede presentarse como dictamen real de IA.</p>
-<p>No hay autenticación, límite de tamaño, validación MIME ni protección frente a carga abusiva. Los mensajes de excepción llegan al cliente y CORS permite cualquier origen junto con credenciales.</p>
-<h3 id="p1-dossier-reportlab">Dossier ReportLab</h3>
-<p><code>Dossier_Oficial_<wbr>ErasmusHomes_<wbr>Definitivo_<wbr>CERRADO.pdf</code> tiene 12 páginas, texto seleccionable y cuatro recursos visuales. Usa Letter, Helvetica, verde <code>#059669</code>, azul oscuro <code>#0F172A</code> y tablas de mercado, DAFO, precios y proyección financiera.</p>
-<p>El generador contiene rutas absolutas a Google Drive, al directorio privado de Antigravity y a fuentes Windows, por lo que no es reproducible fuera del equipo original. El documento alterna las etiquetas v6.0 y v7.0. Sus cifras comerciales son hipótesis, no métricas validadas por código.</p>
+<h2 id="p1-material-erasmushomes-excluido">Material ErasmusHomes excluido</h2>
+<p>El dossier de Bolonia, los mockups UNIBO, el backend FastAPI de auditoría de fianzas y los generadores ReportLab se excluyen expresamente de la arquitectura, API, puntuación y manual funcional de PULA. Solo se comprobó que su ubicación canónica actual es el repositorio independiente <code>ratienza/ErasmusHomes</code>; no se auditó su funcionamiento.</p>
 <h2 id="p1-api-rest-observada">API REST observada</h2>
 <h3 id="p1-main"><code>main</code></h3>
 <table>
@@ -348,43 +299,7 @@ Express 5 · server.ts · 0.0.0.0:3000
 </tbody>
 </table>
 <p>No se observan OpenAPI versionado, rate limiting, sesión de aplicación, autorización por usuario ni validación estructural centralizada.</p>
-<h3 id="p1-etiqueta-congelada">Etiqueta congelada</h3>
-<table>
-<thead>
-<tr>
-<th>Método</th>
-<th>Ruta</th>
-<th>Función</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GET</code></td>
-<td><code>/health</code></td>
-<td>Estado y disponibilidad Gemini</td>
-</tr>
-<tr>
-<td><code>GET</code></td>
-<td><code>/dossier-pdf</code></td>
-<td>Descarga del dossier</td>
-</tr>
-<tr>
-<td><code>GET</code></td>
-<td><code>/</code></td>
-<td>SPA demostrativa</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/api/v1/audit-deposit</code></td>
-<td>Comparación fotográfica</td>
-</tr>
-<tr>
-<td>## Riesgos y pendientes reales</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<h2 id="p1-riesgos-y-pendientes-reales">Riesgos y pendientes reales</h2>
 <h3 id="p1-prioridad-alta">Prioridad alta</h3>
 <ul>
 <li>Proteger lecturas y mutaciones con autenticación y autorización.</li>
@@ -406,6 +321,7 @@ Express 5 · server.ts · 0.0.0.0:3000
 <li>Arquitectura: React 18; manifiesto: React 19.</li>
 <li>Documentación: scraping ilimitado; código: cinco páginas y 40 enlaces.</li>
 <li><code>AGENTS.md</code> reserva Gmail y URL manual para v2.0; ambos ya están en <code>main</code>.</li>
+<li>La etiqueta y los artefactos ErasmusHomes están depositados en el historial de PULA pese a pertenecer al repositorio independiente <code>ratienza/ErasmusHomes</code>.</li>
 <li>Regla visual: prohíbe <code>Ver descripción</code>; el scraper lo asigna a <code>size</code>.</li>
 <li>Cloud Run y Nginx declarados sin Dockerfile ni configuración reproducible.</li>
 <li>La automatización Python usa mock, OAuth local y <code>TEST_MODE = True</code>; no pertenece al runtime Express demostrado.</li>
@@ -413,19 +329,17 @@ Express 5 · server.ts · 0.0.0.0:3000
 <h2 id="p1-pruebas-y-limites">Pruebas y límites</h2>
 <ul>
 <li>✅ Checkout Nexus limpio y sincronizado.</li>
-<li>✅ Tag resuelto al commit esperado.</li>
 <li>✅ Instalación temporal, <code>tsc --noEmit</code> y build Vite/esbuild.</li>
-<li>✅ Sintaxis de los módulos Python históricos.</li>
 <li>⚠️ No existe suite automatizada.</li>
 <li>⚠️ No se llamó a SCPU, Gemini, Gmail, Firebase ni datos vivos.</li>
 <li>⚠️ Cloud Run no fue inspeccionado ni validado.</li>
-<li>⚠️ El PDF se comprobó y renderizó estructuralmente; no se declara revisión editorial completa.</li>
+<li>⚠️ ErasmusHomes solo se consultó para confirmar la separación; no fue auditado.</li>
 </ul>
 <h2 id="p1-operacion-futura-y-traslado">Operación futura y traslado</h2>
 <p>Antes de DigitalOcean se necesitan runtime reproducible, almacenamiento persistente, secretos fuera de Git, autenticación, backup/restore, healthcheck y tests. No deben reutilizarse datos o credenciales de Cloud Run implícitamente.</p>
 <p><code>Checkout ≠ Runtime</code>: PULA no se desplegó en Nexus. Cloud Run no se tocó.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:7131c8ed29ecc9c2f9ee11ed24a9ffc7efeda3c9ff7865ff4bd2e42d0514eaaa</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:462d1f8361447caa5ff0ffd28263c22c7b5d818168eac32960b42189fececc68</footer>
 </body>
 </html>
