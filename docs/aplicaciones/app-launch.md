@@ -7,14 +7,14 @@ Catálogo **multientorno** y capa de navegación para acceder a aplicaciones pú
 | Campo | DigitalOcean | Nexus |
 |---|---|---|
 | Desarrollo | Codex · HTML/CSS/JavaScript | Mismo origen |
-| Repositorio | `ratienza/Apps_Lauch` · `main` · `ced6e149315ac14338b547a6773dbb817270b84a` | Mismo origen |
+| Repositorio | `ratienza/Apps_Lauch` · `main` · `2d265ee1caf3c370e662cdc99cb923f4db457465` | Mismo origen |
 | URL | `http://app.raulatienza.com` y `https://app.raulatienza.com` | `http://192.168.18.220` |
 | Publicación | Nginx del host · `/opt/portal` | Compose `app-launch` · Nginx `1.27-alpine` |
 | Puerto | `80/443`, sin puerto explícito | `80 → 80/tcp` |
 | Catálogo activo | `catalogs/public.json → apps.json` | `catalogs/nexus.json → apps.json` |
 | Validación | HTTP/HTTPS, HTML, PNG y JSON: `200` | HTML, PNG y JSON: `200`; servicios enlazados sanos |
 
-Validación final: **13/08/2026**. El repositorio, el checkout local y GitHub coincidían en el SHA indicado.
+Validación final: **21/08/2026**. GitHub y el checkout local coincidían en el SHA indicado; ambos catálogos desplegados respondieron `200` y conservaron exactamente el contenido versionado.
 
 ## Arquitectura y funcionamiento
 
@@ -33,7 +33,7 @@ Usa una red Compose propia, no tiene persistencia funcional y se recupera con `r
 
 ## Catálogos comprobados
 
-El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace y CV. El catálogo Nexus contiene Replicant Lab, Reservas, Multimedia VPalace y enlaces externos a Consumos y CV. Un enlace presente en el catálogo interno no implica que su aplicación se ejecute en Nexus.
+El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus contiene Replicant Lab, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos casos PULA apunta a `https://pula-erasmus-housing-automator.ai.studio/`. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
 
 !!! important "Regla"
     `Tarjeta App Launch ≠ Runtime local`.

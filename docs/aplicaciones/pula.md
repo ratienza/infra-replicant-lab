@@ -12,8 +12,9 @@ Auditoría técnica y manual funcional de `ratienza/Pula`. **PULA es exclusivame
 | Repositorio | [`ratienza/Pula`](https://github.com/ratienza/Pula) · privado |
 | `main` auditado | `ff8165cf7c9d1d4c5ae670c56486c25900a5754b` |
 | Alcance funcional | Búsqueda SCPU, gestión de candidatos, contacto y seguimiento Gmail |
-| Checkout Nexus | `/opt/apps/Pula` · limpio y sincronizado; copia de consulta, no runtime validado |
-| Producción | Cloud Run declarado por el proyecto; no inspeccionado ni modificado |
+| Checkout Nexus | `/opt/apps/Pula` · limpio y sincronizado; copia de consulta, no runtime |
+| Producción pública | `https://pula-erasmus-housing-automator.ai.studio/` · HTTP `200` validado el 21/08/2026; el runtime no se modificó |
+| App Launch | Tarjeta publicada y validada en Nexus y DigitalOcean desde `ratienza/Apps_Lauch` (`2d265ee`) |
 | Pruebas locales | TypeScript y build Vite/esbuild correctos sobre copia temporal |
 | Tests automatizados | No existe suite; solo scripts exploratorios de scraping/Firebase |
 | Datos versionados | `data.json`: 29 registros `new` con 29 direcciones de contacto |
@@ -187,4 +188,4 @@ No existen Dockerfile, manifiesto Cloud Run, healthcheck, volumen persistente, m
 
 Antes de DigitalOcean se necesitan runtime reproducible, almacenamiento persistente, secretos fuera de Git, autenticación, backup/restore, healthcheck y tests. No deben reutilizarse datos o credenciales de Cloud Run implícitamente.
 
-`Checkout ≠ Runtime`: PULA no se desplegó en Nexus. Cloud Run no se tocó.
+`Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`: PULA no se desplegó en Nexus ni en DigitalOcean; ambos launchers enlazan la producción pública existente. El runtime público no se tocó.
