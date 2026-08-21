@@ -192,6 +192,7 @@ await page.emulateMedia({ media: "print" });
 await page.pdf({
   path: pdfPath,
   format: "A4",
+  scale: 0.96,
   printBackground: true,
   displayHeaderFooter: true,
   preferCSSPageSize: true,
