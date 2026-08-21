@@ -100,7 +100,7 @@ for (const pageId of diagramPageIds) {
   }), pageId);
   diagrams.push(...metrics);
 }
-if (diagrams.length !== 6) throw new Error(`Expected 6 Mermaid diagrams, got ${diagrams.length}`);
+if (diagrams.length !== 7) throw new Error(`Expected 7 Mermaid diagrams, got ${diagrams.length}`);
 if (diagrams.some(item => !item.hasSvg || item.width < 100 || item.height < 35 || item.overflowX || item.overflowY)) {
   throw new Error(`Invalid Mermaid layout: ${JSON.stringify(diagrams)}`);
 }
@@ -192,6 +192,7 @@ await page.emulateMedia({ media: "print" });
 await page.pdf({
   path: pdfPath,
   format: "A4",
+  scale: 0.96,
   printBackground: true,
   displayHeaderFooter: true,
   preferCSSPageSize: true,

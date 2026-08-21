@@ -25,7 +25,7 @@ const routes = [
   { route: "/fases/", name: "evolution", diagrams: 0 },
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
-  { route: "/aplicaciones/pula/", name: "pula", diagrams: 0 },
+  { route: "/aplicaciones/pula/", name: "pula", diagrams: 1 },
   { route: "/aplicaciones/app-launch/", name: "app-launch", diagrams: 0 },
   { route: "/aplicaciones/salones-av/", name: "salones", diagrams: 0 },
   { route: "/aplicaciones/reserva-pistas-utp/", name: "reservas", diagrams: 0 },
@@ -182,7 +182,7 @@ for (const slug of [
     pdf: await compareDownload(`downloads/apps/${slug}.pdf`),
   };
 }
-if (totalDiagrams !== 6) failures.push(`Expected six Mermaid diagrams across site, got ${totalDiagrams}`);
+if (totalDiagrams !== 7) failures.push(`Expected seven Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
 const report = { routes: routes.length, desktopScreenshots: screenshots ? 7 : 0, mobileScreenshots: screenshots ? 3 : 0, mermaid: totalDiagrams, downloads };

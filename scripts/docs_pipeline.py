@@ -38,7 +38,7 @@ MERMAID_PACKAGE_RUNTIME = ROOT / "node_modules" / "mermaid" / "dist" / "mermaid.
 PORTABLE_CSS = ROOT / "scripts" / "portable.css"
 NODE_RENDERER = ROOT / "scripts" / "render_portables.mjs"
 APP_RENDERER = ROOT / "scripts" / "render_app_portable.mjs"
-EXPECTED_MERMAID = 6
+EXPECTED_MERMAID = 7
 MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 
@@ -55,7 +55,7 @@ APP_PORTABLES = {
 }
 
 APP_EXPECTED_MARKERS = {
-    "pula": ("SCPU", "Cloud Run", "SSRF"),
+    "pula": ("No forma parte de ErasmusHomes", "Cloud Run", "SSRF"),
     "app-launch": ("apps.json", "Tarjeta App Launch", "rollback"),
     "salones-av": ("192.168.18.220:8081", "Nexus", "Compose"),
     "reserva-pistas-utp": ("192.168.18.220:8083", "DigitalOcean", "restauración"),
@@ -427,11 +427,28 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
 def app_portable_html_bytes(slug: str, title: str, relative: str, fingerprint: str) -> bytes:
     source = (DOCS / relative).read_text(encoding="utf-8")
     rendered, mermaid_count = render_markdown(source, 1)
-    if mermaid_count:
-        raise ValueError(f"Individual app portable {slug} cannot contain Mermaid diagrams")
     css = PORTABLE_CSS.read_text(encoding="utf-8")
+    portable_state = "ready"
+    mermaid_runtime = ""
+    mermaid_bootstrap = ""
+    if mermaid_count:
+        portable_state = "loading"
+        mermaid_runtime = f"<script>{MERMAID_RUNTIME.read_text(encoding='utf-8')}</script>"
+        mermaid_bootstrap = """<script>
+mermaid.initialize({
+  startOnLoad: false,
+  securityLevel: 'loose',
+  theme: 'base',
+  fontFamily: 'Arial, sans-serif',
+  flowchart: { htmlLabels: true, useMaxWidth: true },
+  themeVariables: { primaryColor: '#e8f1f8', primaryTextColor: '#173f65', primaryBorderColor: '#52728d', lineColor: '#667085', fontSize: '15px' }
+});
+mermaid.run({ querySelector: '.mermaid', suppressErrors: false })
+  .then(() => { document.documentElement.dataset.portable = 'ready'; })
+  .catch(error => { document.documentElement.dataset.portable = 'error'; console.error(error); });
+</script>"""
     document = f"""<!doctype html>
-<html lang="es" data-portable="ready" data-source-fingerprint="{fingerprint}">
+<html lang="es" class="app-portable" data-portable="{portable_state}" data-source-fingerprint="{fingerprint}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -439,6 +456,7 @@ def app_portable_html_bytes(slug: str, title: str, relative: str, fingerprint: s
   <meta name="source-fingerprint" content="sha256:{fingerprint}">
   <title>{html.escape(title)} · Ficha técnica · {fingerprint[:12]}</title>
   <style>{css}</style>
+{mermaid_runtime}
 </head>
 <body>
   <header class="cover">
@@ -454,6 +472,7 @@ def app_portable_html_bytes(slug: str, title: str, relative: str, fingerprint: s
     </section>
   </main>
   <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:{fingerprint}</footer>
+{mermaid_bootstrap}
 </body>
 </html>
 """

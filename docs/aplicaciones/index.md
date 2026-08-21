@@ -26,6 +26,7 @@ POC privada para localizar y gestionar apartamentos publicados por SCPU en Pula,
 
 <dl><dt>Herramienta</dt><dd>AI Studio + Antigravity</dd><dt>Stack</dt><dd>React, Vite, Express, Gemini</dd><dt>Repositorio</dt><dd><code>ratienza/Pula</code></dd><dt>Deploy</dt><dd>Cloud Run declarado, no revalidado</dd><dt>Runtime</dt><dd>Google Cloud Run</dd><dt>Estado</dt><dd>POC beta Pula / auditada</dd></dl>
 
+<p class="web-link"><a href="pula/">Consultar en el gestor</a></p>
 <p class="tech-link"><a href="../downloads/apps/pula.html">Ver ficha técnica</a></p>
 </article>
 <article class="app-card" markdown>

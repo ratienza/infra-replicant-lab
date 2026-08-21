@@ -6,6 +6,15 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o CV. Las fa
 
 - Continuar Cartera Estratégica como siguiente bloque de producto.
 
+### PULA
+
+- **Crítico antes de cualquier exposición adicional:** autenticar y autorizar la API, bloquear SSRF y sacar contactos y estado vivo de Git.
+- **Importante antes de trasladar a DigitalOcean:** definir persistencia, imagen y despliegue reproducibles, secretos, healthcheck, backup/restore y rollback.
+- **Calidad:** corregir el falso estado `sent`, añadir tests aislados y CI, fijar runtime y gestor de dependencias y reconciliar `AGENTS.md` con las funciones ya presentes.
+- **Mejora:** normalizar extracción, traducción y capacidad de los anuncios SCPU y añadir observabilidad sin datos personales.
+
+PULA está documentada, pero estos puntos son deuda de la aplicación: no están implementados ni validados en Nexus o producción.
+
 ## Deuda POST-CARTERA
 
 ### CV / Firebase
