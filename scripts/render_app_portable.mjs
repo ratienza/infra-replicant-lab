@@ -36,6 +36,7 @@ page.on("requestfailed", request => {
 });
 
 await page.goto(pathToFileURL(htmlPath).href, { waitUntil: "load" });
+await page.waitForFunction(() => document.documentElement.dataset.portable === "ready", null, { timeout: 20_000 });
 const desktop = await page.evaluate(() => ({
   title: document.title,
   source: document.querySelector("[data-source]")?.getAttribute("data-source") ?? "",
@@ -47,6 +48,8 @@ const desktop = await page.evaluate(() => ({
   contentVisible: getComputedStyle(document.querySelector(".portable-main")).visibility === "visible",
   technicalSections: document.querySelectorAll(".doc-content h2").length,
   technicalCharacters: document.querySelector(".doc-content")?.innerText.trim().length ?? 0,
+  diagrams: document.querySelectorAll(".mermaid svg").length,
+  mermaidSources: document.querySelectorAll(".mermaid").length,
 }));
 
 await page.setViewportSize({ width: 390, height: 844 });
@@ -56,6 +59,7 @@ const mobileOverflow = await page.evaluate(
 if (
   desktop.overflow || mobileOverflow || !desktop.source || !desktop.fingerprint
   || !desktop.contentVisible || desktop.technicalSections < 3 || desktop.technicalCharacters < 1_200
+  || desktop.diagrams !== desktop.mermaidSources
 ) {
   throw new Error(`Invalid individual portable layout: ${JSON.stringify({ desktop, mobileOverflow })}`);
 }
@@ -68,6 +72,7 @@ await page.emulateMedia({ media: "print" });
 await page.pdf({
   path: pdfPath,
   format: "A4",
+  scale: 0.96,
   printBackground: true,
   displayHeaderFooter: true,
   preferCSSPageSize: true,

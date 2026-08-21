@@ -103,6 +103,7 @@ tr:nth-child(even) td { background: #fafcfd; }
   .portable-nav .nav-root { columns: 2; }
   .portable-main { visibility: visible !important; width: 100%; }
   .doc-page, html[data-portable="ready"] .doc-page:not(.is-active) { display: block !important; min-height: 0; padding: 0; border: 0; break-before: page; }
+  html.app-portable .doc-page { break-before: auto; }
   .source-path { margin-bottom: 6mm; font-size: 7.5pt; }
   .doc-content h1 { font-size: 24pt; }
   .doc-content h2 { font-size: 17pt; break-after: avoid; }
