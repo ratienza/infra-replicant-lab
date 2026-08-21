@@ -43,6 +43,7 @@ MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 
 APP_PORTABLES = {
+    "pula": ("PULA", "aplicaciones/pula.md"),
     "app-launch": ("App Launch", "aplicaciones/app-launch.md"),
     "salones-av": ("Salones AV", "aplicaciones/salones-av.md"),
     "reserva-pistas-utp": ("Reserva-Pistas-UTP", "aplicaciones/reserva-pistas-utp.md"),
@@ -54,6 +55,7 @@ APP_PORTABLES = {
 }
 
 APP_EXPECTED_MARKERS = {
+    "pula": ("v0.1-poc-beta", "Cloud Run", "SSRF"),
     "app-launch": ("apps.json", "Tarjeta App Launch", "rollback"),
     "salones-av": ("192.168.18.220:8081", "Nexus", "Compose"),
     "reserva-pistas-utp": ("192.168.18.220:8083", "DigitalOcean", "restauración"),

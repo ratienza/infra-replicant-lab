@@ -25,6 +25,7 @@ const routes = [
   { route: "/fases/", name: "evolution", diagrams: 0 },
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
+  { route: "/aplicaciones/pula/", name: "pula", diagrams: 0 },
   { route: "/aplicaciones/app-launch/", name: "app-launch", diagrams: 0 },
   { route: "/aplicaciones/salones-av/", name: "salones", diagrams: 0 },
   { route: "/aplicaciones/reserva-pistas-utp/", name: "reservas", diagrams: 0 },
@@ -35,7 +36,8 @@ const routes = [
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/pendientes-codex/", name: "pending", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
-  { route: "/cambios/2026-08-13/", name: "changelog", diagrams: 0 },
+  { route: "/cambios/2026-08-21/", name: "changelog", diagrams: 0 },
+  { route: "/cambios/2026-08-13/", name: "changelog-previous", diagrams: 0 },
   { route: "/cambios/2026-08-09/", name: "changelog-previous", diagrams: 0 },
   { route: "/cambios/2026-08-08/", name: "changelog-oldest", diagrams: 0 },
   { route: "/descargas/", name: "downloads", diagrams: 0 },
@@ -94,7 +96,7 @@ for (const item of routes) {
       legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
     }));
     if (
-      catalog.cards !== 8 || catalog.types !== 8 || catalog.links.length !== 8 || catalog.legacyMarkdownLinks !== 0
+      catalog.cards !== 9 || catalog.types !== 9 || catalog.links.length !== 9 || catalog.legacyMarkdownLinks !== 0
       || catalog.descriptions.some(length => length < 250)
       || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
     ) {
@@ -165,6 +167,7 @@ const downloads = {
   apps: {},
 };
 for (const slug of [
+  "pula",
   "app-launch",
   "salones-av",
   "reserva-pistas-utp",
