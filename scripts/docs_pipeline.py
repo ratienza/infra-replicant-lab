@@ -55,7 +55,7 @@ APP_PORTABLES = {
 }
 
 APP_EXPECTED_MARKERS = {
-    "pula": ("v0.1-poc-beta", "Cloud Run", "SSRF"),
+    "pula": ("SCPU", "Cloud Run", "SSRF"),
     "app-launch": ("apps.json", "Tarjeta App Launch", "rollback"),
     "salones-av": ("192.168.18.220:8081", "Nexus", "Compose"),
     "reserva-pistas-utp": ("192.168.18.220:8083", "DigitalOcean", "restauración"),
