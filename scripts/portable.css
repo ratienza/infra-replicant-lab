@@ -14,7 +14,7 @@ body { margin: 0; color: var(--ink); background: #fff; font: 15px/1.58 Arial, He
 a { color: #0d5f9a; text-decoration-thickness: .08em; text-underline-offset: .14em; }
 button, input { font: inherit; }
 code, pre { font-family: Consolas, "Liberation Mono", monospace; }
-code { background: var(--code); border-radius: 4px; padding: .08em .3em; }
+code { background: var(--code); border-radius: 4px; padding: .08em .3em; white-space:normal; overflow-wrap:anywhere; word-break:break-word; box-sizing:border-box; }
 .eh-dashboard { --eh-done:#238636; --eh-progress:#0969da; --eh-pending:#6e7781; --eh-blocked:#cf222e; }
 .eh-dashboard,.eh-dashboard * { min-width:0; max-width:100%; overflow-wrap:anywhere; word-break:break-word; }
 .eh-dashboard code { white-space:normal; box-sizing:border-box; }
