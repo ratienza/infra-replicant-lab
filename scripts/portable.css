@@ -16,6 +16,7 @@ button, input { font: inherit; }
 code, pre { font-family: Consolas, "Liberation Mono", monospace; }
 code { background: var(--code); border-radius: 4px; padding: .08em .3em; }
 .eh-dashboard { --eh-done:#238636; --eh-progress:#0969da; --eh-pending:#6e7781; --eh-blocked:#cf222e; }
+.eh-dashboard,.eh-dashboard * { min-width:0; max-width:100%; overflow-wrap:anywhere; word-break:break-word; }
 .eh-hero,.eh-gate,.eh-priorities article,.eh-task { padding:12px; border:1px solid #d0d7de; border-radius:8px; }
 .eh-hero code { overflow-wrap:anywhere; word-break:break-all; }
 .eh-sync { display:inline-block; padding:3px 8px; border-radius:999px; color:#fff; font-weight:700; }
