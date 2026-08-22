@@ -6,6 +6,7 @@ on:
       - "README.md"
       - "AGENTS.md"
       - "docs/**"
+      - "data/**"
       - "scripts/**"
       - "mkdocs.yml"
       - "requirements-docs.txt"
@@ -23,6 +24,7 @@ on:
       - "README.md"
       - "AGENTS.md"
       - "docs/**"
+      - "data/**"
       - "scripts/**"
       - "mkdocs.yml"
       - "requirements-docs.txt"
@@ -68,7 +70,9 @@ jobs:
           pnpm exec playwright install --with-deps chromium
 
       - name: Check generated documentation and portables
-        run: python scripts/docs_pipeline.py check
+        run: |
+          python scripts/erasmushomes_panel.py check
+          python scripts/docs_pipeline.py check
 
       - name: Confirm generated files are synchronized
         run: git diff --exit-code -- docs/javascripts/mermaid.min.js docs/downloads

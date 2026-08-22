@@ -35,6 +35,8 @@ Usa una red Compose propia, no tiene persistencia funcional y se recupera con `r
 
 El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus contiene Replicant Lab, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos casos PULA apunta a `https://pula-erasmus-housing-automator.ai.studio/`. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
 
+EH-002 añade únicamente al catálogo Nexus una tarjeta interna **ErasmusHomes · Control del MVP**, dirigida a la página derivada dentro del runtime documental existente de Replicant Lab. El catálogo público y todas las tarjetas preexistentes permanecen sin cambios.
+
 !!! important "Regla"
     `Tarjeta App Launch ≠ Runtime local`.
 

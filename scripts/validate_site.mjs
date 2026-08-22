@@ -34,6 +34,7 @@ const routes = [
   { route: "/aplicaciones/control-red/", name: "control-red", diagrams: 0 },
   { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 0 },
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
+  { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control", diagrams: 0 },
   { route: "/pendientes-codex/", name: "pending", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
   { route: "/cambios/2026-08-21/", name: "changelog", diagrams: 0 },
@@ -96,7 +97,7 @@ for (const item of routes) {
       legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
     }));
     if (
-      catalog.cards !== 9 || catalog.types !== 9 || catalog.links.length !== 9 || catalog.legacyMarkdownLinks !== 0
+      catalog.cards !== 10 || catalog.types !== 10 || catalog.links.length !== 10 || catalog.legacyMarkdownLinks !== 0
       || catalog.descriptions.some(length => length < 250)
       || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
     ) {
@@ -143,6 +144,7 @@ for (const item of [
   { route: "/", name: "home" },
   { route: "/descargas/", name: "downloads" },
   { route: "/aplicaciones/", name: "applications" },
+  { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control" },
 ]) {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(new URL(item.route.replace(/^\//, ""), base).href, { waitUntil: "networkidle" });
@@ -176,6 +178,7 @@ for (const slug of [
   "control-red",
   "cartera-estrategica",
   "replicant-lab",
+  "erasmushomes-control",
 ]) {
   downloads.apps[slug] = {
     html: await compareDownload(`downloads/apps/${slug}.html`),

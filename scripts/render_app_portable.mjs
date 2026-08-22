@@ -53,15 +53,32 @@ const desktop = await page.evaluate(() => ({
 }));
 
 await page.setViewportSize({ width: 390, height: 844 });
-const mobileOverflow = await page.evaluate(
-  () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,
-);
+const mobileLayout = await page.evaluate(() => ({
+  overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,
+  viewportWidth: document.documentElement.clientWidth,
+  documentWidth: document.documentElement.scrollWidth,
+  offenders: Array.from(document.querySelectorAll('body *'))
+    .map((element) => {
+      const rect = element.getBoundingClientRect();
+      return {
+        tag: element.tagName.toLowerCase(),
+        className: String(element.className || '').slice(0, 120),
+        left: Math.round(rect.left),
+        right: Math.round(rect.right),
+        width: Math.round(rect.width),
+        text: String(element.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 100),
+      };
+    })
+    .filter(({ left, right }) => left < -2 || right > document.documentElement.clientWidth + 2)
+    .slice(0, 20),
+}));
+const mobileOverflow = mobileLayout.overflow;
 if (
   desktop.overflow || mobileOverflow || !desktop.source || !desktop.fingerprint
   || !desktop.contentVisible || desktop.technicalSections < 3 || desktop.technicalCharacters < 1_200
   || desktop.diagrams !== desktop.mermaidSources
 ) {
-  throw new Error(`Invalid individual portable layout: ${JSON.stringify({ desktop, mobileOverflow })}`);
+  throw new Error(`Invalid individual portable layout: ${JSON.stringify({ desktop, mobileLayout })}`);
 }
 if (desktop.externalResources.length || consoleErrors.length || failedRequests.length) {
   throw new Error(`Individual portable is not offline-safe: ${JSON.stringify({ desktop, consoleErrors, failedRequests })}`);

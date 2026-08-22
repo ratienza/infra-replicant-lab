@@ -14,7 +14,20 @@ body { margin: 0; color: var(--ink); background: #fff; font: 15px/1.58 Arial, He
 a { color: #0d5f9a; text-decoration-thickness: .08em; text-underline-offset: .14em; }
 button, input { font: inherit; }
 code, pre { font-family: Consolas, "Liberation Mono", monospace; }
-code { background: var(--code); border-radius: 4px; padding: .08em .3em; }
+code { background: var(--code); border-radius: 4px; padding: .08em .3em; white-space:normal; overflow-wrap:anywhere; word-break:break-word; box-sizing:border-box; }
+.eh-dashboard { --eh-done:#238636; --eh-progress:#0969da; --eh-pending:#6e7781; --eh-blocked:#cf222e; }
+.eh-dashboard,.eh-dashboard * { min-width:0; max-width:100%; overflow-wrap:anywhere; word-break:break-word; }
+.eh-dashboard code { white-space:normal; box-sizing:border-box; }
+.eh-hero,.eh-gate,.eh-priorities article,.eh-task { padding:12px; border:1px solid #d0d7de; border-radius:8px; }
+.eh-hero code { overflow-wrap:anywhere; word-break:break-all; }
+.eh-sync { display:inline-block; padding:3px 8px; border-radius:999px; color:#fff; font-weight:700; }
+.eh-sync--synchronized { background:var(--eh-done); }.eh-sync--stale { background:#9a6700; }.eh-sync--error { background:var(--eh-blocked); }
+.eh-metrics,.eh-priorities,.eh-kanban { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin:12px 0; }
+.eh-metrics article { padding:10px; border-left:4px solid var(--eh-progress); }.eh-metrics strong { display:block; font-size:22px; }
+.eh-status--done { --eh-color:var(--eh-done); }.eh-status--in_progress { --eh-color:var(--eh-progress); }.eh-status--pending { --eh-color:var(--eh-pending); }.eh-status--blocked { --eh-color:var(--eh-blocked); }
+.eh-column { min-width:0; padding:8px; border-top:4px solid var(--eh-color); }.eh-task { margin:8px 0; overflow-wrap:anywhere; }
+.eh-timeline { list-style:none; padding:0; }.eh-timeline li { display:grid; grid-template-columns:170px minmax(0,1fr) auto; gap:8px; padding:8px; border-left:4px solid var(--eh-color); }
+@media (max-width:700px) { .eh-kanban,.eh-metrics,.eh-priorities { grid-template-columns:minmax(0,1fr); }.eh-timeline li { grid-template-columns:minmax(0,1fr); } }
 pre { max-width: 100%; overflow-x: auto; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--code); white-space: pre-wrap; overflow-wrap: anywhere; }
 pre code { padding: 0; background: transparent; }
 .cover { padding: 28px max(4vw, 28px); color: white; background: linear-gradient(135deg, #122f4a 0%, #225d87 60%, #52728d 100%); }
