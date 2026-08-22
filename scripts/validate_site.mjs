@@ -104,6 +104,27 @@ for (const item of routes) {
       failures.push(`${item.route}: invalid application catalog ${JSON.stringify(catalog)}`);
     }
   }
+  if (item.name === "erasmushomes-control") {
+    const contrast = await page.evaluate(() => {
+      const link = [...document.querySelectorAll("a")].find(element => element.textContent.trim() === "Abrir roadmap acordado (DOCX)");
+      const text = document.querySelector(".eh-agreed-document")?.textContent ?? "";
+      return {
+        href: link?.href ?? "",
+        target: link?.target ?? "",
+        rel: link?.rel ?? "",
+        hasFilename: text.includes("Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx"),
+        hasHash: /[0-9a-f]{64}/.test(text),
+        hasDate: /\d{4}-\d{2}-\d{2}/.test(text),
+      };
+    });
+    if (
+      !/\/downloads\/erasmushomes\/Roadmap_ErasmusHomes_MVP_Diciembre_2026\.docx$/.test(contrast.href)
+      || contrast.target !== "_blank" || !contrast.rel.includes("noopener")
+      || !contrast.hasFilename || !contrast.hasHash || !contrast.hasDate
+    ) {
+      failures.push(`${item.route}: invalid agreed DOCX contrast link ${JSON.stringify(contrast)}`);
+    }
+  }
   if (item.name === "architecture") {
     const architecture = await page.evaluate(() => ({
       concepts: [...document.querySelectorAll(".mermaid-rendered svg")].map(svg => svg.textContent.replace(/\s+/g, " ").trim()),

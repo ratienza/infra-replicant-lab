@@ -25,6 +25,10 @@
 .eh-dashboard { --eh-done:#238636; --eh-progress:#0969da; --eh-pending:#6e7781; --eh-blocked:#cf222e; }
 .eh-hero,.eh-gate,.eh-priorities article,.eh-task { padding:1rem; border:1px solid var(--md-default-fg-color--lightest); border-radius:.7rem; background:var(--md-code-bg-color); }
 .eh-hero { position:relative; }
+.eh-agreed-document { display:grid; grid-template-columns:repeat(auto-fit,minmax(12rem,1fr)); gap:.45rem .9rem; margin-top:1rem; padding:1rem; border:1px solid color-mix(in srgb,var(--eh-progress) 35%,transparent); border-radius:.6rem; background:color-mix(in srgb,var(--eh-progress) 7%,transparent); }
+.eh-agreed-document a { grid-column:1/-1; width:fit-content; font-size:1rem; font-weight:800; }
+.eh-agreed-document span { min-width:0; font-size:.78rem; overflow-wrap:anywhere; }
+.eh-agreed-document code { white-space:normal; overflow-wrap:anywhere; word-break:break-all; }
 .eh-kicker { margin:0; font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
 .eh-sync { display:inline-block; padding:.25rem .6rem; border-radius:999px; color:#fff; font-weight:700; }
 .eh-sync--synchronized { background:var(--eh-done); }.eh-sync--stale { background:#9a6700; }.eh-sync--error { background:var(--eh-blocked); }

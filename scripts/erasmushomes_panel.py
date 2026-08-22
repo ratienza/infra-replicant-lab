@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import re
 import shutil
@@ -18,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STATUSES = ("done", "in_progress", "pending", "blocked")
 LABELS = {"done": "Completado", "in_progress": "En ejecución", "pending": "Pendiente", "blocked": "Bloqueado"}
 FIELDS = {"id", "title", "phase", "week_start", "week_end", "status", "owner", "objective", "definition_of_done", "weekend_validation", "evidence", "risks", "blocker_reason", "updated_at", "notes"}
+DOCX_RELATIVE_PATH = Path("docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx")
 
 
 def git(repo: Path, *args: str) -> str:
@@ -57,8 +59,25 @@ def esc(value: object) -> str:
     return str(value).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
-def render(data: dict, sha: str, synced_at: str, sync_state: str = "synchronized") -> str:
+def validate_document(document: dict, sha: str) -> None:
+    required = {"name", "sha256", "version_date", "url", "source_url"}
+    if set(document) != required:
+        raise ValueError("invalid agreed roadmap document metadata")
+    if document["name"] != DOCX_RELATIVE_PATH.name:
+        raise ValueError("unexpected agreed roadmap filename")
+    if not re.fullmatch(r"[0-9a-f]{64}", document["sha256"]):
+        raise ValueError("invalid agreed roadmap SHA-256")
+    if document["url"] != f"/downloads/erasmushomes/{DOCX_RELATIVE_PATH.name}":
+        raise ValueError("unexpected published agreed roadmap URL")
+    expected_source_url = f"https://github.com/ratienza/ErasmusHomes/blob/{sha}/{DOCX_RELATIVE_PATH.as_posix()}"
+    if document["source_url"] != expected_source_url:
+        raise ValueError("agreed roadmap Git source is not pinned to the panel SHA")
+    dt.date.fromisoformat(document["version_date"])
+
+
+def render(data: dict, sha: str, synced_at: str, sync_state: str, document: dict) -> str:
     tasks = validate(data)
+    validate_document(document, sha)
     counts = {status: sum(task["status"] == status for task in tasks) for status in STATUSES}
     completed = counts["done"]
     percent = round(completed * 100 / len(tasks))
@@ -69,7 +88,7 @@ def render(data: dict, sha: str, synced_at: str, sync_state: str = "synchronized
         "# ErasmusHomes · Control del MVP", "",
         "<!-- GENERATED: edit ratienza/ErasmusHomes docs/board/roadmap.yaml, never this file -->", "",
         '<div class="eh-dashboard">',
-        f'<section class="eh-hero"><p class="eh-kicker">Objetivo diciembre</p><h2>{esc(data.get("target", "Piloto comercial público"))}</h2><div class="eh-sync eh-sync--{sync_state}">{state_label}</div><dl><dt>SHA ErasmusHomes main</dt><dd><code>{esc(sha)}</code></dd><dt>Última sincronización</dt><dd>{esc(synced_at)}</dd></dl></section>',
+        f'<section class="eh-hero"><p class="eh-kicker">Objetivo diciembre</p><h2>{esc(data.get("target", "Piloto comercial público"))}</h2><div class="eh-sync eh-sync--{sync_state}">{state_label}</div><dl><dt>SHA ErasmusHomes main</dt><dd><code>{esc(sha)}</code></dd><dt>Última sincronización</dt><dd>{esc(synced_at)}</dd></dl><div class="eh-agreed-document"><a href="{esc(document["url"])}" target="_blank" rel="noopener noreferrer">Abrir roadmap acordado (DOCX)</a><span><b>Archivo:</b> {esc(document["name"])}</span><span><b>Git:</b> <code>{esc(sha[:8])}</code> · <a href="{esc(document["source_url"])}" target="_blank" rel="noopener noreferrer">ver fuente versionada</a></span><span><b>SHA-256:</b> <code>{esc(document["sha256"])}</code></span><span><b>Fecha:</b> {esc(document["version_date"])}</span></div></section>',
         '<section class="eh-metrics">',
         f'<article><strong>{percent}%</strong><span>completado</span></article>',
     ]
@@ -108,7 +127,20 @@ def atomic_write(path: Path, content: bytes) -> None:
     temporary.replace(path)
 
 
-def generate(repo: Path, output: Path, cache: Path, metadata: Path) -> dict:
+def document_manifest(repo: Path, docx_path: Path) -> tuple[str, str]:
+    digest = hashlib.sha256(docx_path.read_bytes()).hexdigest()
+    manifest = repo / "docs/source/SHA256SUMS"
+    for raw_line in manifest.read_text(encoding="utf-8").splitlines():
+        parts = [part.strip() for part in raw_line.split("|")]
+        if len(parts) == 4 and parts[1] == docx_path.name:
+            if parts[0] != digest:
+                raise ValueError("agreed roadmap DOCX differs from its SHA256SUMS entry")
+            dt.date.fromisoformat(parts[3])
+            return digest, parts[3]
+    raise ValueError("agreed roadmap DOCX is missing from SHA256SUMS")
+
+
+def generate(repo: Path, output: Path, cache: Path, metadata: Path, document_output: Path) -> dict:
     source = repo / "docs" / "board" / "roadmap.yaml"
     data = yaml.safe_load(source.read_text(encoding="utf-8"))
     validate(data)
@@ -120,20 +152,34 @@ def generate(repo: Path, output: Path, cache: Path, metadata: Path) -> dict:
         main_sha = ""
     sync_state = "synchronized" if branch == "main" and sha == main_sha else "stale"
     synced_at = dt.datetime.now(dt.timezone.utc).astimezone().isoformat(timespec="seconds")
-    page = render(data, sha, synced_at, sync_state)
-    meta = {"source": "ratienza/ErasmusHomes/docs/board/roadmap.yaml", "sha": sha, "main_sha": main_sha, "branch": branch, "synced_at": synced_at, "state": sync_state}
+    docx_path = repo / DOCX_RELATIVE_PATH
+    if not docx_path.is_file():
+        raise ValueError(f"agreed roadmap document is missing: {DOCX_RELATIVE_PATH}")
+    document_sha256, document_version_date = document_manifest(repo, docx_path)
+    document = {
+        "name": docx_path.name,
+        "sha256": document_sha256,
+        "version_date": document_version_date,
+        "url": f"/downloads/erasmushomes/{DOCX_RELATIVE_PATH.name}",
+        "source_url": f"https://github.com/ratienza/ErasmusHomes/blob/{sha}/{DOCX_RELATIVE_PATH.as_posix()}",
+    }
+    page = render(data, sha, synced_at, sync_state, document)
+    meta = {"source": "ratienza/ErasmusHomes/docs/board/roadmap.yaml", "sha": sha, "main_sha": main_sha, "branch": branch, "synced_at": synced_at, "state": sync_state, "document": document}
     atomic_write(output, page.encode())
     atomic_write(cache, source.read_bytes())
     atomic_write(metadata, (json.dumps(meta, ensure_ascii=False, indent=2) + "\n").encode())
+    atomic_write(document_output, docx_path.read_bytes())
     return meta
 
 
-def check(output: Path, cache: Path, metadata: Path) -> None:
+def check(output: Path, cache: Path, metadata: Path, document_output: Path) -> None:
     data = yaml.safe_load(cache.read_text(encoding="utf-8"))
     meta = json.loads(metadata.read_text(encoding="utf-8"))
-    expected = render(data, meta["sha"], meta["synced_at"], meta["state"])
+    expected = render(data, meta["sha"], meta["synced_at"], meta["state"], meta["document"])
     if output.read_text(encoding="utf-8") != expected:
         raise ValueError("generated ErasmusHomes panel is stale")
+    if hashlib.sha256(document_output.read_bytes()).hexdigest() != meta["document"]["sha256"]:
+        raise ValueError("published agreed roadmap DOCX hash differs from metadata")
 
 
 def main() -> None:
@@ -143,13 +189,14 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=ROOT / "docs/aplicaciones/erasmushomes-control.md")
     parser.add_argument("--cache", type=Path, default=ROOT / "data/erasmushomes/roadmap.yaml")
     parser.add_argument("--metadata", type=Path, default=ROOT / "data/erasmushomes/sync.json")
+    parser.add_argument("--document-output", type=Path, default=ROOT / f"docs/downloads/erasmushomes/{DOCX_RELATIVE_PATH.name}")
     args = parser.parse_args()
     if args.command == "generate":
         if not args.repo:
             parser.error("generate requires --repo")
-        print(json.dumps(generate(args.repo.resolve(), args.output, args.cache, args.metadata), ensure_ascii=False))
+        print(json.dumps(generate(args.repo.resolve(), args.output, args.cache, args.metadata, args.document_output), ensure_ascii=False))
     else:
-        check(args.output, args.cache, args.metadata)
+        check(args.output, args.cache, args.metadata, args.document_output)
         print("ErasmusHomes panel synchronized")
 
 

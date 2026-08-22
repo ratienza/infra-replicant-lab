@@ -3,26 +3,26 @@
 <!-- GENERATED: edit ratienza/ErasmusHomes docs/board/roadmap.yaml, never this file -->
 
 <div class="eh-dashboard">
-<section class="eh-hero"><p class="eh-kicker">Objetivo diciembre</p><h2>Piloto comercial público antes del 20 de diciembre de 2026</h2><div class="eh-sync eh-sync--stale">Desactualizado</div><dl><dt>SHA ErasmusHomes main</dt><dd><code>e8e9b38d885f330727cb85832dcd2e894c3f0bf0</code></dd><dt>Última sincronización</dt><dd>2026-08-22T23:55:23+02:00</dd></dl></section>
+<section class="eh-hero"><p class="eh-kicker">Objetivo diciembre</p><h2>Piloto comercial público antes del 20 de diciembre de 2026</h2><div class="eh-sync eh-sync--synchronized">Sincronizado</div><dl><dt>SHA ErasmusHomes main</dt><dd><code>fe867b64f53febfe7d203718b03c2e5dff31169c</code></dd><dt>Última sincronización</dt><dd>2026-08-23T01:53:10+02:00</dd></dl><div class="eh-agreed-document"><a href="/downloads/erasmushomes/Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx" target="_blank" rel="noopener noreferrer">Abrir roadmap acordado (DOCX)</a><span><b>Archivo:</b> Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx</span><span><b>Git:</b> <code>fe867b64</code> · <a href="https://github.com/ratienza/ErasmusHomes/blob/fe867b64f53febfe7d203718b03c2e5dff31169c/docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx" target="_blank" rel="noopener noreferrer">ver fuente versionada</a></span><span><b>SHA-256:</b> <code>f4e6be71905f7ed234ebd88a84d9b482b6b464b7fdd7bc4ec7241c29d5cbf36b</code></span><span><b>Fecha:</b> 2026-08-22</span></div></section>
 <section class="eh-metrics">
-<article><strong>6%</strong><span>completado</span></article>
-<article class="eh-metric eh-status--done"><strong>1</strong><span>Completado</span></article>
-<article class="eh-metric eh-status--in_progress"><strong>1</strong><span>En ejecución</span></article>
+<article><strong>12%</strong><span>completado</span></article>
+<article class="eh-metric eh-status--done"><strong>2</strong><span>Completado</span></article>
+<article class="eh-metric eh-status--in_progress"><strong>0</strong><span>En ejecución</span></article>
 <article class="eh-metric eh-status--pending"><strong>15</strong><span>Pendiente</span></article>
 <article class="eh-metric eh-status--blocked"><strong>0</strong><span>Bloqueado</span></article>
 </section>
 <section class="eh-gate"><h2>Próximo gate</h2>
-<p><strong>EH-002 · Roadmap canónico y panel Replicant Lab</strong><br>Aceptar contrato del roadmap, panel móvil y flujo Git a panel.</p>
+<p><strong>W-2026-08-31 · Supply y validación</strong><br>Retirar toda ciudad sin tres fuentes viables; no forzar scraper.</p>
 </section>
 <section><h2>Esta semana</h2><div class="eh-priorities">
-<article><strong>EH-002</strong><h3>Roadmap canónico y panel Replicant Lab</h3><p>Publicar roadmap estructurado y panel interno generado sin duplicar el estado.</p><p><b>Validación sábado/domingo:</b> Aceptar contrato del roadmap, panel móvil y flujo Git a panel.</p></article>
+<p>No hay tareas en ejecución.</p>
 </div></section>
 <section><h2>Kanban</h2><div class="eh-kanban">
-<div class="eh-column eh-status--done"><h3>Completado · 1</h3>
+<div class="eh-column eh-status--done"><h3>Completado · 2</h3>
 <article class="eh-task"><span>EH-001</span><h4>Consolidar la fuente de verdad</h4><p><b>Objetivo:</b> Consolidar fuentes, decisiones y alcance en Git y sincronizar Nexus.</p><p><b>Terminado:</b> PR fusionado en main y GitHub, local y Nexus en el mismo SHA.</p><p><b>Riesgos:</b> Divergencia histórica de PDFs ya documentada</p><p><a href="https://github.com/ratienza/ErasmusHomes/pull/1">Evidencia</a></p></article>
+<article class="eh-task"><span>EH-002</span><h4>Roadmap canónico y panel Replicant Lab</h4><p><b>Objetivo:</b> Publicar roadmap estructurado y panel interno generado sin duplicar el estado.</p><p><b>Terminado:</b> PRs validados, panel derivado y sincronización documentada sin nuevo servicio.</p><p><b>Riesgos:</b> Integración coordinada entre tres repositorios</p><p><a href="https://github.com/ratienza/ErasmusHomes/pull/2">Evidencia</a></p></article>
 </div>
-<div class="eh-column eh-status--in_progress"><h3>En ejecución · 1</h3>
-<article class="eh-task"><span>EH-002</span><h4>Roadmap canónico y panel Replicant Lab</h4><p><b>Objetivo:</b> Publicar roadmap estructurado y panel interno generado sin duplicar el estado.</p><p><b>Terminado:</b> PRs validados, panel derivado y sincronización documentada sin nuevo servicio.</p><p><b>Riesgos:</b> Integración coordinada entre tres repositorios</p><p>Evidencia pendiente</p></article>
+<div class="eh-column eh-status--in_progress"><h3>En ejecución · 0</h3>
 </div>
 <div class="eh-column eh-status--pending"><h3>Pendiente · 15</h3>
 <article class="eh-task"><span>W-2026-08-31</span><h4>Supply y validación</h4><p><b>Objetivo:</b> Evaluar hasta tres ciudades, fuentes, permisos, calidad, volumen y cinco entrevistas.</p><p><b>Terminado:</b> Ficha por ciudad y decisión de piloto con tres fuentes viables por ciudad elegida.</p><p><b>Riesgos:</b> Fuentes insuficientes o no permitidas</p><p>Evidencia pendiente</p></article>
@@ -46,7 +46,7 @@
 </div></section>
 <section><h2>Línea temporal hasta el 20 de diciembre</h2><ol class="eh-timeline">
 <li class="eh-status--done"><time>2026-08-22 - 2026-08-30</time><strong>Consolidar la fuente de verdad</strong><span>Completado</span></li>
-<li class="eh-status--in_progress"><time>2026-08-22 - 2026-08-30</time><strong>Roadmap canónico y panel Replicant Lab</strong><span>En ejecución</span></li>
+<li class="eh-status--done"><time>2026-08-22 - 2026-08-30</time><strong>Roadmap canónico y panel Replicant Lab</strong><span>Completado</span></li>
 <li class="eh-status--pending"><time>2026-08-31 - 2026-09-06</time><strong>Supply y validación</strong><span>Pendiente</span></li>
 <li class="eh-status--pending"><time>2026-09-07 - 2026-09-13</time><strong>Arquitectura y confianza</strong><span>Pendiente</span></li>
 <li class="eh-status--pending"><time>2026-09-14 - 2026-09-20</time><strong>UX móvil y prototipo</strong><span>Pendiente</span></li>
