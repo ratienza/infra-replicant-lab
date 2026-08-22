@@ -26,16 +26,19 @@ tasks:
     phase: governance
     week_start: 2026-08-22
     week_end: 2026-08-30
-    status: in_progress
+    status: done
     owner: founder
     objective: Publicar roadmap estructurado y panel interno generado sin duplicar el estado.
     definition_of_done: PRs validados, panel derivado y sincronización documentada sin nuevo servicio.
     weekend_validation: Aceptar contrato del roadmap, panel móvil y flujo Git a panel.
-    evidence: {pr: "", commit: "", url: ""}
+    evidence:
+      pr: "2"
+      commit: 2124413e337179e8322961c042ee709abd8a62d8
+      url: https://github.com/ratienza/ErasmusHomes/pull/2
     risks: ["Integración coordinada entre tres repositorios"]
     blocker_reason: ""
-    updated_at: "2026-08-22T23:50:00+02:00"
-    notes: En ejecución.
+    updated_at: "2026-08-23T01:20:00+02:00"
+    notes: Panel y sincronizador promovidos mediante infra-replicant-lab PRs 24 y 25; tarjeta interna promovida mediante Apps_Lauch PR 3; Nexus validado por SHA, HTTP y revisión visual.
   - id: W-2026-08-31
     title: Supply y validación
     phase: discovery
