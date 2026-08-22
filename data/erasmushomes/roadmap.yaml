@@ -1,0 +1,263 @@
+schema_version: 1
+project: ErasmusHomes
+target: "Piloto comercial público antes del 20 de diciembre de 2026"
+source_repository: ratienza/ErasmusHomes
+tasks:
+  - id: EH-001
+    title: Consolidar la fuente de verdad
+    phase: governance
+    week_start: 2026-08-22
+    week_end: 2026-08-30
+    status: done
+    owner: founder
+    objective: Consolidar fuentes, decisiones y alcance en Git y sincronizar Nexus.
+    definition_of_done: PR fusionado en main y GitHub, local y Nexus en el mismo SHA.
+    weekend_validation: Verificar jerarquía, hashes, merge y checkout limpio en Nexus.
+    evidence:
+      pr: "1"
+      commit: 275c6b89b0b882c6b34d56f55dc647afc35fe000
+      url: https://github.com/ratienza/ErasmusHomes/pull/1
+    risks: ["Divergencia histórica de PDFs ya documentada"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:45:15+02:00"
+    notes: Squash merge completado y Nexus sincronizado mediante pull --ff-only.
+  - id: EH-002
+    title: Roadmap canónico y panel Replicant Lab
+    phase: governance
+    week_start: 2026-08-22
+    week_end: 2026-08-30
+    status: in_progress
+    owner: founder
+    objective: Publicar roadmap estructurado y panel interno generado sin duplicar el estado.
+    definition_of_done: PRs validados, panel derivado y sincronización documentada sin nuevo servicio.
+    weekend_validation: Aceptar contrato del roadmap, panel móvil y flujo Git a panel.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Integración coordinada entre tres repositorios"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: En ejecución.
+  - id: W-2026-08-31
+    title: Supply y validación
+    phase: discovery
+    week_start: 2026-08-31
+    week_end: 2026-09-06
+    status: pending
+    owner: founder
+    objective: Evaluar hasta tres ciudades, fuentes, permisos, calidad, volumen y cinco entrevistas.
+    definition_of_done: Ficha por ciudad y decisión de piloto con tres fuentes viables por ciudad elegida.
+    weekend_validation: Retirar toda ciudad sin tres fuentes viables; no forzar scraper.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Fuentes insuficientes o no permitidas"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-09-07
+    title: Arquitectura y confianza
+    phase: design
+    week_start: 2026-09-07
+    week_end: 2026-09-13
+    status: pending
+    owner: founder
+    objective: Definir datos, estados, eventos, permisos, privacidad, retención y Gmail fallback.
+    definition_of_done: ADR técnico, modelo de datos y threat checklist aceptados.
+    weekend_validation: Aprobar solo arquitectura mínima; evitar stack ornamental.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["OAuth restringido", "Sobrearquitectura"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-09-14
+    title: UX móvil y prototipo
+    phase: design
+    week_start: 2026-09-14
+    week_end: 2026-09-20
+    status: pending
+    owner: founder
+    objective: Diseñar onboarding, hoy, resultados, detalle, shortlist, contacto y seguimiento a 360-430 px.
+    definition_of_done: Prototipo navegable probado con 3-5 personas.
+    weekend_validation: Cada pantalla debe permitir actuar, no solo mirar.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Flujos contemplativos sin acción"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-09-21
+    title: Base PWA
+    phase: build
+    week_start: 2026-09-21
+    week_end: 2026-09-27
+    status: pending
+    owner: founder
+    objective: Preparar CI, entornos, auth, perfil, PWA instalable, diseño y observabilidad mínima.
+    definition_of_done: La app abre en móvil y persiste el perfil de un usuario.
+    weekend_validation: Probar en Android e iPhone/Safari si está disponible.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Incompatibilidad móvil o persistencia"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-09-28
+    title: Ingesta y listings
+    phase: build
+    week_start: 2026-09-28
+    week_end: 2026-10-04
+    status: pending
+    owner: founder
+    objective: Integrar primeras fuentes permitidas con normalización, deduplicación y origen.
+    definition_of_done: Listings reales o dataset trazable disponible en una ciudad.
+    weekend_validation: Usar fallback autorizado o reducir ciudad ante bloqueo.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Fuente bloqueada", "Datos duplicados"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-10-05
+    title: Búsqueda y selección
+    phase: build
+    week_start: 2026-10-05
+    week_end: 2026-10-11
+    status: pending
+    owner: founder
+    objective: Implementar filtros, matching explicable, shortlist y estados.
+    definition_of_done: Un usuario obtiene una shortlist útil en menos de cinco minutos.
+    weekend_validation: Medir calidad; no optimizar algoritmo sin datos.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Matching opaco o sin evidencia"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-10-12
+    title: Contacto seguro
+    phase: build
+    week_start: 2026-10-12
+    week_end: 2026-10-18
+    status: pending
+    owner: founder
+    objective: Crear plantillas multilingües editables, consentimiento y derivación controlada.
+    definition_of_done: Mensaje contextual listo y acción auditada.
+    weekend_validation: Prohibir envío autónomo masivo y validar límites anti-spam.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Spam", "Mensaje incorrecto"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-10-19
+    title: Seguimiento
+    phase: build
+    week_start: 2026-10-19
+    week_end: 2026-10-25
+    status: pending
+    owner: founder
+    objective: Añadir estados, recordatorios, forwarding o vinculación de hilos y pendientes.
+    definition_of_done: Dashboard de qué hacer hoy operativo.
+    weekend_validation: OAuth solo si no compromete fecha ni compliance.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Auditoría OAuth retrasa el piloto"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-10-26
+    title: Conversación y alertas
+    phase: build
+    week_start: 2026-10-26
+    week_end: 2026-11-01
+    status: pending
+    owner: founder
+    objective: Resumir hilos, extraer peticiones y sugerir alertas y siguiente acción.
+    definition_of_done: Tres conversaciones de prueba interpretadas correctamente.
+    weekend_validation: Validar errores de IA y corrección humana.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Interpretación errónea de IA"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-11-02
+    title: Vertical slice
+    phase: validate
+    week_start: 2026-11-02
+    week_end: 2026-11-08
+    status: pending
+    owner: founder
+    objective: Completar buscar, seleccionar, contactar y seguir con datos reales.
+    definition_of_done: Demo móvil reproducible de punta a punta.
+    weekend_validation: GO beta solo sin bloqueantes P0/P1.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Bloqueantes P0/P1"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-11-09
+    title: Calidad y cumplimiento
+    phase: validate
+    week_start: 2026-11-09
+    week_end: 2026-11-15
+    status: pending
+    owner: founder
+    objective: QA móvil, accesibilidad, seguridad, privacidad, logs, errores y recuperación.
+    definition_of_done: Checklist de release y registro de riesgos aceptados.
+    weekend_validation: Recortar funcionalidad antes que sacrificar confianza.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Privacidad", "Accesibilidad", "Recuperación incompleta"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-11-16
+    title: Piloto cerrado
+    phase: pilot
+    week_start: 2026-11-16
+    week_end: 2026-11-22
+    status: pending
+    owner: founder
+    objective: Incorporar primeros usuarios, prestar soporte ligero y medir activación/contacto.
+    definition_of_done: Primeros usuarios reales y panel de métricas.
+    weekend_validation: Mantener un único canal de feedback.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Soporte fragmentado", "Muestra insuficiente"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-11-23
+    title: Corrección por evidencia
+    phase: pilot
+    week_start: 2026-11-23
+    week_end: 2026-11-29
+    status: pending
+    owner: founder
+    objective: Resolver los tres mayores frenos observados y validar fuentes y mensajes.
+    definition_of_done: Release candidate pública basada en evidencia.
+    weekend_validation: Aceptar solo cambios con evidencia y congelar extras.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Cambios sin evidencia", "Scope creep"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-11-30
+    title: Lanzamiento piloto
+    phase: launch
+    week_start: 2026-11-30
+    week_end: 2026-12-06
+    status: pending
+    owner: founder
+    objective: Publicar PWA, monitorizar, soportar y comunicar cobertura honestamente.
+    definition_of_done: Piloto comercial público estable y observable.
+    weekend_validation: GO solo si métricas y estabilidad sostienen uso real.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Inestabilidad", "Cobertura mal comunicada"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""
+  - id: W-2026-12-07
+    title: Estabilización y decisión de enero
+    phase: learn
+    week_start: 2026-12-07
+    week_end: 2026-12-20
+    status: pending
+    owner: founder
+    objective: Corregir incidencias, medir embudo, entrevistar y decidir el backlog de enero.
+    definition_of_done: Informe de piloto y backlog 2027 priorizado.
+    weekend_validation: No ampliar ciudades sin cumplir gates de la primera.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Escalado prematuro"]
+    blocker_reason: ""
+    updated_at: "2026-08-22T23:50:00+02:00"
+    notes: ""

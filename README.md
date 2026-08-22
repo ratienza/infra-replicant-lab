@@ -36,6 +36,17 @@ Un único comando construye MkDocs, genera los portables globales y por aplicaci
 python scripts/docs_pipeline.py generate
 ```
 
+El panel interno de ErasmusHomes se genera antes desde su única fuente estructurada:
+
+```bash
+python scripts/erasmushomes_panel.py generate --repo ../ErasmusHomes
+python scripts/erasmushomes_panel.py check
+```
+
+`data/erasmushomes/` es un caché derivado con SHA y fecha; nunca se edita manualmente.
+
+En Nexus, `scripts/sync_erasmushomes_nexus.sh` actualiza ambos `main` mediante `pull --ff-only`, genera y valida en un directorio temporal y solo entonces reconstruye el servicio documental existente. Conserva la imagen anterior como `last-good` y la restaura si el panel no responde `200` con el SHA esperado.
+
 Para comprobar que los artefactos versionados siguen sincronizados sin reemplazarlos:
 
 ```bash

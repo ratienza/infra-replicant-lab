@@ -52,6 +52,7 @@ APP_PORTABLES = {
     "control-red": ("Control de Red", "aplicaciones/control-red.md"),
     "cartera-estrategica": ("Cartera Estratégica", "aplicaciones/cartera-estrategica.md"),
     "replicant-lab": ("Replicant Lab", "aplicaciones/replicant-lab.md"),
+    "erasmushomes-control": ("ErasmusHomes · Control del MVP", "aplicaciones/erasmushomes-control.md"),
 }
 
 APP_EXPECTED_MARKERS = {
@@ -64,6 +65,7 @@ APP_EXPECTED_MARKERS = {
     "control-red": ("PowerShell", "Replicant", "rollback"),
     "cartera-estrategica": ("Streamlit", "SQLite", "rollback"),
     "replicant-lab": ("MkDocs", "8082", "rollback"),
+    "erasmushomes-control": ("Objetivo diciembre", "SHA ErasmusHomes main", "roadmap.yaml"),
 }
 
 MERMAID_FENCE = re.compile(r"^```mermaid\s*$\n(.*?)^```\s*$", re.MULTILINE | re.DOTALL)

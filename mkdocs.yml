@@ -26,6 +26,7 @@ nav:
   - Aplicaciones:
       - Índice: aplicaciones/index.md
       - PULA: aplicaciones/pula.md
+      - ErasmusHomes · Control del MVP: aplicaciones/erasmushomes-control.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Change Log:

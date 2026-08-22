@@ -38,6 +38,16 @@ Catálogo de acceso a aplicaciones públicas e internas. Se publica en Nexus y D
 
 <p class="tech-link"><a href="../downloads/apps/app-launch.html">Ver ficha técnica</a></p>
 </article>
+<article class="app-card" markdown>
+## ErasmusHomes · Control del MVP
+<p class="app-type">Consola interna de dirección</p>
+Panel derivado del roadmap canónico de ErasmusHomes. Resume progreso, prioridades, gates, validación de fin de semana, riesgos, evidencias y sincronización con el SHA de GitHub sin convertirse en fuente paralela.
+
+<dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>MkDocs + YAML generado</dd><dt>Repositorio fuente</dt><dd><code>ratienza/ErasmusHomes</code></dd><dt>Repositorio visual</dt><dd><code>ratienza/infra-replicant-lab</code></dd><dt>Deploy</dt><dd>Documentación existente</dd><dt>Runtime</dt><dd>Nexus · <code>8082</code></dd><dt>Estado</dt><dd>Interno / EH-002</dd><dt>URL</dt><dd><a href="erasmushomes-control/">Panel interno</a></dd></dl>
+
+<p class="web-link"><a href="erasmushomes-control/">Abrir panel de control</a></p>
+<p class="tech-link"><a href="../downloads/apps/erasmushomes-control.html">Ver ficha técnica</a></p>
+</article>
 
 <article class="app-card" markdown>
 ## Salones AV
