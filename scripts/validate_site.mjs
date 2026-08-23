@@ -35,6 +35,7 @@ const routes = [
   { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 0 },
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control", diagrams: 0 },
+  { route: "/control/erasmushomes/", name: "erasmushomes-standalone", diagrams: 0 },
   { route: "/pendientes-codex/", name: "pending", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
   { route: "/cambios/2026-08-21/", name: "changelog", diagrams: 0 },
@@ -125,6 +126,26 @@ for (const item of routes) {
       failures.push(`${item.route}: invalid agreed DOCX contrast link ${JSON.stringify(contrast)}`);
     }
   }
+  if (item.name === "erasmushomes-standalone") {
+    const standalone = await page.evaluate(() => {
+      const link = [...document.querySelectorAll("a")].find(element => element.textContent.trim() === "Abrir roadmap acordado (DOCX)");
+      return {
+        title: document.title,
+        linkTarget: link?.target ?? "",
+        linkHref: link?.href ?? "",
+        sha: document.body.innerText.includes("fe867b64") || /Git\s+[0-9a-f]{8}/.test(document.body.innerText),
+        metrics: document.querySelectorAll(".metric").length,
+        columns: document.querySelectorAll(".column").length,
+        tasks: document.querySelectorAll(".task").length,
+      };
+    });
+    if (
+      standalone.title !== "ErasmusHomes · Control del MVP"
+      || standalone.linkTarget !== "_blank"
+      || !/\/downloads\/erasmushomes\/Roadmap_ErasmusHomes_MVP_Diciembre_2026\.docx$/.test(standalone.linkHref)
+      || !standalone.sha || standalone.metrics !== 5 || standalone.columns !== 4 || standalone.tasks !== 17
+    ) failures.push(`${item.route}: invalid standalone control ${JSON.stringify(standalone)}`);
+  }
   if (item.name === "architecture") {
     const architecture = await page.evaluate(() => ({
       concepts: [...document.querySelectorAll(".mermaid-rendered svg")].map(svg => svg.textContent.replace(/\s+/g, " ").trim()),
@@ -166,6 +187,7 @@ for (const item of [
   { route: "/descargas/", name: "downloads" },
   { route: "/aplicaciones/", name: "applications" },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control" },
+  { route: "/control/erasmushomes/", name: "erasmushomes-standalone" },
 ]) {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(new URL(item.route.replace(/^\//, ""), base).href, { waitUntil: "networkidle" });
