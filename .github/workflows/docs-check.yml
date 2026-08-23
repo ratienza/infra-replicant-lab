@@ -95,6 +95,7 @@ jobs:
           curl --fail --silent --output /tmp/Replicant-Lab.pdf http://127.0.0.1:8082/downloads/Replicant-Lab.pdf
           cmp docs/downloads/Replicant-Lab.html /tmp/Replicant-Lab.html
           cmp docs/downloads/Replicant-Lab.pdf /tmp/Replicant-Lab.pdf
+          curl --fail --silent --show-error --head http://127.0.0.1:8082/downloads/erasmushomes/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf | grep -i '^Content-Type: application/pdf'
           ! grep -Eqi 'livereload|wss?://|localhost:' /tmp/Replicant-Lab.html
           for source in docs/downloads/apps/*; do
             relative="${source#docs/}"
