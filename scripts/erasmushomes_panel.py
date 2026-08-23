@@ -20,6 +20,13 @@ STATUSES = ("done", "in_progress", "pending", "blocked")
 LABELS = {"done": "Completado", "in_progress": "En ejecución", "pending": "Pendiente", "blocked": "Bloqueado"}
 FIELDS = {"id", "title", "phase", "week_start", "week_end", "status", "owner", "objective", "definition_of_done", "weekend_validation", "evidence", "risks", "blocker_reason", "updated_at", "notes"}
 DOCX_RELATIVE_PATH = Path("docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx")
+STANDALONE_CSS = r"""
+:root{color-scheme:light;--ink:#172033;--muted:#667085;--line:#d9e1eb;--paper:#fff;--soft:#f4f7fb;--brand:#3457d5;--done:#18864b;--progress:#2768d8;--pending:#778195;--blocked:#c93645;--shadow:0 18px 50px rgba(29,45,78,.10)}
+*{box-sizing:border-box}html{background:#eef3f9}body{margin:0;color:var(--ink);background:linear-gradient(180deg,#edf3fb 0,#f8fafc 24rem,#f4f7fb 100%);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--brand)}code{overflow-wrap:anywhere;font:600 .86em ui-monospace,SFMono-Regular,Consolas,monospace}.shell{width:min(1440px,calc(100% - 48px));margin:auto;padding:32px 0 64px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px;font-weight:800}.brand-mark{display:grid;width:38px;height:38px;place-items:center;border-radius:12px;color:#fff;background:var(--brand);box-shadow:var(--shadow)}.sync{padding:7px 12px;border-radius:999px;color:#fff;background:var(--done);font-size:13px;font-weight:800}.hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:22px;padding:clamp(24px,4vw,52px);border:1px solid #d6e0ee;border-radius:24px;background:rgba(255,255,255,.94);box-shadow:var(--shadow)}.eyebrow{margin:0 0 9px;color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.hero h1{max-width:840px;margin:0;font-size:clamp(32px,5vw,62px);line-height:1.04;letter-spacing:-.045em}.hero-copy{max-width:760px;margin:18px 0 0;color:var(--muted);font-size:clamp(16px,1.5vw,20px)}.source-card{align-self:stretch;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--soft)}.source-card h2{margin:0 0 14px;font-size:17px}.docx-button{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:11px 15px;border-radius:12px;color:#fff;background:var(--brand);font-weight:900;text-align:center;text-decoration:none}.meta{display:grid;gap:8px;margin:16px 0 0}.meta div{min-width:0}.meta dt{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.meta dd{margin:1px 0 0;overflow-wrap:anywhere}.metrics{display:grid;grid-template-columns:1.25fr repeat(4,1fr);gap:14px;margin:22px 0}.metric{min-width:0;padding:20px;border:1px solid var(--line);border-radius:17px;background:var(--paper)}.metric strong{display:block;font-size:31px;line-height:1}.metric span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.metric.primary{color:#fff;border:0;background:linear-gradient(135deg,#253f9b,#4771ea)}.metric.primary span{color:#dfe7ff}.workspace{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.45fr);gap:20px}.panel{padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--paper)}.panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:17px}.panel h2{margin:0;font-size:22px;letter-spacing:-.02em}.panel-note{margin:3px 0 0;color:var(--muted);font-size:13px}.gate{padding:18px;border-left:5px solid var(--brand);border-radius:12px;background:#f2f5ff}.gate strong{display:block;margin-bottom:4px}.priorities{display:grid;gap:12px;margin-top:14px}.priority{padding:16px;border:1px solid var(--line);border-radius:14px}.priority b{color:var(--brand)}.kanban{display:grid;grid-template-columns:repeat(4,minmax(230px,1fr));gap:14px;overflow-x:auto;padding:2px 2px 10px}.column{min-width:230px;padding:14px;border-top:4px solid var(--color);border-radius:14px;background:var(--soft)}.column h3{display:flex;justify-content:space-between;margin:0 0 12px;color:var(--color);font-size:15px}.task{margin-top:10px;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff}.task-id{color:var(--color);font-size:11px;font-weight:900}.task h4{margin:4px 0 8px;font-size:14px;line-height:1.25}.task p{margin:6px 0;color:var(--muted);font-size:12px}.timeline{display:grid;gap:8px;margin:0;padding:0;list-style:none}.timeline li{display:grid;grid-template-columns:165px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 13px;border-left:4px solid var(--color);border-radius:9px;background:var(--soft)}.timeline time,.timeline span{color:var(--muted);font-size:12px}.footer{margin-top:24px;color:var(--muted);font-size:12px;text-align:center}.status-done{--color:var(--done)}.status-in_progress{--color:var(--progress)}.status-pending{--color:var(--pending)}.status-blocked{--color:var(--blocked)}
+@media(max-width:1100px){.hero,.workspace{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(5,minmax(145px,1fr));overflow-x:auto}.source-card{display:grid;grid-template-columns:minmax(220px,.65fr) 1fr;gap:16px;align-items:start}.source-card h2{grid-column:1/-1}.kanban{grid-template-columns:repeat(4,minmax(250px,1fr))}}
+@media(max-width:820px){.shell{width:min(100% - 28px,1440px);padding-top:18px}.hero{padding:25px;border-radius:18px}.source-card{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr);overflow:visible}.metric.primary{grid-column:1/-1}.panel{padding:18px}.timeline li{grid-template-columns:1fr}.timeline span{justify-self:start}.topbar{align-items:flex-start}}
+@media(max-width:520px){body{font-size:14px}.shell{width:min(100% - 20px,1440px)}.brand-copy small{display:none}.hero{padding:20px}.hero h1{font-size:34px}.metrics{gap:10px}.metric{padding:16px}.metric strong{font-size:27px}.panel-head{display:block}.kanban{grid-template-columns:1fr;overflow:visible}.column{min-width:0}.source-card{padding:17px}.docx-button{font-size:14px}.sync{font-size:11px}.timeline li{padding:10px}.workspace{gap:14px}}
+"""
 
 
 def git(repo: Path, *args: str) -> str:
@@ -119,6 +126,56 @@ def render(data: dict, sha: str, synced_at: str, sync_state: str, document: dict
     return "\n".join(lines)
 
 
+def render_standalone(data: dict, sha: str, synced_at: str, sync_state: str, document: dict) -> str:
+    tasks = validate(data)
+    validate_document(document, sha)
+    counts = {status: sum(task["status"] == status for task in tasks) for status in STATUSES}
+    percent = round(counts["done"] * 100 / len(tasks))
+    active = [task for task in tasks if task["status"] == "in_progress"][:3]
+    next_gate = next((task for task in tasks if task["status"] in {"in_progress", "pending", "blocked"}), None)
+    state_label = {"synchronized": "Sincronizado", "stale": "Desactualizado", "error": "Error de sincronización"}[sync_state]
+    content = [
+        '<!doctype html><html lang="es"><head><meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width,initial-scale=1">',
+        '<title>ErasmusHomes · Control del MVP</title>',
+        f'<style>{STANDALONE_CSS}</style></head><body><main class="shell">',
+        f'<header class="topbar"><div class="brand"><span class="brand-mark">EH</span><span class="brand-copy">ErasmusHomes<br><small>Control interno del MVP</small></span></div><span class="sync">{state_label}</span></header>',
+        '<section class="hero"><div><p class="eyebrow">Dirección · horizonte diciembre 2026</p>',
+        f'<h1>{esc(data.get("target", "Piloto comercial público"))}</h1>',
+        '<p class="hero-copy">Una vista ejecutiva del trabajo real: qué está terminado, qué viene ahora y qué evidencia sostiene cada decisión.</p></div>',
+        '<aside class="source-card"><h2>Documento acordado</h2>',
+        f'<a class="docx-button" href="{esc(document["url"])}" target="_blank" rel="noopener noreferrer">Abrir roadmap acordado (DOCX)</a>',
+        f'<dl class="meta"><div><dt>Archivo</dt><dd>{esc(document["name"])}</dd></div><div><dt>Git</dt><dd><code>{esc(sha[:8])}</code> · <a href="{esc(document["source_url"])}" target="_blank" rel="noopener noreferrer">fuente versionada</a></dd></div><div><dt>SHA-256</dt><dd><code>{esc(document["sha256"])}</code></dd></div><div><dt>Fecha</dt><dd>{esc(document["version_date"])}</dd></div><div><dt>Última sincronización</dt><dd>{esc(synced_at)}</dd></div></dl></aside></section>',
+        '<section class="metrics" aria-label="Resumen de progreso">',
+        f'<article class="metric primary"><strong>{percent}%</strong><span>del roadmap completado</span></article>',
+    ]
+    for status in STATUSES:
+        content.append(f'<article class="metric status-{status}"><strong>{counts[status]}</strong><span>{LABELS[status]}</span></article>')
+    content += ['</section><section class="workspace"><div class="panel"><div class="panel-head"><div><h2>Foco inmediato</h2><p class="panel-note">La siguiente decisión que mueve el MVP.</p></div></div>']
+    if next_gate:
+        content.append(f'<div class="gate"><strong>{esc(next_gate["id"])} · {esc(next_gate["title"])}</strong>{esc(next_gate["weekend_validation"])}</div>')
+    content.append('<div class="priorities">')
+    if active:
+        for task in active:
+            content.append(f'<article class="priority"><b>{esc(task["id"])}</b><h3>{esc(task["title"])}</h3><p>{esc(task["objective"])}</p><small><b>Validación:</b> {esc(task["weekend_validation"])}</small></article>')
+    else:
+        content.append('<article class="priority"><b>Sin tareas en ejecución</b><p>El siguiente gate pendiente queda preparado para priorización.</p></article>')
+    content += ['</div></div><aside class="panel"><h2>Lectura rápida</h2><p class="panel-note">Este panel se genera desde Git. No se edita en Nexus.</p>', f'<dl class="meta"><div><dt>SHA ErasmusHomes main</dt><dd><code>{esc(sha)}</code></dd></div><div><dt>Fuente</dt><dd><code>docs/board/roadmap.yaml</code></dd></div><div><dt>Tareas</dt><dd>{len(tasks)} en total</dd></div></dl></aside></section>', '<section class="panel" style="margin-top:20px"><div class="panel-head"><div><h2>Tablero de ejecución</h2><p class="panel-note">Objetivo, criterio de terminado, riesgo y evidencia en un solo lugar.</p></div></div><div class="kanban">']
+    for status in STATUSES:
+        content.append(f'<section class="column status-{status}"><h3><span>{LABELS[status]}</span><span>{counts[status]}</span></h3>')
+        for task in (item for item in tasks if item["status"] == status):
+            risks = ", ".join(map(str, task["risks"])) or "Sin riesgo declarado"
+            evidence = task["evidence"]
+            link = f'<a href="{esc(evidence["url"])}" target="_blank" rel="noopener noreferrer">Ver evidencia</a>' if evidence["url"] else "Evidencia pendiente"
+            content.append(f'<article class="task"><span class="task-id">{esc(task["id"])}</span><h4>{esc(task["title"])}</h4><p><b>Objetivo:</b> {esc(task["objective"])}</p><p><b>Terminado:</b> {esc(task["definition_of_done"])}</p><p><b>Riesgo:</b> {esc(risks)}</p><p>{link}</p></article>')
+        content.append('</section>')
+    content += ['</div></section><section class="panel" style="margin-top:20px"><div class="panel-head"><div><h2>Camino hasta el 20 de diciembre</h2><p class="panel-note">Secuencia de validación, construcción y lanzamiento.</p></div></div><ol class="timeline">']
+    for task in tasks:
+        content.append(f'<li class="status-{task["status"]}"><time>{esc(task["week_start"])} → {esc(task["week_end"])}</time><strong>{esc(task["title"])}</strong><span>{LABELS[task["status"]]}</span></li>')
+    content += ['</ol></section><footer class="footer">Panel autónomo generado desde ErasmusHomes Git main · sin edición manual en Nexus</footer></main></body></html>']
+    return "".join(content)
+
+
 def atomic_write(path: Path, content: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as handle:
@@ -140,7 +197,7 @@ def document_manifest(repo: Path, docx_path: Path) -> tuple[str, str]:
     raise ValueError("agreed roadmap DOCX is missing from SHA256SUMS")
 
 
-def generate(repo: Path, output: Path, cache: Path, metadata: Path, document_output: Path) -> dict:
+def generate(repo: Path, output: Path, cache: Path, metadata: Path, document_output: Path, standalone_output: Path) -> dict:
     source = repo / "docs" / "board" / "roadmap.yaml"
     data = yaml.safe_load(source.read_text(encoding="utf-8"))
     validate(data)
@@ -164,15 +221,17 @@ def generate(repo: Path, output: Path, cache: Path, metadata: Path, document_out
         "source_url": f"https://github.com/ratienza/ErasmusHomes/blob/{sha}/{DOCX_RELATIVE_PATH.as_posix()}",
     }
     page = render(data, sha, synced_at, sync_state, document)
+    standalone = render_standalone(data, sha, synced_at, sync_state, document)
     meta = {"source": "ratienza/ErasmusHomes/docs/board/roadmap.yaml", "sha": sha, "main_sha": main_sha, "branch": branch, "synced_at": synced_at, "state": sync_state, "document": document}
     atomic_write(output, page.encode())
     atomic_write(cache, source.read_bytes())
     atomic_write(metadata, (json.dumps(meta, ensure_ascii=False, indent=2) + "\n").encode())
     atomic_write(document_output, docx_path.read_bytes())
+    atomic_write(standalone_output, standalone.encode())
     return meta
 
 
-def check(output: Path, cache: Path, metadata: Path, document_output: Path) -> None:
+def check(output: Path, cache: Path, metadata: Path, document_output: Path, standalone_output: Path) -> None:
     data = yaml.safe_load(cache.read_text(encoding="utf-8"))
     meta = json.loads(metadata.read_text(encoding="utf-8"))
     expected = render(data, meta["sha"], meta["synced_at"], meta["state"], meta["document"])
@@ -180,6 +239,9 @@ def check(output: Path, cache: Path, metadata: Path, document_output: Path) -> N
         raise ValueError("generated ErasmusHomes panel is stale")
     if hashlib.sha256(document_output.read_bytes()).hexdigest() != meta["document"]["sha256"]:
         raise ValueError("published agreed roadmap DOCX hash differs from metadata")
+    expected_standalone = render_standalone(data, meta["sha"], meta["synced_at"], meta["state"], meta["document"])
+    if standalone_output.read_text(encoding="utf-8") != expected_standalone:
+        raise ValueError("standalone ErasmusHomes control is stale")
 
 
 def main() -> None:
@@ -190,13 +252,14 @@ def main() -> None:
     parser.add_argument("--cache", type=Path, default=ROOT / "data/erasmushomes/roadmap.yaml")
     parser.add_argument("--metadata", type=Path, default=ROOT / "data/erasmushomes/sync.json")
     parser.add_argument("--document-output", type=Path, default=ROOT / f"docs/downloads/erasmushomes/{DOCX_RELATIVE_PATH.name}")
+    parser.add_argument("--standalone-output", type=Path, default=ROOT / "docs/control/erasmushomes/index.html")
     args = parser.parse_args()
     if args.command == "generate":
         if not args.repo:
             parser.error("generate requires --repo")
-        print(json.dumps(generate(args.repo.resolve(), args.output, args.cache, args.metadata, args.document_output), ensure_ascii=False))
+        print(json.dumps(generate(args.repo.resolve(), args.output, args.cache, args.metadata, args.document_output, args.standalone_output), ensure_ascii=False))
     else:
-        check(args.output, args.cache, args.metadata, args.document_output)
+        check(args.output, args.cache, args.metadata, args.document_output, args.standalone_output)
         print("ErasmusHomes panel synchronized")
 
 
