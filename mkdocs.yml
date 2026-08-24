@@ -22,11 +22,26 @@ nav:
       - Comandos útiles: operacion/comandos-utiles.md
       - Mantenimiento: operacion/mantenimiento.md
   - Descargas: descargas.md
-  - Pendientes: pendientes-codex.md
+  - Pendientes:
+      - Resumen: pendientes/index.md
+      - Cartera Estratégica: pendientes/cartera-estrategica.md
+      - PULA: pendientes/pula.md
+      - CV / Firebase: pendientes/cv-firebase.md
+      - Control de Red: pendientes/control-red.md
+      - Nexus: pendientes/nexus.md
+      - App Launch: pendientes/app-launch.md
   - Aplicaciones:
       - Índice: aplicaciones/index.md
       - PULA: aplicaciones/pula.md
+      - App Launch: aplicaciones/app-launch.md
       - ErasmusHomes · Control del MVP: aplicaciones/erasmushomes-control.md
+      - Salones AV: aplicaciones/salones-av.md
+      - Reserva-Pistas-UTP: aplicaciones/reserva-pistas-utp.md
+      - Consumos Cupra: aplicaciones/consumos-cupra.md
+      - CV de Raúl: aplicaciones/cv-raul.md
+      - Control de Red: aplicaciones/control-red.md
+      - Cartera Estratégica: aplicaciones/cartera-estrategica.md
+      - Replicant Lab: aplicaciones/replicant-lab.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Change Log:

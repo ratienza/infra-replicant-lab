@@ -2,6 +2,12 @@
 
 <!-- GENERATED: edit ratienza/ErasmusHomes docs/board/roadmap.yaml, never this file -->
 
+## Accesos
+
+- **Panel de control:** [Control MVP autónomo](/control/erasmushomes/)
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/erasmushomes-control.html)
+- **Aplicación / producción:** no hay una URL de producto ErasmusHomes desplegada.
+
 <div class="eh-dashboard">
 <section class="eh-hero"><p class="eh-kicker">Objetivo diciembre</p><h2>Piloto comercial público antes del 20 de diciembre de 2026</h2><div class="eh-sync eh-sync--synchronized">Sincronizado</div><dl><dt>SHA ErasmusHomes main</dt><dd><code>fe867b64f53febfe7d203718b03c2e5dff31169c</code></dd><dt>Última sincronización</dt><dd>2026-08-23T09:00:09+02:00</dd></dl><div class="eh-agreed-document"><a href="/downloads/erasmushomes/Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx" target="_blank" rel="noopener noreferrer">Abrir roadmap acordado (DOCX)</a><span><b>Archivo:</b> Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx</span><span><b>Git:</b> <code>fe867b64</code> · <a href="https://github.com/ratienza/ErasmusHomes/blob/fe867b64f53febfe7d203718b03c2e5dff31169c/docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx" target="_blank" rel="noopener noreferrer">ver fuente versionada</a></span><span><b>SHA-256:</b> <code>f4e6be71905f7ed234ebd88a84d9b482b6b464b7fdd7bc4ec7241c29d5cbf36b</code></span><span><b>Fecha:</b> 2026-08-22</span></div></section>
 <section class="eh-metrics">

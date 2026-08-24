@@ -94,6 +94,10 @@ def render(data: dict, sha: str, synced_at: str, sync_state: str, document: dict
     lines = [
         "# ErasmusHomes · Control del MVP", "",
         "<!-- GENERATED: edit ratienza/ErasmusHomes docs/board/roadmap.yaml, never this file -->", "",
+        "## Accesos", "",
+        "- **Panel de control:** [Control MVP autónomo](/control/erasmushomes/)",
+        "- **Ficha técnica:** [HTML autocontenido](/downloads/apps/erasmushomes-control.html)",
+        "- **Aplicación / producción:** no hay una URL de producto ErasmusHomes desplegada.", "",
         '<div class="eh-dashboard">',
         f'<section class="eh-hero"><p class="eh-kicker">Objetivo diciembre</p><h2>{esc(data.get("target", "Piloto comercial público"))}</h2><div class="eh-sync eh-sync--{sync_state}">{state_label}</div><dl><dt>SHA ErasmusHomes main</dt><dd><code>{esc(sha)}</code></dd><dt>Última sincronización</dt><dd>{esc(synced_at)}</dd></dl><div class="eh-agreed-document"><a href="{esc(document["url"])}" target="_blank" rel="noopener noreferrer">Abrir roadmap acordado (DOCX)</a><span><b>Archivo:</b> {esc(document["name"])}</span><span><b>Git:</b> <code>{esc(sha[:8])}</code> · <a href="{esc(document["source_url"])}" target="_blank" rel="noopener noreferrer">ver fuente versionada</a></span><span><b>SHA-256:</b> <code>{esc(document["sha256"])}</code></span><span><b>Fecha:</b> {esc(document["version_date"])}</span></div></section>',
         '<section class="eh-metrics">',

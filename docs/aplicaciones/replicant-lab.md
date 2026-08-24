@@ -2,6 +2,11 @@
 
 Documentación canónica del laboratorio: arquitectura, hosts, red, despliegues, operación, decisiones, pendientes y fichas técnicas de aplicaciones.
 
+## Accesos
+
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/replicant-lab.html)
+- **Aplicación / Nexus:** [Replicant Lab](http://192.168.18.220:8082/)
+
 ## Estado auditado
 
 | Campo | Valor |

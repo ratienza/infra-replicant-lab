@@ -2,6 +2,11 @@
 
 Aplicación personal para registrar y analizar consumos de combustible. Fue creada inicialmente con AI Studio y remediada con Codex sin alterar su funcionalidad.
 
+## Accesos
+
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/consumos-cupra.html)
+- **Aplicación / producción:** [Consumos Cupra](https://app.raulatienza.com/consumos/)
+
 ## Estado actual
 
 | Campo | Valor |
