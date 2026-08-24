@@ -128,10 +128,10 @@ tr:nth-child(even) td { background: #fafcfd; }
   p, li { orphans: 3; widows: 3; }
   pre { font-size: 7.2pt; line-height: 1.35; white-space: pre-wrap; break-inside: auto; }
   table { display: table; font-size: 7.6pt; break-inside: auto; }
-  .doc-page[data-source="pendientes-codex.md"] { font-size: 6.5pt; line-height: 1.15; }
-  .doc-page[data-source="pendientes-codex.md"] .source-path { margin-bottom: 2mm; }
-  .doc-page[data-source="pendientes-codex.md"] .doc-content h1 { margin: 0 0 2mm; font-size: 16pt; }
-  .doc-page[data-source="pendientes-codex.md"] .doc-content h2 { margin: 2mm 0 1mm; font-size: 10pt; }
+  .doc-page[data-source="pendientes/index.md"] { font-size: 6.5pt; line-height: 1.15; }
+  .doc-page[data-source="pendientes/index.md"] .source-path { margin-bottom: 2mm; }
+  .doc-page[data-source="pendientes/index.md"] .doc-content h1 { margin: 0 0 2mm; font-size: 16pt; }
+  .doc-page[data-source="pendientes/index.md"] .doc-content h2 { margin: 2mm 0 1mm; font-size: 10pt; }
   .status-panel table { font-size: 5.4pt; line-height: 1.05; }
   .status-panel th, .status-panel td { padding: 1px 2px; }
   .status-panel tr, .status-panel details { break-inside: auto; }

@@ -36,7 +36,8 @@ const routes = [
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control", diagrams: 0 },
   { route: "/control/erasmushomes/", name: "erasmushomes-standalone", diagrams: 0 },
-  { route: "/pendientes-codex/", name: "pending", diagrams: 0 },
+  { route: "/pendientes/", name: "pending", diagrams: 0 },
+  { route: "/pendientes/cv-firebase/", name: "pending-detail", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
   { route: "/cambios/2026-08-21/", name: "changelog", diagrams: 0 },
   { route: "/cambios/2026-08-13/", name: "changelog-previous", diagrams: 0 },
@@ -81,12 +82,23 @@ for (const item of routes) {
   }
   if (item.name === "pending") {
     const pendingSummary = await page.evaluate(() => ({
-      headings: [...document.querySelectorAll("main h2")].map(item => item.textContent.trim()),
+      table: document.querySelector("main table")?.textContent ?? "",
       postCartera: document.querySelector("main")?.textContent.includes("POST-CARTERA") ?? false,
     }));
-    const required = ["Activos", "Deuda POST-CARTERA", "Mejoras opcionales"];
-    if (!required.every(value => pendingSummary.headings.includes(value)) || !pendingSummary.postCartera) {
+    const required = ["Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
+    if (!required.every(value => pendingSummary.table.includes(value)) || !pendingSummary.postCartera) {
       failures.push(`${item.route}: incomplete pending summary ${JSON.stringify(pendingSummary)}`);
+    }
+  }
+  if (item.name === "pending" || item.name === "pending-detail") {
+    const navigation = await page.evaluate(() => ({
+      left: [...document.querySelectorAll(".md-sidebar--primary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
+      right: [...document.querySelectorAll(".md-sidebar--secondary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
+    }));
+    const expectedLeft = ["Resumen", "Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
+    if (!expectedLeft.every(value => navigation.left.includes(value))) failures.push(`${item.route}: incomplete pending navigation ${JSON.stringify(navigation)}`);
+    if (item.name === "pending-detail" && ["PULA", "Nexus", "Control de Red"].some(value => navigation.right.includes(value))) {
+      failures.push(`${item.route}: unrelated right TOC ${JSON.stringify(navigation.right)}`);
     }
   }
   if (item.name === "applications") {
@@ -94,7 +106,7 @@ for (const item of routes) {
       cards: document.querySelectorAll(".app-catalog .app-card").length,
       types: document.querySelectorAll(".app-catalog .app-type").length,
       descriptions: [...document.querySelectorAll(".app-catalog .app-card")].map(card => card.textContent.trim().length),
-      links: [...document.querySelectorAll(".app-card .tech-link a")].map(link => link.getAttribute("href")),
+      links: [...document.querySelectorAll(".app-card .app-accesses a")].filter(link => link.textContent.trim() === "Ficha técnica").map(link => link.getAttribute("href")),
       legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
     }));
     if (
@@ -103,6 +115,17 @@ for (const item of routes) {
       || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
     ) {
       failures.push(`${item.route}: invalid application catalog ${JSON.stringify(catalog)}`);
+    }
+  }
+  if (item.route.startsWith("/aplicaciones/") && item.name !== "applications") {
+    const application = await page.evaluate(() => ({
+      hasAccesses: [...document.querySelectorAll("main h2")].some(heading => heading.textContent.trim() === "Accesos"),
+      hasFicha: [...document.querySelectorAll("main a")].some(link => /\/downloads\/apps\/.+\.html$/.test(link.href)),
+      left: [...document.querySelectorAll(".md-sidebar--primary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
+    }));
+    const expectedApps = ["Índice", "PULA", "App Launch", "ErasmusHomes · Control del MVP", "Salones AV", "Reserva-Pistas-UTP", "Consumos Cupra", "CV de Raúl", "Control de Red", "Cartera Estratégica", "Replicant Lab"];
+    if (!application.hasAccesses || !application.hasFicha || !expectedApps.every(value => application.left.includes(value))) {
+      failures.push(`${item.route}: incomplete application access/navigation ${JSON.stringify(application)}`);
     }
   }
   if (item.name === "erasmushomes-control") {

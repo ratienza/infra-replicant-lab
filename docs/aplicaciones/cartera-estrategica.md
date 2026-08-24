@@ -2,6 +2,11 @@
 
 Aplicación desarrollada con Codex y Python/Streamlit para operación local en Replicant.
 
+## Accesos
+
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/cartera-estrategica.html)
+- **Runtime:** local en Replicant · sin URL publicada.
+
 ## Estado
 
 Aplicación Python/Streamlit operativa como MVP local en Windows, con versión documental `v1.2.0` y SQLite privada fuera del repositorio. GitHub `main` estaba en `f2b319dea862469b90eb65fa20f8ae2d8c96875d`; el checkout de trabajo observado en Replicant estaba atrasado en `3be6254` y no se modificó.

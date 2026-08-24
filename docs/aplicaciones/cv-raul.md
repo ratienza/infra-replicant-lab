@@ -2,6 +2,11 @@
 
 Currículum y portfolio profesional público creado con AI Studio, con frontend Vite/Tailwind y descarga de PDF generada durante la compilación.
 
+## Accesos
+
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/cv-raul.html)
+- **Aplicación / producción:** [CV de Raúl](https://cv.raulatienza.com)
+
 ## Estado actual
 
 | Campo | Valor |

@@ -8,7 +8,7 @@ La historia detallada se conserva en el [Change Log](../cambios/index.md). Para 
 | Auditoría y normalización | Se inventariaron hosts, red, aplicaciones, checkouts y runtimes sin confundir presencia de código con ejecución. |
 | Remediaciones | Salones AV quedó reconciliado en Git/Nexus; Consumos Cupra quedó trazado y restaurado en Cloud Run; el CV quedó identificado en Firebase Hosting. |
 | Estado actual | Las fases 2A, 2B y 2C están cerradas. No hay una incidencia crítica abierta en esas aplicaciones. |
-| Trabajo futuro | La deuda aceptada se concentra en [Pendientes](../pendientes-codex.md) y se retomará después de Cartera Estratégica. |
+| Trabajo futuro | La deuda aceptada se concentra en [Pendientes](../pendientes/index.md) y se retomará después de Cartera Estratégica. |
 
 ## Criterio de validación
 

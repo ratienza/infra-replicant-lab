@@ -2,6 +2,12 @@
 
 Ficha de infraestructura y operación de la aplicación de reservas de pádel de Torre de Porta-Coeli. La documentación funcional y de desarrollo permanece en `ratienza/Reserva-Pistas-UTP`; esta página registra el montaje real en Raul Lab y producción.
 
+## Accesos
+
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/reserva-pistas-utp.html)
+- **Aplicación / producción:** [Reserva-Pistas-UTP](https://app.raulatienza.com/padel/)
+- **Aplicación / Nexus:** [Runtime interno](http://192.168.18.220:8083/)
+
 ## Estado validado
 
 | Elemento | Valor |

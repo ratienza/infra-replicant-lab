@@ -14,7 +14,7 @@ Catálogo operativo del laboratorio. Cada ficha técnica se abre como documento 
 .app-card dl { display:grid; grid-template-columns:max-content 1fr; gap:.22rem .65rem; margin:.25rem 0; font-size:.82rem; }
 .app-card dt { font-weight:700; }
 .app-card dd { margin:0; }
-.app-card .tech-link { margin-top:auto; padding-top:.45rem; font-weight:700; }
+.app-card .app-accesses { margin-top:auto; padding-top:.45rem; font-weight:700; }
 </style>
 
 <div class="app-catalog" markdown>
@@ -26,8 +26,7 @@ POC privada para localizar y gestionar apartamentos publicados por SCPU en Pula,
 
 <dl><dt>Herramienta</dt><dd>AI Studio + Antigravity</dd><dt>Stack</dt><dd>React, Vite, Express, Gemini</dd><dt>Repositorio</dt><dd><code>ratienza/Pula</code></dd><dt>Deploy</dt><dd>Producción pública existente</dd><dt>Runtime</dt><dd>Google · no modificado</dd><dt>Estado</dt><dd>POC beta Pula / publicada en ambos App Launch</dd><dt>URL</dt><dd><a href="https://pula-erasmus-housing-automator.ai.studio/">Producción</a></dd></dl>
 
-<p class="web-link"><a href="https://pula-erasmus-housing-automator.ai.studio/">Abrir PULA</a> · <a href="pula/">Consultar en el gestor</a></p>
-<p class="tech-link"><a href="../downloads/apps/pula.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/pula.html">Ficha técnica</a> · <a href="https://pula-erasmus-housing-automator.ai.studio/">Producción</a> · <a href="pula/">Documentación</a></p>
 </article>
 <article class="app-card" markdown>
 ## App Launch
@@ -36,7 +35,7 @@ Catálogo de acceso a aplicaciones públicas e internas. Se publica en Nexus y D
 
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>HTML, CSS, JavaScript</dd><dt>Repositorio</dt><dd><code>ratienza/Apps_Lauch</code></dd><dt>Deploy</dt><dd>Scripts por destino</dd><dt>Runtime</dt><dd>Nginx · Nexus y DigitalOcean</dd><dt>Estado</dt><dd>Operativo</dd><dt>URL</dt><dd><a href="http://192.168.18.220/">Nexus</a></dd></dl>
 
-<p class="tech-link"><a href="../downloads/apps/app-launch.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/app-launch.html">Ficha técnica</a> · <a href="http://192.168.18.220/">Nexus</a> · <a href="https://app.raulatienza.com/">Producción</a></p>
 </article>
 <article class="app-card" markdown>
 ## ErasmusHomes · Control del MVP
@@ -45,8 +44,7 @@ Panel derivado del roadmap canónico de ErasmusHomes. Resume progreso, prioridad
 
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>MkDocs + YAML generado</dd><dt>Repositorio fuente</dt><dd><code>ratienza/ErasmusHomes</code></dd><dt>Repositorio visual</dt><dd><code>ratienza/infra-replicant-lab</code></dd><dt>Deploy</dt><dd>Documentación existente</dd><dt>Runtime</dt><dd>Nexus · <code>8082</code></dd><dt>Estado</dt><dd>Interno / EH-002</dd><dt>URL</dt><dd><a href="erasmushomes-control/">Panel interno</a></dd></dl>
 
-<p class="web-link"><a href="erasmushomes-control/">Abrir panel de control</a></p>
-<p class="tech-link"><a href="../downloads/apps/erasmushomes-control.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/erasmushomes-control.html">Ficha técnica</a> · <a href="../control/erasmushomes/">Panel de control</a></p>
 </article>
 
 <article class="app-card" markdown>
@@ -56,7 +54,7 @@ Guía audiovisual para los salones del Valencia Palace. Reúne procedimientos, c
 
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>HTML, Nginx</dd><dt>Repositorio</dt><dd><code>ratienza/salones-av-valencia-palace</code></dd><dt>Deploy</dt><dd>Docker Compose</dd><dt>Runtime</dt><dd>Nexus · <code>8081</code></dd><dt>Estado</dt><dd>Cerrado / operativo</dd><dt>URL</dt><dd><a href="http://192.168.18.220:8081/">Nexus</a></dd></dl>
 
-<p class="tech-link"><a href="../downloads/apps/salones-av.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/salones-av.html">Ficha técnica</a> · <a href="http://192.168.18.220:8081/">Nexus</a></p>
 </article>
 
 <article class="app-card" markdown>
@@ -66,7 +64,7 @@ Gestiona reservas de pistas de pádel y su programación. Ofrece interfaz web y 
 
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>Python, Flask, Nginx</dd><dt>Repositorio</dt><dd><code>ratienza/Reserva-Pistas-UTP</code></dd><dt>Deploy</dt><dd>Compose + systemd/Nginx</dd><dt>Runtime</dt><dd>Nexus y DigitalOcean</dd><dt>Estado</dt><dd>Operativo</dd><dt>URL</dt><dd><a href="https://app.raulatienza.com/padel/">Producción</a></dd></dl>
 
-<p class="tech-link"><a href="../downloads/apps/reserva-pistas-utp.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/reserva-pistas-utp.html">Ficha técnica</a> · <a href="https://app.raulatienza.com/padel/">Producción</a> · <a href="http://192.168.18.220:8083/">Nexus</a></p>
 </article>
 
 <article class="app-card" markdown>
@@ -76,7 +74,7 @@ Registra y analiza consumos del vehículo, histórico, pendientes y estadística
 
 <dl><dt>Herramienta</dt><dd>AI Studio + Codex</dd><dt>Stack</dt><dd>React, Vite, Express</dd><dt>Repositorio</dt><dd><code>ratienza/Consumos_Cupra</code></dd><dt>Deploy</dt><dd>Cloud Build</dd><dt>Runtime</dt><dd>Google Cloud Run</dd><dt>Estado</dt><dd>Cerrado / operativo</dd></dl>
 
-<p class="tech-link"><a href="../downloads/apps/consumos-cupra.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/consumos-cupra.html">Ficha técnica</a> · <a href="https://app.raulatienza.com/consumos/">Producción</a></p>
 </article>
 
 <article class="app-card" markdown>
@@ -86,7 +84,7 @@ Presenta el currículum y portfolio profesional público. Organiza experiencia, 
 
 <dl><dt>Herramienta</dt><dd>AI Studio</dd><dt>Stack</dt><dd>Vite, Tailwind, PDFKit</dd><dt>Repositorio</dt><dd><code>ratienza/CV-Raul-IA-Estudio-Google-</code></dd><dt>Deploy</dt><dd>Firebase Hosting</dd><dt>Runtime</dt><dd>Firebase</dd><dt>Estado</dt><dd>Operativo / POST-CARTERA</dd><dt>URL</dt><dd><a href="https://cv.raulatienza.com">Producción</a></dd></dl>
 
-<p class="tech-link"><a href="../downloads/apps/cv-raul.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/cv-raul.html">Ficha técnica</a> · <a href="https://cv.raulatienza.com">Producción</a></p>
 </article>
 
 <article class="app-card" markdown>
@@ -96,7 +94,7 @@ Descubre e inventaría dispositivos de la red local. Ayuda a revisar direccionam
 
 <dl><dt>Herramienta</dt><dd>PowerShell + Codex</dd><dt>Stack</dt><dd>PowerShell</dd><dt>Repositorio</dt><dd><code>ratienza/control-red</code></dd><dt>Deploy</dt><dd>Ejecución local</dd><dt>Runtime</dt><dd>Replicant</dd><dt>Estado</dt><dd>Operativo local / POST-CARTERA</dd></dl>
 
-<p class="tech-link"><a href="../downloads/apps/control-red.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/control-red.html">Ficha técnica</a> · Runtime local en Replicant · sin URL publicada</p>
 </article>
 
 <article class="app-card" markdown>
@@ -106,7 +104,7 @@ Gestiona y analiza una cartera personal de inversión. Centraliza posiciones, hi
 
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>Python, Streamlit, SQLite</dd><dt>Repositorio</dt><dd><code>ratienza/cartera-estrategica</code></dd><dt>Deploy</dt><dd>Ejecución local</dd><dt>Runtime</dt><dd>Replicant</dd><dt>Estado</dt><dd>MVP operativo</dd></dl>
 
-<p class="tech-link"><a href="../downloads/apps/cartera-estrategica.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/cartera-estrategica.html">Ficha técnica</a> · Runtime local en Replicant · sin URL publicada</p>
 </article>
 
 <article class="app-card" markdown>
@@ -116,7 +114,7 @@ Documenta infraestructura, despliegue y operación del laboratorio. Genera un si
 
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>MkDocs, Mermaid, Nginx</dd><dt>Repositorio</dt><dd><code>ratienza/infra-replicant-lab</code></dd><dt>Deploy</dt><dd>Docker Compose</dd><dt>Runtime</dt><dd>Nexus · <code>8082</code></dd><dt>Estado</dt><dd>Operativo</dd><dt>URL</dt><dd><a href="http://192.168.18.220:8082/">Nexus</a></dd></dl>
 
-<p class="tech-link"><a href="../downloads/apps/replicant-lab.html">Ver ficha técnica</a></p>
+<p class="app-accesses"><a href="../downloads/apps/replicant-lab.html">Ficha técnica</a> · <a href="http://192.168.18.220:8082/">Nexus</a></p>
 </article>
 
 </div>

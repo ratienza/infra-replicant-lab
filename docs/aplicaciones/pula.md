@@ -2,6 +2,12 @@
 
 Auditoría técnica y manual funcional de `ratienza/Pula`. **PULA es exclusivamente una POC privada para localizar y gestionar apartamentos de la web oficial SCPU en Pula, Croacia.** Su finalidad actual es ayudar en una búsqueda familiar concreta; no es ErasmusHomes ni una plataforma paneuropea.
 
+## Accesos
+
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/pula.html)
+- **Aplicación / producción:** [AI Studio](https://pula-erasmus-housing-automator.ai.studio/)
+- **Panel de control:** no existe uno independiente documentado.
+
 !!! warning "Alcance de este documento"
     **PULA es una POC privada de búsqueda de apartamentos SCPU en Pula, Croacia. No forma parte de ErasmusHomes.**
 

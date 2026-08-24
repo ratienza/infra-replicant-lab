@@ -2,6 +2,11 @@
 
 Panel PowerShell para inventariar, nombrar y revisar dispositivos de la red local desde Replicant/Windows.
 
+## Accesos
+
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/control-red.html)
+- **Runtime:** local en Replicant · sin URL publicada.
+
 ## Estado auditado
 
 | Campo | Valor |

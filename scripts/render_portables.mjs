@@ -150,16 +150,16 @@ if (JSON.stringify(changeLogDates) !== JSON.stringify(["Índice", "21 de agosto 
   throw new Error(`Change Log hierarchy differs from MkDocs nav: ${JSON.stringify(changeLogDates)}`);
 }
 
-const pendingPage = await page.evaluate(() => document.querySelector('[data-source="pendientes-codex.md"]')?.id);
+const pendingPage = await page.evaluate(() => document.querySelector('[data-source="pendientes/index.md"]')?.id);
 if (!pendingPage) throw new Error("Pending page not found");
 await page.goto(fileUrl + "#" + pendingPage, { waitUntil: "load" });
 await waitForActive(pendingPage);
 const pendingSummary = await page.evaluate(() => ({
-  headings: [...document.querySelectorAll(".doc-page.is-active h2")].map(item => item.textContent.trim()),
+  table: document.querySelector(".doc-page.is-active table")?.textContent ?? "",
   postCartera: document.querySelector(".doc-page.is-active")?.textContent.includes("POST-CARTERA") ?? false,
 }));
-const requiredPendingHeadings = ["Activos", "Deuda POST-CARTERA", "Mejoras opcionales"];
-if (!requiredPendingHeadings.every(item => pendingSummary.headings.includes(item)) || !pendingSummary.postCartera) {
+const requiredPendingItems = ["Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
+if (!requiredPendingItems.every(item => pendingSummary.table.includes(item)) || !pendingSummary.postCartera) {
   throw new Error(`Pending summary is incomplete: ${JSON.stringify(pendingSummary)}`);
 }
 await page.goto(fileUrl + "#page-2", { waitUntil: "load" });

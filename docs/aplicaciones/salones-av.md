@@ -2,6 +2,11 @@
 
 Documentación operativa audiovisual para el personal del SH Valencia Palace: panel general, pantallas LED, traslado, conexión de cliente, sonido y mapas de las plantas PL1 y PL6.
 
+## Accesos
+
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/salones-av.html)
+- **Aplicación / Nexus:** [Salones AV](http://192.168.18.220:8081/)
+
 ## Ficha de infraestructura
 
 | Campo | Valor |
