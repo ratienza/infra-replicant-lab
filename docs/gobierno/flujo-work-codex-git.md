@@ -68,11 +68,8 @@ Para retomar: entrar en el repositorio correcto, comprobar árbol limpio, hacer 
 
 ```mermaid
 flowchart TD
-  GH[(GitHub: contrato y código)]
-  A[Ordenador A] --> GH
-  B[Ordenador B] --> GH
-  W[ChatGPT Work] --> GH
-  C[Codex] --> GH
+  Clientes["Ordenador A<br/>Ordenador B<br/>ChatGPT Work<br/>Codex"]
+  Clientes -->|sincronizan| GH[(GitHub: contrato y código)]
   GH --> CI[CI y evidencias]
 ```
 

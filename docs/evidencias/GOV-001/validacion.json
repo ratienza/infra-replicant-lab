@@ -3,114 +3,528 @@
   "desktopScreenshots": 8,
   "mobileScreenshots": 6,
   "mermaid": 10,
+  "governance": {
+    "route": "/gobierno/flujo-work-codex-git/",
+    "mermaidExpected": 3,
+    "viewports": [
+      {
+        "viewportWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "horizontalOverflow": false,
+        "mermaidCount": 3,
+        "diagrams": [
+          {
+            "index": 1,
+            "container": {
+              "left": 0,
+              "right": 358,
+              "width": 358,
+              "clientWidth": 356,
+              "scrollWidth": 356
+            },
+            "svg": {
+              "left": 11,
+              "right": 347,
+              "width": 336,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 397.18359375,
+                "height": 501
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 381.18359375,
+                "height": 485
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          },
+          {
+            "index": 2,
+            "container": {
+              "left": 0,
+              "right": 358,
+              "width": 358,
+              "clientWidth": 356,
+              "scrollWidth": 356
+            },
+            "svg": {
+              "left": 20.203125,
+              "right": 337.796875,
+              "width": 317.59375,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 317.59765625,
+                "height": 849
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 301.59765625,
+                "height": 833
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          },
+          {
+            "index": 3,
+            "container": {
+              "left": 0,
+              "right": 358,
+              "width": 358,
+              "clientWidth": 356,
+              "scrollWidth": 356
+            },
+            "svg": {
+              "left": 78.859375,
+              "right": 279.125,
+              "width": 200.265625,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 200.265625,
+                "height": 393.17596435546875
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 184.265625,
+                "height": 377.17596435546875
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          }
+        ],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": []
+      },
+      {
+        "viewportWidth": 800,
+        "clientWidth": 800,
+        "scrollWidth": 800,
+        "horizontalOverflow": false,
+        "mermaidCount": 3,
+        "diagrams": [
+          {
+            "index": 1,
+            "container": {
+              "left": 16,
+              "right": 784,
+              "width": 768,
+              "clientWidth": 766,
+              "scrollWidth": 766
+            },
+            "svg": {
+              "left": 201.40625,
+              "right": 598.578125,
+              "width": 397.171875,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 397.18359375,
+                "height": 501
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 381.18359375,
+                "height": 485
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          },
+          {
+            "index": 2,
+            "container": {
+              "left": 16,
+              "right": 784,
+              "width": 768,
+              "clientWidth": 766,
+              "scrollWidth": 766
+            },
+            "svg": {
+              "left": 241.203125,
+              "right": 558.796875,
+              "width": 317.59375,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 317.59765625,
+                "height": 849
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 301.59765625,
+                "height": 833
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          },
+          {
+            "index": 3,
+            "container": {
+              "left": 16,
+              "right": 784,
+              "width": 768,
+              "clientWidth": 766,
+              "scrollWidth": 766
+            },
+            "svg": {
+              "left": 299.859375,
+              "right": 500.125,
+              "width": 200.265625,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 200.265625,
+                "height": 393.17596435546875
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 184.265625,
+                "height": 377.17596435546875
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          }
+        ],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": []
+      },
+      {
+        "viewportWidth": 1024,
+        "clientWidth": 1024,
+        "scrollWidth": 1024,
+        "horizontalOverflow": false,
+        "mermaidCount": 3,
+        "diagrams": [
+          {
+            "index": 1,
+            "container": {
+              "left": 16,
+              "right": 766,
+              "width": 750,
+              "clientWidth": 748,
+              "scrollWidth": 748
+            },
+            "svg": {
+              "left": 192.40625,
+              "right": 589.578125,
+              "width": 397.171875,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 397.18359375,
+                "height": 501
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 381.18359375,
+                "height": 485
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          },
+          {
+            "index": 2,
+            "container": {
+              "left": 16,
+              "right": 766,
+              "width": 750,
+              "clientWidth": 748,
+              "scrollWidth": 748
+            },
+            "svg": {
+              "left": 232.203125,
+              "right": 549.796875,
+              "width": 317.59375,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 317.59765625,
+                "height": 849
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 301.59765625,
+                "height": 833
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          },
+          {
+            "index": 3,
+            "container": {
+              "left": 16,
+              "right": 766,
+              "width": 750,
+              "clientWidth": 748,
+              "scrollWidth": 748
+            },
+            "svg": {
+              "left": 290.859375,
+              "right": 491.125,
+              "width": 200.265625,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 200.265625,
+                "height": 393.17596435546875
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 184.265625,
+                "height": 377.17596435546875
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          }
+        ],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": []
+      },
+      {
+        "viewportWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "horizontalOverflow": false,
+        "mermaidCount": 3,
+        "diagrams": [
+          {
+            "index": 1,
+            "container": {
+              "left": 376,
+              "right": 1064,
+              "width": 688,
+              "clientWidth": 686,
+              "scrollWidth": 686
+            },
+            "svg": {
+              "left": 521.40625,
+              "right": 918.578125,
+              "width": 397.171875,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 397.18359375,
+                "height": 501
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 381.18359375,
+                "height": 485
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          },
+          {
+            "index": 2,
+            "container": {
+              "left": 376,
+              "right": 1064,
+              "width": 688,
+              "clientWidth": 686,
+              "scrollWidth": 686
+            },
+            "svg": {
+              "left": 561.203125,
+              "right": 878.796875,
+              "width": 317.59375,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 317.59765625,
+                "height": 849
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 301.59765625,
+                "height": 833
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          },
+          {
+            "index": 3,
+            "container": {
+              "left": 376,
+              "right": 1064,
+              "width": 688,
+              "clientWidth": 686,
+              "scrollWidth": 686
+            },
+            "svg": {
+              "left": 619.859375,
+              "right": 820.125,
+              "width": 200.265625,
+              "viewBox": {
+                "x": 0,
+                "y": 0,
+                "width": 200.265625,
+                "height": 393.17596435546875
+              },
+              "graphics": {
+                "x": 8,
+                "y": 8,
+                "width": 184.265625,
+                "height": 377.17596435546875
+              }
+            },
+            "clipping": false,
+            "boundsClipped": false,
+            "graphicsClipped": false
+          }
+        ],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": []
+      }
+    ]
+  },
   "downloads": {
     "html": {
-      "bytes": 3790588,
-      "sha256": "af8b5e66cb5514456871c4255bd95f840af76b7f77aac4ac13031d7ef901fe92"
+      "bytes": 3790622,
+      "sha256": "c9ddc2dff96030beaf5306183605f0e776c983075cee54989d9abb8bc0dc82b2"
     },
     "pdf": {
-      "bytes": 915361,
-      "sha256": "454a450844905400c6d89ac5b1a7e120b2b11a60cf9a52c9d75b80cdc8c51448"
+      "bytes": 917095,
+      "sha256": "a81eaff3731aab399bced6c9d93036f4b4737d572c2d5ac1681a4aea16efe07d"
     },
     "apps": {
       "pula": {
         "html": {
           "bytes": 3596847,
-          "sha256": "6148738ddc3a4f2ff0ab5b333c2f5e07cca85fbf6cf7b626f19b29659ff97479"
+          "sha256": "76c98c43ea61c5d66790ce4a82fc97117fb3c01242f39e16844d26c9e6554c14"
         },
         "pdf": {
-          "bytes": 175284,
-          "sha256": "6fad7c9a4e83319188adc3476bac6e5296f841722e7c8784ca067dce13c21978"
+          "bytes": 175286,
+          "sha256": "f4ebece9cc31d290a37e483ca708558f2429cf2457609809f6a58055da2832ea"
         }
       },
       "app-launch": {
         "html": {
           "bytes": 20102,
-          "sha256": "1117669fcb74ea45f010461e72172d2346ffc579f5538de17ac6613bca82ecb2"
+          "sha256": "82a2b2c9c29a7ee2213987c0a830bb9390863ae8a19f88ed39255144f9b56e59"
         },
         "pdf": {
-          "bytes": 105324,
-          "sha256": "95ac0e44132de511aad2403fa488d8e0c9ee11703173382eba9c0eaee81c6e5a"
+          "bytes": 105325,
+          "sha256": "c2fa2a5cc14b0ac767f7d4a87b13d10cf77c0224a92ad1e23a9d2cdf7fd73751"
         }
       },
       "salones-av": {
         "html": {
           "bytes": 17339,
-          "sha256": "68824ef3d792571a49765caae9aa50d24915a4b6cc0f7cbe786b5c722108f54f"
+          "sha256": "a2aca3988498d0a1866e8481dd9674f04899a19569f847bce76939bc4d25ef73"
         },
         "pdf": {
-          "bytes": 93555,
-          "sha256": "c901a61adb53789a8c26ed54e851af7033000baf7f68185745935039eade711b"
+          "bytes": 93556,
+          "sha256": "6db041497cc17d6c623ac2573e4b788bf1735dcecaea326916879dc32b395a46"
         }
       },
       "reserva-pistas-utp": {
         "html": {
           "bytes": 25791,
-          "sha256": "44501e0d84f54a5784363d4de6a726d86572b80fb30a62a6a8b81278472149b2"
+          "sha256": "7c0ec7dc970f5be5d1129969a1c2b14d27eaa4a5bfa6695f2514fcdfc57d06cc"
         },
         "pdf": {
-          "bytes": 131309,
-          "sha256": "e1b6002f1236e6a705b85e8acdac324c82fabcbf8b324f2c6de71be22ad6af8b"
+          "bytes": 131312,
+          "sha256": "7802434d7b0c0a71ce5d482cdeea940085fab38193cbe20f22b6f932e530d5ac"
         }
       },
       "consumos-cupra": {
         "html": {
           "bytes": 16466,
-          "sha256": "cef796b0845f0d029f22b8f42875201b85f35a55ad4a6bf8aa1336ccd81ee6a2"
+          "sha256": "d5ae7f5e5206e4d0e1c4ec2e9bba06260fd80b01f4e9764a96d3e03084cc966d"
         },
         "pdf": {
-          "bytes": 89220,
-          "sha256": "b1a83ef9f8ce1d19321069e3a0a644a3bfb256ee9c022fc579d5a77c02e816e7"
+          "bytes": 89219,
+          "sha256": "799fc60d6eaa72e680a2d60a9bc3ab0fd93fcfc545e3fbcdc5a72b76cba59077"
         }
       },
       "cv-raul": {
         "html": {
           "bytes": 16396,
-          "sha256": "caed8baaa544ba40df1bfc97bb72a99557a4323d672fe66e3cf7322d391d7a0d"
+          "sha256": "8bc7e12fba31259547df6cccc09dfbfa67ae92b80b74c4647c7dfed04b3bca56"
         },
         "pdf": {
-          "bytes": 89911,
-          "sha256": "13a01df789d4a45626813f255716318e6a4ba5d6ab4ead4746f6e9cc0340e46f"
+          "bytes": 89913,
+          "sha256": "5bc9e9e6c4b11142f500f6313ecf43b4721bc646d844a7f470611a6fc53c625e"
         }
       },
       "control-red": {
         "html": {
           "bytes": 15758,
-          "sha256": "119a6974f66c62c682847b17c23b0d31b11da7ecabb53600e82bbe1ad667e770"
+          "sha256": "211967d3c500c091b906f3ce4af89317fd6b7198842aa8030423320a9b1b0d90"
         },
         "pdf": {
-          "bytes": 80236,
-          "sha256": "22eace7fb906274bc9f4a4b367f55e95da4f6341ec5924e2d3dec485bba21700"
+          "bytes": 80242,
+          "sha256": "55a63156a4da3cddab9f1ceafdd295513109d2da125bb6e6a7afcc180b27fdd1"
         }
       },
       "cartera-estrategica": {
         "html": {
           "bytes": 15994,
-          "sha256": "2c4891dc77999cf642d3c8201f37996675289dfeef0e9be9cbf587479c6f6058"
+          "sha256": "1e0fa5960d943d5987d89b9842e2a0a27439f08598014a6ad52722629970844d"
         },
         "pdf": {
-          "bytes": 85951,
-          "sha256": "6e302aacc5d80acd33cc726e45ac595b52c9579d972690280b3045e55f150037"
+          "bytes": 85954,
+          "sha256": "9bd7d91e69c955ca30dd7b25d80470c600913b704682d591c74794377bd8bc84"
         }
       },
       "replicant-lab": {
         "html": {
           "bytes": 17168,
-          "sha256": "8ede56369194703bf3b63193dad8e302e937a58ee5aadc191ef889f318e7a864"
+          "sha256": "ad1193ef1cfd7c989d3e03d0f9f4e72963553d6a82ffb71541eaa73c1d30989f"
         },
         "pdf": {
-          "bytes": 89185,
-          "sha256": "bd88c1cee5988194358b86f72821b7597f85f0a947118effc45d8f6bf6a272b7"
+          "bytes": 89188,
+          "sha256": "c39ee6367c4ac0f1dbee3f365e4e4f7d27a08a5d47eaf8ecfb2bc6bca079bc70"
         }
       },
       "erasmushomes-control": {
         "html": {
           "bytes": 24621,
-          "sha256": "1ab706b4bd8871b5af0f6ec7a0010231907dbf1ebf3bd3b3b2a411c6c6bf4d57"
+          "sha256": "addf741049ec57558be7e062d0ed14fa6aebdf1f4fcf27ef89cc6326d144c302"
         },
         "pdf": {
-          "bytes": 121347,
-          "sha256": "022a40e2241e5412c14bc13228510af71ef8037880d24af669c41c8f215b1f25"
+          "bytes": 121348,
+          "sha256": "57c58f70f89e1005f3ca9a0e7bb314c7704e94e316c4c3b0c39ba1b750699716"
         }
       }
     }
