@@ -38,7 +38,7 @@ MERMAID_PACKAGE_RUNTIME = ROOT / "node_modules" / "mermaid" / "dist" / "mermaid.
 PORTABLE_CSS = ROOT / "scripts" / "portable.css"
 NODE_RENDERER = ROOT / "scripts" / "render_portables.mjs"
 APP_RENDERER = ROOT / "scripts" / "render_app_portable.mjs"
-EXPECTED_MERMAID = 7
+EXPECTED_MERMAID = 10
 MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 

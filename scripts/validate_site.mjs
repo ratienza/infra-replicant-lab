@@ -48,6 +48,11 @@ const routes = [
   { route: "/red/overview/", name: "mermaid-network", diagrams: 1 },
   { route: "/despliegue/git/", name: "mermaid-git", diagrams: 1 },
   { route: "/autodocumentacion/", name: "mermaid-autodoc", diagrams: 1 },
+  { route: "/gobierno/flujo-work-codex-git/", name: "governance", diagrams: 3 },
+  { route: "/gobierno/instrucciones-proyecto-work/", name: "work-instructions", diagrams: 0 },
+  { route: "/encargos/", name: "engagements", diagrams: 0 },
+  { route: "/encargos/TEMPLATE/", name: "engagement-template", diagrams: 0 },
+  { route: "/encargos/GOV-001/", name: "gov-001", diagrams: 0 },
 ];
 
 if (screenshots) await fs.mkdir(screenshots, { recursive: true });
@@ -55,6 +60,7 @@ const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
 const failures = [];
 let totalDiagrams = 0;
+const governanceViewports = [];
 
 function isOptionalFontFailure(value) {
   return /^https:\/\/fonts\.(googleapis|gstatic)\.com\//.test(value);
@@ -179,6 +185,17 @@ for (const item of routes) {
       failures.push(`${item.route}: incomplete architecture representation ${JSON.stringify(architecture)}`);
     }
   }
+  if (item.name === "governance") {
+    const governance = await page.evaluate(() => ({
+      title: document.querySelector("main h1")?.textContent.trim() ?? "",
+      diagrams: document.querySelectorAll(".mermaid-rendered svg").length,
+      left: [...document.querySelectorAll(".md-sidebar--primary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
+      required: ["Roles y fuentes de verdad", "Ciclo y estados", "Chats y varios ordenadores", "Coordinación multirrepositorio", "Matriz de impacto documental", "Definición de terminado", "Antipatrones prohibidos"].every(value => document.querySelector("main")?.textContent.includes(value)),
+    }));
+    if (governance.title !== "Gobierno del trabajo" || governance.diagrams !== 3 || !governance.left.includes("Flujo Work–Codex–Git") || !governance.required) {
+      failures.push(`${item.route}: incomplete governance contract ${JSON.stringify(governance)}`);
+    }
+  }
   const state = await page.evaluate(() => ({
     title: document.title,
     diagrams: document.querySelectorAll('.mermaid-rendered svg').length,
@@ -197,7 +214,7 @@ for (const item of routes) {
   if (actionableConsoleErrors.length) failures.push(`${item.route}: console ${actionableConsoleErrors.join(" | ")}`);
   if (actionableRequestFailures.length) failures.push(`${item.route}: requests ${actionableRequestFailures.join(" | ")}`);
   if (responseFailures.length) failures.push(`${item.route}: responses ${responseFailures.join(" | ")}`);
-  if (screenshots && ["home", "architecture", "nexus", "applications", "pending", "changelog", "downloads"].includes(item.name)) {
+  if (screenshots && ["home", "architecture", "nexus", "applications", "pending", "changelog", "downloads", "governance"].includes(item.name)) {
     await page.screenshot({ path: path.join(screenshots, `${item.name}-desktop.png`), fullPage: true });
   }
   page.off("console", onConsole);
@@ -211,12 +228,108 @@ for (const item of [
   { route: "/aplicaciones/", name: "applications" },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control" },
   { route: "/control/erasmushomes/", name: "erasmushomes-standalone" },
+  { route: "/gobierno/flujo-work-codex-git/", name: "governance" },
 ]) {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(new URL(item.route.replace(/^\//, ""), base).href, { waitUntil: "networkidle" });
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 2);
   if (overflow) failures.push(`${item.route}: mobile horizontal overflow`);
   if (screenshots) await page.screenshot({ path: path.join(screenshots, `${item.name}-mobile.png`), fullPage: true });
+}
+
+for (const viewport of [
+  { width: 390, height: 844 },
+  { width: 800, height: 900 },
+  { width: 1024, height: 900 },
+  { width: 1440, height: 1000 },
+]) {
+  const consoleErrors = [];
+  const requestFailures = [];
+  const responseFailures = [];
+  const onConsole = message => { if (message.type() === "error") consoleErrors.push(message.text()); };
+  const onRequest = request => requestFailures.push(`${request.url()} :: ${request.failure()?.errorText ?? "failed"}`);
+  const onResponse = response => { if (response.status() >= 400) responseFailures.push(`${response.status()} ${response.url()}`); };
+  page.on("console", onConsole);
+  page.on("requestfailed", onRequest);
+  page.on("response", onResponse);
+  await page.setViewportSize(viewport);
+  await page.goto(new URL("gobierno/flujo-work-codex-git/", base).href, { waitUntil: "networkidle" });
+  await page.waitForFunction(() => document.querySelectorAll(".mermaid-rendered svg").length === 3, { timeout: 20_000 });
+  const metrics = await page.evaluate(() => {
+    const root = document.documentElement;
+    const diagrams = [...document.querySelectorAll(".mermaid-rendered")].map((container, index) => {
+      const svg = container.querySelector("svg");
+      const containerRect = container.getBoundingClientRect();
+      const svgRect = svg.getBoundingClientRect();
+      const viewBox = svg.viewBox.baseVal;
+      const graphics = svg.getBBox();
+      const tolerance = 1;
+      const boundsClipped = (
+        svgRect.left < containerRect.left - tolerance
+        || svgRect.right > containerRect.right + tolerance
+        || svgRect.top < containerRect.top - tolerance
+        || svgRect.bottom > containerRect.bottom + tolerance
+      );
+      const graphicsClipped = (
+        graphics.x < viewBox.x - tolerance
+        || graphics.y < viewBox.y - tolerance
+        || graphics.x + graphics.width > viewBox.x + viewBox.width + tolerance
+        || graphics.y + graphics.height > viewBox.y + viewBox.height + tolerance
+      );
+      return {
+        index: index + 1,
+        container: {
+          left: containerRect.left,
+          right: containerRect.right,
+          width: containerRect.width,
+          clientWidth: container.clientWidth,
+          scrollWidth: container.scrollWidth,
+        },
+        svg: {
+          left: svgRect.left,
+          right: svgRect.right,
+          width: svgRect.width,
+          viewBox: { x: viewBox.x, y: viewBox.y, width: viewBox.width, height: viewBox.height },
+          graphics: { x: graphics.x, y: graphics.y, width: graphics.width, height: graphics.height },
+        },
+        clipping: boundsClipped || graphicsClipped,
+        boundsClipped,
+        graphicsClipped,
+      };
+    });
+    return {
+      viewportWidth: window.innerWidth,
+      clientWidth: root.clientWidth,
+      scrollWidth: root.scrollWidth,
+      horizontalOverflow: root.scrollWidth > root.clientWidth + 2,
+      mermaidCount: diagrams.length,
+      diagrams,
+    };
+  });
+  const optionalFontFailures = requestFailures.filter(isOptionalFontFailure);
+  const actionableRequestFailures = requestFailures.filter(value => !isOptionalFontFailure(value));
+  const actionableConsoleErrors = consoleErrors.filter(value => !(
+    optionalFontFailures.length && value === "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+  ));
+  const result = {
+    ...metrics,
+    consoleErrors: actionableConsoleErrors,
+    failedRequests: actionableRequestFailures,
+    failedResponses: responseFailures,
+  };
+  governanceViewports.push(result);
+  if (result.horizontalOverflow) failures.push(`governance ${viewport.width}px: horizontal overflow`);
+  if (result.mermaidCount !== 3) failures.push(`governance ${viewport.width}px: expected 3 Mermaid, got ${result.mermaidCount}`);
+  if (result.diagrams.some(diagram => diagram.clipping)) failures.push(`governance ${viewport.width}px: diagram clipping ${JSON.stringify(result.diagrams)}`);
+  if (result.consoleErrors.length) failures.push(`governance ${viewport.width}px: console ${result.consoleErrors.join(" | ")}`);
+  if (result.failedRequests.length) failures.push(`governance ${viewport.width}px: requests ${result.failedRequests.join(" | ")}`);
+  if (result.failedResponses.length) failures.push(`governance ${viewport.width}px: responses ${result.failedResponses.join(" | ")}`);
+  if (screenshots) {
+    await page.screenshot({ path: path.join(screenshots, `governance-${viewport.width}.png`), fullPage: true });
+  }
+  page.off("console", onConsole);
+  page.off("requestfailed", onRequest);
+  page.off("response", onResponse);
 }
 
 async function compareDownload(relative) {
@@ -251,10 +364,21 @@ for (const slug of [
     pdf: await compareDownload(`downloads/apps/${slug}.pdf`),
   };
 }
-if (totalDiagrams !== 7) failures.push(`Expected seven Mermaid diagrams across site, got ${totalDiagrams}`);
+if (totalDiagrams !== 10) failures.push(`Expected ten Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
-const report = { routes: routes.length, desktopScreenshots: screenshots ? 7 : 0, mobileScreenshots: screenshots ? 3 : 0, mermaid: totalDiagrams, downloads };
+const report = {
+  routes: routes.length,
+  desktopScreenshots: screenshots ? 8 : 0,
+  mobileScreenshots: screenshots ? 6 : 0,
+  mermaid: totalDiagrams,
+  governance: {
+    route: "/gobierno/flujo-work-codex-git/",
+    mermaidExpected: 3,
+    viewports: governanceViewports,
+  },
+  downloads,
+};
 await fs.mkdir(path.dirname(reportPath), { recursive: true });
 await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 await browser.close();

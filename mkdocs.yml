@@ -42,6 +42,12 @@ nav:
       - Control de Red: aplicaciones/control-red.md
       - Cartera Estratégica: aplicaciones/cartera-estrategica.md
       - Replicant Lab: aplicaciones/replicant-lab.md
+  - Gobierno del trabajo:
+      - Flujo Work–Codex–Git: gobierno/flujo-work-codex-git.md
+      - Instrucciones para Work: gobierno/instrucciones-proyecto-work.md
+      - Sistema de encargos: encargos/README.md
+      - Plantilla de encargo: encargos/TEMPLATE.md
+      - GOV-001: encargos/GOV-001.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Change Log:
