@@ -49,17 +49,20 @@ tasks:
     sprint: Cierre documental
     week_start: 2026-08-24
     week_end: 2026-08-30
-    status: in_progress
+    status: done
     owner: founder
     objective: Cerrar documentación, contrato de datos, Control autónomo, PDF e inventario de Apps Launch.
     definition_of_done: Tres PR aceptados visualmente, fusionados y publicados en Nexus con trazabilidad completa.
     weekend_validation: Aceptar las vistas a 1920, 1024, 800 y 390 px antes de fusionar.
-    evidence: {pr: "", commit: "", url: ""}
-    risks: ["Aceptación visual pendiente"]
+    evidence:
+      pr: "5"
+      commit: 7cad4235ec70382ac25f8898cbb79739a78986c8
+      url: https://github.com/ratienza/ErasmusHomes/pull/5
+    risks: ["Deuda menor de presentación de fechas trasladada al próximo encargo"]
     blocker_reason: ""
-    next_decision: Founder acepta visualmente o solicita ajustes concretos.
-    updated_at: "2026-08-24T10:00:00+02:00"
-    notes: No fusionar ni desplegar hasta aceptación explícita.
+    next_decision: Preparar el contrato de EH-003 en Work, sin iniciarlo todavía.
+    updated_at: "2026-08-25T00:00:00+02:00"
+    notes: "Aceptado funcional y visualmente por el founder. Deuda registrada sin implementar: fechas visibles dd-mm-aaaa; completadas con inicio y fin; en ejecución o bloqueadas con inicio; nunca aaaa/dd/mm. EH-003 permanece pending."
   - id: EH-003
     title: Contrato funcional del piloto mobile-first
     phase: discovery

@@ -23,6 +23,10 @@ Estas reglas se aplican a todo el repositorio. Las instrucciones explícitas del
 
 ## Flujo de cambios
 
+- Cuando el usuario identifique un encargo, lee primero `docs/encargos/<ID>.md`, confirma repositorio, SHA base, rama, estado y permisos, y trabaja exclusivamente en la rama indicada.
+- Respeta los gates del encargo y actualiza solo la documentación alcanzada por su matriz de impacto. Publica evidencias accesibles; una ruta local no constituye evidencia revisable.
+- Distingue siempre rama, PR, CI, `main`, runtime y verificación. Ninguno implica automáticamente el siguiente estado.
+- En trabajos multirrepositorio informa por separado rama, PR, SHA, CI, dependencias y estado de cada repositorio.
 - Respeta el working tree existente. Conserva los cambios del usuario y nunca los descartes, sobrescribas o mezcles sin identificarlos y obtener dirección cuando sea necesario.
 - El flujo normal es: `origin/main` actualizado, rama de alcance único, cambio, pruebas, revisión del diff, commit, push, Pull Request, revisión y merge.
 - No hagas commit, push, PR, merge, despliegue ni otras escrituras externas salvo que el encargo lo autorice.

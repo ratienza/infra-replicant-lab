@@ -9,27 +9,27 @@
 - **Aplicación / producción:** no hay una URL de producto ErasmusHomes desplegada.
 
 <div class="eh-dashboard">
-<section class="eh-hero"><p class="eh-kicker">Objetivo diciembre</p><h2>Piloto público durante la semana del 30-11-2026</h2><div class="eh-sync eh-sync--stale">Desactualizado</div><dl><dt>SHA ErasmusHomes main</dt><dd><code>7cad4235ec70382ac25f8898cbb79739a78986c8</code></dd><dt>Última sincronización</dt><dd>24-08-2026 01:24</dd></dl><div class="eh-agreed-document"><a href="/downloads/erasmushomes/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf" target="_blank" rel="noopener noreferrer">Abrir roadmap acordado (PDF)</a><span><b>Archivo:</b> Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf</span><span><b>Git:</b> <code>7cad4235</code> · <a href="https://github.com/ratienza/ErasmusHomes/blob/7cad4235ec70382ac25f8898cbb79739a78986c8/docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf" target="_blank" rel="noopener noreferrer">ver fuente versionada</a></span><span><b>SHA-256:</b> <code>077afbd06f30723663dfcbf93c966dc8a39005e49865d34542ce0976c91e3c2c</code></span><span><b>Fecha:</b> 23-08-2026</span></div></section>
+<section class="eh-hero"><p class="eh-kicker">Objetivo diciembre</p><h2>Piloto público durante la semana del 30-11-2026</h2><div class="eh-sync eh-sync--stale">Desactualizado</div><dl><dt>SHA ErasmusHomes main</dt><dd><code>562cd22ab6fa595bef3f9e37e95ee91435eaaa9b</code></dd><dt>Última sincronización</dt><dd>25-08-2026 13:00</dd></dl><div class="eh-agreed-document"><a href="/downloads/erasmushomes/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf" target="_blank" rel="noopener noreferrer">Abrir roadmap acordado (PDF)</a><span><b>Archivo:</b> Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf</span><span><b>Git:</b> <code>562cd22a</code> · <a href="https://github.com/ratienza/ErasmusHomes/blob/562cd22ab6fa595bef3f9e37e95ee91435eaaa9b/docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf" target="_blank" rel="noopener noreferrer">ver fuente versionada</a></span><span><b>SHA-256:</b> <code>077afbd06f30723663dfcbf93c966dc8a39005e49865d34542ce0976c91e3c2c</code></span><span><b>Fecha:</b> 23-08-2026</span></div></section>
 <section class="eh-metrics">
-<article><strong>11%</strong><span>completado</span></article>
-<article class="eh-metric eh-status--done"><strong>2</strong><span>Completado</span></article>
-<article class="eh-metric eh-status--in_progress"><strong>1</strong><span>En ejecución</span></article>
+<article><strong>16%</strong><span>completado</span></article>
+<article class="eh-metric eh-status--done"><strong>3</strong><span>Completado</span></article>
+<article class="eh-metric eh-status--in_progress"><strong>0</strong><span>En ejecución</span></article>
 <article class="eh-metric eh-status--pending"><strong>16</strong><span>Pendiente</span></article>
 <article class="eh-metric eh-status--blocked"><strong>0</strong><span>Bloqueado</span></article>
 </section>
 <section class="eh-gate"><h2>Próximo gate</h2>
-<p><strong>EH-002R-C · Cierre definitivo de documentación y Control Scrum-lite</strong><br>Aceptar las vistas a 1920, 1024, 800 y 390 px antes de fusionar.</p>
+<p><strong>EH-003 · Contrato funcional del piloto mobile-first</strong><br>Confirmar que cada flujo permite actuar y que el alcance cabe en el piloto.</p>
 </section>
 <section><h2>Esta semana</h2><div class="eh-priorities">
-<article><strong>EH-002R-C</strong><h3>Cierre definitivo de documentación y Control Scrum-lite</h3><p>Cerrar documentación, contrato de datos, Control autónomo, PDF e inventario de Apps Launch.</p><p><b>Validación sábado/domingo:</b> Aceptar las vistas a 1920, 1024, 800 y 390 px antes de fusionar.</p></article>
+<p>No hay tareas en ejecución.</p>
 </div></section>
 <section><h2>Kanban</h2><div class="eh-kanban">
-<div class="eh-column eh-status--done"><h3>Completado · 2</h3>
+<div class="eh-column eh-status--done"><h3>Completado · 3</h3>
 <article class="eh-task"><span>EH-001</span><h4>Consolidar la fuente de verdad</h4><p><b>Objetivo:</b> Consolidar fuentes, decisiones y alcance en Git y sincronizar Nexus.</p><p><b>Terminado:</b> PR fusionado en main y GitHub, local y Nexus en el mismo SHA.</p><p><b>Riesgos:</b> Divergencia histórica de PDFs ya documentada</p><p><a href="https://github.com/ratienza/ErasmusHomes/pull/1">Evidencia</a></p></article>
 <article class="eh-task"><span>EH-002</span><h4>Roadmap canónico y panel Replicant Lab</h4><p><b>Objetivo:</b> Publicar roadmap estructurado y panel interno generado sin duplicar el estado.</p><p><b>Terminado:</b> PRs validados, panel derivado y sincronización documentada sin nuevo servicio.</p><p><b>Riesgos:</b> Integración coordinada entre tres repositorios</p><p><a href="https://github.com/ratienza/ErasmusHomes/pull/2">Evidencia</a></p></article>
+<article class="eh-task"><span>EH-002R-C</span><h4>Cierre definitivo de documentación y Control Scrum-lite</h4><p><b>Objetivo:</b> Cerrar documentación, contrato de datos, Control autónomo, PDF e inventario de Apps Launch.</p><p><b>Terminado:</b> Tres PR aceptados visualmente, fusionados y publicados en Nexus con trazabilidad completa.</p><p><b>Riesgos:</b> Deuda menor de presentación de fechas trasladada al próximo encargo</p><p><a href="https://github.com/ratienza/ErasmusHomes/pull/5">Evidencia</a></p></article>
 </div>
-<div class="eh-column eh-status--in_progress"><h3>En ejecución · 1</h3>
-<article class="eh-task"><span>EH-002R-C</span><h4>Cierre definitivo de documentación y Control Scrum-lite</h4><p><b>Objetivo:</b> Cerrar documentación, contrato de datos, Control autónomo, PDF e inventario de Apps Launch.</p><p><b>Terminado:</b> Tres PR aceptados visualmente, fusionados y publicados en Nexus con trazabilidad completa.</p><p><b>Riesgos:</b> Aceptación visual pendiente</p><p>Evidencia pendiente</p></article>
+<div class="eh-column eh-status--in_progress"><h3>En ejecución · 0</h3>
 </div>
 <div class="eh-column eh-status--pending"><h3>Pendiente · 16</h3>
 <article class="eh-task"><span>EH-003</span><h4>Contrato funcional del piloto mobile-first</h4><p><b>Objetivo:</b> Definir el contrato funcional y los flujos móviles del piloto antes de desarrollar producto.</p><p><b>Terminado:</b> Contrato funcional priorizado y criterios de aceptación mobile-first aprobados.</p><p><b>Riesgos:</b> Ambigüedad funcional, Crecimiento de alcance</p><p>Evidencia pendiente</p></article>
@@ -55,7 +55,7 @@
 <section><h2>Línea temporal hasta el 20 de diciembre</h2><ol class="eh-timeline">
 <li class="eh-status--done"><time>22-08-2026 - 30-08-2026</time><strong>Consolidar la fuente de verdad</strong><span>Completado</span></li>
 <li class="eh-status--done"><time>22-08-2026 - 30-08-2026</time><strong>Roadmap canónico y panel Replicant Lab</strong><span>Completado</span></li>
-<li class="eh-status--in_progress"><time>24-08-2026 - 30-08-2026</time><strong>Cierre definitivo de documentación y Control Scrum-lite</strong><span>En ejecución</span></li>
+<li class="eh-status--done"><time>24-08-2026 - 30-08-2026</time><strong>Cierre definitivo de documentación y Control Scrum-lite</strong><span>Completado</span></li>
 <li class="eh-status--pending"><time>31-08-2026 - 06-09-2026</time><strong>Contrato funcional del piloto mobile-first</strong><span>Pendiente</span></li>
 <li class="eh-status--pending"><time>31-08-2026 - 06-09-2026</time><strong>Supply y validación</strong><span>Pendiente</span></li>
 <li class="eh-status--pending"><time>07-09-2026 - 13-09-2026</time><strong>Arquitectura y confianza</strong><span>Pendiente</span></li>
