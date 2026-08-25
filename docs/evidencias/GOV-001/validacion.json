@@ -1,0 +1,118 @@
+{
+  "routes": 33,
+  "desktopScreenshots": 8,
+  "mobileScreenshots": 6,
+  "mermaid": 10,
+  "downloads": {
+    "html": {
+      "bytes": 3790588,
+      "sha256": "af8b5e66cb5514456871c4255bd95f840af76b7f77aac4ac13031d7ef901fe92"
+    },
+    "pdf": {
+      "bytes": 915361,
+      "sha256": "454a450844905400c6d89ac5b1a7e120b2b11a60cf9a52c9d75b80cdc8c51448"
+    },
+    "apps": {
+      "pula": {
+        "html": {
+          "bytes": 3596847,
+          "sha256": "6148738ddc3a4f2ff0ab5b333c2f5e07cca85fbf6cf7b626f19b29659ff97479"
+        },
+        "pdf": {
+          "bytes": 175284,
+          "sha256": "6fad7c9a4e83319188adc3476bac6e5296f841722e7c8784ca067dce13c21978"
+        }
+      },
+      "app-launch": {
+        "html": {
+          "bytes": 20102,
+          "sha256": "1117669fcb74ea45f010461e72172d2346ffc579f5538de17ac6613bca82ecb2"
+        },
+        "pdf": {
+          "bytes": 105324,
+          "sha256": "95ac0e44132de511aad2403fa488d8e0c9ee11703173382eba9c0eaee81c6e5a"
+        }
+      },
+      "salones-av": {
+        "html": {
+          "bytes": 17339,
+          "sha256": "68824ef3d792571a49765caae9aa50d24915a4b6cc0f7cbe786b5c722108f54f"
+        },
+        "pdf": {
+          "bytes": 93555,
+          "sha256": "c901a61adb53789a8c26ed54e851af7033000baf7f68185745935039eade711b"
+        }
+      },
+      "reserva-pistas-utp": {
+        "html": {
+          "bytes": 25791,
+          "sha256": "44501e0d84f54a5784363d4de6a726d86572b80fb30a62a6a8b81278472149b2"
+        },
+        "pdf": {
+          "bytes": 131309,
+          "sha256": "e1b6002f1236e6a705b85e8acdac324c82fabcbf8b324f2c6de71be22ad6af8b"
+        }
+      },
+      "consumos-cupra": {
+        "html": {
+          "bytes": 16466,
+          "sha256": "cef796b0845f0d029f22b8f42875201b85f35a55ad4a6bf8aa1336ccd81ee6a2"
+        },
+        "pdf": {
+          "bytes": 89220,
+          "sha256": "b1a83ef9f8ce1d19321069e3a0a644a3bfb256ee9c022fc579d5a77c02e816e7"
+        }
+      },
+      "cv-raul": {
+        "html": {
+          "bytes": 16396,
+          "sha256": "caed8baaa544ba40df1bfc97bb72a99557a4323d672fe66e3cf7322d391d7a0d"
+        },
+        "pdf": {
+          "bytes": 89911,
+          "sha256": "13a01df789d4a45626813f255716318e6a4ba5d6ab4ead4746f6e9cc0340e46f"
+        }
+      },
+      "control-red": {
+        "html": {
+          "bytes": 15758,
+          "sha256": "119a6974f66c62c682847b17c23b0d31b11da7ecabb53600e82bbe1ad667e770"
+        },
+        "pdf": {
+          "bytes": 80236,
+          "sha256": "22eace7fb906274bc9f4a4b367f55e95da4f6341ec5924e2d3dec485bba21700"
+        }
+      },
+      "cartera-estrategica": {
+        "html": {
+          "bytes": 15994,
+          "sha256": "2c4891dc77999cf642d3c8201f37996675289dfeef0e9be9cbf587479c6f6058"
+        },
+        "pdf": {
+          "bytes": 85951,
+          "sha256": "6e302aacc5d80acd33cc726e45ac595b52c9579d972690280b3045e55f150037"
+        }
+      },
+      "replicant-lab": {
+        "html": {
+          "bytes": 17168,
+          "sha256": "8ede56369194703bf3b63193dad8e302e937a58ee5aadc191ef889f318e7a864"
+        },
+        "pdf": {
+          "bytes": 89185,
+          "sha256": "bd88c1cee5988194358b86f72821b7597f85f0a947118effc45d8f6bf6a272b7"
+        }
+      },
+      "erasmushomes-control": {
+        "html": {
+          "bytes": 24621,
+          "sha256": "1ab706b4bd8871b5af0f6ec7a0010231907dbf1ebf3bd3b3b2a411c6c6bf4d57"
+        },
+        "pdf": {
+          "bytes": 121347,
+          "sha256": "022a40e2241e5412c14bc13228510af71ef8037880d24af669c41c8f215b1f25"
+        }
+      }
+    }
+  }
+}

@@ -48,6 +48,11 @@ const routes = [
   { route: "/red/overview/", name: "mermaid-network", diagrams: 1 },
   { route: "/despliegue/git/", name: "mermaid-git", diagrams: 1 },
   { route: "/autodocumentacion/", name: "mermaid-autodoc", diagrams: 1 },
+  { route: "/gobierno/flujo-work-codex-git/", name: "governance", diagrams: 3 },
+  { route: "/gobierno/instrucciones-proyecto-work/", name: "work-instructions", diagrams: 0 },
+  { route: "/encargos/", name: "engagements", diagrams: 0 },
+  { route: "/encargos/TEMPLATE/", name: "engagement-template", diagrams: 0 },
+  { route: "/encargos/GOV-001/", name: "gov-001", diagrams: 0 },
 ];
 
 if (screenshots) await fs.mkdir(screenshots, { recursive: true });
@@ -179,6 +184,17 @@ for (const item of routes) {
       failures.push(`${item.route}: incomplete architecture representation ${JSON.stringify(architecture)}`);
     }
   }
+  if (item.name === "governance") {
+    const governance = await page.evaluate(() => ({
+      title: document.querySelector("main h1")?.textContent.trim() ?? "",
+      diagrams: document.querySelectorAll(".mermaid-rendered svg").length,
+      left: [...document.querySelectorAll(".md-sidebar--primary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
+      required: ["Roles y fuentes de verdad", "Ciclo y estados", "Chats y varios ordenadores", "Coordinación multirrepositorio", "Matriz de impacto documental", "Definición de terminado", "Antipatrones prohibidos"].every(value => document.querySelector("main")?.textContent.includes(value)),
+    }));
+    if (governance.title !== "Gobierno del trabajo" || governance.diagrams !== 3 || !governance.left.includes("Flujo Work–Codex–Git") || !governance.required) {
+      failures.push(`${item.route}: incomplete governance contract ${JSON.stringify(governance)}`);
+    }
+  }
   const state = await page.evaluate(() => ({
     title: document.title,
     diagrams: document.querySelectorAll('.mermaid-rendered svg').length,
@@ -197,7 +213,7 @@ for (const item of routes) {
   if (actionableConsoleErrors.length) failures.push(`${item.route}: console ${actionableConsoleErrors.join(" | ")}`);
   if (actionableRequestFailures.length) failures.push(`${item.route}: requests ${actionableRequestFailures.join(" | ")}`);
   if (responseFailures.length) failures.push(`${item.route}: responses ${responseFailures.join(" | ")}`);
-  if (screenshots && ["home", "architecture", "nexus", "applications", "pending", "changelog", "downloads"].includes(item.name)) {
+  if (screenshots && ["home", "architecture", "nexus", "applications", "pending", "changelog", "downloads", "governance"].includes(item.name)) {
     await page.screenshot({ path: path.join(screenshots, `${item.name}-desktop.png`), fullPage: true });
   }
   page.off("console", onConsole);
@@ -211,6 +227,7 @@ for (const item of [
   { route: "/aplicaciones/", name: "applications" },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control" },
   { route: "/control/erasmushomes/", name: "erasmushomes-standalone" },
+  { route: "/gobierno/flujo-work-codex-git/", name: "governance" },
 ]) {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(new URL(item.route.replace(/^\//, ""), base).href, { waitUntil: "networkidle" });
@@ -251,10 +268,10 @@ for (const slug of [
     pdf: await compareDownload(`downloads/apps/${slug}.pdf`),
   };
 }
-if (totalDiagrams !== 7) failures.push(`Expected seven Mermaid diagrams across site, got ${totalDiagrams}`);
+if (totalDiagrams !== 10) failures.push(`Expected ten Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
-const report = { routes: routes.length, desktopScreenshots: screenshots ? 7 : 0, mobileScreenshots: screenshots ? 3 : 0, mermaid: totalDiagrams, downloads };
+const report = { routes: routes.length, desktopScreenshots: screenshots ? 8 : 0, mobileScreenshots: screenshots ? 6 : 0, mermaid: totalDiagrams, downloads };
 await fs.mkdir(path.dirname(reportPath), { recursive: true });
 await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 await browser.close();

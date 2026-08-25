@@ -100,7 +100,7 @@ for (const pageId of diagramPageIds) {
   }), pageId);
   diagrams.push(...metrics);
 }
-if (diagrams.length !== 7) throw new Error(`Expected 7 Mermaid diagrams, got ${diagrams.length}`);
+if (diagrams.length !== 10) throw new Error(`Expected 10 Mermaid diagrams, got ${diagrams.length}`);
 if (diagrams.some(item => !item.hasSvg || item.width < 100 || item.height < 35 || item.overflowX || item.overflowY)) {
   throw new Error(`Invalid Mermaid layout: ${JSON.stringify(diagrams)}`);
 }
