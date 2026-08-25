@@ -1,17 +1,17 @@
 {
   "source": "ratienza/ErasmusHomes/docs/board/roadmap.yaml",
-  "sha": "562cd22ab6fa595bef3f9e37e95ee91435eaaa9b",
-  "main_sha": "5ba7f983fa21a89d66100a64b69531b81c353a9d",
-  "branch": "agent/eh-002rc-roadmap-control",
-  "synced_at": "2026-08-25T13:00:39+02:00",
-  "state": "stale",
+  "sha": "665ccbfb88fab56127f2881fb07eb56fbacd3260",
+  "main_sha": "665ccbfb88fab56127f2881fb07eb56fbacd3260",
+  "branch": "main",
+  "synced_at": "2026-08-25T13:08:26+02:00",
+  "state": "synchronized",
   "document": {
     "name": "Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf",
     "sha256": "077afbd06f30723663dfcbf93c966dc8a39005e49865d34542ce0976c91e3c2c",
     "version_date": "2026-08-23",
     "url": "/downloads/erasmushomes/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf",
-    "source_url": "https://github.com/ratienza/ErasmusHomes/blob/562cd22ab6fa595bef3f9e37e95ee91435eaaa9b/docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf",
-    "markdown_url": "https://github.com/ratienza/ErasmusHomes/blob/562cd22ab6fa595bef3f9e37e95ee91435eaaa9b/docs/ROADMAP_MVP_DICIEMBRE_2026.md",
-    "yaml_url": "https://github.com/ratienza/ErasmusHomes/blob/562cd22ab6fa595bef3f9e37e95ee91435eaaa9b/docs/board/roadmap.yaml"
+    "source_url": "https://github.com/ratienza/ErasmusHomes/blob/665ccbfb88fab56127f2881fb07eb56fbacd3260/docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf",
+    "markdown_url": "https://github.com/ratienza/ErasmusHomes/blob/665ccbfb88fab56127f2881fb07eb56fbacd3260/docs/ROADMAP_MVP_DICIEMBRE_2026.md",
+    "yaml_url": "https://github.com/ratienza/ErasmusHomes/blob/665ccbfb88fab56127f2881fb07eb56fbacd3260/docs/board/roadmap.yaml"
   }
 }
