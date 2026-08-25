@@ -1,11 +1,12 @@
 schema_version: 1
 project: ErasmusHomes
-target: "Piloto comercial público antes del 20 de diciembre de 2026"
+target: "Piloto público durante la semana del 30-11-2026"
 source_repository: ratienza/ErasmusHomes
 tasks:
   - id: EH-001
     title: Consolidar la fuente de verdad
     phase: governance
+    sprint: Cierre documental
     week_start: 2026-08-22
     week_end: 2026-08-30
     status: done
@@ -19,11 +20,13 @@ tasks:
       url: https://github.com/ratienza/ErasmusHomes/pull/1
     risks: ["Divergencia histórica de PDFs ya documentada"]
     blocker_reason: ""
+    next_decision: Mantener el cierre auditado y usar main como fuente de verdad.
     updated_at: "2026-08-22T23:45:15+02:00"
     notes: Squash merge completado y Nexus sincronizado mediante pull --ff-only.
   - id: EH-002
     title: Roadmap canónico y panel Replicant Lab
     phase: governance
+    sprint: Cierre documental
     week_start: 2026-08-22
     week_end: 2026-08-30
     status: done
@@ -37,11 +40,50 @@ tasks:
       url: https://github.com/ratienza/ErasmusHomes/pull/2
     risks: ["Integración coordinada entre tres repositorios"]
     blocker_reason: ""
+    next_decision: Completar EH-002R-C y aceptar visualmente el Control definitivo.
     updated_at: "2026-08-23T01:20:00+02:00"
     notes: Panel y sincronizador promovidos mediante infra-replicant-lab PRs 24 y 25; tarjeta interna promovida mediante Apps_Lauch PR 3; Nexus validado por SHA, HTTP y revisión visual.
-  - id: W-2026-08-31
+  - id: EH-002R-C
+    title: Cierre definitivo de documentación y Control Scrum-lite
+    phase: governance
+    sprint: Cierre documental
+    week_start: 2026-08-24
+    week_end: 2026-08-30
+    status: done
+    owner: founder
+    objective: Cerrar documentación, contrato de datos, Control autónomo, PDF e inventario de Apps Launch.
+    definition_of_done: Tres PR aceptados visualmente, fusionados y publicados en Nexus con trazabilidad completa.
+    weekend_validation: Aceptar las vistas a 1920, 1024, 800 y 390 px antes de fusionar.
+    evidence:
+      pr: "5"
+      commit: 7cad4235ec70382ac25f8898cbb79739a78986c8
+      url: https://github.com/ratienza/ErasmusHomes/pull/5
+    risks: ["Deuda menor de presentación de fechas trasladada al próximo encargo"]
+    blocker_reason: ""
+    next_decision: Preparar el contrato de EH-003 en Work, sin iniciarlo todavía.
+    updated_at: "2026-08-25T00:00:00+02:00"
+    notes: "Aceptado funcional y visualmente por el founder. Deuda registrada sin implementar: fechas visibles dd-mm-aaaa; completadas con inicio y fin; en ejecución o bloqueadas con inicio; nunca aaaa/dd/mm. EH-003 permanece pending."
+  - id: EH-003
+    title: Contrato funcional del piloto mobile-first
+    phase: discovery
+    sprint: Contrato funcional
+    week_start: 2026-08-31
+    week_end: 2026-09-06
+    status: pending
+    owner: founder
+    objective: Definir el contrato funcional y los flujos móviles del piloto antes de desarrollar producto.
+    definition_of_done: Contrato funcional priorizado y criterios de aceptación mobile-first aprobados.
+    weekend_validation: Confirmar que cada flujo permite actuar y que el alcance cabe en el piloto.
+    evidence: {pr: "", commit: "", url: ""}
+    risks: ["Ambigüedad funcional", "Crecimiento de alcance"]
+    blocker_reason: ""
+    next_decision: Iniciar solo después del cierre aceptado de EH-002R-C.
+    updated_at: "2026-08-24T10:00:00+02:00"
+    notes: Bloqueado por secuencia de gobierno, pero permanece pending hasta autorización.
+  - id: WK-01
     title: Supply y validación
     phase: discovery
+    sprint: Supply y validación
     week_start: 2026-08-31
     week_end: 2026-09-06
     status: pending
@@ -52,11 +94,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Fuentes insuficientes o no permitidas"]
     blocker_reason: ""
+    next_decision: Seleccionar como máximo tres ciudades candidatas.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-09-07
+  - id: WK-02
     title: Arquitectura y confianza
     phase: design
+    sprint: Arquitectura y confianza
     week_start: 2026-09-07
     week_end: 2026-09-13
     status: pending
@@ -67,11 +111,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["OAuth restringido", "Sobrearquitectura"]
     blocker_reason: ""
+    next_decision: Aprobar la arquitectura mínima del piloto.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-09-14
+  - id: WK-03
     title: UX móvil y prototipo
     phase: design
+    sprint: UX móvil
     week_start: 2026-09-14
     week_end: 2026-09-20
     status: pending
@@ -82,11 +128,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Flujos contemplativos sin acción"]
     blocker_reason: ""
+    next_decision: Probar el prototipo con tres a cinco personas.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-09-21
+  - id: WK-04
     title: Base PWA
     phase: build
+    sprint: Base PWA
     week_start: 2026-09-21
     week_end: 2026-09-27
     status: pending
@@ -97,11 +145,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Incompatibilidad móvil o persistencia"]
     blocker_reason: ""
+    next_decision: Validar persistencia de perfil en móvil.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-09-28
+  - id: WK-05
     title: Ingesta y listings
     phase: build
+    sprint: Ingesta y listings
     week_start: 2026-09-28
     week_end: 2026-10-04
     status: pending
@@ -112,11 +162,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Fuente bloqueada", "Datos duplicados"]
     blocker_reason: ""
+    next_decision: Confirmar una fuente permitida y trazable.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-10-05
+  - id: WK-06
     title: Búsqueda y selección
     phase: build
+    sprint: Búsqueda y selección
     week_start: 2026-10-05
     week_end: 2026-10-11
     status: pending
@@ -127,11 +179,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Matching opaco o sin evidencia"]
     blocker_reason: ""
+    next_decision: Medir la calidad de una shortlist real.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-10-12
+  - id: WK-07
     title: Contacto seguro
     phase: build
+    sprint: Contacto seguro
     week_start: 2026-10-12
     week_end: 2026-10-18
     status: pending
@@ -142,11 +196,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Spam", "Mensaje incorrecto"]
     blocker_reason: ""
+    next_decision: Aprobar límites y consentimiento antes de contactar.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-10-19
+  - id: WK-08
     title: Seguimiento
     phase: build
+    sprint: Seguimiento
     week_start: 2026-10-19
     week_end: 2026-10-25
     status: pending
@@ -157,11 +213,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Auditoría OAuth retrasa el piloto"]
     blocker_reason: ""
+    next_decision: Elegir forwarding o vinculación explícita.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-10-26
+  - id: WK-09
     title: Conversación y alertas
     phase: build
+    sprint: Conversación y alertas
     week_start: 2026-10-26
     week_end: 2026-11-01
     status: pending
@@ -172,11 +230,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Interpretación errónea de IA"]
     blocker_reason: ""
+    next_decision: Validar tres conversaciones y sus correcciones.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-11-02
+  - id: WK-10
     title: Vertical slice
     phase: validate
+    sprint: Vertical slice
     week_start: 2026-11-02
     week_end: 2026-11-08
     status: pending
@@ -187,11 +247,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Bloqueantes P0/P1"]
     blocker_reason: ""
+    next_decision: Decidir GO beta sin bloqueantes P0/P1.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-11-09
+  - id: WK-11
     title: Calidad y cumplimiento
     phase: validate
+    sprint: Calidad y cumplimiento
     week_start: 2026-11-09
     week_end: 2026-11-15
     status: pending
@@ -202,11 +264,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Privacidad", "Accesibilidad", "Recuperación incompleta"]
     blocker_reason: ""
+    next_decision: Recortar antes de aceptar un riesgo de confianza.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-11-16
+  - id: WK-12
     title: Piloto cerrado
     phase: pilot
+    sprint: Piloto cerrado
     week_start: 2026-11-16
     week_end: 2026-11-22
     status: pending
@@ -217,11 +281,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Soporte fragmentado", "Muestra insuficiente"]
     blocker_reason: ""
+    next_decision: Seleccionar un único canal de feedback.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-11-23
+  - id: WK-13
     title: Corrección por evidencia
     phase: pilot
+    sprint: Corrección por evidencia
     week_start: 2026-11-23
     week_end: 2026-11-29
     status: pending
@@ -232,11 +298,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Cambios sin evidencia", "Scope creep"]
     blocker_reason: ""
+    next_decision: Congelar extras y priorizar tres frenos.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-11-30
+  - id: WK-14
     title: Lanzamiento piloto
     phase: launch
+    sprint: Lanzamiento piloto
     week_start: 2026-11-30
     week_end: 2026-12-06
     status: pending
@@ -247,11 +315,13 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Inestabilidad", "Cobertura mal comunicada"]
     blocker_reason: ""
+    next_decision: Decidir GO público con métricas y estabilidad.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""
-  - id: W-2026-12-07
+  - id: WK-15
     title: Estabilización y decisión de enero
     phase: learn
+    sprint: Estabilización
     week_start: 2026-12-07
     week_end: 2026-12-20
     status: pending
@@ -262,5 +332,6 @@ tasks:
     evidence: {pr: "", commit: "", url: ""}
     risks: ["Escalado prematuro"]
     blocker_reason: ""
+    next_decision: Decidir el backlog de enero con evidencia.
     updated_at: "2026-08-22T23:50:00+02:00"
     notes: ""

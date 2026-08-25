@@ -136,19 +136,19 @@ for (const item of routes) {
   }
   if (item.name === "erasmushomes-control") {
     const contrast = await page.evaluate(() => {
-      const link = [...document.querySelectorAll("a")].find(element => element.textContent.trim() === "Abrir roadmap acordado (DOCX)");
+      const link = [...document.querySelectorAll("a")].find(element => element.textContent.trim() === "Abrir roadmap acordado (PDF)");
       const text = document.querySelector(".eh-agreed-document")?.textContent ?? "";
       return {
         href: link?.href ?? "",
         target: link?.target ?? "",
         rel: link?.rel ?? "",
-        hasFilename: text.includes("Roadmap_ErasmusHomes_MVP_Diciembre_2026.docx"),
+        hasFilename: text.includes("Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf"),
         hasHash: /[0-9a-f]{64}/.test(text),
-        hasDate: /\d{4}-\d{2}-\d{2}/.test(text),
+        hasDate: /\d{2}-\d{2}-\d{4}/.test(text),
       };
     });
     if (
-      !/\/downloads\/erasmushomes\/Roadmap_ErasmusHomes_MVP_Diciembre_2026\.docx$/.test(contrast.href)
+      !/\/downloads\/erasmushomes\/Roadmap_ErasmusHomes_MVP_Diciembre_2026\.pdf$/.test(contrast.href)
       || contrast.target !== "_blank" || !contrast.rel.includes("noopener")
       || !contrast.hasFilename || !contrast.hasHash || !contrast.hasDate
     ) {
@@ -157,22 +157,27 @@ for (const item of routes) {
   }
   if (item.name === "erasmushomes-standalone") {
     const standalone = await page.evaluate(() => {
-      const link = [...document.querySelectorAll("a")].find(element => element.textContent.trim() === "Abrir roadmap acordado (DOCX)");
+      const link = [...document.querySelectorAll("a")].find(element => element.textContent.includes("Abrir roadmap acordado (PDF)"));
       return {
         title: document.title,
         linkTarget: link?.target ?? "",
         linkHref: link?.href ?? "",
-        sha: document.body.innerText.includes("fe867b64") || /Git\s+[0-9a-f]{8}/.test(document.body.innerText),
-        metrics: document.querySelectorAll(".metric").length,
-        columns: document.querySelectorAll(".column").length,
-        tasks: document.querySelectorAll(".task").length,
+        sha: /SHA\s+[0-9a-f]{8}/.test(document.body.innerText),
+        tabs: document.querySelectorAll('[role="tab"]').length,
+        tasks: document.querySelectorAll(".task-select").length,
+        now: document.querySelector(".now")?.innerText ?? "",
+        visibleIsoDates: (document.body.innerText.match(/\b\d{4}-\d{2}-\d{2}\b/g) || []).length,
+        markdown: !!document.querySelector('a[href*="ROADMAP_MVP_DICIEMBRE_2026.md"]'),
+        yaml: !!document.querySelector('a[href*="docs/board/roadmap.yaml"]'),
       };
     });
     if (
       standalone.title !== "ErasmusHomes · Control del MVP"
       || standalone.linkTarget !== "_blank"
-      || !/\/downloads\/erasmushomes\/Roadmap_ErasmusHomes_MVP_Diciembre_2026\.docx$/.test(standalone.linkHref)
-      || !standalone.sha || standalone.metrics !== 5 || standalone.columns !== 4 || standalone.tasks !== 17
+      || !/\/downloads\/erasmushomes\/Roadmap_ErasmusHomes_MVP_Diciembre_2026\.pdf$/.test(standalone.linkHref)
+      || !standalone.sha || standalone.tabs !== 4 || standalone.tasks !== 19
+      || !standalone.now.includes("EH-003") || standalone.visibleIsoDates !== 0
+      || !standalone.markdown || !standalone.yaml
     ) failures.push(`${item.route}: invalid standalone control ${JSON.stringify(standalone)}`);
   }
   if (item.name === "architecture") {
@@ -332,9 +337,12 @@ for (const viewport of [
   page.off("response", onResponse);
 }
 
-async function compareDownload(relative) {
+async function compareDownload(relative, expectedType = "") {
   const response = await fetch(new URL(relative, base));
   if (!response.ok) throw new Error(`${relative}: HTTP ${response.status}`);
+  if (expectedType && !response.headers.get("content-type")?.startsWith(expectedType)) {
+    throw new Error(`${relative}: expected MIME ${expectedType}, got ${response.headers.get("content-type")}`);
+  }
   const served = Buffer.from(await response.arrayBuffer());
   const tracked = await fs.readFile(path.join(root, relative));
   const digest = value => crypto.createHash("sha256").update(value).digest("hex");
@@ -343,8 +351,8 @@ async function compareDownload(relative) {
 }
 
 const downloads = {
-  html: await compareDownload("downloads/Replicant-Lab.html"),
-  pdf: await compareDownload("downloads/Replicant-Lab.pdf"),
+  html: await compareDownload("downloads/Replicant-Lab.html", "text/html"),
+  pdf: await compareDownload("downloads/Replicant-Lab.pdf", "application/pdf"),
   apps: {},
 };
 for (const slug of [
@@ -360,8 +368,8 @@ for (const slug of [
   "erasmushomes-control",
 ]) {
   downloads.apps[slug] = {
-    html: await compareDownload(`downloads/apps/${slug}.html`),
-    pdf: await compareDownload(`downloads/apps/${slug}.pdf`),
+    html: await compareDownload(`downloads/apps/${slug}.html`, "text/html"),
+    pdf: await compareDownload(`downloads/apps/${slug}.pdf`, "application/pdf"),
   };
 }
 if (totalDiagrams !== 10) failures.push(`Expected ten Mermaid diagrams across site, got ${totalDiagrams}`);
