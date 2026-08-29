@@ -39,6 +39,7 @@ const routes = [
   { route: "/pendientes/", name: "pending", diagrams: 0 },
   { route: "/pendientes/cv-firebase/", name: "pending-detail", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
+  { route: "/cambios/2026-08-29/", name: "changelog-current", diagrams: 0 },
   { route: "/cambios/2026-08-21/", name: "changelog", diagrams: 0 },
   { route: "/cambios/2026-08-13/", name: "changelog-previous", diagrams: 0 },
   { route: "/cambios/2026-08-09/", name: "changelog-previous", diagrams: 0 },

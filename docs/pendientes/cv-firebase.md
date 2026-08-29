@@ -1,6 +1,8 @@
 # Pendientes · CV / Firebase
 
-## Trazabilidad
+## Producción y trazabilidad
+
+La producción canónica es **Firebase App Hosting**; Cloud Run puede actuar como infraestructura subyacente, pero no debe sustituir esa clasificación en App Launch ni en la documentación.
 
 - Reconciliar Firebase y Cloud Build.
 - Retirar o corregir el trigger y la configuración obsoletos.
