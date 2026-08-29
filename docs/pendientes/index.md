@@ -9,6 +9,6 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o Reserva-Pi
 | CV / Firebase | CI, trazabilidad, seguridad y UX | Media | POST-CARTERA |
 | Control de Red | Separación de datos operativos | Media | POST-CARTERA |
 | Nexus | Backups y gobierno de checkouts | Media | POST-CARTERA |
-| App Launch | Limpieza de assets históricos | Baja | Mejora opcional |
+| App Launch | Assets históricos, filtros y workflow de estado | Baja | Mejora opcional |
 
 Cada detalle se mantiene una sola vez en su página de este grupo.

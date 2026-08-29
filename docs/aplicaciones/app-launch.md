@@ -13,14 +13,14 @@ Catálogo **multientorno** y capa de navegación para acceder a aplicaciones pú
 | Campo | DigitalOcean | Nexus |
 |---|---|---|
 | Desarrollo | Codex · HTML/CSS/JavaScript | Mismo origen |
-| Repositorio | `ratienza/Apps_Lauch` · `main` · `2d265ee1caf3c370e662cdc99cb923f4db457465` | Mismo origen |
+| Repositorio | `ratienza/Apps_Lauch` · `main` · `bf6ba47` | Mismo origen |
 | URL | `http://app.raulatienza.com` y `https://app.raulatienza.com` | `http://192.168.18.220` |
 | Publicación | Nginx del host · `/opt/portal` | Compose `app-launch` · Nginx `1.27-alpine` |
 | Puerto | `80/443`, sin puerto explícito | `80 → 80/tcp` |
 | Catálogo activo | `catalogs/public.json → apps.json` | `catalogs/nexus.json → apps.json` |
 | Validación | HTTP/HTTPS, HTML, PNG y JSON: `200` | HTML, PNG y JSON: `200`; servicios enlazados sanos |
 
-Validación final: **21/08/2026**. GitHub y el checkout local coincidían en el SHA indicado; ambos catálogos desplegados respondieron `200` y conservaron exactamente el contenido versionado.
+Validación final: **29/08/2026**. GitHub y el checkout local coincidieron en el SHA indicado; ambos catálogos desplegados respondieron `200` y conservaron exactamente el contenido versionado.
 
 ## Arquitectura y funcionamiento
 
@@ -37,11 +37,13 @@ En Nexus el contenedor monta en solo lectura:
 
 Usa una red Compose propia, no tiene persistencia funcional y se recupera con `restart: unless-stopped`.
 
-## Catálogos comprobados
+## Catálogos y cápsulas comprobados
 
-El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus contiene Replicant Lab, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos casos PULA apunta a `https://pula-erasmus-housing-automator.ai.studio/`. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
+El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus contiene Replicant Lab, ErasmusHomes · Control del MVP, Control de Red, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos casos PULA apunta a `https://pula-erasmus-housing-automator.ai.studio/`.
 
-EH-002 añade únicamente al catálogo Nexus una tarjeta interna **ErasmusHomes · Control del MVP**, dirigida a la página derivada dentro del runtime documental existente de Replicant Lab. El catálogo público y todas las tarjetas preexistentes permanecen sin cambios.
+Las tarjetas usan la acción uniforme **Entrar** y cápsulas breves: `NEXUS`, `DIGITAL` o `REPLICANT` indican ubicación; el resto describe tecnologías relevantes, como `DOCKER`, `NGINX`, `PYTHON`, `FIREBASE APP HOSTING`, `CLOUD RUN` o `POWERSHELL`. CV se presenta correctamente como **Firebase App Hosting** sobre Cloud Run. Las cápsulas son informativas, no healthchecks.
+
+**ErasmusHomes · Control del MVP** abre su panel derivado dentro del runtime documental de Replicant Lab. **Control de Red** aparece únicamente en Nexus y abre su ficha técnica: su runtime real continúa siendo local en Replicant/Windows, sin servicio web en Nexus ni DigitalOcean. En Nexus, las demás tarjetas incluyen un acceso secundario directo a su ficha documental. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
 
 !!! important "Regla"
     `Tarjeta App Launch ≠ Runtime local`.
@@ -56,6 +58,14 @@ powershell -ExecutionPolicy Bypass -File .\deploy\verify.ps1 -Target nexus
 ```
 
 La actualización permanente debe partir de `main`. Para rollback se revierte el cambio en Git mediante una rama/PR y se vuelve a desplegar el destino afectado; no se copian ficheros desde un host hacia GitHub.
+
+## Flujo de cambio
+
+```text
+catálogos versionados → validación local → rama/PR/checks → main → despliegue del destino → verify.ps1
+```
+
+`catalogs/inventory.json` protege el inventario esperado y `scripts/validate_catalogs.py` evita deriva entre los catálogos, enlaces, acciones y cápsulas. Todo cambio debe validar el destino público y/o Nexus que alcance; el flujo general de gobierno permanece en [Work–Codex–Git](/gobierno/flujo-work-codex-git/).
 
 ## Seguridad y límites
 

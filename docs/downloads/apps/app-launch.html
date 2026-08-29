@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="cb602c08db8f80a3d07e796ed53908d4b0a0bfc2e98b109cab90479ca6404b62">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="e181e81e3815e4f594abeda8a990d948de8354feda1f2c117fe772dde9399911">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:cb602c08db8f80a3d07e796ed53908d4b0a0bfc2e98b109cab90479ca6404b62">
-  <title>App Launch · Ficha técnica · cb602c08db8f</title>
+  <meta name="source-fingerprint" content="sha256:e181e81e3815e4f594abeda8a990d948de8354feda1f2c117fe772dde9399911">
+  <title>App Launch · Ficha técnica · e181e81e3815</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -160,7 +160,7 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>App Launch</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/app-launch.md</dd><dt>Versión reproducible</dt><dd>sha256:cb602c08db8f80a3d07e796ed53908d4b0a0bfc2e98b109cab90479ca6404b62</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/app-launch.md</dd><dt>Versión reproducible</dt><dd>sha256:e181e81e3815e4f594abeda8a990d948de8354feda1f2c117fe772dde9399911</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/app-launch.md">
@@ -190,7 +190,7 @@ tr:nth-child(even) td { background: #fafcfd; }
 </tr>
 <tr>
 <td>Repositorio</td>
-<td><code>ratienza/Apps_Lauch</code> · <code>main</code> · <code>2d265ee1caf3c370e662cdc99cb923f4db457465</code></td>
+<td><code>ratienza/Apps_Lauch</code> · <code>main</code> · <code>bf6ba47</code></td>
 <td>Mismo origen</td>
 </tr>
 <tr>
@@ -220,7 +220,7 @@ tr:nth-child(even) td { background: #fafcfd; }
 </tr>
 </tbody>
 </table>
-<p>Validación final: <strong>21/08/2026</strong>. GitHub y el checkout local coincidían en el SHA indicado; ambos catálogos desplegados respondieron <code>200</code> y conservaron exactamente el contenido versionado.</p>
+<p>Validación final: <strong>29/08/2026</strong>. GitHub y el checkout local coincidieron en el SHA indicado; ambos catálogos desplegados respondieron <code>200</code> y conservaron exactamente el contenido versionado.</p>
 <h2 id="p1-arquitectura-y-funcionamiento">Arquitectura y funcionamiento</h2>
 <p><code>index.html</code> carga <code>./apps.json</code> en tiempo de ejecución y crea las tarjetas mediante nodos DOM. Nombre, descripción y acción se asignan con <code>textContent</code>; el manifiesto no se interpreta como HTML.</p>
 <p>El despliegue publica solo <code>index.html</code>, el fondo y el catálogo seleccionado renombrado como <code>apps.json</code>. DigitalOcean no recibió <code>catalogs/nexus.json</code>, direcciones <code>192.168.18.220</code>, puertos <code>8081–8083</code> ni nombres exclusivos del laboratorio.</p>
@@ -229,9 +229,10 @@ tr:nth-child(even) td { background: #fafcfd; }
 /home/raul/app-launch/nginx.conf → /etc/nginx/conf.d/default.conf
 </code></pre></div>
 <p>Usa una red Compose propia, no tiene persistencia funcional y se recupera con <code>restart: unless-stopped</code>.</p>
-<h2 id="p1-catalogos-comprobados">Catálogos comprobados</h2>
-<p>El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus contiene Replicant Lab, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos casos PULA apunta a <code>https://pula-erasmus-housing-automator.ai.studio/</code>. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.</p>
-<p>EH-002 añade únicamente al catálogo Nexus una tarjeta interna <strong>ErasmusHomes · Control del MVP</strong>, dirigida a la página derivada dentro del runtime documental existente de Replicant Lab. El catálogo público y todas las tarjetas preexistentes permanecen sin cambios.</p>
+<h2 id="p1-catalogos-y-capsulas-comprobados">Catálogos y cápsulas comprobados</h2>
+<p>El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus contiene Replicant Lab, ErasmusHomes · Control del MVP, Control de Red, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos casos PULA apunta a <code>https://pula-erasmus-housing-automator.ai.studio/</code>.</p>
+<p>Las tarjetas usan la acción uniforme <strong>Entrar</strong> y cápsulas breves: <code>NEXUS</code>, <code>DIGITAL</code> o <code>REPLICANT</code> indican ubicación; el resto describe tecnologías relevantes, como <code>DOCKER</code>, <code>NGINX</code>, <code>PYTHON</code>, <code>FIREBASE APP HOSTING</code>, <code>CLOUD RUN</code> o <code>POWERSHELL</code>. CV se presenta correctamente como <strong>Firebase App Hosting</strong> sobre Cloud Run. Las cápsulas son informativas, no healthchecks.</p>
+<p><strong>ErasmusHomes · Control del MVP</strong> abre su panel derivado dentro del runtime documental de Replicant Lab. <strong>Control de Red</strong> aparece únicamente en Nexus y abre su ficha técnica: su runtime real continúa siendo local en Replicant/Windows, sin servicio web en Nexus ni DigitalOcean. En Nexus, las demás tarjetas incluyen un acceso secundario directo a su ficha documental. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.</p>
 <div class="admonition important">
 <p class="admonition-title">Regla</p>
 <p><code>Tarjeta App Launch ≠ Runtime local</code>.</p>
@@ -243,6 +244,10 @@ tr:nth-child(even) td { background: #fafcfd; }
 <span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">deploy</span><span class="p">\</span><span class="n">verify</span><span class="p">.</span><span class="n">ps1</span> <span class="n">-Target</span> <span class="n">nexus</span>
 </code></pre></div>
 <p>La actualización permanente debe partir de <code>main</code>. Para rollback se revierte el cambio en Git mediante una rama/PR y se vuelve a desplegar el destino afectado; no se copian ficheros desde un host hacia GitHub.</p>
+<h2 id="p1-flujo-de-cambio">Flujo de cambio</h2>
+<div class="highlight"><pre><span></span><code>catálogos versionados → validación local → rama/PR/checks → main → despliegue del destino → verify.ps1
+</code></pre></div>
+<p><code>catalogs/inventory.json</code> protege el inventario esperado y <code>scripts/validate_catalogs.py</code> evita deriva entre los catálogos, enlaces, acciones y cápsulas. Todo cambio debe validar el destino público y/o Nexus que alcance; el flujo general de gobierno permanece en <a href="/gobierno/flujo-work-codex-git/">Work–Codex–Git</a>.</p>
 <h2 id="p1-seguridad-y-limites">Seguridad y límites</h2>
 <ul>
 <li>El repositorio no contiene claves ni configuración local real; <code>deploy/local.settings.psd1</code> está ignorado.</li>
@@ -260,7 +265,7 @@ tr:nth-child(even) td { background: #fafcfd; }
 </ul></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:cb602c08db8f80a3d07e796ed53908d4b0a0bfc2e98b109cab90479ca6404b62</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:e181e81e3815e4f594abeda8a990d948de8354feda1f2c117fe772dde9399911</footer>
 
 </body>
 </html>
