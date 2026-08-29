@@ -2,6 +2,20 @@
 
 Este contrato permite retomar un proyecto desde cualquier ordenador o conversación sin depender de memoria de chat. GitHub conserva contrato, implementación y evidencias; el runtime demuestra únicamente lo desplegado.
 
+## Guía visual oficial
+
+![Flujo de trabajo con Work, Codex y Git](../assets/flujo-work-codex-git.png)
+
+La guía visual resume el método obligatorio para los desarrollos del Lab:
+
+1. Raúl define alcance, objetivos y restricciones; el encargo queda versionado en `docs/encargos/`.
+2. Codex lee el encargo, crea una rama `codex/...` y trabaja en un worktree o checkout aislado.
+3. Codex implementa, prueba, documenta y publica una Pull Request con evidencias.
+4. Raúl revisa la PR y sus controles.
+5. Solo una orden expresa de Raúl autoriza el merge a `main`; el despliegue y su verificación son gates posteriores e independientes.
+
+Un encargo lógico equivale a una rama clara. No se editan directamente `main`, no se mezclan varios trabajos grandes en la misma rama y una CI verde no sustituye la revisión ni la autorización de merge.
+
 ## Roles y fuentes de verdad
 
 | Actor | Responsabilidad |
