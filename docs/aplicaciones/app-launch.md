@@ -43,7 +43,7 @@ El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV 
 
 Las tarjetas usan la acción uniforme **Entrar** y cápsulas breves: `NEXUS`, `DIGITAL` o `REPLICANT` indican ubicación; el resto describe tecnologías relevantes, como `DOCKER`, `NGINX`, `PYTHON`, `FIREBASE APP HOSTING`, `CLOUD RUN` o `POWERSHELL`. CV se presenta correctamente como **Firebase App Hosting** sobre Cloud Run. Las cápsulas son informativas, no healthchecks.
 
-**ErasmusHomes · Control del MVP** abre su panel derivado dentro del runtime documental de Replicant Lab. **Control de Red** aparece únicamente en Nexus y abre su ficha técnica: su runtime real continúa siendo local en Replicant/Windows, sin servicio web en Nexus ni DigitalOcean. En Nexus, las demás tarjetas incluyen un acceso secundario directo a su ficha documental. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
+**ErasmusHomes · Control del MVP** abre su panel derivado dentro del runtime documental de Replicant Lab. **Control de Red** aparece únicamente en Nexus: `Entrar` abre su demo Docker read-only en `192.168.18.220:8084` y el acceso secundario abre la ficha técnica. El panel operativo y su inventario siguen siendo locales de Replicant/Windows. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
 
 !!! important "Regla"
     `Tarjeta App Launch ≠ Runtime local`.

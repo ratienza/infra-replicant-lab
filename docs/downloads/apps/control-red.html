@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="e181e81e3815e4f594abeda8a990d948de8354feda1f2c117fe772dde9399911">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="39111c13966a40ea6d7a2faf4e7fdbdba460c902462c53bd62ea23c49402b698">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:e181e81e3815e4f594abeda8a990d948de8354feda1f2c117fe772dde9399911">
-  <title>Control de Red · Ficha técnica · e181e81e3815</title>
+  <meta name="source-fingerprint" content="sha256:39111c13966a40ea6d7a2faf4e7fdbdba460c902462c53bd62ea23c49402b698">
+  <title>Control de Red · Ficha técnica · 39111c13966a</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -160,7 +160,7 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>Control de Red</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/control-red.md</dd><dt>Versión reproducible</dt><dd>sha256:e181e81e3815e4f594abeda8a990d948de8354feda1f2c117fe772dde9399911</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/control-red.md</dd><dt>Versión reproducible</dt><dd>sha256:39111c13966a40ea6d7a2faf4e7fdbdba460c902462c53bd62ea23c49402b698</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/control-red.md">
@@ -171,6 +171,7 @@ tr:nth-child(even) td { background: #fafcfd; }
 <ul>
 <li><strong>Ficha técnica:</strong> <a href="/downloads/apps/control-red.html">HTML autocontenido</a></li>
 <li><strong>Runtime:</strong> local en Replicant · sin URL publicada.</li>
+<li><strong>Demo Nexus:</strong> <a href="http://192.168.18.220:8084/">escaneo read-only</a></li>
 </ul>
 <h2 id="p1-estado-auditado">Estado auditado</h2>
 <table>
@@ -199,7 +200,7 @@ tr:nth-child(even) td { background: #fafcfd; }
 </tr>
 <tr>
 <td>Nexus</td>
-<td>Checkout en <code>/opt/apps/control-red</code>; sin contenedor, servicio o puerto</td>
+<td>Demo Docker <code>control-red-demo</code> en <code>192.168.18.220:8084</code>; checkout en <code>/opt/apps/control-red</code></td>
 </tr>
 <tr>
 <td>Entrada</td>
@@ -214,18 +215,18 @@ tr:nth-child(even) td { background: #fafcfd; }
 <h2 id="p1-funcionalidad-comprobada">Funcionalidad comprobada</h2>
 <p>El código implementa una interfaz PowerShell para descubrimiento, inventario, alias y snapshots de red. La sintaxis completa del script se analizó correctamente sin ejecutarlo, evitando escaneos o cambios sobre dispositivos.</p>
 <h2 id="p1-operacion-y-rollback">Operación y rollback</h2>
-<p>La herramienta debe ejecutarse desde Replicant, donde existen PowerShell y acceso a la LAN. El checkout de Nexus es solo una copia de código/datos y no convierte el panel en aplicación web.</p>
+<p>La herramienta operativa debe ejecutarse desde Replicant, donde existen PowerShell y el inventario real. Nexus aloja una demo Docker distinta: ejecuta ping concurrente solo sobre <code>192.168.18.0/24</code>, puede mostrar MAC ya observadas en ARP y no persiste resultados. No permite renombrar, enriquecer, abrir puertos ni Wake-on-LAN.</p>
 <p>El rollback de código consiste en volver a un commit conocido mediante rama/PR. Los inventarios y snapshots no deben reemplazarse ni eliminarse automáticamente: requieren copia y revisión específica por contener estado del entorno.</p>
 <h2 id="p1-seguridad-y-pendientes">Seguridad y pendientes</h2>
 <ul>
 <li>El repositorio privado contiene inventario y snapshots reales versionados. Esto contradice el criterio global de mantener datos vivos fuera de Git, aunque su visibilidad sea privada.</li>
 <li>No se exponen aquí direcciones MAC, nombres de personas ni detalles del inventario.</li>
 <li>Pendiente: separar datos operativos del código, añadir ejemplos anonimizados y documentar backup/recuperación antes de cualquier limpieza.</li>
-<li>No está desplegado ni validado como servicio en Nexus.</li>
+<li>La demo Nexus no sustituye el panel operativo de Replicant ni su inventario.</li>
 </ul></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:e181e81e3815e4f594abeda8a990d948de8354feda1f2c117fe772dde9399911</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:39111c13966a40ea6d7a2faf4e7fdbdba460c902462c53bd62ea23c49402b698</footer>
 
 </body>
 </html>
