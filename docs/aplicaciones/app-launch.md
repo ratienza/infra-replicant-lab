@@ -65,7 +65,7 @@ La actualización permanente debe partir de `main`. Para rollback se revierte el
 catálogos versionados → validación local → rama/PR/checks → main → despliegue del destino → verify.ps1
 ```
 
-`catalogs/inventory.json` protege el inventario esperado y `scripts/validate_catalogs.py` evita deriva entre los catálogos, enlaces, acciones y cápsulas. Todo cambio debe validar el destino público y/o Nexus que alcance; el flujo general de gobierno permanece en [Work–Codex–Git](../gobierno/flujo-work-codex-git.md).
+`catalogs/inventory.json` protege el inventario esperado y `scripts/validate_catalogs.py` evita deriva entre los catálogos, enlaces, acciones y cápsulas. Todo cambio debe validar el destino público y/o Nexus que alcance; el flujo general de gobierno permanece en [Work–Codex–Git](/gobierno/flujo-work-codex-git/).
 
 ## Seguridad y límites
 
