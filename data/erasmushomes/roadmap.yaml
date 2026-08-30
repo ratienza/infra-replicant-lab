@@ -69,34 +69,37 @@ tasks:
     sprint: Contrato funcional
     week_start: 2026-08-31
     week_end: 2026-09-06
-    status: pending
+    status: done
     owner: founder
     objective: Definir el contrato funcional y los flujos móviles del piloto antes de desarrollar producto.
     definition_of_done: Contrato funcional priorizado y criterios de aceptación mobile-first aprobados.
     weekend_validation: Confirmar que cada flujo permite actuar y que el alcance cabe en el piloto.
-    evidence: {pr: "", commit: "", url: ""}
+    evidence:
+      pr: "7"
+      commit: 0215250f372b7cd31be2c51591cd00d10c8062cd
+      url: https://github.com/ratienza/ErasmusHomes/pull/7
     risks: ["Ambigüedad funcional", "Crecimiento de alcance"]
     blocker_reason: ""
-    next_decision: Iniciar solo después del cierre aceptado de EH-002R-C.
-    updated_at: "2026-08-24T10:00:00+02:00"
-    notes: Bloqueado por secuencia de gobierno, pero permanece pending hasta autorización.
+    next_decision: Ejecutar WK-01 sin iniciar desarrollo de producto.
+    updated_at: "2026-08-25T17:00:00+02:00"
+    notes: Contrato funcional fusionado y verificado en main. Piloto con email asistido; envío automático queda como evolución condicionada a consentimiento, trazabilidad, límites y control humano.
   - id: WK-01
     title: Supply y validación
     phase: discovery
     sprint: Supply y validación
     week_start: 2026-08-31
     week_end: 2026-09-06
-    status: pending
+    status: blocked
     owner: founder
-    objective: Evaluar hasta tres ciudades, fuentes, permisos, calidad, volumen y cinco entrevistas.
-    definition_of_done: Ficha por ciudad y decisión de piloto con tres fuentes viables por ciudad elegida.
-    weekend_validation: Retirar toda ciudad sin tres fuentes viables; no forzar scraper.
-    evidence: {pr: "", commit: "", url: ""}
-    risks: ["Fuentes insuficientes o no permitidas"]
-    blocker_reason: ""
-    next_decision: Seleccionar como máximo tres ciudades candidatas.
-    updated_at: "2026-08-22T23:50:00+02:00"
-    notes: ""
+    objective: Seleccionar tres ciudades para un piloto de agregador inteligente y validar demanda, alojamiento, fuentes trazables, permisos y cinco entrevistas.
+    definition_of_done: Ranking reproducible, fuentes clasificadas por uso, decisión condicionada y cinco entrevistas reales completadas.
+    weekend_validation: Mantener Pula como referencia y no confundir portal enlazable con permiso de ingesta o matching.
+    evidence: {pr: "9", commit: "", url: "https://github.com/ratienza/ErasmusHomes/pull/9"}
+    risks: ["Cinco entrevistas pendientes", "Matching sin permiso o flujo oficial", "Volumen visible no equivale a cobertura autorizada"]
+    blocker_reason: La shortlist condicionada es Pula, Barcelona y Lisboa, pero faltan cinco entrevistas reales y una ruta permitida y verificable de matching por ciudad antes de cerrar WK-01 o iniciar producto.
+    next_decision: Completar las cinco entrevistas y aclarar permiso o flujo oficial con SCPU, BCU y ULisboa antes de confirmar el piloto.
+    updated_at: "2026-08-25T19:20:13+02:00"
+    notes: Pula es referencia fija; Barcelona y Lisboa lideran el ranking ponderado. Los portales se limitan a navegación trazable y no autorizan ingesta. PR en borrador; sin scraping, producto, merge, despliegue ni cambios de PulaHomes, Nexus o runtime.
   - id: WK-02
     title: Arquitectura y confianza
     phase: design

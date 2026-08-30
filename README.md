@@ -43,7 +43,7 @@ python scripts/erasmushomes_panel.py generate --repo ../ErasmusHomes
 python scripts/erasmushomes_panel.py check
 ```
 
-`data/erasmushomes/` es un caché derivado con SHA y fecha; nunca se edita manualmente. El generador exige el PDF acordado versionado en `ErasmusHomes/docs/source/`, contrasta su entrada en `SHA256SUMS`, publica esos mismos bytes bajo `docs/downloads/erasmushomes/` y enlaza PDF, Markdown y YAML fijados al mismo SHA que muestra el panel. La copia publicada es siempre generada; no se edita manualmente ni en Replicant Lab ni en Nexus.
+`data/erasmushomes/` es un caché derivado con SHA y fecha; nunca se edita manualmente. El generador exige el PDF acordado versionado en `ErasmusHomes/Docs/source/`, contrasta su entrada en `SHA256SUMS`, publica esos mismos bytes bajo `docs/downloads/erasmushomes/` y enlaza PDF, Markdown y YAML fijados al mismo SHA que muestra el panel. ErasmusHomes consolidó su árbol canónico en `Docs/` en `main@d5cabad`, con `Roadmap check` verde. La copia publicada es siempre generada; no se edita manualmente ni en Replicant Lab ni en Nexus.
 
 En Nexus, `scripts/sync_erasmushomes_nexus.sh` actualiza ambos `main` mediante `pull --ff-only`, genera y valida en un directorio temporal y solo entonces reconstruye el servicio documental existente. Conserva la imagen anterior como `last-good` y la restaura si el panel no responde `200` con el SHA esperado.
 
