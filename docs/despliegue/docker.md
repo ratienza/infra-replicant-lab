@@ -38,7 +38,8 @@ servicios
 | `8081` | Salones AV | Operativo |
 | `8082` | Replicant Lab · documentación | Operativo |
 | `8083` | Reserva-Pistas-UTP | Operativo |
-| `8084+` | Próximos servicios | Asignación secuencial |
+| `8084` | Control Red · demo read-only | Operativo |
+| `8085+` | Próximos servicios | Asignación secuencial |
 
 Reglas:
 
@@ -51,6 +52,8 @@ Reglas:
 App Launch es la excepción deliberada: publica `80` en todas las interfaces de Nexus para actuar como entrada de la LAN. No se publica por HTTPS.
 
 Salones AV aplica explícitamente la regla LAN mediante `192.168.18.220:8081:80`. El PR `salones-av-valencia-palace#2` incorporó el bind a `main`; desde `8c0bc08` el checkout Nexus está limpio y la configuración es reproducible desde GitHub.
+
+Control Red aplica el mismo contrato de exposición LAN mediante `192.168.18.220:8084:8084`. El contenedor conserva su demo efímero y de solo lectura; el panel PowerShell operativo y sus inventarios siguen ejecutándose únicamente en Replicant.
 
 ## Reserva-Pistas-UTP · patrón validado
 

@@ -47,6 +47,7 @@
 | `8081/tcp` | Salones AV | LAN |
 | `8082/tcp` | Replicant Lab · Nginx estático | LAN |
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
+| `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `53` | systemd-resolved | localhost |
 
 ## Estado observado el 13/08/2026
@@ -57,11 +58,15 @@
 - Reserva-Pistas-UTP ejecutándose como backend privado y proxy Nginx en `192.168.18.220:8083`, con autenticación, datos persistentes separados y canal saliente SSH restringido hacia DigitalOcean.
 - App Launch ejecutándose en el puerto `80` mediante Nginx `1.27-alpine`, con sitio y configuración montados en solo lectura.
 - `8080` sin listener.
-- CV y Control de Red presentes solo como checkouts; no son servicios Nexus.
+- En esta observación del 13/08, CV y Control de Red estaban presentes solo como checkouts; el cambio posterior de Control Red queda registrado en la actualización del 30/08.
 - Consumos Cupra y Cartera Estratégica sin checkout servido ni puerto Nexus.
 - La tarjeta PULA de App Launch apunta a la publicación pública externa y fue validada en el catálogo Nexus `2d265ee`; no implica ejecución de PULA en Nexus.
 
 Esta observación confirma el estado del laboratorio privado en esa fecha. DigitalOcean se validó por separado y de forma acotada para el cierre de Reserva-Pistas-UTP; cada repositorio conserva sus definiciones operativas.
+
+## Actualización del 30/08/2026
+
+Control Red incorpora un demo Docker separado del panel operativo. `control-red-demo` publica exclusivamente `192.168.18.220:8084:8084`, monta `/proc/net/arp` en solo lectura y no persiste inventarios ni resultados. El checkout de Nexus quedó limpio en `control-red@d3a05ac`; se verificaron `/` y `/health` con HTTP `200` desde la LAN. Esta actualización sustituye únicamente la observación histórica del 13/08/2026 que describía Control Red como checkout sin servicio.
 
 ## Runtime documental validado en Nexus
 

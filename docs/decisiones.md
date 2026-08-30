@@ -23,7 +23,7 @@ Registro corto de decisiones que no conviene redescubrir.
 | Rutas portables únicas | HTML y PDF viven exclusivamente en `docs/downloads/` |
 | App Launch usa puerto `80` en Nexus | Permite `http://nexus/` sin puerto explícito; `8080` queda libre |
 | App Launch selecciona catálogo al desplegar | Una presentación común y un único `apps.json` activo por host evitan filtrar enlaces internos |
-| Checkouts no equivalen a servicios | CV y Control de Red pueden existir en disco de Nexus sin declararse desplegados |
+| Checkouts no equivalen a servicios | CV sigue siendo solo checkout; Control Red solo se considera desplegado por su Compose versionado y su demo read-only validado en `192.168.18.220:8084` |
 | Fichas técnicas derivadas por aplicación | Cada aplicación tiene HTML/PDF generado desde su Markdown canónico |
 | Salones AV liga `8081` a la IP LAN | `192.168.18.220:8081:80` evita publicar el servicio en todas las interfaces y queda versionado desde `8c0bc08` |
 | App Launch es navegación, no runtime | Una tarjeta puede apuntar a servicios locales o remotos sin trasladar su ejecución al host del launchpad |

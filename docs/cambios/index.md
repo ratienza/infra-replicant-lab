@@ -2,6 +2,7 @@
 
 Acceso estable al histórico diario de Raul Lab.
 
+- [30 de agosto de 2026](2026-08-30.md)
 - [29 de agosto de 2026](2026-08-29.md)
 - [21 de agosto de 2026](2026-08-21.md)
 - [13 de agosto de 2026](2026-08-13.md)

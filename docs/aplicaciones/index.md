@@ -92,9 +92,9 @@ Presenta el currículum y portfolio profesional público. Organiza experiencia, 
 <p class="app-type">Inventario local</p>
 Descubre e inventaría dispositivos de la red local. Ayuda a revisar direccionamiento, nombres y estado observable desde Replicant.
 
-<dl><dt>Herramienta</dt><dd>PowerShell + Codex</dd><dt>Stack</dt><dd>PowerShell</dd><dt>Repositorio</dt><dd><code>ratienza/control-red</code></dd><dt>Deploy</dt><dd>Ejecución local</dd><dt>Runtime</dt><dd>Replicant</dd><dt>Estado</dt><dd>Operativo local / POST-CARTERA</dd></dl>
+<dl><dt>Herramienta</dt><dd>PowerShell + Codex</dd><dt>Stack</dt><dd>PowerShell + demo Python/Docker</dd><dt>Repositorio</dt><dd><code>ratienza/control-red</code></dd><dt>Deploy</dt><dd>Panel local + demo LAN</dd><dt>Runtime</dt><dd>Replicant · Nexus <code>8084</code></dd><dt>Estado</dt><dd>Operativo local / demo read-only</dd></dl>
 
-<p class="app-accesses"><a href="../downloads/apps/control-red.html">Ficha técnica</a> · Runtime local en Replicant · sin URL publicada</p>
+<p class="app-accesses"><a href="../downloads/apps/control-red.html">Ficha técnica</a> · <a href="http://192.168.18.220:8084/">Demo Nexus read-only</a> · Panel operativo local en Replicant</p>
 </article>
 
 <article class="app-card" markdown>

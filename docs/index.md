@@ -84,7 +84,7 @@ Manual vivo de la infraestructura local y cloud del laboratorio: qué existe, d�
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
-| Control de Red | ✅ Herramienta local · separación de datos POST-CARTERA |
+| Control de Red | ✅ Herramienta local · demo Nexus read-only en `8084` · separación de datos POST-CARTERA |
 | Producción DigitalOcean | ✅ App Launch y Reservas; no es runtime de Consumos ni CV |
 | Backups Nexus | ⏳ POST-CARTERA |
 | Nombres locales | ✅ `replicant` y `nexus` mediante `hosts` en Replicant |
