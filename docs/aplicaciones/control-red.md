@@ -5,7 +5,7 @@ Panel PowerShell para inventariar, nombrar y revisar dispositivos de la red loca
 ## Accesos
 
 - **Ficha técnica:** [HTML autocontenido](/downloads/apps/control-red.html)
-- **Runtime:** local en Replicant · sin URL publicada.
+- **Panel operativo:** local en Replicant · sin URL publicada.
 - **Demo Nexus:** [escaneo read-only](http://192.168.18.220:8084/)
 
 ## Estado auditado
@@ -14,9 +14,9 @@ Panel PowerShell para inventariar, nombrar y revisar dispositivos de la red loca
 |---|---|
 | Desarrollo | PowerShell + Codex |
 | Repositorio | `ratienza/control-red` · privado |
-| `main` | `0e285d26f10ccb58e58d3ebbef35379b00a4b41d` |
+| `main` | `d3a05ac5604091710a90deca4d57d828f3789da5` |
 | Replicant | Herramienta local; no se ejecutó un escaneo durante la auditoría |
-| Nexus | Demo Docker `control-red-demo` en `192.168.18.220:8084`; checkout en `/opt/apps/control-red` |
+| Nexus | Demo Docker `control-red-demo` con bind exclusivo `192.168.18.220:8084:8084`; checkout en `/opt/apps/control-red` |
 | Entrada | `ABRIR_PANEL.cmd` → `panel-control-red.ps1` |
 | Persistencia | Inventario JSON y snapshots versionados en el repositorio actual |
 
@@ -26,7 +26,7 @@ El código implementa una interfaz PowerShell para descubrimiento, inventario, a
 
 ## Operación y rollback
 
-La herramienta operativa debe ejecutarse desde Replicant, donde existen PowerShell y el inventario real. Nexus aloja una demo Docker distinta: ejecuta ping concurrente solo sobre `192.168.18.0/24`, puede mostrar MAC ya observadas en ARP y no persiste resultados. No permite renombrar, enriquecer, abrir puertos ni Wake-on-LAN.
+La herramienta operativa debe ejecutarse desde Replicant, donde existen PowerShell y el inventario real. Nexus aloja una demo Docker distinta: ejecuta ping concurrente solo sobre `192.168.18.0/24`, puede mostrar MAC ya observadas mediante un montaje read-only de `/proc/net/arp` y no persiste resultados. Compose publica exclusivamente `192.168.18.220:8084:8084`. No permite renombrar, enriquecer, abrir puertos ni Wake-on-LAN.
 
 El rollback de código consiste en volver a un commit conocido mediante rama/PR. Los inventarios y snapshots no deben reemplazarse ni eliminarse automáticamente: requieren copia y revisión específica por contener estado del entorno.
 
