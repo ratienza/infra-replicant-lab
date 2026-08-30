@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STATUSES = ("done", "in_progress", "pending", "blocked")
 LABELS = {"done": "Completado", "in_progress": "En ejecución", "pending": "Pendiente", "blocked": "Bloqueado"}
 FIELDS = {"id", "title", "phase", "sprint", "week_start", "week_end", "status", "owner", "objective", "definition_of_done", "weekend_validation", "evidence", "risks", "blocker_reason", "next_decision", "updated_at", "notes"}
-PDF_RELATIVE_PATH = Path("docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf")
+PDF_RELATIVE_PATH = Path("Docs/source/Roadmap_ErasmusHomes_MVP_Diciembre_2026.pdf")
 STANDALONE_CSS = r"""
 :root{color-scheme:light;--ink:#172033;--muted:#667085;--line:#d9e1eb;--paper:#fff;--soft:#f4f7fb;--brand:#3457d5;--done:#18864b;--progress:#2768d8;--pending:#778195;--blocked:#c93645;--shadow:0 18px 50px rgba(29,45,78,.10)}
 *{box-sizing:border-box}html{background:#eef3f9}body{margin:0;color:var(--ink);background:linear-gradient(180deg,#edf3fb 0,#f8fafc 24rem,#f4f7fb 100%);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--brand)}code{overflow-wrap:anywhere;font:600 .86em ui-monospace,SFMono-Regular,Consolas,monospace}.shell{width:min(1440px,calc(100% - 48px));margin:auto;padding:32px 0 64px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px;font-weight:800}.brand-mark{display:grid;width:38px;height:38px;place-items:center;border-radius:12px;color:#fff;background:var(--brand);box-shadow:var(--shadow)}.sync{padding:7px 12px;border-radius:999px;color:#fff;background:var(--done);font-size:13px;font-weight:800}.hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:22px;padding:clamp(24px,4vw,52px);border:1px solid #d6e0ee;border-radius:24px;background:rgba(255,255,255,.94);box-shadow:var(--shadow)}.eyebrow{margin:0 0 9px;color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.hero h1{max-width:840px;margin:0;font-size:clamp(32px,5vw,62px);line-height:1.04;letter-spacing:-.045em}.hero-copy{max-width:760px;margin:18px 0 0;color:var(--muted);font-size:clamp(16px,1.5vw,20px)}.source-card{align-self:stretch;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--soft)}.source-card h2{margin:0 0 14px;font-size:17px}.docx-button{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:11px 15px;border-radius:12px;color:#fff;background:var(--brand);font-weight:900;text-align:center;text-decoration:none}.meta{display:grid;gap:8px;margin:16px 0 0}.meta div{min-width:0}.meta dt{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.meta dd{margin:1px 0 0;overflow-wrap:anywhere}.metrics{display:grid;grid-template-columns:1.25fr repeat(4,1fr);gap:14px;margin:22px 0}.metric{min-width:0;padding:20px;border:1px solid var(--line);border-radius:17px;background:var(--paper)}.metric strong{display:block;font-size:31px;line-height:1}.metric span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.metric.primary{color:#fff;border:0;background:linear-gradient(135deg,#253f9b,#4771ea)}.metric.primary span{color:#dfe7ff}.workspace{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.45fr);gap:20px}.panel{padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--paper)}.panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:17px}.panel h2{margin:0;font-size:22px;letter-spacing:-.02em}.panel-note{margin:3px 0 0;color:var(--muted);font-size:13px}.gate{padding:18px;border-left:5px solid var(--brand);border-radius:12px;background:#f2f5ff}.gate strong{display:block;margin-bottom:4px}.priorities{display:grid;gap:12px;margin-top:14px}.priority{padding:16px;border:1px solid var(--line);border-radius:14px}.priority b{color:var(--brand)}.kanban{display:grid;grid-template-columns:repeat(4,minmax(230px,1fr));gap:14px;overflow-x:auto;padding:2px 2px 10px}.column{min-width:230px;padding:14px;border-top:4px solid var(--color);border-radius:14px;background:var(--soft)}.column h3{display:flex;justify-content:space-between;margin:0 0 12px;color:var(--color);font-size:15px}.task{margin-top:10px;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff}.task-id{color:var(--color);font-size:11px;font-weight:900}.task h4{margin:4px 0 8px;font-size:14px;line-height:1.25}.task p{margin:6px 0;color:var(--muted);font-size:12px}.timeline{display:grid;gap:8px;margin:0;padding:0;list-style:none}.timeline li{display:grid;grid-template-columns:165px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 13px;border-left:4px solid var(--color);border-radius:9px;background:var(--soft)}.timeline time,.timeline span{color:var(--muted);font-size:12px}.footer{margin-top:24px;color:var(--muted);font-size:12px;text-align:center}.status-done{--color:var(--done)}.status-in_progress{--color:var(--progress)}.status-pending{--color:var(--pending)}.status-blocked{--color:var(--blocked)}
@@ -115,7 +115,7 @@ def render(data: dict, sha: str, synced_at: str, sync_state: str, document: dict
     state_label = {"synchronized": "Sincronizado", "stale": "Desactualizado", "error": "Error de sincronización"}[sync_state]
     lines = [
         "# ErasmusHomes · Control del MVP", "",
-        "<!-- GENERATED: edit ratienza/ErasmusHomes docs/board/roadmap.yaml, never this file -->", "",
+        "<!-- GENERATED: edit ratienza/ErasmusHomes Docs/board/roadmap.yaml, never this file -->", "",
         "## Accesos", "",
         "- **Panel de control:** [Control MVP autónomo](/control/erasmushomes/)",
         "- **Ficha técnica:** [HTML autocontenido](/downloads/apps/erasmushomes-control.html)",
@@ -148,7 +148,7 @@ def render(data: dict, sha: str, synced_at: str, sync_state: str, document: dict
     lines += ["</div></section>", '<section><h2>Línea temporal hasta el 20 de diciembre</h2><ol class="eh-timeline">']
     for task in tasks:
         lines.append(f'<li class="eh-status--{task["status"]}"><time>{human_date(task["week_start"])} - {human_date(task["week_end"])}</time><strong>{esc(task["title"])}</strong><span>{LABELS[task["status"]]}</span></li>')
-    lines += ["</ol></section>", "</div>", "", "La fuente canónica es `ratienza/ErasmusHomes/docs/board/roadmap.yaml`. Esta página es un artefacto derivado.", ""]
+    lines += ["</ol></section>", "</div>", "", "La fuente canónica es `ratienza/ErasmusHomes/Docs/board/roadmap.yaml`. Consolidación `Docs/` terminada en `main` con CI verde. Esta página es un artefacto derivado.", ""]
     return "\n".join(lines)
 
 
@@ -230,7 +230,7 @@ def atomic_write(path: Path, content: bytes) -> None:
 
 def document_manifest(repo: Path, pdf_path: Path) -> tuple[str, str]:
     digest = hashlib.sha256(pdf_path.read_bytes()).hexdigest()
-    manifest = repo / "docs/source/SHA256SUMS"
+    manifest = repo / "Docs/source/SHA256SUMS"
     for raw_line in manifest.read_text(encoding="utf-8").splitlines():
         parts = [part.strip() for part in raw_line.split("|")]
         if len(parts) == 4 and parts[1] == pdf_path.name:
@@ -242,7 +242,7 @@ def document_manifest(repo: Path, pdf_path: Path) -> tuple[str, str]:
 
 
 def generate(repo: Path, output: Path, cache: Path, metadata: Path, document_output: Path, standalone_output: Path) -> dict:
-    source = repo / "docs" / "board" / "roadmap.yaml"
+    source = repo / "Docs" / "board" / "roadmap.yaml"
     data = yaml.safe_load(source.read_text(encoding="utf-8"))
     validate(data)
     sha = git(repo, "rev-parse", "HEAD")
@@ -263,12 +263,12 @@ def generate(repo: Path, output: Path, cache: Path, metadata: Path, document_out
         "version_date": document_version_date,
         "url": f"/downloads/erasmushomes/{PDF_RELATIVE_PATH.name}",
         "source_url": f"https://github.com/ratienza/ErasmusHomes/blob/{sha}/{PDF_RELATIVE_PATH.as_posix()}",
-        "markdown_url": f"https://github.com/ratienza/ErasmusHomes/blob/{sha}/docs/ROADMAP_MVP_DICIEMBRE_2026.md",
-        "yaml_url": f"https://github.com/ratienza/ErasmusHomes/blob/{sha}/docs/board/roadmap.yaml",
+        "markdown_url": f"https://github.com/ratienza/ErasmusHomes/blob/{sha}/Docs/ROADMAP_MVP_DICIEMBRE_2026.md",
+        "yaml_url": f"https://github.com/ratienza/ErasmusHomes/blob/{sha}/Docs/board/roadmap.yaml",
     }
     page = render(data, sha, synced_at, sync_state, document)
     standalone = render_standalone(data, sha, synced_at, sync_state, document)
-    meta = {"source": "ratienza/ErasmusHomes/docs/board/roadmap.yaml", "sha": sha, "main_sha": main_sha, "branch": branch, "synced_at": synced_at, "state": sync_state, "document": document}
+    meta = {"source": "ratienza/ErasmusHomes/Docs/board/roadmap.yaml", "sha": sha, "main_sha": main_sha, "branch": branch, "synced_at": synced_at, "state": sync_state, "document": document}
     atomic_write(output, page.encode())
     atomic_write(cache, source.read_bytes())
     atomic_write(metadata, (json.dumps(meta, ensure_ascii=False, indent=2) + "\n").encode())

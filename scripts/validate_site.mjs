@@ -169,7 +169,7 @@ for (const item of routes) {
         now: document.querySelector(".now")?.innerText ?? "",
         visibleIsoDates: (document.body.innerText.match(/\b\d{4}-\d{2}-\d{2}\b/g) || []).length,
         markdown: !!document.querySelector('a[href*="ROADMAP_MVP_DICIEMBRE_2026.md"]'),
-        yaml: !!document.querySelector('a[href*="docs/board/roadmap.yaml"]'),
+        yaml: !!document.querySelector('a[href*="Docs/board/roadmap.yaml"]'),
       };
     });
     if (
@@ -177,7 +177,8 @@ for (const item of routes) {
       || standalone.linkTarget !== "_blank"
       || !/\/downloads\/erasmushomes\/Roadmap_ErasmusHomes_MVP_Diciembre_2026\.pdf$/.test(standalone.linkHref)
       || !standalone.sha || standalone.tabs !== 4 || standalone.tasks !== 19
-      || !standalone.now.includes("EH-003") || standalone.visibleIsoDates !== 0
+      || !standalone.now.includes("Sin tarea activa") || !standalone.now.includes("WK-02")
+      || standalone.visibleIsoDates !== 0
       || !standalone.markdown || !standalone.yaml
     ) failures.push(`${item.route}: invalid standalone control ${JSON.stringify(standalone)}`);
   }
