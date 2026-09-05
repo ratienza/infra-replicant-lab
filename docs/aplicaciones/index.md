@@ -54,7 +54,7 @@ Guía audiovisual para los salones del Valencia Palace. Reúne procedimientos, c
 
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>HTML, Nginx</dd><dt>Repositorio</dt><dd><code>ratienza/salones-av-valencia-palace</code></dd><dt>Deploy</dt><dd>Docker Compose</dd><dt>Runtime</dt><dd>Nexus · <code>8081</code></dd><dt>Estado</dt><dd>Cerrado / operativo</dd><dt>URL</dt><dd><a href="http://192.168.18.220:8081/">Nexus</a></dd></dl>
 
-<p class="app-accesses"><a href="../downloads/apps/salones-av.html">Ficha técnica</a> · <a href="http://192.168.18.220:8081/">Nexus</a></p>
+<p class="app-accesses"><a href="../downloads/apps/salones-av.html">Ficha técnica</a> · <a href="https://app.raulatienza.com/salones/">Producción autenticada</a> · <a href="http://192.168.18.220:8081/">Nexus</a></p>
 </article>
 
 <article class="app-card" markdown>

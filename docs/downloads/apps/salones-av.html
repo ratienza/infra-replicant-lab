@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="5e85a9725168ce70d8ddd0fc7c0eed458781154c11b7029c994c013d2d6f259f">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="5504d5c20890cac49dcd47163b5dac7721262754117dc0843b2b821db4ffc73a">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:5e85a9725168ce70d8ddd0fc7c0eed458781154c11b7029c994c013d2d6f259f">
-  <title>Salones AV · Ficha técnica · 5e85a9725168</title>
+  <meta name="source-fingerprint" content="sha256:5504d5c20890cac49dcd47163b5dac7721262754117dc0843b2b821db4ffc73a">
+  <title>Salones AV · Ficha técnica · 5504d5c20890</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -160,98 +160,93 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>Salones AV</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/salones-av.md</dd><dt>Versión reproducible</dt><dd>sha256:5e85a9725168ce70d8ddd0fc7c0eed458781154c11b7029c994c013d2d6f259f</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/salones-av.md</dd><dt>Versión reproducible</dt><dd>sha256:5504d5c20890cac49dcd47163b5dac7721262754117dc0843b2b821db4ffc73a</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/salones-av.md">
       <p class="source-path">aplicaciones/salones-av.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-salones-av">Aplicación · Salones AV</h1>
-<p>Documentación operativa audiovisual para el personal del SH Valencia Palace: panel general, pantallas LED, traslado, conexión de cliente, sonido y mapas de las plantas PL1 y PL6.</p>
+<p>Documentación operativa audiovisual interna para el personal del SH Valencia Palace: panel, pantallas LED, traslado, conexión de cliente, sonido, música ambiental, streaming, mapas PL1/PL6, sincronización de micrófonos y diagnóstico guiado.</p>
 <h2 id="p1-accesos">Accesos</h2>
 <ul>
 <li><strong>Ficha técnica:</strong> <a href="/downloads/apps/salones-av.html">HTML autocontenido</a></li>
 <li><strong>Aplicación / Nexus:</strong> <a href="http://192.168.18.220:8081/">Salones AV</a></li>
+<li><strong>Aplicación / producción:</strong> <a href="https://app.raulatienza.com/salones/">Salones AV</a> — requiere autenticación.</li>
 </ul>
 <h2 id="p1-ficha-de-infraestructura">Ficha de infraestructura</h2>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
-<th>Valor</th>
+<th>Nexus</th>
+<th>DigitalOcean</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Desarrollo</td>
-<td>Codex / GitHub</td>
-</tr>
-<tr>
 <td>Repo</td>
-<td><code>ratienza/salones-av-valencia-palace</code></td>
-</tr>
-<tr>
-<td>Host</td>
-<td>Nexus</td>
-</tr>
-<tr>
-<td>Ruta</td>
-<td><code>/opt/apps/salones-av-valencia-palace</code></td>
-</tr>
-<tr>
-<td>Contenedor</td>
-<td><code>salones-av</code></td>
-</tr>
-<tr>
-<td>Imagen</td>
-<td><code>nginx:alpine</code></td>
-</tr>
-<tr>
-<td>Puerto</td>
-<td><code>192.168.18.220:8081 → 80/tcp</code></td>
-</tr>
-<tr>
-<td>Contenido</td>
-<td><code>proyecto_html</code> montado en solo lectura</td>
+<td>ratienza/salones-av-valencia-palace</td>
+<td>Mismo repositorio privado</td>
 </tr>
 <tr>
 <td>Rama / SHA</td>
-<td><code>main</code> · <code>8c0bc08446256974b7efa57c730cbeb1b6e81520</code></td>
+<td>main · b88de54a1fe1c42d359fd7dd83b2048ca7d86bb2</td>
+<td>Mismo SHA</td>
 </tr>
 <tr>
-<td>Red</td>
-<td>Compose propia, sin dependencias con otros contenedores</td>
+<td>Runtime</td>
+<td>Contenedor salones-av, imagen nginx:alpine</td>
+<td>Nginx del host</td>
+</tr>
+<tr>
+<td>Publicación</td>
+<td>192.168.18.220:8081 → 80/tcp</td>
+<td>/salones/ sobre HTTPS y autenticación</td>
+</tr>
+<tr>
+<td>Contenido</td>
+<td>proyecto_html por bind mount de solo lectura</td>
+<td>Release estática extraída únicamente de proyecto_html</td>
 </tr>
 <tr>
 <td>Inicio</td>
-<td><code>restart: unless-stopped</code></td>
+<td>restart: unless-stopped</td>
+<td>Nginx habilitado al arranque</td>
+</tr>
+<tr>
+<td>Persistencia</td>
+<td>Sin base de datos; preferencia de tema en el navegador</td>
+<td>Igual</td>
 </tr>
 </tbody>
 </table>
-<h2 id="p1-comportamiento-de-despliegue">Comportamiento de despliegue</h2>
-<p>El contenido HTML se sirve mediante un bind mount. Por tanto, un <code>git pull</code> actualiza los ficheros visibles sin necesidad de reconstruir una imagen.</p>
-<p>La actualización segura exige revisar primero el working tree, actualizar desde <code>main</code> y comprobar enlaces y páginas. El rollback consiste en volver a un commit aprobado y restaurar el contenido estático; no tiene base de datos ni persistencia funcional.</p>
-<h2 id="p1-reconciliacion-git-y-nexus">Reconciliación Git y Nexus</h2>
-<p>La Fase 2A corrigió mediante el PR <code>salones-av-valencia-palace#2</code> la única deriva del checkout: <code>main</code> ahora versiona <code>192.168.18.220:8081:80</code>. El cambio se reconstruyó conscientemente en una rama; no se copió el checkout del servidor hacia GitHub.</p>
-<p>Antes del avance rápido se demostró que el blob preparado, el archivo vivo y el stash preservativo eran idénticos: <code>686cfdd506fbd67b624bffae5f49ca640a799da6</code>. Después del merge, GitHub <code>main</code>, <code>origin/main</code> y el checkout Nexus quedaron en <code>8c0bc08446256974b7efa57c730cbeb1b6e81520</code>, sin cambios locales.</p>
-<h2 id="p1-validacion-del-13082026">Validación del 13/08/2026</h2>
+<h2 id="p1-funcionalidad-consolidada">Funcionalidad consolidada</h2>
+<p>La revisión de septiembre añadió panel renovado, modo claro/oscuro, música ambiental, streaming, guía de sincronización de micros, diagnóstico interactivo con búsqueda y filtros, y acceso al asistente AV externo. También actualizó sonido, conexiones, mapas, recursos gráficos y checklists imprimibles.</p>
+<p>El PR salones-av-valencia-palace#4 incorporó la corrección y la validación automatizada. El PR #5 ajustó la documentación del mecanismo de despliegue.</p>
+<h2 id="p1-despliegue-y-rollback">Despliegue y rollback</h2>
+<p>Nexus sirve el checkout mediante bind mount. Un avance rápido de main actualiza el contenido sin reconstruir la imagen cuando Compose, la imagen y las dependencias no cambian.</p>
+<p>DigitalOcean recibe un bundle Git completo y verificado del main canónico. Un script extrae solo proyecto_html, crea una release con manifiesto SHA-256 y activa la release. Se conservan la copia anterior y las releases previas para rollback. Credenciales, certificados y configuración Nginx permanecen fuera de Git.</p>
+<h2 id="p1-compose-y-bind-mounts">Compose y bind mounts</h2>
+<p>La deriva histórica permanece resuelta. Compose publica únicamente en la IP LAN de Nexus y monta ./proyecto_html:/usr/share/nginx/html:ro. El mount no oculta código incluido en una imagen propia: nginx:alpine aporta el servidor y Git aporta deliberadamente todo el contenido estático.</p>
+<h2 id="p1-validacion-del-05092026">Validación del 05/09/2026</h2>
 <ul>
-<li>Contenedor <code>salones-av</code> activo con imagen <code>nginx:alpine</code>.</li>
-<li><code>http://192.168.18.220:8081/</code> respondió <code>200</code>.</li>
-<li>Las siete páginas del menú respondieron <code>200</code>.</li>
-<li>Los enlaces HTML locales pasaron la comprobación estática.</li>
-<li><code>docker compose config --quiet</code> aceptó la definición versionada.</li>
-<li>Docker confirmó el bind efectivo <code>192.168.18.220:8081</code>; no existe publicación de Salones en <code>0.0.0.0:8081</code>.</li>
-<li>GitHub <code>main == checkout Nexus</code> en <code>8c0bc08</code> tras el despliegue dirigido al servicio <code>web</code>.</li>
-<li>La copia pública <code>https://app.raulatienza.com/salones/</code> respondió <code>200</code>.</li>
-<li>No se validaron equipos AV físicos, números de tomas ni procedimientos sobre hardware.</li>
+<li>GitHub, Replicant, Nexus y el checkout de DigitalOcean quedaron en b88de54a1fe1c42d359fd7dd83b2048ca7d86bb2.</li>
+<li>Los 42 blobs publicables de Git, Nexus y DigitalOcean compartieron el mismo hash agregado.</li>
+<li>El check de GitHub pasó en los PR #4 y #5.</li>
+<li>La suite Playwright pasó 84 comprobaciones sobre las 13 páginas en local y en Nexus: rutas, assets, anclas, escritorio, móvil, tema, checklists, impresión y todas las ramas del diagnóstico.</li>
+<li>Las siete salidas de impresión comprobadas usaron tamaño A4.</li>
+<li>Nexus respondió 200 en 8081; el contenedor permaneció activo, sin recreación, y Compose validó correctamente.</li>
+<li>DigitalOcean redirigió HTTP a HTTPS y respondió 401 sin credenciales en portada, Streaming y assets. El portal principal siguió respondiendo 200.</li>
+<li>Nginx validó su configuración; el certificado observado para app.raulatienza.com era válido hasta el 28/11/2026.</li>
+<li>No se validaron físicamente cámaras, micrófonos, pantallas, tablets, patching ni procedimientos sobre hardware.</li>
 </ul>
 <h2 id="p1-seguridad-y-limites">Seguridad y límites</h2>
-<p>El contenido operativo puede incluir topología e inventario de salas. No deben incorporarse credenciales ni datos de red sensibles a un repositorio público. El servicio es estático y no implementa autenticación propia; su alcance depende del bind LAN y del control del host.</p>
+<p>La aplicación contiene inventario y direcciones internas necesarias para la operación. El repositorio es privado, Nexus limita el bind a la LAN y DigitalOcean exige autenticación. No se versionan credenciales ni configuración privada del proxy.</p>
 <h2 id="p1-alcance-de-esta-ficha">Alcance de esta ficha</h2>
-<p>La documentación técnica/funcional específica de los salones permanece en el repo de la aplicación.</p></div>
+<p>La documentación funcional y los procedimientos detallados permanecen en el repositorio de la aplicación.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:5e85a9725168ce70d8ddd0fc7c0eed458781154c11b7029c994c013d2d6f259f</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:5504d5c20890cac49dcd47163b5dac7721262754117dc0843b2b821db4ffc73a</footer>
 
 </body>
 </html>
