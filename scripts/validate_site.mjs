@@ -105,10 +105,9 @@ for (const item of routes) {
     }));
     const required = ["replicant-launch", "launch.thereplicantlab.com", "Cloudflare Access + Google", "Authentik + Google", "localhost:80"];
     const red = cloudflare.tabs.indexOf("Red");
-    const tunnel = cloudflare.tabs.indexOf("Cloudflare Tunnel");
+    const cloudflareTab = cloudflare.tabs.indexOf("Cloudflare");
     const pending = cloudflare.tabs.indexOf("Pendientes");
-    const downloads = cloudflare.tabs.indexOf("Descargas");
-    if (!required.every(value => cloudflare.text.includes(value)) || tunnel !== red + 1 || pending !== cloudflare.tabs.length - 2 || downloads !== cloudflare.tabs.length - 1 || cloudflare.tabLayout.overflowX || !cloudflare.tabLayout.allVisible) {
+    if (!required.every(value => cloudflare.text.includes(value)) || cloudflareTab !== red + 1 || pending !== cloudflare.tabs.length - 1 || cloudflare.tabLayout.overflowX || !cloudflare.tabLayout.allVisible) {
       failures.push(`${item.route}: Cloudflare content or primary navigation order invalid ${JSON.stringify(cloudflare.tabs)}`);
     }
   }
