@@ -11,8 +11,8 @@ La documentación MkDocs de este proyecto es la única referencia canónica. Los
 
 | Artefacto | Ruta | Cobertura |
 |---|---|---|
-| HTML autocontenido | `docs/downloads/Replicant-Lab.html` | Toda la navegación MkDocs, índice interno y siete Mermaid |
-| PDF A4 | `docs/downloads/Replicant-Lab.pdf` | Portada, índice, documentación completa, numeración y siete Mermaid |
+| HTML autocontenido | `docs/downloads/Replicant-Lab.html` | Toda la navegación MkDocs, índice interno y trece Mermaid |
+| PDF A4 | `docs/downloads/Replicant-Lab.pdf` | Portada, índice, documentación completa, numeración y trece Mermaid |
 
 No se mantiene ninguna copia alternativa.
 
@@ -31,6 +31,7 @@ Cada pareja HTML/PDF se genera desde la misma página Markdown incluida en la na
 | Control de Red | [Descargar](downloads/apps/control-red.html) | [Descargar](downloads/apps/control-red.pdf) |
 | Cartera Estratégica | [Descargar](downloads/apps/cartera-estrategica.html) | [Descargar](downloads/apps/cartera-estrategica.pdf) |
 | Replicant Lab | [Descargar](downloads/apps/replicant-lab.html) | [Descargar](downloads/apps/replicant-lab.pdf) |
+| ErasmusHomes · Control del MVP | [Descargar](downloads/apps/erasmushomes-control.html) | [Descargar](downloads/apps/erasmushomes-control.pdf) |
 
 ## Propiedades verificables
 
@@ -52,4 +53,4 @@ CI ejecuta el modo `check`, vuelve a renderizar un PDF de control, verifica la h
 
 ## Estado de despliegue
 
-El pipeline y el runtime estático están implementados y probados localmente. El 21/08/2026 se comprobó el dossier global y las nueve parejas de fichas individuales, incluida PULA; los ficheros servidos por el entorno de validación coincidieron byte a byte con los artefactos generados. La publicación en Nexus se valida de nuevo después de integrar el cambio en `main`; esta evidencia corresponde al laboratorio privado y no se extrapola a producción.
+El pipeline y el runtime estático están implementados y probados localmente. La evidencia del 21/08/2026 comprobó el dossier global y las nueve parejas de fichas individuales existentes entonces, incluida PULA; los ficheros servidos por el entorno de validación coincidieron byte a byte con los artefactos generados. El pipeline actual vuelve a validar todas las parejas registradas tras cada cambio. La publicación en Nexus se valida de nuevo después de integrar el cambio en `main`; esta evidencia corresponde al laboratorio privado y no se extrapola a producción.

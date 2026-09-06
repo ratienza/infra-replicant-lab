@@ -8,3 +8,9 @@ Definir una política global de backups y ejecutar una prueba de restauración.
 
 - Inventariar y gestionar los checkouts que son solo copias de consulta.
 - Mantener explícito \`Checkout ≠ Runtime\`; el CV en Nexus no es un despliegue.
+
+## Cloudflare Tunnel y recuperación
+
+- Implementar Cloudflare Access + Google para el tráfico externo, manteniendo LAN sin cambios.
+- Definir monitorización, alertas y prueba controlada de recuperación del servicio `cloudflared`.
+- Decidir qué servicios de Nexus se publicarán y no crear rutas/hostnames sin encargo específico.

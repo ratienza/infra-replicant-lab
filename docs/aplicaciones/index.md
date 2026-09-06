@@ -35,7 +35,7 @@ Catálogo de acceso a aplicaciones públicas e internas. Se publica en Nexus y D
 
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>HTML, CSS, JavaScript</dd><dt>Repositorio</dt><dd><code>ratienza/Apps_Lauch</code></dd><dt>Deploy</dt><dd>Scripts por destino</dd><dt>Runtime</dt><dd>Nginx · Nexus y DigitalOcean</dd><dt>Estado</dt><dd>Operativo</dd><dt>URL</dt><dd><a href="http://192.168.18.220/">Nexus</a></dd></dl>
 
-<p class="app-accesses"><a href="../downloads/apps/app-launch.html">Ficha técnica</a> · <a href="http://192.168.18.220/">Nexus</a> · <a href="https://app.raulatienza.com/">Producción</a></p>
+<p class="app-accesses"><a href="../downloads/apps/app-launch.html">Ficha técnica</a> · <a href="http://192.168.18.220/">Nexus LAN</a> · <a href="https://launch.thereplicantlab.com/">Cloudflare externo</a> · <a href="https://app.raulatienza.com/">DigitalOcean</a></p>
 </article>
 <article class="app-card" markdown>
 ## ErasmusHomes · Control del MVP

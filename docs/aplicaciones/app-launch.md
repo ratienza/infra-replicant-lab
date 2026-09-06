@@ -81,3 +81,9 @@ catálogos versionados → validación local → rama/PR/checks → main → des
 - Verificación versionada `nexus`: catálogo exacto y salud HTTP de `8081`, `8082` y `8083`.
 - `nginx -t` correcto en DigitalOcean.
 - Comprobación visual automatizada de escritorio y móvil incluida en el cierre documental.
+
+## Acceso externo mediante Cloudflare
+
+Además del acceso LAN, App Launch de Nexus está publicado en `https://launch.thereplicantlab.com/` mediante el Tunnel `replicant-launch` hacia `http://localhost:80`. La conexión se inicia desde Nexus y no abre puertos en el router. La ruta respondió HTTP `200` el 06/09/2026.
+
+El acceso externo es actualmente público: Cloudflare Access + Google está **decidido / pendiente de implementación**. App Launch no guarda usuarios ni autoriza aplicaciones; cada hostname futuro requerirá su política Access propia. El Launch de DigitalOcean sigue existente y no se retira en esta fase.

@@ -41,8 +41,8 @@ La actualización se realiza solo después de integrar el PR. Para rollback se r
 
 - `python scripts/docs_pipeline.py generate --screenshots`: correcto.
 - `python scripts/docs_pipeline.py check`: sincronía correcta.
-- 32 páginas fuente y seis diagramas Mermaid validados por el pipeline.
-- Dossier global de 52 páginas y ocho fichas individuales HTML/PDF sincronizadas.
+- El pipeline valida navegación MkDocs, Mermaid, HTML/PDF y las fichas individuales a partir de los recuentos versionados.
+- El dossier global y todas las fichas HTML/PDF incluidas en el pipeline quedan sincronizados.
 - Runtime Nexus observado con respuesta `200` el 13/08/2026; la nueva versión se valida de nuevo tras el merge.
 
 ## Seguridad, dependencias y pendientes
@@ -51,3 +51,7 @@ La actualización se realiza solo después de integrar el PR. Para rollback se r
 - La tipografía remota del tema es opcional: una caída de Google Fonts no bloquea el contenido ni los recursos locales.
 - Depende de GitHub para actualización y de Docker para reconstrucción; no depende de las aplicaciones documentadas para servir el sitio.
 - Pendiente transversal: definir y probar la política de backup/restauración de Nexus. La documentación está en Git, pero eso no sustituye los backups de datos de otras aplicaciones.
+
+## Acceso externo y seguridad
+
+Replicant Lab sigue accesible en LAN mediante `http://192.168.18.220:8082/`. No tiene ruta externa Cloudflare implementada. `docs.thereplicantlab.com` es únicamente una propuesta futura y, antes de existir, requerirá auditoría del origen, autorización explícita y política Cloudflare Access propia.

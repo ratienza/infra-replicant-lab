@@ -22,3 +22,7 @@ App Launch puede enlazar servicios externos. En particular, Consumos Cupra se ej
 - No existe sincronización automática de los datos de Reservas: el operador revisa una vista previa y confirma una dirección.
 
 La documentación no incluye contraseñas, claves privadas ni valores de secretos. Los cambios de DNS, certificados, servicios o datos requieren un encargo específico.
+
+## Relación con Cloudflare Tunnel
+
+DigitalOcean conserva el papel de producción `24×7` y no fue modificado. El Tunnel actual `replicant-launch` termina en Nexus; no convierte Nexus en sustituto automático del VPS ni implica instalar otro Tunnel en DigitalOcean. El Launch duplicado del VPS permanece hasta una auditoría específica de dependencias, redirecciones y rollback.

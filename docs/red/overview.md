@@ -33,3 +33,7 @@ No existe servidor DNS local. Replicant mantiene dos aliases puntuales en el arc
 | `nexus` | `192.168.18.220` | SSH y `http://nexus/` |
 
 El alias solo resuelve el nombre. El protocolo, puerto, usuario y credenciales siguen perteneciendo a cada servicio.
+
+## Acceso externo mediante Tunnel
+
+La LAN conserva sus direcciones y puertos actuales. La publicación externa confirmada no usa NAT ni port forwarding: `cloudflared` en Nexus abre una conexión saliente hacia Cloudflare para `launch.thereplicantlab.com` y entrega App Launch en `localhost:80`. El acceso por IP privada sigue siendo independiente y no está protegido por Cloudflare Access en esta fase.

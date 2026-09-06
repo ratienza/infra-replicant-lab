@@ -32,3 +32,7 @@ flowchart LR
 - `Tarjeta App Launch ≠ Runtime local`: una tarjeta es un enlace y no demuestra dónde se ejecuta la aplicación.
 - App Launch es una capa de navegación; la autenticación, los datos y el ciclo de vida pertenecen a cada aplicación.
 - Docker es el patrón principal en Nexus, no el único modelo del laboratorio.
+
+## Tunnel como transporte externo del Lab
+
+App Launch de Nexus tiene además una ruta externa confirmada mediante Cloudflare Tunnel: `launch.thereplicantlab.com` → `replicant-launch` → `cloudflared` en Nexus → `http://localhost:80`. No sustituye el despliegue del VPS ni representa autenticación. Cloudflare Access + Google es el siguiente diseño de seguridad y sigue pendiente.

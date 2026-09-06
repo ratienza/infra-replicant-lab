@@ -59,3 +59,9 @@ El catálogo se selecciona durante el despliegue. Cada host recibe únicamente s
     `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.
 
 Docker es el patrón preferido para servicios internos de Nexus cuando encaja, no un requisito universal para todas las aplicaciones.
+
+## Publicación externa mediante Cloudflare Tunnel
+
+Nexus mantiene los servicios internos en la LAN. La única ruta externa confirmada es `launch.thereplicantlab.com`: Cloudflare termina DNS/HTTPS y el Tunnel `replicant-launch` transporta la petición mediante una conexión saliente de `cloudflared` hacia App Launch en `http://localhost:80`. El router no abre puertos entrantes.
+
+Cloudflare Access + Google está decidido como siguiente capa de seguridad, pero sigue pendiente. El Tunnel no autentica usuarios por sí mismo. [Cloudflare Tunnel](red/cloudflare-tunnel.md) contiene arquitectura, operación, recuperación y límites.

@@ -168,3 +168,7 @@ journalctl -u reserva-pistas -n 100 --no-pager
 ```
 
 No ejecutar reservas ni enviar notificaciones para probar el handover. Las comprobaciones de datos se realizan con simulación, hashes, recuentos e identificadores normalizados.
+
+## Acceso externo y seguridad
+
+El runtime Nexus conserva exclusivamente su acceso LAN en `http://192.168.18.220:8083/`; no existe hostname Cloudflare para él. Su publicación productiva por DigitalOcean permanece separada y sin cambios. Cualquier futura ruta externa desde Nexus requerirá hostname por decidir, auditoría del origen y una política Cloudflare Access independiente.

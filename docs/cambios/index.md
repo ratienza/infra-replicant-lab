@@ -1,5 +1,7 @@
 # Change Log
 
+- [6 de septiembre de 2026](2026-09-06.md)
+
 Acceso estable al histórico diario de Raul Lab.
 
 - [30 de agosto de 2026](2026-08-30.md)
