@@ -99,4 +99,4 @@ No almacenar aquí contraseñas, tokens, claves privadas, bases de datos ni secr
 
 ## Publicación externa del Lab
 
-La ruta externa actual es `https://launch.thereplicantlab.com/`: Cloudflare DNS/HTTPS utiliza el Tunnel saliente `replicant-launch` desde Nexus hacia App Launch en `http://localhost:80`. No se abren puertos entrantes en el router. Cloudflare Access + Google aún no está implementado; la guía canónica, operación y recuperación están en `docs/red/cloudflare-tunnel.md`.
+Cloudflare publica cinco hostnames de Nexus mediante el único Tunnel saliente `replicant-launch`: Launch, Salones, documentación, Pádel y Red. No se abren puertos entrantes en el router. Cloudflare Access está implantado y usa Google como proveedor de identidad; cada hostname tiene su propia aplicación y política Access. El Tunnel solo transporta tráfico. La guía canónica, operación y recuperación están en `docs/red/cloudflare-tunnel.md`.
