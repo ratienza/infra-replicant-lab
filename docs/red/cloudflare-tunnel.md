@@ -9,7 +9,7 @@ Guía canónica de publicación externa de Replicant Lab. Describe el estado con
 
 ## Propósito
 
-El primer caso de uso es una demo externa del Lab para el CTO: publicar App Launch sin abrir puertos entrantes en el router doméstico. Nexus continúa en la LAN; `cloudflared` inicia una conexión **saliente** hacia Cloudflare y Cloudflare entrega DNS, HTTPS público y el transporte hasta el origen local. No hay exposición directa de la IP pública doméstica.
+La finalidad actual es publicar App Launch externamente sin abrir puertos entrantes en el router doméstico. Nexus continúa en la LAN; `cloudflared` inicia una conexión **saliente** hacia Cloudflare y Cloudflare entrega DNS, HTTPS público y el transporte hasta el origen local. No hay exposición directa de la IP pública doméstica.
 
 ## Arquitectura actual
 

@@ -93,13 +93,22 @@ for (const item of routes) {
     const cloudflare = await page.evaluate(() => ({
       text: document.querySelector("main")?.textContent ?? "",
       tabs: [...document.querySelectorAll(".md-tabs__link")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
+      tabLayout: (() => {
+        const bar = document.querySelector(".md-tabs");
+        const barRect = bar?.getBoundingClientRect();
+        const links = [...document.querySelectorAll(".md-tabs__link")].map(link => link.getBoundingClientRect());
+        return {
+          overflowX: (bar?.scrollWidth ?? 0) > (bar?.clientWidth ?? 0),
+          allVisible: Boolean(barRect) && links.every(rect => rect.left >= 0 && rect.right <= window.innerWidth && rect.top >= barRect.top && rect.bottom <= barRect.bottom),
+        };
+      })(),
     }));
     const required = ["replicant-launch", "launch.thereplicantlab.com", "Cloudflare Access + Google", "Authentik + Google", "localhost:80"];
     const red = cloudflare.tabs.indexOf("Red");
     const tunnel = cloudflare.tabs.indexOf("Cloudflare Tunnel");
     const pending = cloudflare.tabs.indexOf("Pendientes");
     const downloads = cloudflare.tabs.indexOf("Descargas");
-    if (!required.every(value => cloudflare.text.includes(value)) || tunnel !== red + 1 || pending !== cloudflare.tabs.length - 2 || downloads !== cloudflare.tabs.length - 1) {
+    if (!required.every(value => cloudflare.text.includes(value)) || tunnel !== red + 1 || pending !== cloudflare.tabs.length - 2 || downloads !== cloudflare.tabs.length - 1 || cloudflare.tabLayout.overflowX || !cloudflare.tabLayout.allVisible) {
       failures.push(`${item.route}: Cloudflare content or primary navigation order invalid ${JSON.stringify(cloudflare.tabs)}`);
     }
   }

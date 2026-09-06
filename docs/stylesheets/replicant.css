@@ -48,3 +48,11 @@
 .eh-column h3 { color:var(--eh-color); }.eh-task { margin:.7rem 0; }.eh-task h4 { margin:.2rem 0; }.eh-task p { font-size:.78rem; }
 .eh-timeline { list-style:none; padding:0; }.eh-timeline li { display:grid; grid-template-columns:12rem 1fr auto; gap:.7rem; padding:.6rem; border-left:4px solid; }
 @media (max-width:700px) { .eh-kanban { grid-template-columns:1fr; }.eh-timeline li { grid-template-columns:1fr; }.eh-hero code { overflow-wrap:anywhere; } }
+
+/* Keep every primary navigation tab readable at intermediate desktop widths. */
+@media screen and (min-width: 76.25em) and (max-width: 100em) {
+  .md-tabs { height: auto; overflow: visible; }
+  .md-tabs__list { flex-wrap: wrap; }
+  .md-tabs__item { height: 2rem; }
+  .md-tabs__link { margin-top: .35rem; }
+}
