@@ -5,7 +5,7 @@ Guía canónica de publicación externa de Replicant Lab. Describe el estado imp
 !!! important "Estado vigente"
     **Implementado:** un único Tunnel `replicant-launch`, cinco hostnames públicos, Google como IdP y una aplicación/política Access independiente por hostname.
     **Validado:** configuración estructural de DNS, Tunnel y Access; autenticación correcta de Launch y catálogo local sano.
-    **Pendiente de merge/despliegue:** el cambio de enlaces del catálogo Nexus se revisa en `Apps_Lauch#15`.
+    **Desplegado:** el catálogo Nexus dirige a los hostnames públicos protegidos; la publicación se comprueba desde fuera de la LAN.
     **Evolución futura opcional:** Authentik + Google. No forma parte del runtime actual.
 
 ## Propósito
@@ -58,9 +58,17 @@ flowchart TD
 | Crear aplicación Access | Definir el recurso que se protegerá |
 | Configurar identidad | Conectar Google u otro proveedor de identidad |
 
-Una **Published application route** representa la publicación de una aplicación mediante un hostname público y un origen. En la interfaz, **Hostname routes** expresa esa relación desde el punto de vista del hostname. Para la ruta actual ambas denominaciones describen el mismo vínculo: `launch.thereplicantlab.com` → `replicant-launch` → `http://localhost:80`.
+Una **Published application route** representa la publicación de una aplicación mediante un hostname público y un origen. En la interfaz, **Hostname routes** expresa esa relación desde el punto de vista del hostname.
 
-No hay rutas privadas documentadas en este encargo. Solo existe la ruta pública anterior; cualquier hostname adicional citado más abajo es diseño futuro y no debe crearse sin autorización.
+| Hostname publicado | Origen Nexus |
+|---|---|
+| `launch.thereplicantlab.com` | `http://localhost:80` |
+| `salones.thereplicantlab.com` | `http://192.168.18.220:8081` |
+| `docs.thereplicantlab.com` | `http://192.168.18.220:8082` |
+| `padel.thereplicantlab.com` | `http://192.168.18.220:8083` |
+| `red.thereplicantlab.com` | `http://192.168.18.220:8084` |
+
+Las cinco rutas usan el mismo Tunnel `replicant-launch`; cada hostname tiene su aplicación Access y su política de autorización. No hay rutas privadas documentadas en este encargo.
 
 ## Estado comprobado
 
@@ -69,11 +77,11 @@ No hay rutas privadas documentadas en este encargo. Solo existe la ruta pública
 | Servicio `cloudflared` | Activo y habilitado en Nexus | Observado el 06/09/2026 |
 | Conector | Versión instalada observada; configuración no inspeccionada | Sin leer token ni ficheros secretos |
 | Origen local | `http://localhost:80` devolvió HTTP `200` | Nexus |
-| Hostname público | `https://launch.thereplicantlab.com/` devolvió HTTP `200` | Externo desde Replicant |
-| Prueba móvil | Correcta según la evidencia de implantación | No repetida en esta auditoría |
+| Hostnames públicos | Cinco rutas publicadas por `replicant-launch` | Launch, Salones, Docs, Pádel y Red |
+| Autenticación externa | Cloudflare Access + Google | Una aplicación/política por hostname |
 | Router | Sin port forwarding según la decisión implantada | No administrado ni modificado en esta auditoría |
 
-El Tunnel publica el origen de forma segura, pero por sí solo **no autentica usuarios**. Cloudflare Access + Google todavía no está implementado.
+El Tunnel publica los orígenes de forma segura, pero por sí solo **no autentica usuarios**. Cloudflare Access está implantado y Google es el proveedor de identidad: Access solicita la identidad a Google y autoriza después según la política específica de cada hostname.
 
 ## Acceso LAN: sin cambios
 
@@ -244,8 +252,7 @@ El mismo Tunnel publica varias aplicaciones con hostnames distintos; no existe u
 
 ## Pendientes reales
 
-1. Revisar y desplegar el cambio del catálogo Nexus propuesto en `Apps_Lauch#15`.
-2. Validar desde móvil cada hostname tras la autenticación y registrar el resultado.
-3. Monitorizar el Tunnel, configurar alertas y revisar backups de configuración no secreta.
-4. Auditar por separado las URLs directas de aplicaciones alojadas en AI Studio, Firebase, Cloud Run o DigitalOcean.
-5. Auditar el Launch duplicado de DigitalOcean antes de decidir retirada o redirección.
+1. Validar desde móvil cada hostname tras la autenticación y registrar el resultado.
+2. Monitorizar el Tunnel, configurar alertas y revisar backups de configuración no secreta.
+3. Auditar por separado las URLs directas de aplicaciones alojadas en AI Studio, Firebase, Cloud Run o DigitalOcean.
+4. Auditar el Launch duplicado de DigitalOcean antes de decidir retirada o redirección.

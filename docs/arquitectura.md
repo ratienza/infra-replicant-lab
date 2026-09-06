@@ -4,28 +4,29 @@
 
 ```mermaid
 flowchart TB
+    U["Usuario externo"] --> CF["Cloudflare<br/>DNS + HTTPS"]
+    CF --> CA["Cloudflare Access<br/>política por hostname"]
+    CA --> GI["Google IdP<br/>autenticación"]
+    GI --> CA
+    CA --> T["Cloudflare Tunnel<br/>replicant-launch"]
+    T --> F["cloudflared<br/>conexión saliente desde Nexus"]
+    F --> NS["Servicios Nexus<br/>Launch · Salones · Docs · Pádel · Red"]
+
     subgraph LAN["LAN 192.168.18.0/24"]
         R["Replicant<br/>Windows 11 Pro<br/>192.168.18.200"]
         N["Nexus<br/>Ubuntu 24.04 LTS<br/>192.168.18.220"]
         R -->|Hyper-V| N
+        N --> F
         N --> NR["Docker / servicios internos"]
-        NR --> NAL["App Launch Nexus"]
+        NR --> NS
     end
-    CF["Cloudflare<br/>DNS + HTTPS"]
-    T["Tunnel<br/>replicant-launch"]
-    U["Usuario externo"]
-    GH["GitHub<br/>fuente versionable"]
-    DO["DigitalOcean<br/>Nginx / servicios públicos"]
-    DAL["App Launch público"]
-    GC["Google Cloud<br/>Cloud Run / Firebase"]
-    GH --> N
-    GH --> DO
-    GH --> GC
-    DO --> DAL
-    U --> CF --> T --> NAL
-    NAL --> LINKS["Enlaces locales y remotos"]
+
+    GH["GitHub<br/>fuente versionable"] --> N
+    GH --> DO["DigitalOcean<br/>Nginx / servicios públicos"]
+    DO --> DAL["App Launch público"]
+    NS --> LINKS["Enlaces locales y remotos"]
     DAL --> LINKS
-    LINKS --> GC
+    LINKS --> GC["Google Cloud<br/>Cloud Run / Firebase"]
 ```
 
 App Launch es catálogo y capa de acceso. No ejecuta las aplicaciones enlazadas ni demuestra que residan en el mismo host.
