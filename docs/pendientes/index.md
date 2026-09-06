@@ -10,6 +10,6 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o Reserva-Pi
 | Control de Red | Separación de datos operativos | Media | POST-CARTERA |
 | Nexus | Backups y gobierno de checkouts | Media | POST-CARTERA |
 | App Launch | Assets históricos, filtros y workflow de estado | Baja | Mejora opcional |
-| Cloudflare Tunnel | Access + Google, autorización por aplicación, alertas y recuperación | Alta | Decidido / pendiente |
+| Cloudflare Tunnel | Desplegar catálogo, validar desde móvil, alertas y recuperación | Alta | Implementado / validación pendiente |
 
 Cada detalle se mantiene una sola vez en su página de este grupo.
