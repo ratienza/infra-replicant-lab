@@ -1,0 +1,45 @@
+{
+  "change": "RL-CF-002",
+  "date": "2026-09-06",
+  "cloudflare": {
+    "tunnel": "replicant-launch",
+    "configurationVersion": 4,
+    "hostnameRoutes": 5,
+    "fallback": "http_status:404",
+    "accessApplications": 5,
+    "identityProvider": "Google"
+  },
+  "routes": [
+    {
+      "hostname": "launch.thereplicantlab.com",
+      "origin": "http://localhost:80"
+    },
+    {
+      "hostname": "salones.thereplicantlab.com",
+      "origin": "http://192.168.18.220:8081"
+    },
+    {
+      "hostname": "docs.thereplicantlab.com",
+      "origin": "http://192.168.18.220:8082"
+    },
+    {
+      "hostname": "padel.thereplicantlab.com",
+      "origin": "http://192.168.18.220:8083"
+    },
+    {
+      "hostname": "red.thereplicantlab.com",
+      "origin": "http://192.168.18.220:8084"
+    }
+  ],
+  "catalog": {
+    "repository": "ratienza/Apps_Lauch",
+    "pullRequest": 15,
+    "jsonValid": true,
+    "publicEntries": 5,
+    "nexusEntries": 8
+  },
+  "pending": [
+    "merge_and_deploy_catalog",
+    "authenticated_mobile_validation"
+  ]
+}

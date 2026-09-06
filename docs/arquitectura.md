@@ -66,6 +66,6 @@ Docker es el patrón preferido para servicios internos de Nexus cuando encaja, n
 
 ## Publicación externa mediante Cloudflare Tunnel
 
-Nexus mantiene los servicios internos en la LAN. La única ruta externa confirmada es `launch.thereplicantlab.com`: Cloudflare termina DNS/HTTPS y el Tunnel `replicant-launch` transporta la petición mediante una conexión saliente de `cloudflared` hacia App Launch en `http://localhost:80`. El router no abre puertos entrantes.
+Nexus mantiene los servicios internos en la LAN. Cloudflare termina DNS/HTTPS, Google identifica al usuario y Access autoriza cada aplicación. El único Tunnel `replicant-launch` transporta mediante la conexión saliente de `cloudflared` las rutas de Launch (`80`), Salones (`8081`), documentación (`8082`), Pádel (`8083`) y Control de Red (`8084`). El router no abre puertos entrantes.
 
-Cloudflare Access + Google está decidido como siguiente capa de seguridad, pero sigue pendiente. El Tunnel no autentica usuarios por sí mismo. [Cloudflare Tunnel](red/cloudflare-tunnel.md) contiene arquitectura, operación, recuperación y límites.
+El Tunnel no autentica usuarios: cada hostname tiene su aplicación y política Access independiente. [Cloudflare Tunnel](red/cloudflare-tunnel.md) contiene la topología, operación, recuperación y límites.

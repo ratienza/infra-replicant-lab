@@ -41,6 +41,7 @@ nav:
       - Sistema de encargos: encargos/README.md
       - Plantilla de encargo: encargos/TEMPLATE.md
       - GOV-001: encargos/GOV-001.md
+      - RL-CF-002: encargos/RL-CF-002.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Change Log:

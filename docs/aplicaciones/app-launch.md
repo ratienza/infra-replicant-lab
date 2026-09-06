@@ -43,7 +43,7 @@ El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV 
 
 Las tarjetas usan la acción uniforme **Entrar** y cápsulas breves: `NEXUS`, `DIGITAL` o `REPLICANT` indican ubicación; el resto describe tecnologías relevantes, como `DOCKER`, `NGINX`, `PYTHON`, `FIREBASE APP HOSTING`, `CLOUD RUN` o `POWERSHELL`. CV se presenta correctamente como **Firebase App Hosting** sobre Cloud Run. Las cápsulas son informativas, no healthchecks.
 
-**ErasmusHomes · Control del MVP** abre su panel derivado dentro del runtime documental de Replicant Lab. **Control de Red** aparece únicamente en Nexus: `Entrar` abre su demo Docker read-only en `192.168.18.220:8084` y el acceso secundario abre la ficha técnica. El panel operativo y su inventario siguen siendo locales de Replicant/Windows. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
+**ErasmusHomes · Control del MVP** abre su panel derivado dentro del runtime documental de Replicant Lab. **Control de Red** aparece únicamente en Nexus: `Entrar` abre su demo Docker read-only mediante `red.thereplicantlab.com` y el acceso secundario abre la ficha técnica protegida en `docs.thereplicantlab.com`. El panel operativo y su inventario siguen siendo locales de Replicant/Windows. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
 
 !!! important "Regla"
     `Tarjeta App Launch ≠ Runtime local`.
@@ -86,4 +86,4 @@ catálogos versionados → validación local → rama/PR/checks → main → des
 
 Además del acceso LAN, App Launch de Nexus está publicado en `https://launch.thereplicantlab.com/` mediante el Tunnel `replicant-launch` hacia `http://localhost:80`. La conexión se inicia desde Nexus y no abre puertos en el router. La ruta respondió HTTP `200` el 06/09/2026.
 
-El acceso externo es actualmente público: Cloudflare Access + Google está **decidido / pendiente de implementación**. App Launch no guarda usuarios ni autoriza aplicaciones; cada hostname futuro requerirá su política Access propia. El Launch de DigitalOcean sigue existente y no se retira en esta fase.
+El acceso externo exige Google mediante Cloudflare Access. App Launch no guarda usuarios ni autoriza aplicaciones: cada hostname publicado tiene su propia aplicación y política Access. Salones, documentación, Pádel y Control de Red se publican con el mismo Tunnel; el catálogo propone sus URLs protegidas en `Apps_Lauch#15`. El Launch de DigitalOcean sigue existente y no se retira en esta fase.
