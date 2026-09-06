@@ -31,6 +31,6 @@ Registro corto de decisiones que no conviene redescubrir.
 | CV usa Firebase Hosting | La producción observada pertenece al proyecto `replicant-lab`; el Cloud Run placeholder no es producción |
 
 | Cloudflare Tunnel saliente para App Launch | `replicant-launch` publica `launch.thereplicantlab.com` hacia `localhost:80` sin abrir puertos entrantes en el router |
-| Cloudflare Access + Google pendiente | El Tunnel transporta tráfico, pero no autentica; la autorización externa se aplicará por hostname y por aplicación |
+| Cloudflare Access + Google por hostname | El Tunnel solo transporta tráfico; Launch, Salones, Docs, Pádel y Red tienen aplicación y política Access independientes |
 | Authentik opcional | Se reserva para necesidades futuras de identidad independiente o políticas complejas; no añade contenedores ahora |
 | Nexus y DigitalOcean no se sustituyen | Nexus publica Lab/demos; el VPS conserva producción 24×7 y el Launch duplicado no se retira sin auditoría |
