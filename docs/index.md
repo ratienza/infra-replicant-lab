@@ -76,7 +76,7 @@ Manual vivo de la infraestructura local y cloud del laboratorio: qué existe, d�
 | Docker / Compose | ✅ Operativo |
 | GitHub desde Nexus | ✅ Operativo |
 | App Launch | ✅ LAN Nexus `80` + DigitalOcean; ✅ ruta externa Cloudflare para Nexus |
-| Cloudflare Tunnel | ✅ `launch.thereplicantlab.com` → Nexus `localhost:80`; Access + Google pendiente |
+| Cloudflare Tunnel | ✅ Launch, Salones, Docs, Pádel y Red mediante `replicant-launch`; Google + Access por hostname |
 | Puerto `8080` | ✅ Libre y no asignado |
 | Salones AV | ✅ Operativa en Nexus · `8081` · Git/Nexus reconciliados en `8c0bc08` |
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
@@ -107,4 +107,4 @@ Los estados distinguen entre contenido **implementado en Git**, **probado localm
 
 ## Publicación externa del Lab
 
-`launch.thereplicantlab.com` publica App Launch de Nexus mediante Cloudflare Tunnel, DNS y HTTPS, con una conexión saliente `cloudflared` y sin abrir puertos entrantes en el router. Cloudflare Access + Google es la siguiente mejora de seguridad, todavía pendiente; los accesos LAN por IP y puerto permanecen sin cambios.
+`launch.thereplicantlab.com` y los hostnames de Salones, Docs, Pádel y Red publican servicios Nexus mediante un único Cloudflare Tunnel, DNS y HTTPS. Google identifica y Access autoriza por aplicación; `cloudflared` mantiene la conexión saliente sin abrir puertos en el router. Los accesos LAN por IP y puerto permanecen sin cambios.
