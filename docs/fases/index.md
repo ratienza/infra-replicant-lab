@@ -7,6 +7,7 @@ La historia detallada se conserva en el [Change Log](../cambios/index.md). Para 
 | Construcción inicial | Replicant quedó como estación principal y host Hyper-V; Nexus como laboratorio Ubuntu/Docker. |
 | Auditoría y normalización | Se inventariaron hosts, red, aplicaciones, checkouts y runtimes sin confundir presencia de código con ejecución. |
 | Remediaciones | Salones AV quedó reconciliado en Git/Nexus; Consumos Cupra quedó trazado y restaurado en Cloud Run; el CV quedó identificado en Firebase Hosting. |
+| Publicación externa | Se incorporó Cloudflare Tunnel para App Launch: `launch.thereplicantlab.com` → `replicant-launch` → Nexus, sin puertos entrantes. Access + Google queda decidido y pendiente. |
 | Estado actual | Las fases 2A, 2B y 2C están cerradas. No hay una incidencia crítica abierta en esas aplicaciones. |
 | Trabajo futuro | La deuda aceptada se concentra en [Pendientes](../pendientes/index.md) y se retomará después de Cartera Estratégica. |
 

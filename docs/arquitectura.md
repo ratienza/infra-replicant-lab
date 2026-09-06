@@ -11,6 +11,9 @@ flowchart TB
         N --> NR["Docker / servicios internos"]
         NR --> NAL["App Launch Nexus"]
     end
+    CF["Cloudflare<br/>DNS + HTTPS"]
+    T["Tunnel<br/>replicant-launch"]
+    U["Usuario externo"]
     GH["GitHub<br/>fuente versionable"]
     DO["DigitalOcean<br/>Nginx / servicios públicos"]
     DAL["App Launch público"]
@@ -19,6 +22,7 @@ flowchart TB
     GH --> DO
     GH --> GC
     DO --> DAL
+    U --> CF --> T --> NAL
     NAL --> LINKS["Enlaces locales y remotos"]
     DAL --> LINKS
     LINKS --> GC
