@@ -1,8 +1,5 @@
 name: Docs check
 
-permissions:
-  contents: write
-
 on:
   pull_request:
     paths:
@@ -46,8 +43,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: fix/rl-cf-003-navigation
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -74,22 +69,13 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm exec playwright install --with-deps chromium
 
-      - name: Generate documentation and portables
+      - name: Check generated documentation and portables
         run: |
           python scripts/erasmushomes_panel.py check
-          python scripts/docs_pipeline.py generate
+          python scripts/docs_pipeline.py check
 
-      - name: Commit synchronized generated files
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/javascripts/mermaid.min.js docs/downloads
-          if git diff --cached --quiet; then
-            echo "Generated files already synchronized"
-          else
-            git commit -m "docs: regenerate portable artifacts"
-            git push origin HEAD:fix/rl-cf-003-navigation
-          fi
+      - name: Confirm generated files are synchronized
+        run: git diff --exit-code -- docs/javascripts/mermaid.min.js docs/downloads
 
       - name: Build static runtime image
         run: docker build --tag infra-replicant-docs:test .
