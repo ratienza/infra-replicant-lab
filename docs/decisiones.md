@@ -29,3 +29,8 @@ Registro corto de decisiones que no conviene redescubrir.
 | App Launch es navegación, no runtime | Una tarjeta puede apuntar a servicios locales o remotos sin trasladar su ejecución al host del launchpad |
 | Consumos Cupra usa Cloud Run | La cadena canónica es GitHub → Cloud Build → Artifact Registry → Cloud Run; DigitalOcean y Nexus no son su producción |
 | CV usa Firebase Hosting | La producción observada pertenece al proyecto `replicant-lab`; el Cloud Run placeholder no es producción |
+
+| Cloudflare Tunnel saliente para App Launch | `replicant-launch` publica `launch.thereplicantlab.com` hacia `localhost:80` sin abrir puertos entrantes en el router |
+| Cloudflare Access + Google pendiente | El Tunnel transporta tráfico, pero no autentica; la autorización externa se aplicará por hostname y por aplicación |
+| Authentik opcional | Se reserva para necesidades futuras de identidad independiente o políticas complejas; no añade contenedores ahora |
+| Nexus y DigitalOcean no se sustituyen | Nexus publica Lab/demos; el VPS conserva producción 24×7 y el Launch duplicado no se retira sin auditoría |

@@ -24,6 +24,7 @@ const routes = [
   { route: "/arquitectura/", name: "architecture", diagrams: 2 },
   { route: "/fases/", name: "evolution", diagrams: 0 },
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
+  { route: "/red/cloudflare-tunnel/", name: "cloudflare", diagrams: 3 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
   { route: "/aplicaciones/pula/", name: "pula", diagrams: 1 },
   { route: "/aplicaciones/app-launch/", name: "app-launch", diagrams: 0 },
@@ -39,6 +40,7 @@ const routes = [
   { route: "/pendientes/", name: "pending", diagrams: 0 },
   { route: "/pendientes/cv-firebase/", name: "pending-detail", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
+  { route: "/cambios/2026-09-06/", name: "changelog-cloudflare", diagrams: 0 },
   { route: "/cambios/2026-08-29/", name: "changelog-current", diagrams: 0 },
   { route: "/cambios/2026-08-21/", name: "changelog", diagrams: 0 },
   { route: "/cambios/2026-08-13/", name: "changelog-previous", diagrams: 0 },
@@ -87,12 +89,26 @@ for (const item of routes) {
       failures.push(`${item.route}: Mermaid timeout ${JSON.stringify(detail)}`);
     }
   }
+  if (item.name === "cloudflare") {
+    const cloudflare = await page.evaluate(() => ({
+      text: document.querySelector("main")?.textContent ?? "",
+      tabs: [...document.querySelectorAll(".md-tabs__link")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
+    }));
+    const required = ["replicant-launch", "launch.thereplicantlab.com", "Cloudflare Access + Google", "Authentik + Google", "localhost:80"];
+    const red = cloudflare.tabs.indexOf("Red");
+    const tunnel = cloudflare.tabs.indexOf("Cloudflare Tunnel");
+    const pending = cloudflare.tabs.indexOf("Pendientes");
+    const downloads = cloudflare.tabs.indexOf("Descargas");
+    if (!required.every(value => cloudflare.text.includes(value)) || tunnel !== red + 1 || pending !== cloudflare.tabs.length - 2 || downloads !== cloudflare.tabs.length - 1) {
+      failures.push(`${item.route}: Cloudflare content or primary navigation order invalid ${JSON.stringify(cloudflare.tabs)}`);
+    }
+  }
   if (item.name === "pending") {
     const pendingSummary = await page.evaluate(() => ({
       table: document.querySelector("main table")?.textContent ?? "",
       postCartera: document.querySelector("main")?.textContent.includes("POST-CARTERA") ?? false,
     }));
-    const required = ["Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
+    const required = ["Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch", "Cloudflare Tunnel"];
     if (!required.every(value => pendingSummary.table.includes(value)) || !pendingSummary.postCartera) {
       failures.push(`${item.route}: incomplete pending summary ${JSON.stringify(pendingSummary)}`);
     }
@@ -221,7 +237,7 @@ for (const item of routes) {
   if (actionableConsoleErrors.length) failures.push(`${item.route}: console ${actionableConsoleErrors.join(" | ")}`);
   if (actionableRequestFailures.length) failures.push(`${item.route}: requests ${actionableRequestFailures.join(" | ")}`);
   if (responseFailures.length) failures.push(`${item.route}: responses ${responseFailures.join(" | ")}`);
-  if (screenshots && ["home", "architecture", "nexus", "applications", "pending", "changelog", "downloads", "governance"].includes(item.name)) {
+  if (screenshots && ["home", "architecture", "nexus", "cloudflare", "applications", "pending", "changelog", "downloads", "governance"].includes(item.name)) {
     await page.screenshot({ path: path.join(screenshots, `${item.name}-desktop.png`), fullPage: true });
   }
   page.off("console", onConsole);
@@ -232,6 +248,7 @@ for (const item of routes) {
 for (const item of [
   { route: "/", name: "home" },
   { route: "/descargas/", name: "downloads" },
+  { route: "/red/cloudflare-tunnel/", name: "cloudflare" },
   { route: "/aplicaciones/", name: "applications" },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control" },
   { route: "/control/erasmushomes/", name: "erasmushomes-standalone" },
@@ -374,7 +391,7 @@ for (const slug of [
     pdf: await compareDownload(`downloads/apps/${slug}.pdf`, "application/pdf"),
   };
 }
-if (totalDiagrams !== 10) failures.push(`Expected ten Mermaid diagrams across site, got ${totalDiagrams}`);
+if (totalDiagrams !== 13) failures.push(`Expected thirteen Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
 const report = {

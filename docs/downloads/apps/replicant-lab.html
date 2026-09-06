@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="5504d5c20890cac49dcd47163b5dac7721262754117dc0843b2b821db4ffc73a">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="069f42a3b983782f6fafa96473fd632bbb1b57b33fd0adee45c9dd187e87def8">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:5504d5c20890cac49dcd47163b5dac7721262754117dc0843b2b821db4ffc73a">
-  <title>Replicant Lab · Ficha técnica · 5504d5c20890</title>
+  <meta name="source-fingerprint" content="sha256:069f42a3b983782f6fafa96473fd632bbb1b57b33fd0adee45c9dd187e87def8">
+  <title>Replicant Lab · Ficha técnica · 069f42a3b983</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -160,7 +160,7 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>Replicant Lab</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/replicant-lab.md</dd><dt>Versión reproducible</dt><dd>sha256:5504d5c20890cac49dcd47163b5dac7721262754117dc0843b2b821db4ffc73a</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/replicant-lab.md</dd><dt>Versión reproducible</dt><dd>sha256:069f42a3b983782f6fafa96473fd632bbb1b57b33fd0adee45c9dd187e87def8</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/replicant-lab.md">
@@ -229,8 +229,8 @@ docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> 
 <ul>
 <li><code>python scripts/docs_pipeline.py generate --screenshots</code>: correcto.</li>
 <li><code>python scripts/docs_pipeline.py check</code>: sincronía correcta.</li>
-<li>32 páginas fuente y seis diagramas Mermaid validados por el pipeline.</li>
-<li>Dossier global de 52 páginas y ocho fichas individuales HTML/PDF sincronizadas.</li>
+<li>El pipeline valida navegación MkDocs, Mermaid, HTML/PDF y las fichas individuales a partir de los recuentos versionados.</li>
+<li>El dossier global y todas las fichas HTML/PDF incluidas en el pipeline quedan sincronizados.</li>
 <li>Runtime Nexus observado con respuesta <code>200</code> el 13/08/2026; la nueva versión se valida de nuevo tras el merge.</li>
 </ul>
 <h2 id="p1-seguridad-dependencias-y-pendientes">Seguridad, dependencias y pendientes</h2>
@@ -239,10 +239,12 @@ docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> 
 <li>La tipografía remota del tema es opcional: una caída de Google Fonts no bloquea el contenido ni los recursos locales.</li>
 <li>Depende de GitHub para actualización y de Docker para reconstrucción; no depende de las aplicaciones documentadas para servir el sitio.</li>
 <li>Pendiente transversal: definir y probar la política de backup/restauración de Nexus. La documentación está en Git, pero eso no sustituye los backups de datos de otras aplicaciones.</li>
-</ul></div>
+</ul>
+<h2 id="p1-acceso-externo-y-seguridad">Acceso externo y seguridad</h2>
+<p>Replicant Lab sigue accesible en LAN mediante <code>http://192.168.18.220:8082/</code>. No tiene ruta externa Cloudflare implementada. <code>docs.thereplicantlab.com</code> es únicamente una propuesta futura y, antes de existir, requerirá auditoría del origen, autorización explícita y política Cloudflare Access propia.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:5504d5c20890cac49dcd47163b5dac7721262754117dc0843b2b821db4ffc73a</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:069f42a3b983782f6fafa96473fd632bbb1b57b33fd0adee45c9dd187e87def8</footer>
 
 </body>
 </html>

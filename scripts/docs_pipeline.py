@@ -38,7 +38,7 @@ MERMAID_PACKAGE_RUNTIME = ROOT / "node_modules" / "mermaid" / "dist" / "mermaid.
 PORTABLE_CSS = ROOT / "scripts" / "portable.css"
 NODE_RENDERER = ROOT / "scripts" / "render_portables.mjs"
 APP_RENDERER = ROOT / "scripts" / "render_app_portable.mjs"
-EXPECTED_MERMAID = 10
+EXPECTED_MERMAID = 13
 MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 
@@ -587,17 +587,21 @@ def validate_portable_html(path: Path, expected_fingerprint: str, expected_sourc
         "Cloud Run / Firebase",
         "Catálogo público",
         "Catálogo Nexus",
+        "Cloudflare Tunnel",
+        "launch.thereplicantlab.com",
     ]
     missing_architecture = [marker for marker in architecture_markers if marker not in data]
     if missing_architecture:
         raise ValueError(f"Portable architecture is incomplete in {path}: {missing_architecture}")
-    forbidden = ["livereload", "ws://", "wss://", "localhost:"]
+    forbidden = ["livereload", "ws://", "wss://"]
     lowered = data.lower()
     found = [token for token in forbidden if token in lowered]
     if found:
         raise ValueError(f"Development residue in {path}: {found}")
     for tag, attribute, reference in resource_references(data):
         parsed = urlparse(html.unescape(reference))
+        if parsed.hostname in {"localhost", "127.0.0.1", "::1"}:
+            raise ValueError(f"Localhost resource in offline HTML: {tag}[{attribute}]={reference}")
         external = parsed.scheme in {"http", "https", "ws", "wss"} or reference.startswith("//")
         if external and tag != "a":
             raise ValueError(f"External resource in offline HTML: {tag}[{attribute}]={reference}")
@@ -621,6 +625,8 @@ def validate_pdf(path: Path, expected_fingerprint: str) -> dict[str, int]:
         "Cloud Run / Firebase",
         "Catálogo público",
         "Catálogo Nexus",
+        "Cloudflare Tunnel",
+        "launch.thereplicantlab.com",
     ]
     compact_text = "".join(text.split())
     if f"sha256:{expected_fingerprint}" not in compact_text:

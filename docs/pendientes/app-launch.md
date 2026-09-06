@@ -7,3 +7,9 @@
 - Incorporar un estado visual verde/amarillo/rojo solo cuando exista un workflow versionado de comprobaciones reales. Debe diferenciar enlace, runtime y documentación; nunca inferir salud por la mera existencia de una tarjeta.
 
 Estas mejoras no reabren las fases ya cerradas ni representan un fallo de producción.
+
+## Seguridad externa decidida
+
+- Implementar Cloudflare Access + Google para `launch.thereplicantlab.com`, inicialmente solo para Raúl.
+- Mantener autorización independiente por hostname: proteger Launch no protege las aplicaciones enlazadas.
+- Auditar el Launch duplicado de DigitalOcean antes de retirarlo, redirigirlo o cambiar enlaces.
