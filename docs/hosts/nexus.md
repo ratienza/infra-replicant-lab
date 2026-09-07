@@ -72,8 +72,10 @@ Control Red incorpora un demo Docker separado del panel operativo. `control-red-
 
 El PR #9 fusionado sustituye `mkdocs serve` y los bind mounts por una imagen construida desde el `Dockerfile`: MkDocs estricto en la etapa builder y Nginx estático en runtime, manteniendo `192.168.18.220:8082`. El 09/08/2026 se reconstruyó y recreó exclusivamente este servicio en Nexus y se validaron HTTP, navegación, recursos, cinco diagramas Mermaid y descargas HTML/PDF idénticas byte a byte a los artefactos versionados. El HTML funciona offline sin dependencias esenciales externas y el PDF conserva la documentación completa.
 
-## Cloudflare Tunnel observado el 06/09/2026
+## Cloudflare Tunnel y Access · actualización 06/09/2026
 
-`cloudflared` está instalado, activo y habilitado en Nexus. El Tunnel `replicant-launch` publica únicamente `launch.thereplicantlab.com` hacia el origen local `http://localhost:80`, donde responde App Launch. La salida se inicia desde Nexus; el router no expone puertos entrantes para esa ruta. La configuración del conector, tokens y ficheros de secreto no se inspeccionaron.
+`cloudflared` está instalado, activo y habilitado en Nexus. El Tunnel único `replicant-launch` publica cinco servicios mediante hostnames separados: Launch (`:80`), Salones (`:8081`), documentación (`:8082`), Pádel (`:8083`) y Control de Red (`:8084`).
 
-El acceso LAN a `80`, `8081`, `8082`, `8083` y `8084` no cambia. Cloudflare Access + Google es una mejora externa decidida y pendiente, no una protección LAN activa.
+Google está configurado como IdP de Cloudflare Access. Cada hostname tiene una aplicación y una política Access independientes; el Tunnel transporta tráfico y Access aplica la autorización. El router no expone puertos entrantes para esta arquitectura.
+
+El acceso LAN a `80`, `8081`, `8082`, `8083` y `8084` no cambia y no pasa por Cloudflare. Tokens, secretos OAuth y configuración sensible permanecen fuera de Git.
