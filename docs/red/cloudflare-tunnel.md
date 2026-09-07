@@ -175,7 +175,7 @@ El token es secreto: se utiliza únicamente mediante el mecanismo seguro de inst
 
 ## Authentik
 
-Authentik **no forma parte del runtime actual**.
+Authentik + Google **no forma parte del runtime actual**.
 
 Podría ser útil si el Lab evoluciona hacia identidad autocontrolada, grupos/roles complejos, múltiples IdP, aplicaciones fuera de Cloudflare o políticas más avanzadas. A cambio introduce nuevos contenedores, persistencia, backups, actualizaciones, monitorización y disponibilidad.
 
