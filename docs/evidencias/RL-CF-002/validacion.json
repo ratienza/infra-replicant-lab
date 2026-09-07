@@ -9,6 +9,29 @@
     "accessApplications": 5,
     "identityProvider": "Google"
   },
+  "initialLaunchRollout": {
+    "configurationVersionBefore": 2,
+    "configurationVersionAfterDuplicateRemoval": 3,
+    "configurationVersionFinal": 4,
+    "duplicateLaunchIngressRemoved": true,
+    "launchHostname": "launch.thereplicantlab.com",
+    "launchOrigin": "http://localhost:80",
+    "policyName": "Allow · Replicant Launch · authorized emails",
+    "policyDecision": "allow",
+    "policyPriorityAndRulesChanged": false,
+    "oauthRedirectUri": "https://shy-pine-78cc.cloudflareaccess.com/cdn-cgi/access/callback",
+    "redirectUriMismatchResolved": true,
+    "unauthenticatedResponses": {
+      "root": 302,
+      "appsJson": 302,
+      "sameAccessLoginEndpoint": true
+    },
+    "rollback": [
+      "restore_previous_ingress_version_if_duplicate_removal_regresses",
+      "restore_previous_policy_name_without_changing_decision_priority_or_rules",
+      "remove_only_added_callback_if_access_integration_is_fully_reverted"
+    ]
+  },
   "routes": [
     {
       "hostname": "launch.thereplicantlab.com",

@@ -12,6 +12,17 @@ Evidencia resumida y deliberadamente no secreta de la implantación realizada el
 - IdP: Google, con redirección directa.
 - Router/NAT: sin cambios y sin puertos entrantes.
 
+### Secuencia inicial preservada
+
+- Versión 2: dos ingress idénticos para `launch.thereplicantlab.com`.
+- Versión 3: retirada de la regla duplicada, sin cambiar el origen Launch.
+- Versión 4: estado final con cinco hostnames y fallback `http_status:404`.
+- Callback OAuth aceptado: `https://shy-pine-78cc.cloudflareaccess.com/cdn-cgi/access/callback`.
+- Política inicial: `Allow · Replicant Launch · authorized emails`; decisión `Allow`, prioridad y reglas sin cambios.
+- Peticiones sin sesión a `/` y `/apps.json`: mismo HTTP `302` hacia Access.
+
+Rollback documentado: restaurar la versión de ingress anterior si la eliminación de la ruta duplicada provoca una regresión; restaurar solo el nombre anterior de la política si fuese necesario; y retirar exclusivamente el callback añadido si se abandona por completo Access, sin tocar otros URI ni ningún secreto OAuth.
+
 ## Aplicación
 
 - El frontend carga `./apps.json` con caché desactivada y credenciales same-origin implícitas.

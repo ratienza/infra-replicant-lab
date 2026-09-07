@@ -43,6 +43,19 @@ Cada hostname tiene:
 
 El Tunnel termina con `http_status:404`.
 
+## Evolución preservada de la implantación inicial
+
+La evidencia local anterior al cierre documental permite reconstruir la transición sin exponer credenciales:
+
+- la configuración 2 todavía contenía dos reglas idénticas para `launch.thereplicantlab.com`;
+- la configuración 3 eliminó la regla duplicada y mantuvo una única ruta Launch;
+- la configuración 4 amplió después el mismo Tunnel hasta el estado final de cinco hostnames;
+- el callback OAuth aceptado fue `https://shy-pine-78cc.cloudflareaccess.com/cdn-cgi/access/callback`;
+- la política inicial se llamó `Allow · Replicant Launch · authorized emails`; su decisión `Allow`, prioridad y reglas de inclusión no cambiaron durante la corrección;
+- sin sesión, `/` y `/apps.json` devolvieron el mismo `302` hacia el inicio de sesión de Access.
+
+La reversión controlada consiste en restaurar la versión previa de ingress únicamente si la retirada de la regla duplicada causa una regresión, recuperar el nombre anterior de la política sin alterar decisión, prioridad ni reglas, y retirar solo el callback añadido si se revierte por completo la integración con Access. Nunca se deben copiar ni registrar el secreto OAuth, tokens o cookies.
+
 ## Validación
 
 - [x] Tunnel remoto sano y configuración actualizada a versión 4.
@@ -51,6 +64,7 @@ El Tunnel termina con `http_status:404`.
 - [x] Cinco aplicaciones Access independientes.
 - [x] Políticas por aplicación sin `Bypass`.
 - [x] Google dejó de devolver `redirect_uri_mismatch`.
+- [x] `/` y `/apps.json` redirigen al mismo inicio de sesión de Access sin sesión.
 - [x] App Launch y `apps.json` respondieron `200` en LAN.
 - [x] Puertos `8081`, `8082`, `8083` y health de `8084` respondieron en LAN.
 - [x] Catálogo versionado válido: 5 entradas públicas y 8 internas.
