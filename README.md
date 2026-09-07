@@ -30,7 +30,7 @@ pnpm install --frozen-lockfile
 pnpm exec playwright install chromium
 ```
 
-Un único comando construye MkDocs, genera los portables globales y por aplicación, renderiza los trece Mermaid y valida enlaces, recursos, HTML offline y PDF:
+Un único comando construye MkDocs, genera los portables globales y por aplicación, renderiza los quince Mermaid y valida enlaces, recursos, HTML offline y PDF:
 
 ```bash
 python scripts/docs_pipeline.py generate
