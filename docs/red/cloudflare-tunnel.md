@@ -160,6 +160,23 @@ El token es secreto: se utiliza únicamente mediante el mecanismo seguro de inst
 - [ ] Monitorización y alertas del Tunnel.
 - [ ] Procedimiento de recuperación probado después de reinicio controlado.
 
+### Secuencia inicial preservada de Launch
+
+La implantación inicial quedó documentada antes de ampliar el Tunnel a los cinco hostnames actuales:
+
+1. La versión 2 de la configuración contenía dos reglas idénticas para `launch.thereplicantlab.com`.
+2. La versión 3 eliminó la duplicada y conservó una sola ruta hacia `http://localhost:80`.
+3. La versión 4 incorporó el estado final de cinco hostnames y el fallback `http_status:404`.
+
+Google aceptó exactamente `https://shy-pine-78cc.cloudflareaccess.com/cdn-cgi/access/callback`. La política inicial se denominó `Allow · Replicant Launch · authorized emails`; la corrección no modificó su decisión `Allow`, prioridad ni reglas de inclusión. Sin sesión, tanto `/` como `/apps.json` devolvieron el mismo HTTP `302` hacia el inicio de sesión de Access.
+
+#### Reversión controlada
+
+- Restaurar la versión previa de ingress solo si retirar la regla duplicada provoca una regresión comprobada.
+- Restaurar el nombre anterior de la política sin cambiar decisión, prioridad ni reglas.
+- Retirar únicamente el callback añadido si se revierte por completo Access; no alterar otros URI y no copiar secretos OAuth.
+- Tras cualquier reversión, comprobar Tunnel, origen LAN y respuestas externas de `/` y `/apps.json`.
+
 ## Troubleshooting
 
 | Síntoma | Comprobar primero | Interpretación |
