@@ -8,8 +8,12 @@
 
 Estas mejoras no reabren las fases ya cerradas ni representan un fallo de producción.
 
-## Seguridad externa decidida
+## Seguridad externa
 
-- Implementar Cloudflare Access + Google para `launch.thereplicantlab.com`, inicialmente solo para Raúl.
-- Mantener autorización independiente por hostname: proteger Launch no protege las aplicaciones enlazadas.
+Cloudflare Access + Google ya está implantado para Launch, Salones, Docs, Pádel y Red, con autorización independiente por hostname.
+
+Pendiente:
+
+- Fusionar y desplegar `Apps_Lauch#15` para que el catálogo Nexus use los hostnames protegidos.
+- Validar desde móvil cada aplicación tras el despliegue.
 - Auditar el Launch duplicado de DigitalOcean antes de retirarlo, redirigirlo o cambiar enlaces.

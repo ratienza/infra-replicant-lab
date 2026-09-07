@@ -30,7 +30,7 @@ pnpm install --frozen-lockfile
 pnpm exec playwright install chromium
 ```
 
-Un único comando construye MkDocs, genera los portables globales y por aplicación, renderiza los trece Mermaid y valida enlaces, recursos, HTML offline y PDF:
+Un único comando construye MkDocs, genera los portables globales y por aplicación, renderiza los quince Mermaid y valida enlaces, recursos, HTML offline y PDF:
 
 ```bash
 python scripts/docs_pipeline.py generate
@@ -99,4 +99,4 @@ No almacenar aquí contraseñas, tokens, claves privadas, bases de datos ni secr
 
 ## Publicación externa del Lab
 
-La ruta externa actual es `https://launch.thereplicantlab.com/`: Cloudflare DNS/HTTPS utiliza el Tunnel saliente `replicant-launch` desde Nexus hacia App Launch en `http://localhost:80`. No se abren puertos entrantes en el router. Cloudflare Access + Google aún no está implementado; la guía canónica, operación y recuperación están en `docs/red/cloudflare-tunnel.md`.
+La publicación externa del Lab usa un único Tunnel saliente `replicant-launch` desde Nexus. Launch, Salones, Docs, Pádel y Red disponen de hostnames propios protegidos mediante Cloudflare Access, con Google como IdP y política independiente por aplicación. No se abren puertos entrantes en el router. La guía canónica, operación y recuperación están en `docs/red/cloudflare-tunnel.md`.

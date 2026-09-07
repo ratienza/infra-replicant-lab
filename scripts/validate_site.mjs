@@ -20,11 +20,11 @@ const root = path.resolve(args.get("root"));
 const reportPath = path.resolve(args.get("report"));
 const screenshots = args.get("screenshots") ? path.resolve(args.get("screenshots")) : null;
 const routes = [
-  { route: "/", name: "home", diagrams: 0 },
-  { route: "/arquitectura/", name: "architecture", diagrams: 2 },
+  { route: "/", name: "home", diagrams: 1 },
+  { route: "/arquitectura/", name: "architecture", diagrams: 4 },
   { route: "/fases/", name: "evolution", diagrams: 0 },
   { route: "/hosts/nexus/", name: "nexus", diagrams: 0 },
-  { route: "/red/cloudflare-tunnel/", name: "cloudflare", diagrams: 3 },
+  { route: "/red/cloudflare-tunnel/", name: "cloudflare", diagrams: 1 },
   { route: "/aplicaciones/", name: "applications", diagrams: 0 },
   { route: "/aplicaciones/pula/", name: "pula", diagrams: 1 },
   { route: "/aplicaciones/app-launch/", name: "app-launch", diagrams: 0 },
@@ -47,7 +47,7 @@ const routes = [
   { route: "/cambios/2026-08-09/", name: "changelog-previous", diagrams: 0 },
   { route: "/cambios/2026-08-08/", name: "changelog-oldest", diagrams: 0 },
   { route: "/descargas/", name: "downloads", diagrams: 0 },
-  { route: "/despliegue/modelos/", name: "mermaid-deploy-models", diagrams: 1 },
+  { route: "/despliegue/modelos/", name: "mermaid-deploy-models", diagrams: 2 },
   { route: "/red/overview/", name: "mermaid-network", diagrams: 1 },
   { route: "/despliegue/git/", name: "mermaid-git", diagrams: 1 },
   { route: "/autodocumentacion/", name: "mermaid-autodoc", diagrams: 1 },
@@ -399,7 +399,7 @@ for (const slug of [
     pdf: await compareDownload(`downloads/apps/${slug}.pdf`, "application/pdf"),
   };
 }
-if (totalDiagrams !== 13) failures.push(`Expected thirteen Mermaid diagrams across site, got ${totalDiagrams}`);
+if (totalDiagrams !== 15) failures.push(`Expected fifteen Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
 const report = {

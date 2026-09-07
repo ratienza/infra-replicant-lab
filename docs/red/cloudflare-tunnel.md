@@ -1,83 +1,87 @@
-# Cloudflare Tunnel
+# Cloudflare · publicación externa segura
 
-Guía canónica de publicación externa de Replicant Lab. Describe el estado implantado de Cloudflare Tunnel, Google como proveedor de identidad y la autorización independiente de cada hostname mediante Cloudflare Access.
+Guía canónica de publicación externa de Replicant Lab. Documenta el estado implantado de **Cloudflare Tunnel + Cloudflare Access + Google IdP** para servicios seleccionados de Nexus.
 
-!!! important "Estado vigente"
+!!! success "Estado vigente"
     **Implementado:** un único Tunnel `replicant-launch`, cinco hostnames públicos, Google como IdP y una aplicación/política Access independiente por hostname.
-    **Validado:** configuración estructural de DNS, Tunnel y Access; autenticación correcta de Launch y catálogo local sano.
-    **Pendiente de merge/despliegue:** el cambio de enlaces del catálogo Nexus se revisa en `Apps_Lauch#15`.
-    **Evolución futura opcional:** Authentik + Google. No forma parte del runtime actual.
 
-## Propósito
+    **Pendiente operativo:** merge/despliegue del catálogo Nexus corregido en `Apps_Lauch#15`, prueba autenticada desde móvil de cada aplicación y monitorización/alertas del Tunnel.
 
-La finalidad actual es publicar App Launch externamente sin abrir puertos entrantes en el router doméstico. Nexus continúa en la LAN; `cloudflared` inicia una conexión **saliente** hacia Cloudflare y Cloudflare entrega DNS, HTTPS público y el transporte hasta el origen local. No hay exposición directa de la IP pública doméstica.
+    **No implantado:** Authentik. Se conserva únicamente como posible evolución futura.
 
-## Arquitectura actual
+## Objetivo
+
+Publicar servicios de Nexus desde Internet sin abrir puertos entrantes en el router doméstico y sin exponer directamente la IP pública de la vivienda.
+
+`cloudflared` se ejecuta en Nexus y mantiene una conexión **saliente** con Cloudflare. Cloudflare proporciona DNS, HTTPS, autenticación mediante Google y autorización mediante Access antes de entregar tráfico al Tunnel.
+
+## Arquitectura
 
 ```mermaid
-flowchart TD
-    U["Usuario externo"] --> C["Cloudflare<br/>DNS + HTTPS"]
-    C --> T["Tunnel<br/>replicant-launch"]
+flowchart LR
+    U["Usuario externo"] --> CF["Cloudflare<br/>DNS + HTTPS"]
+    CF --> A["Cloudflare Access<br/>autorización"]
+    A --> G["Google IdP<br/>autenticación"]
+    G --> A
+    A --> T["Tunnel<br/>replicant-launch"]
     T --> F["cloudflared<br/>Nexus"]
-    F --> L["App Launch<br/>localhost:80"]
 
-    N["Router doméstico<br/>sin puertos entrantes"] -. no publica .-> F
+    F --> L["Launch :80"]
+    F --> S["Salones :8081"]
+    F --> D["Docs :8082"]
+    F --> P["Pádel :8083"]
+    F --> R["Red :8084"]
+
+    RT["Router doméstico<br/>sin port forwarding"] -. no publica .-> F
 ```
 
-| Elemento | Valor actual | Función |
+### Regla esencial
+
+**Tunnel ≠ autenticación.** El Tunnel transporta tráfico. **Google** autentica la identidad y **Cloudflare Access** decide si esa identidad puede entrar en cada aplicación.
+
+Compartir Tunnel tampoco comparte permisos: cada hostname tiene una aplicación Access y una política independiente.
+
+## Inventario implantado
+
+| Aplicación Access | Hostname | Origen en Nexus |
 |---|---|---|
-| Dominio | `thereplicantlab.com` | Zona gestionada en Cloudflare |
-| Hostname | `launch.thereplicantlab.com` | Entrada pública existente |
-| Tunnel | `replicant-launch` | Transporte saliente seguro |
-| Conector | `cloudflared` en Nexus | Mantiene la conexión con Cloudflare |
-| Origen | `http://localhost:80` | App Launch servido por Nexus |
-| Router | Sin puertos entrantes | Nexus no se expone directamente |
+| Replicant Launch | `launch.thereplicantlab.com` | `http://localhost:80` |
+| Replicant Salones | `salones.thereplicantlab.com` | `http://192.168.18.220:8081` |
+| Replicant Docs | `docs.thereplicantlab.com` | `http://192.168.18.220:8082` |
+| Replicant Padel | `padel.thereplicantlab.com` | `http://192.168.18.220:8083` |
+| Replicant Red | `red.thereplicantlab.com` | `http://192.168.18.220:8084` |
 
-`localhost:80` se interpreta desde Nexus, donde se ejecuta `cloudflared`; no es una dirección accesible directamente desde Internet. El origen responde en el host y App Launch se publica en el puerto `80` de Nexus para la LAN.
+Configuración registrada en RL-CF-002:
 
-### Flujo de una solicitud
+- un único Tunnel: `replicant-launch`;
+- CNAME proxied para los cinco hostnames;
+- aplicación Access `self_hosted` independiente por hostname;
+- Google como IdP;
+- redirección directa al IdP;
+- política `Allow` independiente;
+- sesión configurada a 24 horas;
+- fallback final del Tunnel: `http_status:404`;
+- sin reglas `Bypass` como atajo.
 
-1. El usuario abre `https://launch.thereplicantlab.com`.
-2. Cloudflare resuelve el hostname y termina HTTPS público.
-3. Cloudflare identifica el Tunnel `replicant-launch` asociado a la ruta publicada.
-4. `cloudflared` mantiene desde Nexus una conexión saliente con Cloudflare.
-5. La petición cruza esa conexión hasta `http://localhost:80`.
-6. Nexus entrega App Launch y la respuesta vuelve por el Tunnel.
-7. El router no recibe ni reenvía una conexión entrante; la IP pública doméstica no es el origen accesible de la aplicación.
+No se versionan tokens, secretos OAuth, cookies ni direcciones de correo completas.
 
-## Dominio, Zero Trust y rutas
+## Flujo de una solicitud
 
-`thereplicantlab.com` está registrado y gestionado desde Cloudflare. Cloudflare Zero Trust Free está activado. Estas acciones son distintas:
+1. El usuario abre uno de los hostnames de `thereplicantlab.com`.
+2. Cloudflare resuelve DNS y termina HTTPS.
+3. Cloudflare Access comprueba si existe una sesión válida.
+4. Cuando necesita identidad, Access redirige a Google.
+5. Google autentica al usuario y devuelve el resultado a Access.
+6. Access evalúa la política de **ese hostname**.
+7. Si la política permite el acceso, Cloudflare entrega la petición al Tunnel `replicant-launch`.
+8. `cloudflared` en Nexus transporta la petición hasta el origen local correspondiente.
+9. La respuesta vuelve por el mismo camino.
 
-| Acción | Significado |
-|---|---|
-| Registrar dominio | Adquirir o mantener la titularidad del dominio |
-| Gestionar DNS | Administrar la zona y sus registros |
-| Crear Tunnel | Asociar un transporte saliente a un conector |
-| Publicar una ruta | Vincular hostname, Tunnel y origen |
-| Crear aplicación Access | Definir el recurso que se protegerá |
-| Configurar identidad | Conectar Google u otro proveedor de identidad |
+El router no recibe una conexión entrante reenviada hacia Nexus.
 
-Una **Published application route** representa la publicación de una aplicación mediante un hostname público y un origen. En la interfaz, **Hostname routes** expresa esa relación desde el punto de vista del hostname. Para la ruta actual ambas denominaciones describen el mismo vínculo: `launch.thereplicantlab.com` → `replicant-launch` → `http://localhost:80`.
+## LAN: sin cambios
 
-No hay rutas privadas documentadas en este encargo. Solo existe la ruta pública anterior; cualquier hostname adicional citado más abajo es diseño futuro y no debe crearse sin autorización.
-
-## Estado comprobado
-
-| Comprobación | Resultado | Alcance |
-|---|---|---|
-| Servicio `cloudflared` | Activo y habilitado en Nexus | Observado el 06/09/2026 |
-| Conector | Versión instalada observada; configuración no inspeccionada | Sin leer token ni ficheros secretos |
-| Origen local | `http://localhost:80` devolvió HTTP `200` | Nexus |
-| Hostname público | `https://launch.thereplicantlab.com/` devolvió HTTP `200` | Externo desde Replicant |
-| Prueba móvil | Correcta según la evidencia de implantación | No repetida en esta auditoría |
-| Router | Sin port forwarding según la decisión implantada | No administrado ni modificado en esta auditoría |
-
-El Tunnel publica el origen de forma segura, pero por sí solo **no autentica usuarios**. Cloudflare Access + Google todavía no está implementado.
-
-## Acceso LAN: sin cambios
-
-La seguridad externa no modifica la LAN. No se requiere Cloudflare Access, Google OAuth, FQDN interno, HTTPS interno, cambios de binding ni modificación de puertos para los accesos locales actuales.
+Cloudflare protege la **ruta externa**, no la LAN. Los accesos locales siguen funcionando por IP/puerto y no requieren Google ni Access.
 
 | Servicio | Acceso LAN |
 |---|---|
@@ -85,167 +89,112 @@ La seguridad externa no modifica la LAN. No se requiere Cloudflare Access, Googl
 | Salones AV | Nexus, puerto `8081` |
 | Replicant Lab | Nexus, puerto `8082` |
 | Reserva Pistas UTP | Nexus, puerto `8083` |
-| Control de Red demo | Nexus, puerto `8084` |
-| Otros servicios | Según el inventario vigente |
+| Control de Red | Nexus, puerto `8084` |
 
-Un posible rediseño de seguridad interna queda fuera de alcance hasta una decisión explícita.
+No se ha implantado DNS local nuevo, HTTPS interno ni cambios generales de binding como parte de RL-CF-002.
 
-## Operación de cloudflared
+## Qué protege y qué no protege
 
-Los ejemplos son procedimientos reproducibles para Ubuntu 24.04. Nunca deben incluir ni sustituir los marcadores por valores reales en Git. **No se ejecutan en este encargo** los comandos que instalan, vinculan, reinician o eliminan componentes.
+Cloudflare Access protege el **hostname publicado**. No protege automáticamente:
 
-### Consulta segura
+- el acceso LAN directo por IP;
+- una URL pública directa de un proveedor externo;
+- una aplicación remota solo porque aparezca enlazada desde App Launch;
+- otros hostnames que no tengan su propia aplicación/política Access.
+
+Para una aplicación alojada fuera de Nexus hay que diseñar su protección de forma independiente y, cuando sea posible, impedir que la URL directa del origen evite el control de acceso.
+
+## Operación segura de cloudflared
+
+### Consulta
 
 ```bash
-# Solo consulta: versión y estado del servicio
 cloudflared --version
 systemctl is-active cloudflared
 systemctl is-enabled cloudflared
 systemctl status cloudflared --no-pager
 
-# Solo consulta: comprobar origen y hostname
 curl -I http://localhost:80/
 curl -I https://launch.thereplicantlab.com/
 ```
 
-### Instalación y vinculación
+### Logs
 
 ```bash
-# MODIFICA el host: instalar paquete según el repositorio oficial de Cloudflare
-sudo apt install cloudflared
-
-# MODIFICA el host y contiene un secreto: vincular el conector existente
-sudo cloudflared service install <TUNNEL_TOKEN>
-
-# MODIFICA el servicio: iniciar y habilitar tras validar la configuración
-sudo systemctl enable --now cloudflared
+sudo journalctl -u cloudflared -n 100 --no-pager
 ```
 
-Antes de instalar o vincular, confirmar cuenta, Tunnel y host objetivo. El token solo se utiliza en el mecanismo seguro de instalación; nunca se muestra, registra ni versiona.
+Antes de compartir logs, revisar que no contengan valores sensibles.
 
-### Logs, actualización y reinicio controlado
+### Reinicio controlado
 
 ```bash
-# Solo consulta: últimas líneas del servicio; revisar que no contengan secretos antes de compartirlas
-sudo journalctl -u cloudflared -n 100 --no-pager
-
-# MODIFICA paquetes: actualizar de forma controlada
-sudo apt update
-sudo apt install --only-upgrade cloudflared
-
-# INTERRUMPE temporalmente el acceso externo: reiniciar solo tras plan de rollback
 sudo systemctl restart cloudflared
 ```
 
-Tras cualquier cambio, comprobar el servicio, el origen local y el hostname desde una red externa. Para rollback, volver al paquete/configuración conocida sin copiar secretos a Git y reiniciar de forma controlada. La desinstalación o eliminación de un servicio/Tunnel es destructiva para el acceso externo y requiere un encargo separado, respaldo operativo y validación posterior.
+El reinicio interrumpe temporalmente el acceso externo. Después deben comprobarse servicio, origen local y al menos un acceso externo autenticado.
 
-## Checklist de validación
+### Instalación o revinculación
 
-- [x] DNS/hostname público responde para la ruta actual.
-- [x] HTTPS y App Launch responden para `launch.thereplicantlab.com`.
-- [x] `cloudflared` está activo y habilitado en Nexus.
-- [x] El puerto local `80` responde en Nexus.
-- [x] La prueba externa desde datos móviles fue correcta en la implantación.
-- [x] El router no usa port forwarding para esta publicación.
-- [ ] Validar el comportamiento después de reiniciar `cloudflared` — no verificado en esta auditoría.
-- [ ] Implementar monitorización/alertas del Tunnel.
+```bash
+sudo apt install cloudflared
+sudo cloudflared service install <TUNNEL_TOKEN>
+sudo systemctl enable --now cloudflared
+```
 
-## Troubleshooting seguro
+El token es secreto: se utiliza únicamente mediante el mecanismo seguro de instalación y nunca se documenta ni versiona.
 
-| Síntoma | Diagnóstico seguro | Acción permitida |
+## Validación registrada
+
+- [x] Tunnel remoto sano.
+- [x] `cloudflared` activo y habilitado en Nexus.
+- [x] Cinco hostnames configurados.
+- [x] Cinco aplicaciones Access independientes.
+- [x] Cinco políticas sin `Bypass`.
+- [x] Google acepta el callback de Access; desapareció `redirect_uri_mismatch`.
+- [x] Orígenes Nexus responden en LAN.
+- [x] Launch autenticado registrado correctamente en Access.
+- [x] Router sin port forwarding para esta arquitectura.
+- [ ] Merge y despliegue de `Apps_Lauch#15`.
+- [ ] Prueba autenticada desde móvil de Launch, Salones, Docs, Pádel y Red tras desplegar el catálogo.
+- [ ] Monitorización y alertas del Tunnel.
+- [ ] Procedimiento de recuperación probado después de reinicio controlado.
+
+## Troubleshooting
+
+| Síntoma | Comprobar primero | Interpretación |
 |---|---|---|
-| El dominio no resuelve | Comprobar hostname y DNS desde una red externa | Revisar la ruta publicada en Cloudflare; no abrir puertos |
-| Error 1033 | Consultar estado de `cloudflared` y conexión del Tunnel | Recuperar el conector con el procedimiento controlado |
-| Tunnel desconectado o servicio detenido | `systemctl status cloudflared --no-pager` | Investigar logs sin exponer secretos; reiniciar solo con autorización |
-| Origen no disponible | `curl -I http://localhost:80/` en Nexus | Reparar App Launch como servicio independiente; no cambiar router |
-| Puerto 80 no responde | Comprobar Compose/App Launch y listeners del host | Restaurar el servicio local mediante su repositorio y procedimiento |
-| Ruta publicada incorrecta | Contrastar hostname, Tunnel y origen en la consola Cloudflare | Corregir solo con autorización específica |
-| Error HTTPS o bucle | Comprobar hostname público y redirecciones | Revisar Cloudflare/origen sin introducir redirecciones improvisadas |
-| Funciona en LAN pero no desde móvil | Comparar origen local, Tunnel y DNS externo | No usar port forwarding como atajo |
-| Cloudflare responde pero App Launch no | Verificar HTTP local en `localhost:80` | Tratarlo como fallo del origen, no del DNS |
-| App funciona localmente pero el Tunnel no | Verificar servicio y estado del Tunnel | Diagnosticar con Cloudflare, sin tocar aplicaciones |
-| Acceso público cuando se esperaba autenticación | Confirmar aplicación y política Access del hostname | Corregir la política; nunca usar `Bypass` como atajo |
+| El hostname no resuelve | DNS y CNAME proxied | Problema de publicación/DNS |
+| Error 1033 | Estado del Tunnel y `cloudflared` | Cloudflare no encuentra un conector sano |
+| Login de Google falla | Callback OAuth y configuración IdP | Problema de identidad, no del origen |
+| Access deniega | Política del hostname | La identidad no cumple la regla |
+| Access permite pero la app falla | Origen local en Nexus | Fallo de aplicación/origen |
+| Funciona en LAN pero no externamente | Access, Tunnel y ruta publicada | No abrir puertos como atajo |
+| Una URL directa evita Access | Arquitectura del origen remoto | Proteger dominio propio o cerrar acceso directo |
+| Bucle HTTPS/redirección | Hostname, Access y redirecciones del origen | Evitar redirecciones improvisadas |
 
-## Cloudflare Access + Google
+## Authentik
 
-Cloudflare Access está implantado. Google autentica la identidad y Access autoriza cada hostname; el Tunnel solo transporta tráfico. Cada aplicación tiene una política `Allow` independiente y, en la implantación inicial, una única cuenta autorizada. Conocer la URL no evita Access.
+Authentik + Google **no forma parte del runtime actual**.
 
-| Aplicación Access | Hostname | Origen del Tunnel | Política inicial |
-|---|---|---|---|
-| Replicant Launch | `launch.thereplicantlab.com` | `http://localhost:80` | Correo autorizado |
-| Replicant Salones | `salones.thereplicantlab.com` | `http://192.168.18.220:8081` | Correo autorizado |
-| Replicant Docs | `docs.thereplicantlab.com` | `http://192.168.18.220:8082` | Correo autorizado |
-| Replicant Padel | `padel.thereplicantlab.com` | `http://192.168.18.220:8083` | Correo autorizado |
-| Replicant Red | `red.thereplicantlab.com` | `http://192.168.18.220:8084` | Correo autorizado |
+Podría ser útil si el Lab evoluciona hacia identidad autocontrolada, grupos/roles complejos, múltiples IdP, aplicaciones fuera de Cloudflare o políticas más avanzadas. A cambio introduce nuevos contenedores, persistencia, backups, actualizaciones, monitorización y disponibilidad.
 
-```mermaid
-flowchart TD
-    U["Usuario externo"] --> C["Cloudflare DNS + HTTPS"]
-    C --> A["Cloudflare Access"]
-    A --> G["Google IdP"]
-    G --> A
-    A --> T["Tunnel replicant-launch"]
-    T --> F["cloudflared en Nexus"]
-    F --> L["Launch :80"]
-    F --> S["Salones :8081"]
-    F --> D["Docs :8082"]
-    F --> P["Padel :8083"]
-    F --> R["Red :8084"]
-```
+La arquitectura actual se mantiene deliberadamente más simple:
 
-Las sesiones pueden reutilizar la autenticación del mismo IdP, pero Access vuelve a evaluar la política de cada hostname. Los accesos LAN por IP y puerto no cambian. Las aplicaciones alojadas en otros proveedores no quedan protegidas por aparecer en Launch: para ellas hay que proteger un dominio propio y cerrar, cuando sea posible, la URL directa del origen.
+**Cloudflare Access + Google = solución activa.**
 
-## Authentik + Google
+**Authentik = opción futura, no prioridad.**
 
-!!! note "EVOLUCIÓN FUTURA OPCIONAL / NO PRIORITARIA"
-    Authentik no es un requisito actual ni debe instalarse en esta fase.
+## Relación con DigitalOcean
 
-Authentik + Google podría aportar identidad autocontrolada, independencia parcial de Cloudflare, roles/grupos complejos, varios proveedores de identidad, aplicaciones fuera de Cloudflare y políticas avanzadas. Su coste es operar nuevos contenedores, base de datos, actualizaciones, backups, disponibilidad, monitorización y mayor complejidad.
+Nexus y DigitalOcean cumplen papeles distintos. Cloudflare Tunnel publica servicios del Lab alojados en Nexus; no sustituye automáticamente el VPS ni sus servicios 24×7.
 
-> Cloudflare Access + Google es la solución principal para la siguiente fase de seguridad. Authentik queda reservado como posible evolución avanzada si Replicant Lab crece y necesita una capa de identidad más independiente o compleja.
+El App Launch de DigitalOcean permanece operativo hasta que exista una auditoría y decisión explícita de retirada, redirección o consolidación.
 
-## Nexus, DigitalOcean y crecimiento
+## Referencias internas
 
-Nexus es el servidor Linux local del Lab y el origen actual de App Launch; puede publicar herramientas, demos y aplicaciones seleccionadas mediante Tunnel sin quedar expuesto directamente por el router. Su acceso LAN permanece intacto.
-
-DigitalOcean sigue siendo producción `24×7` para aplicaciones que necesiten disponibilidad continua, que deban sobrevivir a una caída de Nexus/vivienda/conexión doméstica o que manejen estado productivo. Cloudflare Tunnel no convierte automáticamente Nexus en sustituto de DigitalOcean.
-
-Existe un Launch en Nexus y existe o ha existido otro en DigitalOcean. El Launch de Nexus publicado mediante `launch.thereplicantlab.com` es candidato a Launch público canónico; mantener los dos solo tiene sentido con una estrategia real de alta disponibilidad. No se retira todavía el Launch de DigitalOcean. Antes de retirarlo o redirigirlo se deben auditar dependencias y enlaces, decidir redirecciones, conservar rollback, actualizar documentación y validar que no afecte a servicios productivos.
-
-```text
-replicant-launch      → Nexus         → Lab, demos y herramientas
-replicant-production  → DigitalOcean  → posible evolución de producción
-```
-
-`replicant-launch` existe. `replicant-production` no existe: es un modelo conceptual, no debe crearse. DigitalOcean no necesita ahora otro Tunnel; conectarlo como réplica del mismo solo tendría sentido para servicios idénticos y alta disponibilidad. Las políticas de Access serían centrales, no se duplicarían por servidor.
-
-```mermaid
-flowchart TD
-    U["Usuario externo"] --> A["Cloudflare Access<br/>pendiente"]
-    A --> H["Hostnames públicos"]
-
-    H --> TN["replicant-launch"]
-    TN --> N["Nexus<br/>Lab y demos"]
-
-    H --> D["DigitalOcean<br/>producción 24x7"]
-```
-
-## Publicación de aplicaciones mediante el mismo Tunnel
-
-El mismo Tunnel publica varias aplicaciones con hostnames distintos; no existe un Tunnel por aplicación. Todas las reglas se sitúan antes del fallback `http_status:404` y no se abre ningún puerto del router.
-
-| Hostname | Origen Nexus | Estado |
-|---|---|---|
-| `launch.thereplicantlab.com` | `http://localhost:80` | Implementado |
-| `salones.thereplicantlab.com` | `http://192.168.18.220:8081` | Implementado |
-| `docs.thereplicantlab.com` | `http://192.168.18.220:8082` | Implementado |
-| `padel.thereplicantlab.com` | `http://192.168.18.220:8083` | Implementado |
-| `red.thereplicantlab.com` | `http://192.168.18.220:8084` | Implementado |
-
-## Pendientes reales
-
-1. Revisar y desplegar el cambio del catálogo Nexus propuesto en `Apps_Lauch#15`.
-2. Validar desde móvil cada hostname tras la autenticación y registrar el resultado.
-3. Monitorizar el Tunnel, configurar alertas y revisar backups de configuración no secreta.
-4. Auditar por separado las URLs directas de aplicaciones alojadas en AI Studio, Firebase, Cloud Run o DigitalOcean.
-5. Auditar el Launch duplicado de DigitalOcean antes de decidir retirada o redirección.
+- [Arquitectura](../arquitectura.md)
+- [Red · visión general](overview.md)
+- [Host · Nexus](../hosts/nexus.md)
+- [Aplicación · App Launch](../aplicaciones/app-launch.md)
+- [Encargo RL-CF-002](../encargos/RL-CF-002.md)

@@ -171,4 +171,4 @@ No ejecutar reservas ni enviar notificaciones para probar el handover. Las compr
 
 ## Acceso externo y seguridad
 
-El runtime Nexus conserva exclusivamente su acceso LAN en `http://192.168.18.220:8083/`; no existe hostname Cloudflare para él. Su publicación productiva por DigitalOcean permanece separada y sin cambios. Cualquier futura ruta externa desde Nexus requerirá hostname por decidir, auditoría del origen y una política Cloudflare Access independiente.
+El runtime Nexus conserva su acceso LAN en [http://192.168.18.220:8083](http://192.168.18.220:8083). El hostname externo [https://padel.thereplicantlab.com](https://padel.thereplicantlab.com) está implantado mediante el Tunnel `replicant-launch` hacia ese origen Nexus y protegido por Cloudflare Access + Google con una política independiente. Su publicación productiva por DigitalOcean permanece separada y sin cambios.

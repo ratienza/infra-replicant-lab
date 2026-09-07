@@ -23,4 +23,4 @@ systemctl status unattended-upgrades --no-pager
 
 ## Cloudflare Tunnel
 
-El mantenimiento del Tunnel empieza por consulta segura: estado del servicio, origen local y hostname público. No se abre port forwarding como mecanismo de recuperación. Cualquier reinicio, actualización o cambio de ruta se planifica con rollback y se valida desde una red externa; Access + Google sigue pendiente y no debe declararse activo.
+El mantenimiento del Tunnel empieza por consulta segura: estado del servicio, origen local y hostname público. No se abre port forwarding como mecanismo de recuperación. Cloudflare Access + Google está implantado, con una aplicación y política independiente por hostname. Cualquier reinicio, actualización o cambio de ruta se planifica con rollback y se valida desde una red externa. Permanecen pendientes el despliegue del catálogo Nexus corregido, la validación autenticada desde móvil, la monitorización y alertas, y una prueba de recuperación.
