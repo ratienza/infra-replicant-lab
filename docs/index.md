@@ -55,6 +55,31 @@ Manual vivo de la infraestructura local y cloud del laboratorio: qué existe, d�
 
 > La portada usa **SVG nativo**, no Mermaid. Así evitamos que una incompatibilidad del parser pueda romper la vista principal.
 
+## Flujo de despliegue y acceso externo
+
+```mermaid
+flowchart LR
+    DEV["Desarrollo<br/>Replicant / AI Studio"] --> GH["GitHub<br/>fuente versionable"]
+    GH --> CB["Cloud Build"] --> CR["Cloud Run"]
+    GH --> FH["Firebase Hosting"]
+    GH --> NX["Nexus<br/>Docker / Compose"]
+    GH --> DO["DigitalOcean<br/>Nginx / servicios"]
+
+    NX --> CFD["cloudflared"]
+    CFD --> T["Cloudflare Tunnel"]
+    T --> A["Cloudflare Access"]
+    A --> G["Google IdP"]
+    G --> A
+    A --> UE["Usuario externo"]
+
+    NX --> AL["App Launch<br/>navegación"]
+    DO --> AL
+    CR --> AL
+    FH --> AL
+```
+
+Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despliega una aplicación** y **cómo se accede externamente a Nexus**. Cloudflare no sustituye a Nexus, DigitalOcean, Cloud Run ni Firebase; actúa como capa de publicación y control de acceso para los servicios Nexus seleccionados.
+
 ## Principios
 
 - **Minimalismo:** pocas piezas y cada una con una función clara.
