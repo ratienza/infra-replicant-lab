@@ -54,4 +54,4 @@ La actualización se realiza solo después de integrar el PR. Para rollback se r
 
 ## Acceso externo y seguridad
 
-Replicant Lab sigue accesible en LAN mediante `http://192.168.18.220:8082/`. No tiene ruta externa Cloudflare implementada. `docs.thereplicantlab.com` es únicamente una propuesta futura y, antes de existir, requerirá auditoría del origen, autorización explícita y política Cloudflare Access propia.
+Replicant Lab sigue accesible en LAN mediante [http://192.168.18.220:8082](http://192.168.18.220:8082). El hostname externo [https://docs.thereplicantlab.com](https://docs.thereplicantlab.com) está implantado mediante el Tunnel `replicant-launch` hacia ese origen Nexus y protegido por Cloudflare Access + Google con una política independiente.

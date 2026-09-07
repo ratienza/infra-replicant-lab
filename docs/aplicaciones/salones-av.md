@@ -58,4 +58,4 @@ La documentación funcional y los procedimientos detallados permanecen en el rep
 
 ## Acceso externo y seguridad
 
-El acceso LAN actual permanece en `http://192.168.18.220:8081/`. No existe hostname externo de Cloudflare para Salones AV en esta fase. `salones.thereplicantlab.com` es solo un ejemplo futuro: requerirá una ruta autorizada y una política Cloudflare Access independiente. La publicación actual de producción en DigitalOcean no se modifica.
+El acceso LAN actual permanece en [http://192.168.18.220:8081](http://192.168.18.220:8081). El hostname externo [https://salones.thereplicantlab.com](https://salones.thereplicantlab.com) está implantado mediante el Tunnel `replicant-launch` hacia ese origen Nexus y protegido por Cloudflare Access + Google con una política independiente. La publicación actual de producción en DigitalOcean no se modifica.
