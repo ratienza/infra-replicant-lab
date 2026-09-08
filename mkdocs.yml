@@ -13,7 +13,7 @@ nav:
   - Red:
       - Visión general: red/overview.md
       - Inventario provisional: red/inventario.md
-  - Cloudflare Tunnel: red/cloudflare-tunnel.md
+  - Cloudflare: red/cloudflare-tunnel.md
   - Despliegue:
       - Modelos: despliegue/modelos.md
       - Git: despliegue/git.md
@@ -61,7 +61,6 @@ nav:
       - Control de Red: pendientes/control-red.md
       - Nexus: pendientes/nexus.md
       - App Launch: pendientes/app-launch.md
-  - Descargas: descargas.md
 theme:
   name: material
   language: es
