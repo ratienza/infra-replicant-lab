@@ -2,7 +2,7 @@
 
 ## Estado
 
-`in_progress`
+`completed`
 
 ## Repositorios
 
@@ -79,13 +79,13 @@ Revertir la PR mediante Git y reconstruir exclusivamente la imagen estática de 
 
 ## Resultado
 
-Pendiente de validación, PR, CI y despliegue documental.
+Fuentes canónicas y derivados actualizados. La generación oficial produjo 52 páginas fuente, 17 diagramas Mermaid, el PDF global de 111 páginas y diez fichas HTML/PDF. La validación local recorrió 38 rutas sin errores; el primer ciclo de CI completó además el build Docker y el smoke test Nginx.
 
 ## Cierre Git
 
-- SHA final: pendiente
-- PR: pendiente
-- CI: pendiente
+- SHA documental validado: `1095d8e`
+- PR: `ratienza/infra-replicant-lab#45`
+- CI: verde · GitHub Actions `34705023529`
 
 ## Limitaciones y pendientes
 
@@ -93,4 +93,4 @@ La activación externa de Cartera se mantiene como encargo independiente.
 
 ## Siguiente paso
 
-Regenerar derivados, ejecutar checks y abrir la PR exclusiva.
+Fusionar únicamente la PR #45 y actualizar el runtime documental Nexus `8082` mediante el flujo Git canónico.
