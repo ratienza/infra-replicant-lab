@@ -42,7 +42,7 @@ Manual vivo de la infraestructura local y cloud del laboratorio: qué existe, d�
   <text x="912" y="294" text-anchor="middle" class="rs">Servicios públicos / 24×7</text>
   <rect x="360" y="380" width="240" height="70" rx="14" class="rb"/>
   <text x="480" y="410" text-anchor="middle" class="rt">Docker Apps</text>
-  <text x="480" y="435" text-anchor="middle" class="rs">Salones AV · Reserva Pistas · futuras apps</text>
+  <text x="480" y="435" text-anchor="middle" class="rs">Salones · Reservas · Red · Cartera</text>
   <line x1="245" y1="80" x2="330" y2="80" class="rl"/>
   <line x1="140" y1="125" x2="150" y2="205" class="rl"/>
   <line x1="275" y1="260" x2="360" y2="260" class="rl"/>
@@ -106,7 +106,7 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Salones AV | ✅ Operativa en Nexus · `8081` · Git/Nexus reconciliados en `8c0bc08` |
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
-| Cartera Estratégica | ✅ MVP local en Replicant · no desplegada en Nexus |
+| Cartera Estratégica | ✅ v1.0 LAN cerrada · Nexus `8085` · publicación externa pendiente |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |

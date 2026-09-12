@@ -11,8 +11,8 @@ La documentación MkDocs de este proyecto es la única referencia canónica. Los
 
 | Artefacto | Ruta | Cobertura |
 |---|---|---|
-| HTML autocontenido | `docs/downloads/Replicant-Lab.html` | Toda la navegación MkDocs, índice interno y trece Mermaid |
-| PDF A4 | `docs/downloads/Replicant-Lab.pdf` | Portada, índice, documentación completa, numeración y trece Mermaid |
+| HTML autocontenido | `docs/downloads/Replicant-Lab.html` | Toda la navegación MkDocs, índice interno y diecisiete Mermaid |
+| PDF A4 | `docs/downloads/Replicant-Lab.pdf` | Portada, índice, documentación completa, numeración y diecisiete Mermaid |
 
 No se mantiene ninguna copia alternativa.
 

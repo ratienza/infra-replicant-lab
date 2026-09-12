@@ -33,13 +33,14 @@ const routes = [
   { route: "/aplicaciones/consumos-cupra/", name: "consumos", diagrams: 0 },
   { route: "/aplicaciones/cv-raul/", name: "cv", diagrams: 0 },
   { route: "/aplicaciones/control-red/", name: "control-red", diagrams: 0 },
-  { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 0 },
+  { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 2 },
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control", diagrams: 0 },
   { route: "/control/erasmushomes/", name: "erasmushomes-standalone", diagrams: 0 },
   { route: "/pendientes/", name: "pending", diagrams: 0 },
   { route: "/pendientes/cv-firebase/", name: "pending-detail", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
+  { route: "/cambios/2026-09-12/", name: "changelog-cartera", diagrams: 0 },
   { route: "/cambios/2026-09-06/", name: "changelog-cloudflare", diagrams: 0 },
   { route: "/cambios/2026-08-29/", name: "changelog-current", diagrams: 0 },
   { route: "/cambios/2026-08-21/", name: "changelog", diagrams: 0 },
@@ -56,6 +57,7 @@ const routes = [
   { route: "/encargos/", name: "engagements", diagrams: 0 },
   { route: "/encargos/TEMPLATE/", name: "engagement-template", diagrams: 0 },
   { route: "/encargos/GOV-001/", name: "gov-001", diagrams: 0 },
+  { route: "/encargos/RL-CE-DOC-001/", name: "rl-ce-doc-001", diagrams: 0 },
 ];
 
 if (screenshots) await fs.mkdir(screenshots, { recursive: true });
@@ -399,7 +401,7 @@ for (const slug of [
     pdf: await compareDownload(`downloads/apps/${slug}.pdf`, "application/pdf"),
   };
 }
-if (totalDiagrams !== 15) failures.push(`Expected fifteen Mermaid diagrams across site, got ${totalDiagrams}`);
+if (totalDiagrams !== 17) failures.push(`Expected seventeen Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
 const report = {

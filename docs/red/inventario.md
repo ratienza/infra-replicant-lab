@@ -48,3 +48,17 @@
 ## Nota operativa
 
 El inventario sirve para orientación y futuras decisiones de direccionamiento. No se reubicarán dispositivos por estética ni se convertirán en IP fija salvo necesidad concreta.
+
+## Servicios LAN canónicos en Nexus
+
+| Puerto | Servicio | Exposición |
+|---:|---|---|
+| `80` | App Launch | LAN · entrada canónica |
+| `8080` | Libre | Sin listener |
+| `8081` | Salones AV | LAN |
+| `8082` | Replicant Lab | LAN |
+| `8083` | Reserva-Pistas-UTP | LAN |
+| `8084` | Control de Red · demo read-only | LAN |
+| `8085` | Cartera Estratégica | LAN |
+
+Cloudflare publica únicamente los cinco servicios ya registrados de `80` a `8084`. Cartera Estratégica no se añadió al Tunnel durante su despliegue LAN.

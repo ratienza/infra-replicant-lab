@@ -45,7 +45,7 @@ El diagrama anterior expresa responsabilidades, no el sentido físico de apertur
 | Reserva-Pistas-UTP | Codex / GitHub | Compose en Nexus y despliegue controlado en VPS | Nexus + DigitalOcean |
 | Consumos Cupra | AI Studio + Codex / GitHub | Cloud Build + Artifact Registry | Google Cloud Run |
 | CV | AI Studio / GitHub | Despliegue Firebase | Firebase Hosting |
-| Cartera Estratégica | Codex / desarrollo local | Ejecución local | Replicant |
+| Cartera Estratégica | Codex / GitHub | Docker Compose | Nexus · `8085` |
 | Control de Red | PowerShell + Codex | Ejecución local + demo aislada | Replicant + demo Nexus |
 | App Launch | Codex / GitHub | Scripts por destino | Nginx en Nexus y DigitalOcean |
 | Replicant Lab | Codex / GitHub | Docker Compose | Nexus |

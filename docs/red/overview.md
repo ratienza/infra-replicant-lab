@@ -41,3 +41,5 @@ La LAN conserva sus direcciones y puertos actuales. La publicación externa no u
 Cinco hostnames publican servicios seleccionados de Nexus: Launch, Salones, Docs, Pádel y Control de Red. **Cloudflare Access + Google IdP están implantados** y cada hostname dispone de una aplicación y política Access independientes.
 
 El acceso por IP privada sigue siendo independiente: Cloudflare protege la ruta externa, no la LAN.
+
+Cartera Estratégica se incorpora al inventario LAN en `192.168.18.220:8085`, pero no forma parte todavía de esos hostnames ni del Tunnel. App Launch la enlaza localmente desde `http://192.168.18.220/`.

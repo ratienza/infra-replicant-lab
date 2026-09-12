@@ -72,6 +72,7 @@ flowchart TB
         N["Nexus<br/>Ubuntu 24.04 LTS<br/>192.168.18.220"]
         R -->|Hyper-V| N
         N --> NR["Docker / servicios internos"]
+        NR --> CE["Cartera Estratégica<br/>Streamlit :8085 · solo LAN"]
     end
 
     GH["GitHub<br/>fuente versionable"] --> N
@@ -79,7 +80,7 @@ flowchart TB
     GH --> GC["Google Cloud<br/>Cloud Run / Firebase"]
 ```
 
-Los accesos LAN por IP y puerto permanecen independientes de Cloudflare Access. No se ha introducido HTTPS interno ni un DNS local nuevo.
+Los accesos LAN por IP y puerto permanecen independientes de Cloudflare Access. No se ha introducido HTTPS interno ni un DNS local nuevo. Cartera Estratégica se ejecuta en Nexus y App Launch `:80` enlaza su runtime `:8085`; no forma parte aún de los cinco orígenes publicados por el Tunnel.
 
 ## App Launch multientorno
 
@@ -112,6 +113,7 @@ El catálogo se selecciona durante el despliegue. Cada host recibe únicamente s
 | Google IdP | Autenticación de identidad para Access |
 | Cloudflare Tunnel | Transporte saliente seguro entre Cloudflare y Nexus |
 | App Launch | Catálogo y navegación hacia aplicaciones locales o remotas |
+| Cartera Estratégica | Aplicación privada Streamlit en Nexus `:8085`; SQLite y seguridad propias |
 | `/opt/data`, `/opt/secrets`, `/opt/backups` | Datos, secretos y copias fuera de Git |
 
 !!! important "Reglas de lectura"
