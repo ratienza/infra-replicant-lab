@@ -100,7 +100,7 @@ for (const pageId of diagramPageIds) {
   }), pageId);
   diagrams.push(...metrics);
 }
-if (diagrams.length !== 15) throw new Error(`Expected 15 Mermaid diagrams, got ${diagrams.length}`);
+if (diagrams.length !== 17) throw new Error(`Expected 17 Mermaid diagrams, got ${diagrams.length}`);
 if (diagrams.some(item => !item.hasSvg || item.width < 100 || item.height < 35 || item.overflowX || item.overflowY)) {
   throw new Error(`Invalid Mermaid layout: ${JSON.stringify(diagrams)}`);
 }
@@ -146,7 +146,7 @@ const changeLogDates = await page.evaluate(() => {
     .find(item => item.querySelector(":scope > .nav-group-label")?.textContent.trim() === "Change Log");
   return group ? [...group.querySelectorAll(":scope > .nav-children > [data-page-item] > a")].map(item => item.textContent.trim()) : [];
 });
-if (JSON.stringify(changeLogDates) !== JSON.stringify(["Índice", "6 de septiembre de 2026", "30 de agosto de 2026", "29 de agosto de 2026", "21 de agosto de 2026", "13 de agosto de 2026", "9 de agosto de 2026", "8 de agosto de 2026"])) {
+if (JSON.stringify(changeLogDates) !== JSON.stringify(["Índice", "12 de septiembre de 2026", "6 de septiembre de 2026", "30 de agosto de 2026", "29 de agosto de 2026", "21 de agosto de 2026", "13 de agosto de 2026", "9 de agosto de 2026", "8 de agosto de 2026"])) {
   throw new Error(`Change Log hierarchy differs from MkDocs nav: ${JSON.stringify(changeLogDates)}`);
 }
 

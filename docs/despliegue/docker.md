@@ -39,7 +39,8 @@ servicios
 | `8082` | Replicant Lab · documentación | Operativo |
 | `8083` | Reserva-Pistas-UTP | Operativo |
 | `8084` | Control Red · demo read-only | Operativo |
-| `8085+` | Próximos servicios | Asignación secuencial |
+| `8085` | Cartera Estratégica · Streamlit | Operativo · solo LAN |
+| `8086+` | Próximos servicios | Asignación secuencial |
 
 Reglas:
 
@@ -54,6 +55,8 @@ App Launch es la excepción deliberada: publica `80` en todas las interfaces de 
 Salones AV aplica explícitamente la regla LAN mediante `192.168.18.220:8081:80`. El PR `salones-av-valencia-palace#2` incorporó el bind a `main`; desde `8c0bc08` el checkout Nexus está limpio y la configuración es reproducible desde GitHub.
 
 Control Red aplica el mismo contrato de exposición LAN mediante `192.168.18.220:8084:8084`. El contenedor conserva su demo efímero y de solo lectura; el panel PowerShell operativo y sus inventarios siguen ejecutándose únicamente en Replicant.
+
+Cartera Estratégica publica `192.168.18.220:8085:8501` mediante el proyecto Compose `cartera-estrategica`. Conserva datos, configuración privada y backups fuera de Git, y usa `restart: unless-stopped`. Su SQLite se copia mediante la API de backup, se valida en staging y solo se promueve de forma atómica tras comprobar integridad, claves foráneas, conteos e invariantes.
 
 ## Reserva-Pistas-UTP · patrón validado
 

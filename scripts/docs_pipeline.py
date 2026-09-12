@@ -38,7 +38,7 @@ MERMAID_PACKAGE_RUNTIME = ROOT / "node_modules" / "mermaid" / "dist" / "mermaid.
 PORTABLE_CSS = ROOT / "scripts" / "portable.css"
 NODE_RENDERER = ROOT / "scripts" / "render_portables.mjs"
 APP_RENDERER = ROOT / "scripts" / "render_app_portable.mjs"
-EXPECTED_MERMAID = 15
+EXPECTED_MERMAID = 17
 MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 
@@ -63,7 +63,7 @@ APP_EXPECTED_MARKERS = {
     "consumos-cupra": ("Cloud Run", "9f66a368", "rollback"),
     "cv-raul": ("Firebase Hosting", "POST-CARTERA", "0da08cfa"),
     "control-red": ("PowerShell", "Replicant", "rollback"),
-    "cartera-estrategica": ("Streamlit", "SQLite", "rollback"),
+    "cartera-estrategica": ("192.168.18.220:8085", "CE-SEC-001", "rollback"),
     "replicant-lab": ("MkDocs", "8082", "rollback"),
     "erasmushomes-control": ("Objetivo diciembre", "SHA ErasmusHomes main", "roadmap.yaml"),
 }

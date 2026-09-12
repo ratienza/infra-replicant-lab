@@ -100,11 +100,11 @@ Descubre e inventaría dispositivos de la red local. Ayuda a revisar direccionam
 <article class="app-card" markdown>
 ## Cartera Estratégica
 <p class="app-type">Análisis financiero</p>
-Gestiona y analiza una cartera personal de inversión. Centraliza posiciones, histórico y métricas de seguimiento en una interfaz local.
+Gestiona y analiza una cartera personal de inversión. La v1.0 LAN está cerrada en Nexus con SQLite privada, PIN independiente y Google OIDC preparado pero desactivado hasta disponer de una URL HTTPS final.
 
-<dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>Python, Streamlit, SQLite</dd><dt>Repositorio</dt><dd><code>ratienza/cartera-estrategica</code></dd><dt>Deploy</dt><dd>Ejecución local</dd><dt>Runtime</dt><dd>Replicant</dd><dt>Estado</dt><dd>MVP operativo</dd></dl>
+<dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>Python, Streamlit, SQLite</dd><dt>Repositorio</dt><dd><code>ratienza/cartera-estrategica</code></dd><dt>Deploy</dt><dd>Docker Compose</dd><dt>Runtime</dt><dd>Nexus · <code>8085</code></dd><dt>Estado</dt><dd>v1.0 LAN cerrada</dd><dt>URL</dt><dd><a href="http://192.168.18.220:8085/">Nexus LAN</a></dd></dl>
 
-<p class="app-accesses"><a href="../downloads/apps/cartera-estrategica.html">Ficha técnica</a> · Runtime local en Replicant · sin URL publicada</p>
+<p class="app-accesses"><a href="../downloads/apps/cartera-estrategica.html">Ficha técnica</a> · <a href="http://192.168.18.220:8085/">Nexus LAN</a> · <a href="http://192.168.18.220/">App Launch</a></p>
 </article>
 
 <article class="app-card" markdown>

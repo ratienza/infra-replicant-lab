@@ -30,7 +30,7 @@ pnpm install --frozen-lockfile
 pnpm exec playwright install chromium
 ```
 
-Un único comando construye MkDocs, genera los portables globales y por aplicación, renderiza los quince Mermaid y valida enlaces, recursos, HTML offline y PDF:
+Un único comando construye MkDocs, genera los portables globales y por aplicación, renderiza los diecisiete Mermaid y valida enlaces, recursos, HTML offline y PDF:
 
 ```bash
 python scripts/docs_pipeline.py generate
@@ -83,7 +83,7 @@ docs/downloads/apps/<aplicacion>.html
 docs/downloads/apps/<aplicacion>.pdf
 ```
 
-El HTML global contiene toda la navegación MkDocs en un único fichero offline. El PDF A4 contiene portada, índice, páginas numeradas, texto seleccionable y los trece diagramas renderizados. Las fichas individuales cubren arquitectura, operación y evidencia de cada aplicación. Todos identifican la misma huella SHA-256 de sus fuentes.
+El HTML global contiene toda la navegación MkDocs en un único fichero offline. El PDF A4 contiene portada, índice, páginas numeradas, texto seleccionable y los diecisiete diagramas renderizados. Las fichas individuales cubren arquitectura, operación y evidencia de cada aplicación. Todos identifican la misma huella SHA-256 de sus fuentes.
 
 ## Flujo de cambios
 

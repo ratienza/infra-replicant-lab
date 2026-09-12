@@ -48,6 +48,7 @@
 | `8082/tcp` | Replicant Lab · Nginx estático | LAN |
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
+| `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
 | `53` | systemd-resolved | localhost |
 
 ## Estado observado el 13/08/2026
@@ -71,6 +72,14 @@ Control Red incorpora un demo Docker separado del panel operativo. `control-red-
 ## Runtime documental validado en Nexus
 
 El PR #9 fusionado sustituye `mkdocs serve` y los bind mounts por una imagen construida desde el `Dockerfile`: MkDocs estricto en la etapa builder y Nginx estático en runtime, manteniendo `192.168.18.220:8082`. El 09/08/2026 se reconstruyó y recreó exclusivamente este servicio en Nexus y se validaron HTTP, navegación, recursos, cinco diagramas Mermaid y descargas HTML/PDF idénticas byte a byte a los artefactos versionados. El HTML funciona offline sin dependencias esenciales externas y el PDF conserva la documentación completa.
+
+## Cartera Estratégica · actualización 12/09/2026
+
+Cartera Estratégica v1.0.0 se ejecuta en Nexus mediante el proyecto Docker Compose `cartera-estrategica`, con `restart: unless-stopped` y bind exclusivo `192.168.18.220:8085`. La aplicación respondió HTTP `200`; App Launch en el puerto `80` contiene su tarjeta LAN. La SQLite real fue copiada de forma consistente, validada en staging y promovida con backup recuperable; datos, secretos y backups permanecen fuera de Git.
+
+CE-SEC-001 está desplegado: PIN independiente y Google OIDC preparado. Durante la etapa LAN Google continúa desactivado y sin URL, callback ni secretos OAuth; el PIN solo puede configurarlo el usuario desde `Configuración → Seguridad → PIN`.
+
+Esta actualización sustituye exclusivamente la observación histórica del 13/08/2026 que indicaba que Cartera no tenía checkout servido ni puerto Nexus. No se modificaron los servicios `8081–8084`, Cloudflare, DNS, Access, Tunnel ni el router.
 
 ## Cloudflare Tunnel y Access · actualización 06/09/2026
 
