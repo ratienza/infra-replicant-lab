@@ -59,6 +59,6 @@ El inventario sirve para orientación y futuras decisiones de direccionamiento. 
 | `8082` | Replicant Lab | LAN |
 | `8083` | Reserva-Pistas-UTP | LAN |
 | `8084` | Control de Red · demo read-only | LAN |
-| `8085` | Cartera Estratégica | LAN |
+| `8085` | Cartera Estratégica | LAN; origen de `cartera.thereplicantlab.com` mediante Tunnel |
 
-Cloudflare publica únicamente los cinco servicios ya registrados de `80` a `8084`. Cartera Estratégica no se añadió al Tunnel durante su despliegue LAN.
+Cloudflare publica seis hostnames mediante el Tunnel existente. Cartera conserva su bind LAN en `8085`; su publicación externa solo pasa por `cartera.thereplicantlab.com`, Cloudflare Access y los controles internos de la aplicación.

@@ -99,4 +99,4 @@ No almacenar aquí contraseñas, tokens, claves privadas, bases de datos ni secr
 
 ## Publicación externa del Lab
 
-La publicación externa del Lab usa un único Tunnel saliente `replicant-launch` desde Nexus. Launch, Salones, Docs, Pádel y Red disponen de hostnames propios protegidos mediante Cloudflare Access, con Google como IdP y política independiente por aplicación. No se abren puertos entrantes en el router. La guía canónica, operación y recuperación están en `docs/red/cloudflare-tunnel.md`.
+La publicación externa del Lab usa un único Tunnel saliente `replicant-launch` desde Nexus. Launch, Salones, Docs, Pádel, Red y Cartera disponen de hostnames propios protegidos mediante Cloudflare Access, con Google como IdP y política independiente por aplicación. No se abren puertos entrantes en el router. La guía canónica, operación y recuperación están en `docs/red/cloudflare-tunnel.md`.

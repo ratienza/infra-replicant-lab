@@ -2,20 +2,17 @@
 
 ## Estado
 
-La v1.0 LAN está cerrada, desplegada y validada en Nexus. CE-SEC-001 está implementado y probado: PIN independiente y Google OIDC preparado. Google permanece desactivado mientras la aplicación solo sea LAN; Codex no creó ni registró el PIN del usuario.
+La publicación privada está completada y validada: Cartera se mantiene operativa en Nexus, responde por LAN y su hostname público está protegido por Cloudflare Access, Google OIDC interno y PIN de seis cifras. SQLite, migraciones y datos financieros permanecen íntegros y privados.
 
-## Único bloque pendiente para publicación externa
+No existe un pendiente bloqueante específico de publicación, OIDC o PIN de Cartera.
 
-1. Publicar Cartera mediante el Tunnel ya existente, sin abrir puertos en el router.
-2. Fijar la URL HTTPS definitiva.
-3. Registrar en Google Cloud el callback exacto `<URL_HTTPS_PUBLICA>/oauth2callback`.
-4. Guardar `client_id`, `client_secret` y `cookie_secret` como secretos privados de Nexus, fuera de Git.
-5. Configurar la allowlist con el correo Google exacto del usuario.
-6. Activar `Habilitar Google OAuth`.
-7. Validar desde una red externa HTTPS, login, allowlist, sesión, logout y el orden Google → PIN cuando ambos estén activos.
+## Límites permanentes
 
-Este bloque no debe requerir cambios de código, migraciones ni rediseño. Hasta completarlo, Google OAuth no se declara activo ni validado y Cartera no se incorpora a Cloudflare, DNS, Access ni al catálogo público.
+- La URL LAN y la URL pública son rutas distintas; Cloudflare protege únicamente el hostname externo.
+- La SQLite no se expone por ninguna ruta y no se almacena en Git.
+- App Launch y los servicios `8081–8084` no cambiaron durante esta publicación.
+- La configuración sensible y las rutas privadas no se documentan.
 
-## Operación LAN pendiente del usuario
+## Mejora no bloqueante · privacidad visual
 
-El usuario puede configurar y activar su PIN manualmente en `Configuración → Seguridad → PIN`. El PIN funciona de forma independiente aunque Google OAuth siga desactivado. No se documentará ni almacenará su valor.
+Añadir un botón de ojo abierto/cerrado, abierto por defecto. Al cerrarlo, debe ocultar con asteriscos todos los importes absolutos y cualquier dato que permita reconstruirlos: saldos, patrimonio, cash, ganancias/pérdidas en euros, precios, cantidades, ejes y tooltips monetarios. Debe conservar porcentajes y datos no financieros. Análisis técnico, SMC y Rotaciones no se ven afectados. Esta mejora no está implementada y no bloquea la publicación actual.

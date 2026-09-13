@@ -39,7 +39,7 @@ servicios
 | `8082` | Replicant Lab · documentación | Operativo |
 | `8083` | Reserva-Pistas-UTP | Operativo |
 | `8084` | Control Red · demo read-only | Operativo |
-| `8085` | Cartera Estratégica · Streamlit | Operativo · solo LAN |
+| `8085` | Cartera Estratégica · Streamlit | Operativo · LAN; origen privado del Tunnel |
 | `8086+` | Próximos servicios | Asignación secuencial |
 
 Reglas:

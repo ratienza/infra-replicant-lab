@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="loading" data-source-fingerprint="8a703538a1d3d5528f8679f26762bc5659a8e57f40a94e1c92bdb919531fc31b">
+<html lang="es" class="app-portable" data-portable="loading" data-source-fingerprint="6eb673a302d1bbe26a370ac0aa5f9421fcc6a5a6f414e779659e58bd7151323f">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:8a703538a1d3d5528f8679f26762bc5659a8e57f40a94e1c92bdb919531fc31b">
-  <title>Cartera Estratégica · Ficha técnica · 8a703538a1d3</title>
+  <meta name="source-fingerprint" content="sha256:6eb673a302d1bbe26a370ac0aa5f9421fcc6a5a6f414e779659e58bd7151323f">
+  <title>Cartera Estratégica · Ficha técnica · 6eb673a302d1</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -3747,21 +3747,22 @@ globalThis["mermaid"] = globalThis.__esbuild_esm_mermaid_nm["mermaid"].default;
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>Cartera Estratégica</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cartera-estrategica.md</dd><dt>Versión reproducible</dt><dd>sha256:8a703538a1d3d5528f8679f26762bc5659a8e57f40a94e1c92bdb919531fc31b</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cartera-estrategica.md</dd><dt>Versión reproducible</dt><dd>sha256:6eb673a302d1bbe26a370ac0aa5f9421fcc6a5a6f414e779659e58bd7151323f</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/cartera-estrategica.md">
       <p class="source-path">aplicaciones/cartera-estrategica.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-cartera-estrategica">Aplicación · Cartera Estratégica</h1>
-<p>Aplicación privada de análisis y seguimiento financiero desarrollada con Python y Streamlit. La versión pública del producto es <strong>v1.0.0</strong> y su runtime canónico está en Nexus, accesible solo desde la LAN.</p>
+<p>Aplicación privada de análisis y seguimiento financiero desarrollada con Python y Streamlit. Su runtime canónico se ejecuta en Nexus y se publica de forma privada.</p>
 <h2 id="p1-accesos">Accesos</h2>
 <ul>
 <li><strong>Ficha técnica:</strong> <a href="/downloads/apps/cartera-estrategica.html">HTML autocontenido</a></li>
-<li><strong>Aplicación / Nexus LAN:</strong> <a href="http://192.168.18.220:8085/">Cartera Estratégica</a></li>
-<li><strong>Entrada de navegación:</strong> <a href="http://192.168.18.220/">App Launch</a> en el puerto canónico <code>80</code>.</li>
+<li><strong>Aplicación / LAN:</strong> <a href="http://192.168.18.220:8085/">Cartera Estratégica</a></li>
+<li><strong>Aplicación / Internet:</strong> <a href="https://cartera.thereplicantlab.com/">Cartera Estratégica</a></li>
+<li><strong>Entrada de navegación LAN:</strong> <a href="http://192.168.18.220/">App Launch</a> en el puerto canónico <code>80</code>.</li>
 <li><strong>Repositorio:</strong> <code>ratienza/cartera-estrategica</code>.</li>
 </ul>
-<p>No existe todavía una URL pública de Cartera Estratégica. El bind del servicio se limita a <code>192.168.18.220:8085</code>; no hay exposición directa a Internet.</p>
+<p>La URL pública se publica exclusivamente mediante el Tunnel existente y no convierte el bind LAN en una exposición directa a Internet. App Launch no se ha modificado: sigue siendo solo una entrada de navegación LAN.</p>
 <h2 id="p1-estado-validado">Estado validado</h2>
 <table>
 <thead>
@@ -3771,14 +3772,6 @@ globalThis["mermaid"] = globalThis.__esbuild_esm_mermaid_nm["mermaid"].default;
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Versión</td>
-<td><code>v1.0.0</code> cerrada y aprobada</td>
-</tr>
-<tr>
-<td>Fuente desplegada</td>
-<td>GitHub <code>main</code> · <code>721338b</code></td>
-</tr>
 <tr>
 <td>Host / runtime</td>
 <td>Nexus · Docker Compose · proyecto <code>cartera-estrategica</code></td>
@@ -3793,82 +3786,68 @@ globalThis["mermaid"] = globalThis.__esbuild_esm_mermaid_nm["mermaid"].default;
 </tr>
 <tr>
 <td>Acceso LAN</td>
-<td><code>http://192.168.18.220:8085</code> · HTTP <code>200</code> validado el 12/09/2026</td>
+<td><code>http://192.168.18.220:8085</code> · HTTP <code>200</code> validado</td>
 </tr>
 <tr>
-<td>Suite de producto</td>
-<td>384 pruebas superadas y 1 opcional omitida</td>
+<td>Acceso público</td>
+<td><code>https://cartera.thereplicantlab.com</code> · HTTPS mediante Tunnel y Access</td>
 </tr>
 <tr>
-<td>Esquema</td>
-<td>Sin nueva migración para CE-SEC-001</td>
+<td>Seguridad</td>
+<td>Cloudflare Access → Google OIDC interno → PIN de seis cifras</td>
+</tr>
+<tr>
+<td>Datos</td>
+<td>SQLite, migraciones y datos financieros preservados e íntegros</td>
 </tr>
 </tbody>
 </table>
-<p>La base SQLite real se migró íntegramente mediante una copia consistente y superó las validaciones de integridad, claves foráneas, conteos e invariantes. La demo anterior quedó archivada y recuperable. Bases, secretos, copias y exportaciones reales permanecen fuera de Git.</p>
-<h2 id="p1-arquitectura-lan">Arquitectura LAN</h2>
+<p>Las bases, secretos, copias y exportaciones reales permanecen fuera de Git. No se publican rutas privadas, valores de configuración ni datos financieros.</p>
+<h2 id="p1-arquitectura-y-acceso">Arquitectura y acceso</h2>
 <pre class="mermaid" data-mermaid-source="1">flowchart LR
-    U[&quot;Usuario LAN&quot;] --&gt; AL[&quot;App Launch&lt;br/&gt;Nexus :80&quot;]
-    AL --&gt; CE[&quot;Cartera Estratégica&lt;br/&gt;192.168.18.220:8085&quot;]
-    CE --&gt; ST[&quot;Streamlit&lt;br/&gt;contenedor Compose&quot;]
-    ST --&gt; DB[&quot;SQLite privada&lt;br/&gt;persistencia externa a Git&quot;]
-    ST --&gt; SEC[&quot;Seguridad propia&lt;br/&gt;Google OIDC → PIN&quot;]</pre>
-<p>App Launch solo proporciona navegación. Cartera mantiene su propio runtime, datos y controles de acceso.</p>
+    I[&quot;Internet&quot;] --&gt; T[&quot;Cloudflare Tunnel&lt;br/&gt;replicant-launch&quot;]
+    T --&gt; A[&quot;Cloudflare Access&lt;br/&gt;Google + correo autorizado&quot;]
+    A --&gt; CE[&quot;Cartera Estratégica&lt;br/&gt;Nexus :8085&quot;]
+    CE --&gt; O[&quot;Google OIDC interno&quot;]
+    O --&gt; P[&quot;PIN de seis cifras&quot;]
+    P --&gt; APP[&quot;Aplicación&quot;]
+    APP --&gt; DB[&quot;SQLite privada&lt;br/&gt;persistencia externa a Git&quot;]
+    L[&quot;Usuario LAN&quot;] --&gt; CE</pre>
+<p>La URL LAN y la URL pública son accesos distintos al mismo runtime. Cloudflare Access es la protección de borde del hostname público; Google OIDC y el PIN son controles internos de Cartera. La SQLite no se expone mediante ninguna de las dos rutas.</p>
 <h2 id="p1-seguridad-ce-sec-001">Seguridad · CE-SEC-001</h2>
-<p>CE-SEC-001 está <strong>implementado en <code>main</code>, cubierto por pruebas y desplegado en Nexus</strong>:</p>
+<p>CE-SEC-001 está implementado, desplegado y validado en el flujo manual real:</p>
 <ul>
-<li>El PIN funciona de forma independiente y se almacena únicamente como hash <code>scrypt</code> con sal aleatoria, nunca en claro.</li>
-<li>La configuración manual está en <code>Configuración → Seguridad → PIN</code>.</li>
-<li><code>Habilitar Google OAuth</code> permanece desactivado durante la etapa LAN.</li>
-<li>Google OIDC exige HTTPS, callback <code>/oauth2callback</code>, correo verificado y allowlist; si la configuración está incompleta, falla de forma cerrada.</li>
-<li>Client ID, client secret, cookie secret, allowlist y configuración privada permanecen fuera de Git.</li>
-<li>Cuando Google OIDC y PIN estén activos, el orden será primero Google y después PIN.</li>
+<li>Cloudflare Access protege primero el hostname público y solo permite el correo autorizado.</li>
+<li>Cartera exige después su propio Google OIDC con callback HTTPS registrado.</li>
+<li>Tras OIDC, Cartera exige un PIN de exactamente seis cifras antes de mostrar datos.</li>
+<li>El PIN se conserva solo como hash seguro; su valor no se documenta, registra ni versiona.</li>
+<li>Toda configuración sensible permanece fuera de Git y no se documenta.</li>
 </ul>
-<p>La funcionalidad de PIN está desplegada, pero Codex no creó, solicitó ni registró el PIN del usuario. Google OIDC está preparado en código; no se declara activo ni validado extremo a extremo hasta disponer de URL HTTPS, callback registrado y secretos externos.</p>
+<p>La validación manual real confirma el orden <strong>Cloudflare Access → Google OIDC interno → PIN → Cartera</strong>. Las dos capas de Google son deliberadamente independientes: comparten proveedor de identidad, pero no comparten sesión de autorización de la aplicación.</p>
 <h2 id="p1-migracion-controlada-de-la-base">Migración controlada de la base</h2>
-<p>El procedimiento aplicado separa siempre origen, staging, promoción y recuperación:</p>
 <pre class="mermaid" data-mermaid-source="2">flowchart LR
-    O[&quot;SQLite de origen&lt;br/&gt;modo consistente&quot;] --&gt; B[&quot;Backup mediante&lt;br/&gt;API SQLite&quot;]
+    O[&quot;SQLite de origen&quot;] --&gt; B[&quot;Backup consistente&quot;]
     B --&gt; S[&quot;Staging privado&quot;]
-    S --&gt; V[&quot;Integridad + FK&lt;br/&gt;conteos + invariantes&quot;]
+    S --&gt; V[&quot;Integridad y validación&quot;]
     V --&gt;|válido| P[&quot;Promoción atómica&quot;]
-    V --&gt;|fallo| R[&quot;Abortar y conservar&lt;br/&gt;runtime anterior&quot;]
-    P --&gt; Q[&quot;Validación read-only&lt;br/&gt;antes/después&quot;]</pre>
-<p>La comprobación abarca las tablas operativas y de trazabilidad —operaciones, movimientos de cash, lotes y consumos FIFO, ajustes de coste, valoraciones y snapshots— sin publicar conteos ni importes financieros.</p>
+    V --&gt;|fallo| R[&quot;Conservar estado anterior&quot;]</pre>
+<p>La publicación actual no modificó esta base, sus migraciones ni sus datos.</p>
 <h2 id="p1-operacion-segura">Operación segura</h2>
-<h3 id="p1-arranque-y-comprobacion">Arranque y comprobación</h3>
 <p>Desde el checkout canónico de Nexus:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>main
 git<span class="w"> </span>pull<span class="w"> </span>--ff-only<span class="w"> </span>origin<span class="w"> </span>main
 docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
 docker<span class="w"> </span>compose<span class="w"> </span>ps
-docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">50</span>
 curl<span class="w"> </span>--fail<span class="w"> </span>http://192.168.18.220:8085/
 </code></pre></div>
-<h3 id="p1-actualizacion">Actualización</h3>
-<ol>
-<li>Confirmar checkout limpio y <code>main</code> sincronizado.</li>
-<li>Crear una copia consistente de SQLite mediante su API de backup.</li>
-<li>Validar la copia en staging: integridad, claves foráneas, conteos e invariantes.</li>
-<li>Reconstruir y recrear únicamente el proyecto Compose de Cartera.</li>
-<li>Validar HTTP, seguridad y base en modo solo lectura.</li>
-<li>Comparar los conteos e invariantes antes y después.</li>
-</ol>
-<h3 id="p1-backup-restauracion-y-recuperacion">Backup, restauración y recuperación</h3>
-<ul>
-<li>Guardar bases y copias en almacenamiento privado, nunca en Git.</li>
-<li>Restaurar primero sobre staging y validar antes de promover.</li>
-<li>Promover por sustitución atómica, conservando una copia recuperable del estado anterior.</li>
-<li>Si la validación falla, mantener o restaurar el runtime y la base anteriores; no improvisar migraciones manuales.</li>
-<li>Para rollback de código, revertir mediante rama/PR y desplegar de nuevo desde <code>main</code>; no usar la base como mecanismo de rollback de código.</li>
-</ul>
+<p>Para una comprobación pública se valida primero Cloudflare Access; no se introducen credenciales, PIN ni secretos en logs o procedimientos versionados. Ante un fallo de runtime se revierte únicamente la imagen o contenedor anterior; no se usa la base como mecanismo de rollback de código.</p>
 <p>Está prohibido versionar bases SQLite, Excel, CSV, <code>.env</code>, credenciales, secretos, backups o exportaciones de cartera.</p>
-<h2 id="p1-alcance-pendiente">Alcance pendiente</h2>
-<p>La v1.0 LAN está cerrada. Para la publicación externa queda únicamente el trabajo operativo descrito en <a href="/pendientes/cartera-estrategica/">Pendientes · Cartera Estratégica</a>: URL HTTPS mediante el Tunnel existente, alta externa de OAuth, activación y validación. No requiere cambios de código, migraciones ni rediseño.</p>
-<p>Durante el despliegue LAN no se modificaron Cloudflare, DNS, Access, Tunnel ni el router. Los servicios <code>8081–8084</code> permanecieron sin cambios.</p></div>
+<h2 id="p1-pendientes">Pendientes</h2>
+<p>No queda un pendiente bloqueante específico de publicación o autenticación de Cartera. Las mejoras no bloqueantes y la operación general del Tunnel se mantienen, si proceden, en sus páginas correspondientes.</p>
+<p>Durante esta publicación no se modificaron App Launch, los servicios <code>8081–8084</code>, Cloudflare, DNS, el Tunnel, el router, la SQLite ni datos financieros.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:8a703538a1d3d5528f8679f26762bc5659a8e57f40a94e1c92bdb919531fc31b</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:6eb673a302d1bbe26a370ac0aa5f9421fcc6a5a6f414e779659e58bd7151323f</footer>
 <script>
 mermaid.initialize({
   startOnLoad: false,

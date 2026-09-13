@@ -101,12 +101,12 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Docker / Compose | ✅ Operativo |
 | GitHub desde Nexus | ✅ Operativo |
 | App Launch | ✅ LAN Nexus `80` + DigitalOcean; ✅ ruta externa Cloudflare para Nexus |
-| Cloudflare Tunnel | ✅ Launch, Salones, Docs, Pádel y Red mediante `replicant-launch`; Google + Access por hostname |
+| Cloudflare Tunnel | ✅ Launch, Salones, Docs, Pádel, Red y Cartera mediante `replicant-launch`; Google + Access por hostname |
 | Puerto `8080` | ✅ Libre y no asignado |
 | Salones AV | ✅ Operativa en Nexus · `8081` · Git/Nexus reconciliados en `8c0bc08` |
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
-| Cartera Estratégica | ✅ v1.0 LAN cerrada · Nexus `8085` · publicación externa pendiente |
+| Cartera Estratégica | ✅ Nexus `8085` · URL pública protegida · OIDC interno + PIN |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
@@ -132,4 +132,4 @@ Los estados distinguen entre contenido **implementado en Git**, **probado localm
 
 ## Publicación externa del Lab
 
-`launch.thereplicantlab.com` y los hostnames de Salones, Docs, Pádel y Red publican servicios Nexus mediante un único Cloudflare Tunnel, DNS y HTTPS. Google identifica y Access autoriza por aplicación; `cloudflared` mantiene la conexión saliente sin abrir puertos en el router. Los accesos LAN por IP y puerto permanecen sin cambios.
+`launch.thereplicantlab.com` y los hostnames de Salones, Docs, Pádel, Red y Cartera publican servicios Nexus mediante un único Cloudflare Tunnel, DNS y HTTPS. Google identifica y Access autoriza por aplicación; Cartera añade Google OIDC interno y PIN; `cloudflared` mantiene la conexión saliente sin abrir puertos en el router. Los accesos LAN por IP y puerto permanecen sin cambios.

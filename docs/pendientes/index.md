@@ -4,7 +4,7 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o Reserva-Pi
 
 | Elemento | Tipo | Prioridad | Estado |
 |---|---|---:|---|
-| Cartera Estratégica | Publicación HTTPS y activación Google OIDC | Alta | v1.0 LAN cerrada / externo pendiente |
+| Cartera Estratégica | Sin bloqueante específico de publicación o autenticación | — | Publicada privada y validada |
 | PULA | Seguridad, operación y calidad | Alta | Pendiente |
 | CV / Firebase | CI, trazabilidad, seguridad y UX | Media | POST-CARTERA |
 | Control de Red | Separación de datos operativos | Media | POST-CARTERA |

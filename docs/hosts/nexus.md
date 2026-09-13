@@ -75,7 +75,7 @@ El PR #9 fusionado sustituye `mkdocs serve` y los bind mounts por una imagen con
 
 ## Cartera Estratégica · actualización 12/09/2026
 
-Cartera Estratégica v1.0.0 se ejecuta en Nexus mediante el proyecto Docker Compose `cartera-estrategica`, con `restart: unless-stopped` y bind exclusivo `192.168.18.220:8085`. La aplicación respondió HTTP `200`; App Launch en el puerto `80` contiene su tarjeta LAN. La SQLite real fue copiada de forma consistente, validada en staging y promovida con backup recuperable; datos, secretos y backups permanecen fuera de Git.
+Cartera Estratégica v1.0.0 se ejecuta en Nexus mediante el proyecto Docker Compose `cartera-estrategica`, con `restart: unless-stopped` y bind LAN `192.168.18.220:8085`. La aplicación responde HTTP `200` y se publica mediante el Tunnel y Cloudflare Access; después exige Google OIDC interno y PIN de seis cifras. App Launch conserva su tarjeta LAN sin cambios. La SQLite real fue copiada de forma consistente, validada en staging y promovida con backup recuperable; datos, secretos y backups permanecen fuera de Git.
 
 CE-SEC-001 está desplegado: PIN independiente y Google OIDC preparado. Durante la etapa LAN Google continúa desactivado y sin URL, callback ni secretos OAuth; el PIN solo puede configurarlo el usuario desde `Configuración → Seguridad → PIN`.
 
@@ -83,8 +83,8 @@ Esta actualización sustituye exclusivamente la observación histórica del 13/0
 
 ## Cloudflare Tunnel y Access · actualización 06/09/2026
 
-`cloudflared` está instalado, activo y habilitado en Nexus. El Tunnel único `replicant-launch` publica cinco servicios mediante hostnames separados: Launch (`:80`), Salones (`:8081`), documentación (`:8082`), Pádel (`:8083`) y Control de Red (`:8084`).
+`cloudflared` está instalado, activo y habilitado en Nexus. El Tunnel único `replicant-launch` publica seis servicios mediante hostnames separados: Launch (`:80`), Salones (`:8081`), documentación (`:8082`), Pádel (`:8083`) y Control de Red (`:8084`) y Cartera (`:8085`).
 
 Google está configurado como IdP de Cloudflare Access. Cada hostname tiene una aplicación y una política Access independientes; el Tunnel transporta tráfico y Access aplica la autorización. El router no expone puertos entrantes para esta arquitectura.
 
-El acceso LAN a `80`, `8081`, `8082`, `8083` y `8084` no cambia y no pasa por Cloudflare. Tokens, secretos OAuth y configuración sensible permanecen fuera de Git.
+El acceso LAN a `80`, `8081`, `8082`, `8083`, `8084` y `8085` no cambia y no pasa por Cloudflare. Tokens, secretos OAuth y configuración sensible permanecen fuera de Git.
