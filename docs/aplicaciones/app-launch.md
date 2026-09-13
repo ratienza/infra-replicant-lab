@@ -46,7 +46,7 @@ Las tarjetas usan la acción uniforme **Entrar** y cápsulas breves: `NEXUS`, `D
 
 **ErasmusHomes · Control del MVP** abre su panel derivado dentro del runtime documental de Replicant Lab. **Control de Red** aparece únicamente en Nexus: `Entrar` abre su demo Docker read-only mediante `red.thereplicantlab.com` y el acceso secundario abre la ficha técnica protegida en `docs.thereplicantlab.com`. El panel operativo y su inventario siguen siendo locales de Replicant/Windows. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
 
-**Cartera Estratégica** aparece únicamente en el catálogo Nexus y conserva su acceso directo por LAN. No se ha añadido todavía a Cloudflare ni al catálogo público.
+**Cartera Estratégica** aparece únicamente en el catálogo Nexus y conserva su acceso directo por LAN. App Launch no se modificó durante la publicación: la URL pública de Cartera es independiente, está protegida por Cloudflare Access y no convierte la tarjeta LAN en un runtime o catálogo público.
 
 !!! important "Regla"
     `Tarjeta App Launch ≠ Runtime local`.

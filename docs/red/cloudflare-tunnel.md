@@ -3,7 +3,7 @@
 Guía canónica de publicación externa de Replicant Lab. Documenta el estado implantado de **Cloudflare Tunnel + Cloudflare Access + Google IdP** para servicios seleccionados de Nexus.
 
 !!! success "Estado vigente"
-    **Implementado:** un único Tunnel `replicant-launch`, cinco hostnames públicos, Google como IdP y una aplicación/política Access independiente por hostname.
+    **Implementado:** un único Tunnel `replicant-launch`, seis hostnames públicos, Google como IdP y una aplicación/política Access independiente por hostname.
 
     **Pendiente operativo:** merge/despliegue del catálogo Nexus corregido en `Apps_Lauch#15`, prueba autenticada desde móvil de cada aplicación y monitorización/alertas del Tunnel.
 
@@ -31,6 +31,8 @@ flowchart LR
     F --> D["Docs :8082"]
     F --> P["Pádel :8083"]
     F --> R["Red :8084"]
+    F --> C["Cartera :8085"]
+    C --> O["OIDC interno → PIN"]
 
     RT["Router doméstico<br/>sin port forwarding"] -. no publica .-> F
 ```
@@ -50,11 +52,12 @@ Compartir Tunnel tampoco comparte permisos: cada hostname tiene una aplicación 
 | Replicant Docs | `docs.thereplicantlab.com` | `http://192.168.18.220:8082` |
 | Replicant Padel | `padel.thereplicantlab.com` | `http://192.168.18.220:8083` |
 | Replicant Red | `red.thereplicantlab.com` | `http://192.168.18.220:8084` |
+| Cartera Estratégica | `cartera.thereplicantlab.com` | `http://192.168.18.220:8085` |
 
 Configuración registrada en RL-CF-002:
 
 - un único Tunnel: `replicant-launch`;
-- CNAME proxied para los cinco hostnames;
+- CNAME proxied para los seis hostnames;
 - aplicación Access `self_hosted` independiente por hostname;
 - Google como IdP;
 - redirección directa al IdP;
@@ -75,7 +78,8 @@ No se versionan tokens, secretos OAuth, cookies ni direcciones de correo complet
 6. Access evalúa la política de **ese hostname**.
 7. Si la política permite el acceso, Cloudflare entrega la petición al Tunnel `replicant-launch`.
 8. `cloudflared` en Nexus transporta la petición hasta el origen local correspondiente.
-9. La respuesta vuelve por el mismo camino.
+9. Para Cartera, la aplicación exige después Google OIDC interno y PIN de seis cifras antes de mostrar datos.
+10. La respuesta vuelve por el mismo camino.
 
 El router no recibe una conexión entrante reenviada hacia Nexus.
 
@@ -90,6 +94,7 @@ Cloudflare protege la **ruta externa**, no la LAN. Los accesos locales siguen fu
 | Replicant Lab | Nexus, puerto `8082` |
 | Reserva Pistas UTP | Nexus, puerto `8083` |
 | Control de Red | Nexus, puerto `8084` |
+| Cartera Estratégica | Nexus, puerto `8085`; OIDC interno y PIN |
 
 No se ha implantado DNS local nuevo, HTTPS interno ni cambios generales de binding como parte de RL-CF-002.
 
@@ -148,9 +153,10 @@ El token es secreto: se utiliza únicamente mediante el mecanismo seguro de inst
 
 - [x] Tunnel remoto sano.
 - [x] `cloudflared` activo y habilitado en Nexus.
-- [x] Cinco hostnames configurados.
-- [x] Cinco aplicaciones Access independientes.
-- [x] Cinco políticas sin `Bypass`.
+- [x] Seis hostnames configurados.
+- [x] Seis aplicaciones Access independientes.
+- [x] Seis políticas sin `Bypass`.
+- [x] Cartera validada: Access → OIDC interno → PIN.
 - [x] Google acepta el callback de Access; desapareció `redirect_uri_mismatch`.
 - [x] Orígenes Nexus responden en LAN.
 - [x] Launch autenticado registrado correctamente en Access.

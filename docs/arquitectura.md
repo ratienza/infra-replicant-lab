@@ -49,6 +49,7 @@ flowchart LR
     CFD --> D["Docs<br/>:8082"]
     CFD --> P["Pádel<br/>:8083"]
     CFD --> R["Control de Red<br/>:8084"]
+    CFD --> C["Cartera<br/>:8085 → OIDC → PIN"]
 ```
 
 El orden lógico es **HTTPS/DNS → Access → Google IdP → política Access → Tunnel → origen Nexus**. El Tunnel transporta tráfico; **no autentica usuarios**.
@@ -62,6 +63,7 @@ Cada hostname tiene una aplicación y una política Access independientes. Compa
 | Replicant Lab | `docs.thereplicantlab.com` | `http://192.168.18.220:8082` |
 | Reserva Pistas UTP | `padel.thereplicantlab.com` | `http://192.168.18.220:8083` |
 | Control de Red | `red.thereplicantlab.com` | `http://192.168.18.220:8084` |
+| Cartera Estratégica | `cartera.thereplicantlab.com` | `http://192.168.18.220:8085` |
 
 ## LAN y host físico
 
@@ -72,7 +74,7 @@ flowchart TB
         N["Nexus<br/>Ubuntu 24.04 LTS<br/>192.168.18.220"]
         R -->|Hyper-V| N
         N --> NR["Docker / servicios internos"]
-        NR --> CE["Cartera Estratégica<br/>Streamlit :8085 · solo LAN"]
+        NR --> CE["Cartera Estratégica<br/>Streamlit :8085 · LAN + origen Tunnel"]
     end
 
     GH["GitHub<br/>fuente versionable"] --> N
@@ -80,7 +82,7 @@ flowchart TB
     GH --> GC["Google Cloud<br/>Cloud Run / Firebase"]
 ```
 
-Los accesos LAN por IP y puerto permanecen independientes de Cloudflare Access. No se ha introducido HTTPS interno ni un DNS local nuevo. Cartera Estratégica se ejecuta en Nexus y App Launch `:80` enlaza su runtime `:8085`; no forma parte aún de los cinco orígenes publicados por el Tunnel.
+Los accesos LAN por IP y puerto permanecen independientes de Cloudflare Access. No se ha introducido HTTPS interno ni un DNS local nuevo. Cartera Estratégica se ejecuta en Nexus, mantiene su bind LAN `:8085` y se publica por el Tunnel solo mediante `cartera.thereplicantlab.com`; App Launch `:80` conserva su enlace LAN sin cambios.
 
 ## App Launch multientorno
 
@@ -123,7 +125,7 @@ Docker es el patrón preferido para servicios internos de Nexus cuando encaja, n
 
 ## Estado actual de seguridad externa
 
-**Implementado:** Cloudflare Tunnel, cinco hostnames, Google como IdP y una aplicación/política Access independiente por hostname.
+**Implementado:** Cloudflare Tunnel, seis hostnames, Google como IdP y una aplicación/política Access independiente por hostname. Cartera añade además Google OIDC interno y PIN de seis cifras.
 
 **Pendiente operativo:** desplegar el catálogo Nexus corregido de `Apps_Lauch#15`, validar desde móvil cada aplicación protegida y añadir monitorización/alertas del Tunnel.
 
