@@ -73,13 +73,17 @@ Control Red incorpora un demo Docker separado del panel operativo. `control-red-
 
 El PR #9 fusionado sustituye `mkdocs serve` y los bind mounts por una imagen construida desde el `Dockerfile`: MkDocs estricto en la etapa builder y Nginx estático en runtime, manteniendo `192.168.18.220:8082`. El 09/08/2026 se reconstruyó y recreó exclusivamente este servicio en Nexus y se validaron HTTP, navegación, recursos, cinco diagramas Mermaid y descargas HTML/PDF idénticas byte a byte a los artefactos versionados. El HTML funciona offline sin dependencias esenciales externas y el PDF conserva la documentación completa.
 
-## Cartera Estratégica · actualización 12/09/2026
+## Cartera Estratégica · estado histórico 12/09/2026
 
 Cartera Estratégica v1.0.0 se ejecuta en Nexus mediante el proyecto Docker Compose `cartera-estrategica`, con `restart: unless-stopped` y bind LAN `192.168.18.220:8085`. La aplicación responde HTTP `200` y se publica mediante el Tunnel y Cloudflare Access; después exige Google OIDC interno y PIN de seis cifras. App Launch conserva su tarjeta LAN sin cambios. La SQLite real fue copiada de forma consistente, validada en staging y promovida con backup recuperable; datos, secretos y backups permanecen fuera de Git.
 
 CE-SEC-001 está desplegado: PIN independiente y Google OIDC preparado. Durante la etapa LAN Google continúa desactivado y sin URL, callback ni secretos OAuth; el PIN solo puede configurarlo el usuario desde `Configuración → Seguridad → PIN`.
 
-Esta actualización sustituye exclusivamente la observación histórica del 13/08/2026 que indicaba que Cartera no tenía checkout servido ni puerto Nexus. No se modificaron los servicios `8081–8084`, Cloudflare, DNS, Access, Tunnel ni el router.
+Esta actualización sustituyó exclusivamente la observación histórica del 13/08/2026 que indicaba que Cartera no tenía checkout servido ni puerto Nexus. La mención anterior a Google desactivado describe solo aquella etapa, no el estado actual.
+
+## Cartera Estratégica · v2.0.0, comprobación 04/10/2026
+
+`main`, tag y release `v2.0.0` del repositorio de Cartera señalan `c672eb1cadfcb191aaff6db8aeb1ed783321b692`. El checkout productivo y la etiqueta OCI del contenedor saludable en `:8085` mostraron ese SHA; HTTP respondió `200`. Google OAuth interno y PIN están activos. La base SQLite privada real está montada mediante `CARTERA_DB_PATH`: `cartera-demo.db` es un nombre heredado, no una base demo. Este cierre documental no recrea el contenedor de Cartera ni toca su base. [Ficha vigente](../aplicaciones/cartera-estrategica.md).
 
 ## Cloudflare Tunnel y Access · actualización 06/09/2026
 

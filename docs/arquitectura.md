@@ -74,7 +74,9 @@ flowchart TB
         N["Nexus<br/>Ubuntu 24.04 LTS<br/>192.168.18.220"]
         R -->|Hyper-V| N
         N --> NR["Docker / servicios internos"]
-        NR --> CE["Cartera Estratégica<br/>Streamlit :8085 · LAN + origen Tunnel"]
+        NR --> CE["Cartera Estratégica v2.0.0<br/>Streamlit :8085 · LAN + origen Tunnel"]
+        CE --> DB["SQLite privada real<br/>CARTERA_DB_PATH"]
+        API["API oficial Indexa"] --> CE
     end
 
     GH["GitHub<br/>fuente versionable"] --> N
@@ -82,7 +84,7 @@ flowchart TB
     GH --> GC["Google Cloud<br/>Cloud Run / Firebase"]
 ```
 
-Los accesos LAN por IP y puerto permanecen independientes de Cloudflare Access. No se ha introducido HTTPS interno ni un DNS local nuevo. Cartera Estratégica se ejecuta en Nexus, mantiene su bind LAN `:8085` y se publica por el Tunnel solo mediante `cartera.thereplicantlab.com`; App Launch `:80` conserva su enlace LAN sin cambios.
+Los accesos LAN por IP y puerto permanecen independientes de Cloudflare Access. No se ha introducido HTTPS interno ni un DNS local nuevo. Cartera Estratégica v2.0.0 se ejecuta en Nexus, mantiene su bind LAN `:8085` y se publica por el Tunnel solo mediante `cartera.thereplicantlab.com`. App Launch `:80` enlaza el acceso protegido y la ficha técnica; no ejecuta la app. La SQLite montada es la base privada real aunque su archivo se llame `cartera-demo.db`.
 
 ## App Launch multientorno
 
@@ -115,7 +117,7 @@ El catálogo se selecciona durante el despliegue. Cada host recibe únicamente s
 | Google IdP | Autenticación de identidad para Access |
 | Cloudflare Tunnel | Transporte saliente seguro entre Cloudflare y Nexus |
 | App Launch | Catálogo y navegación hacia aplicaciones locales o remotas |
-| Cartera Estratégica | Aplicación privada Streamlit en Nexus `:8085`; SQLite y seguridad propias |
+| Cartera Estratégica | v2.0.0 privada en Nexus `:8085`; SQLite real, Google OAuth + PIN y cuenta Indexa desde su API oficial |
 | `/opt/data`, `/opt/secrets`, `/opt/backups` | Datos, secretos y copias fuera de Git |
 
 !!! important "Reglas de lectura"
@@ -127,7 +129,7 @@ Docker es el patrón preferido para servicios internos de Nexus cuando encaja, n
 
 **Implementado:** Cloudflare Tunnel, seis hostnames, Google como IdP y una aplicación/política Access independiente por hostname. Cartera añade además Google OIDC interno y PIN de seis cifras.
 
-**Pendiente operativo:** desplegar el catálogo Nexus corregido de `Apps_Lauch#15`, validar desde móvil cada aplicación protegida y añadir monitorización/alertas del Tunnel.
+**Pendiente operativo general:** validar desde móvil cada aplicación protegida y añadir monitorización/alertas del Tunnel. La actualización del catálogo Cartera v2.0.0 se documenta por separado.
 
 Authentik queda como evolución opcional futura; no forma parte del runtime actual.
 

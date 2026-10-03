@@ -100,9 +100,9 @@ Descubre e inventaría dispositivos de la red local. Ayuda a revisar direccionam
 <article class="app-card" markdown>
 ## Cartera Estratégica
 <p class="app-type">Análisis financiero</p>
-Gestiona y analiza una cartera personal de inversión. Está publicada de forma privada mediante Cloudflare Access, Google OIDC interno y PIN de seis cifras; SQLite permanece privada en Nexus.
+Gestiona y analiza una cartera personal de inversión. La release v2.0.0 está publicada de forma privada mediante Cloudflare Access, Google OIDC interno y PIN de seis cifras; SQLite permanece privada en Nexus. La API oficial de Indexa alimenta exclusivamente su cuenta y sus diez fondos.
 
-<dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>Python, Streamlit, SQLite</dd><dt>Repositorio</dt><dd><code>ratienza/cartera-estrategica</code></dd><dt>Deploy</dt><dd>Docker Compose</dd><dt>Runtime</dt><dd>Nexus · <code>8085</code></dd><dt>Estado</dt><dd>Publicada privada</dd><dt>URL pública</dt><dd><a href="https://cartera.thereplicantlab.com/">Cartera protegida</a></dd></dl>
+<dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>Python, Streamlit, SQLite</dd><dt>Repositorio</dt><dd><code>ratienza/cartera-estrategica</code></dd><dt>Deploy</dt><dd>Docker Compose</dd><dt>Runtime</dt><dd>Nexus · <code>8085</code></dd><dt>Estado</dt><dd>v2.0.0 productiva · <code>c672eb1</code></dd><dt>URL pública</dt><dd><a href="https://cartera.thereplicantlab.com/">Cartera protegida</a></dd></dl>
 
 <p class="app-accesses"><a href="../downloads/apps/cartera-estrategica.html">Ficha técnica</a> · <a href="https://cartera.thereplicantlab.com/">Acceso protegido</a> · <a href="http://192.168.18.220:8085/">Nexus LAN</a> · <a href="http://192.168.18.220/">App Launch</a></p>
 </article>

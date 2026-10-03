@@ -86,6 +86,16 @@ if (desktop.externalResources.length || consoleErrors.length || failedRequests.l
 
 await page.setViewportSize({ width: 1440, height: 1000 });
 await page.emulateMedia({ media: "print" });
+// A root-relative site link resolves to file:///C:/... when Chromium prints
+// the offline HTML. Keep the HTML offline, but make PDF links portable.
+await page.evaluate(() => {
+  for (const anchor of document.querySelectorAll('a[href]')) {
+    const href = anchor.getAttribute('href');
+    if (href?.startsWith('/') && !href.startsWith('//')) {
+      anchor.href = `https://docs.thereplicantlab.com${href}`;
+    }
+  }
+});
 await page.pdf({
   path: pdfPath,
   format: "A4",
