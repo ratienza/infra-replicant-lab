@@ -640,6 +640,9 @@ def validate_pdf(path: Path, expected_fingerprint: str) -> dict[str, int]:
             obj = annotation.get_object()
             if obj.get("/Subtype") == "/Link":
                 links += 1
+                uri = obj.get("/A", {}).get("/URI")
+                if uri and str(uri).startswith("file:"):
+                    raise ValueError(f"PDF contains a machine-local link: {path}")
     if links < 5:
         raise ValueError(f"PDF has too few clickable links: {links}")
     return {"pages": len(reader.pages), "characters": len(text), "links": links}
@@ -684,6 +687,11 @@ def validate_app_pdf(slug: str, path: Path, title: str, expected_fingerprint: st
     missing_markers = [marker for marker in APP_EXPECTED_MARKERS[slug] if marker.casefold() not in text.casefold()]
     if missing_markers:
         raise ValueError(f"{path} is missing semantic markers: {missing_markers}")
+    for page in reader.pages:
+        for annotation in page.get("/Annots", []):
+            uri = annotation.get_object().get("/A", {}).get("/URI")
+            if uri and str(uri).startswith("file:"):
+                raise ValueError(f"PDF contains a machine-local link: {path}")
     return {"pages": len(reader.pages), "characters": len(text)}
 
 

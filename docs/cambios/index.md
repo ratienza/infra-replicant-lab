@@ -1,5 +1,6 @@
 # Change Log
 
+- [4 de octubre de 2026 · Cartera v2.0.0](2026-10-04.md)
 - [13 de septiembre de 2026](2026-09-13.md)
 - [12 de septiembre de 2026](2026-09-12.md)
 - [6 de septiembre de 2026](2026-09-06.md)

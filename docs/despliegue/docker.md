@@ -56,7 +56,7 @@ Salones AV aplica explícitamente la regla LAN mediante `192.168.18.220:8081:80`
 
 Control Red aplica el mismo contrato de exposición LAN mediante `192.168.18.220:8084:8084`. El contenedor conserva su demo efímero y de solo lectura; el panel PowerShell operativo y sus inventarios siguen ejecutándose únicamente en Replicant.
 
-Cartera Estratégica publica `192.168.18.220:8085:8501` mediante el proyecto Compose `cartera-estrategica`. Conserva datos, configuración privada y backups fuera de Git, y usa `restart: unless-stopped`. Su SQLite se copia mediante la API de backup, se valida en staging y solo se promueve de forma atómica tras comprobar integridad, claves foráneas, conteos e invariantes.
+Cartera Estratégica v2.0.0 publica `192.168.18.220:8085:8501` mediante el proyecto Compose `cartera-estrategica`, fijado al tag/SHA `c672eb1cadfcb191aaff6db8aeb1ed783321b692`. Conserva datos, configuración privada y backups fuera de Git, y usa `restart: unless-stopped`. `CARTERA_DB_PATH` apunta a la SQLite privada real, cuyo nombre heredado es `cartera-demo.db`; no se crea una demo para desplegar. Antes de un cambio funcional se hace backup consistente y verificable, se valida en copia aislada y se comparan integridad, huellas y conteos después. No se migra ni sustituye implícitamente. La publicación de estas páginas reconstruye solo el contenedor documental `:8082`, no Cartera.
 
 ## Reserva-Pistas-UTP · patrón validado
 

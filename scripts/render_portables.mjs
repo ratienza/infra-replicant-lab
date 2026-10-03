@@ -146,7 +146,7 @@ const changeLogDates = await page.evaluate(() => {
     .find(item => item.querySelector(":scope > .nav-group-label")?.textContent.trim() === "Change Log");
   return group ? [...group.querySelectorAll(":scope > .nav-children > [data-page-item] > a")].map(item => item.textContent.trim()) : [];
 });
-if (JSON.stringify(changeLogDates) !== JSON.stringify(["Índice", "13 de septiembre de 2026", "12 de septiembre de 2026", "6 de septiembre de 2026", "30 de agosto de 2026", "29 de agosto de 2026", "21 de agosto de 2026", "13 de agosto de 2026", "9 de agosto de 2026", "8 de agosto de 2026"])) {
+if (JSON.stringify(changeLogDates) !== JSON.stringify(["Índice", "4 de octubre de 2026", "13 de septiembre de 2026", "12 de septiembre de 2026", "6 de septiembre de 2026", "30 de agosto de 2026", "29 de agosto de 2026", "21 de agosto de 2026", "13 de agosto de 2026", "9 de agosto de 2026", "8 de agosto de 2026"])) {
   throw new Error(`Change Log hierarchy differs from MkDocs nav: ${JSON.stringify(changeLogDates)}`);
 }
 
@@ -189,6 +189,22 @@ if (failedRequests.length) throw new Error(`Failed requests: ${failedRequests.jo
 await page.setViewportSize({ width: 1440, height: 1000 });
 await page.evaluate(() => document.querySelectorAll(".status-panel details").forEach(item => { item.open = true; }));
 await page.emulateMedia({ media: "print" });
+// Root-relative site links must remain usable in the downloaded PDF, whose
+// source document is opened as file:// for offline rendering.
+await page.evaluate(() => {
+  for (const anchor of document.querySelectorAll('a[href]')) {
+    const href = anchor.getAttribute('href');
+    if (href?.startsWith('/') && !href.startsWith('//')) {
+      anchor.href = `https://docs.thereplicantlab.com${href}`;
+    } else if (href && !href.startsWith('#') && anchor.href.startsWith('file:')) {
+      const sourcePath = new URL(anchor.href).pathname;
+      const marker = sourcePath.toLowerCase().lastIndexOf('/docs/');
+      if (marker >= 0) {
+        anchor.href = `https://docs.thereplicantlab.com/${sourcePath.slice(marker + 6)}`;
+      }
+    }
+  }
+});
 await page.pdf({
   path: pdfPath,
   format: "A4",

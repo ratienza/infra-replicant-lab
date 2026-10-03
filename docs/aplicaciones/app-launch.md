@@ -40,13 +40,13 @@ Usa una red Compose propia, no tiene persistencia funcional y se recupera con `r
 
 ## Catálogos y cápsulas comprobados
 
-El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus incorpora además la tarjeta **Cartera Estratégica**, que abre el runtime LAN `http://192.168.18.220:8085`, junto con Replicant Lab, ErasmusHomes · Control del MVP, Control de Red, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos casos PULA apunta a `https://pula-erasmus-housing-automator.ai.studio/`.
+El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus incorpora además la tarjeta **Cartera Estratégica v2.0.0**, que abre el acceso público protegido y enlaza directamente su [ficha vigente](https://docs.thereplicantlab.com/aplicaciones/cartera-estrategica/); la URL LAN de la misma aplicación sigue siendo `http://192.168.18.220:8085/`. También incluye Replicant Lab, ErasmusHomes · Control del MVP, Control de Red, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos catálogos PULA apunta a `https://pula-erasmus-housing-automator.ai.studio/`.
 
 Las tarjetas usan la acción uniforme **Entrar** y cápsulas breves: `NEXUS`, `DIGITAL` o `REPLICANT` indican ubicación; el resto describe tecnologías relevantes, como `DOCKER`, `NGINX`, `PYTHON`, `FIREBASE APP HOSTING`, `CLOUD RUN` o `POWERSHELL`. CV se presenta correctamente como **Firebase App Hosting** sobre Cloud Run. Las cápsulas son informativas, no healthchecks.
 
 **ErasmusHomes · Control del MVP** abre su panel derivado dentro del runtime documental de Replicant Lab. **Control de Red** aparece únicamente en Nexus: `Entrar` abre su demo Docker read-only mediante `red.thereplicantlab.com` y el acceso secundario abre la ficha técnica protegida en `docs.thereplicantlab.com`. El panel operativo y su inventario siguen siendo locales de Replicant/Windows. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.
 
-**Cartera Estratégica** aparece únicamente en el catálogo Nexus y conserva su acceso directo por LAN. App Launch no se modificó durante la publicación: la URL pública de Cartera es independiente, está protegida por Cloudflare Access y no convierte la tarjeta LAN en un runtime o catálogo público.
+**Cartera Estratégica** aparece únicamente en el catálogo Nexus. Su tarjeta enlaza el hostname protegido por Cloudflare Access; la ruta LAN `:8085` permanece accesible por separado. La ficha y sus portables se publican mediante Replicant Lab, no dentro del contenedor de Cartera.
 
 !!! important "Regla"
     `Tarjeta App Launch ≠ Runtime local`.
