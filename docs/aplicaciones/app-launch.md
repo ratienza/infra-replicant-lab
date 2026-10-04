@@ -9,7 +9,7 @@ Catálogo **multientorno** y capa de navegación para acceder a aplicaciones pú
 - **Aplicación / producción:** [App Launch público](https://app.raulatienza.com/)
 - **Cartera Estratégica / Nexus:** [Aplicación LAN](http://192.168.18.220:8085/)
 
-## Estado auditado
+## Estado histórico auditado · 29/08/2026
 
 | Campo | DigitalOcean | Nexus |
 |---|---|---|
@@ -21,7 +21,11 @@ Catálogo **multientorno** y capa de navegación para acceder a aplicaciones pú
 | Catálogo activo | `catalogs/public.json → apps.json` | `catalogs/nexus.json → apps.json` |
 | Validación | HTTP/HTTPS, HTML, PNG y JSON: `200` | HTML, PNG y JSON: `200`; servicios enlazados sanos |
 
-Validación final: **29/08/2026**. GitHub y el checkout local coincidieron en el SHA indicado; ambos catálogos desplegados respondieron `200` y conservaron exactamente el contenido versionado.
+Aquella validación se realizó el **29/08/2026**. GitHub y el checkout local coincidieron entonces en el SHA indicado; ambos catálogos desplegados respondieron `200`. El SHA de la tabla no representa el estado Nexus actual.
+
+## Catálogo Nexus vigente · 04/10/2026
+
+El [PR #19](https://github.com/ratienza/Apps_Lauch/pull/19) de `ratienza/Apps_Lauch` se integró con CI verde en `main@27a1a179158f874dea52a2748f1bcd20c2091c6a`. El checkout Nexus coincide con ese SHA; el catálogo servido y su script de verificación respondieron HTTP `200`. La tarjeta **Cartera Estratégica v2.0.0** abre su hostname protegido; el enlace secundario **Documentación** abre directamente la ficha vigente. Se comprobó el clic en navegador y la URL de destino. La ruta LAN de Cartera `:8085` sigue disponible por separado. Esta comprobación no revalida el despliegue público de DigitalOcean ni una sesión autenticada de Cloudflare Access.
 
 ## Arquitectura y funcionamiento
 
