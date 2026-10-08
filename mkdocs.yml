@@ -34,6 +34,7 @@ nav:
       - CV de Raúl: aplicaciones/cv-raul.md
       - Control de Red: aplicaciones/control-red.md
       - Cartera Estratégica: aplicaciones/cartera-estrategica.md
+      - CryptoWallet: aplicaciones/cryptowallet.md
       - Replicant Lab: aplicaciones/replicant-lab.md
   - Gobierno del trabajo:
       - Flujo Work–Codex–Git: gobierno/flujo-work-codex-git.md
@@ -43,10 +44,12 @@ nav:
       - GOV-001: encargos/GOV-001.md
       - RL-CF-002: encargos/RL-CF-002.md
       - RL-CE-DOC-001: encargos/RL-CE-DOC-001.md
+      - RL-CW-DOC-001: encargos/RL-CW-DOC-001.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Change Log:
       - Índice: cambios/index.md
+      - 8 de octubre de 2026: cambios/2026-10-08.md
       - 4 de octubre de 2026: cambios/2026-10-04.md
       - 13 de septiembre de 2026: cambios/2026-09-13.md
       - 12 de septiembre de 2026: cambios/2026-09-12.md
@@ -60,6 +63,7 @@ nav:
   - Pendientes:
       - Resumen: pendientes/index.md
       - Cartera Estratégica: pendientes/cartera-estrategica.md
+      - CryptoWallet: pendientes/cryptowallet.md
       - PULA: pendientes/pula.md
       - CV / Firebase: pendientes/cv-firebase.md
       - Control de Red: pendientes/control-red.md

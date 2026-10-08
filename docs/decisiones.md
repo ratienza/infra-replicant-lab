@@ -30,7 +30,19 @@ Registro corto de decisiones que no conviene redescubrir.
 | Consumos Cupra usa Cloud Run | La cadena canónica es GitHub → Cloud Build → Artifact Registry → Cloud Run; DigitalOcean y Nexus no son su producción |
 | CV usa Firebase Hosting | La producción observada pertenece al proyecto `replicant-lab`; el Cloud Run placeholder no es producción |
 
-| Cloudflare Tunnel saliente para servicios Nexus | Un único Tunnel `replicant-launch` publica Launch, Salones, Docs, Pádel, Red y Cartera sin abrir puertos entrantes en el router |
+| Cloudflare Tunnel saliente para servicios Nexus | Un único Tunnel `replicant-launch` publica Launch, Salones, Docs, Pádel, Red, Cartera y los dos entornos CryptoWallet sin abrir puertos entrantes en el router |
 | Cloudflare Access + Google por hostname | El Tunnel solo transporta tráfico; cada hostname tiene aplicación y política `Allow` independientes, sin `Bypass`; Cartera añade OIDC interno y PIN |
 | Authentik opcional | Se reserva para necesidades futuras de identidad independiente o políticas complejas; no añade contenedores ahora |
 | Nexus y DigitalOcean no se sustituyen | Nexus publica Lab/demos; el VPS conserva producción 24×7 y el Launch duplicado no se retira sin auditoría |
+
+## CryptoWallet V1.0 · 08/10/2026
+
+| Decisión | Motivo |
+|---|---|
+| Producción privada CryptoWallet en Nexus | Entorno aprobado del artefacto; no trasladar a DigitalOcean por una regla genérica |
+| Orígenes CryptoWallet solo localhost 8516/8517 | Acceso externo protegido sin exponer puerto directo en LAN |
+| Producción, previa real y demo sintética independientes | Pruebas ficticias sin efecto en cartera real; no sincronización implícita |
+| Apertura inmutable + confirmaciones nuevas | Conservar cierres aceptados, FIFO y trazabilidad |
+| Recuperación de código compatible sin sobrescribir datos | No perder operaciones posteriores a la copia de aceptación |
+| Importación funcional CSV/Excel en V2 | Pantalla de consulta no equivale a importación operativa |
+| Manual funcional en repositorio privado | Infra público sin información financiera, datos ni ubicaciones de backups |

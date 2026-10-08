@@ -42,7 +42,7 @@ Manual vivo de la infraestructura local y cloud del laboratorio: qué existe, d�
   <text x="912" y="294" text-anchor="middle" class="rs">Servicios públicos / 24×7</text>
   <rect x="360" y="380" width="240" height="70" rx="14" class="rb"/>
   <text x="480" y="410" text-anchor="middle" class="rt">Docker Apps</text>
-  <text x="480" y="435" text-anchor="middle" class="rs">Salones · Reservas · Red · Cartera</text>
+  <text x="480" y="435" text-anchor="middle" class="rs">Apps privadas · Cartera · CryptoWallet</text>
   <line x1="245" y1="80" x2="330" y2="80" class="rl"/>
   <line x1="140" y1="125" x2="150" y2="205" class="rl"/>
   <line x1="275" y1="260" x2="360" y2="260" class="rl"/>
@@ -101,12 +101,13 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Docker / Compose | ✅ Operativo |
 | GitHub desde Nexus | ✅ Operativo |
 | App Launch | ✅ LAN Nexus `80` + DigitalOcean; ✅ ruta externa Cloudflare para Nexus |
-| Cloudflare Tunnel | ✅ Launch, Salones, Docs, Pádel, Red y Cartera mediante `replicant-launch`; Google + Access por hostname |
+| Cloudflare Tunnel | ✅ Servicios históricos + producción/previa CryptoWallet mediante `replicant-launch`; Google + Access por hostname |
 | Puerto `8080` | ✅ Libre y no asignado |
 | Salones AV | ✅ Operativa en Nexus · `8081` · Git/Nexus reconciliados en `8c0bc08` |
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ [v2.0.0 productiva](aplicaciones/cartera-estrategica.md) · Nexus `8085` · OAuth interno + PIN · Indexa API oficial |
+| CryptoWallet | ✅ [V1.0 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · previa independiente `8517` · importación nueva V2 |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
@@ -133,3 +134,7 @@ Los estados distinguen entre contenido **implementado en Git**, **probado localm
 ## Publicación externa del Lab
 
 `launch.thereplicantlab.com` y los hostnames de Salones, Docs, Pádel, Red y Cartera publican servicios Nexus mediante un único Cloudflare Tunnel, DNS y HTTPS. Google identifica y Access autoriza por aplicación; Cartera añade Google OIDC interno y PIN; `cloudflared` mantiene la conexión saliente sin abrir puertos en el router. Los accesos LAN por IP y puerto permanecen sin cambios.
+
+## CryptoWallet · cierre V1.0
+
+Aceptada y promovida el 08/10/2026: funcionalidades principales, estética y apertura consolidada. Producción y previa separadas, ambos orígenes solo localhost; nuevos movimientos de prueba exclusivamente en la demo sintética de la previa. [Ficha](aplicaciones/cryptowallet.md), [pendientes V2](pendientes/cryptowallet.md) y [registro de cierre](cambios/2026-10-08.md). La documentación pública no incluye cartera ni respaldos privados.

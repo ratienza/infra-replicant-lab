@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
   <meta name="source-fingerprint" content="sha256:c9eb2cf916b24a57ef9eea5f5c385d1fe0109c3ad1c77cf5f93b1da0fd82bb12">
-  <title>App Launch · Ficha técnica · c9eb2cf916b2</title>
+  <title>CryptoWallet · Ficha técnica · c9eb2cf916b2</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -158,120 +158,105 @@ tr:nth-child(even) td { background: #fafcfd; }
 <body>
   <header class="cover">
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
-    <h1>App Launch</h1>
+    <h1>CryptoWallet</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/app-launch.md</dd><dt>Versión reproducible</dt><dd>sha256:c9eb2cf916b24a57ef9eea5f5c385d1fe0109c3ad1c77cf5f93b1da0fd82bb12</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cryptowallet.md</dd><dt>Versión reproducible</dt><dd>sha256:c9eb2cf916b24a57ef9eea5f5c385d1fe0109c3ad1c77cf5f93b1da0fd82bb12</dd></dl>
   </header>
   <main class="portable-main">
-    <section class="doc-page is-active" data-source="aplicaciones/app-launch.md">
-      <p class="source-path">aplicaciones/app-launch.md</p>
-      <div class="doc-content"><h1 id="p1-aplicacion-app-launch">Aplicación · App Launch</h1>
-<p>Catálogo <strong>multientorno</strong> y capa de navegación para acceder a aplicaciones públicas y servicios internos. Se publica en Nexus y DigitalOcean; la presentación es común, pero cada entorno puede recibir un catálogo diferente. App Launch no es el runtime de las aplicaciones enlazadas.</p>
+    <section class="doc-page is-active" data-source="aplicaciones/cryptowallet.md">
+      <p class="source-path">aplicaciones/cryptowallet.md</p>
+      <div class="doc-content"><h1 id="p1-aplicacion-cryptowallet">Aplicación · CryptoWallet</h1>
+<p>CryptoWallet <strong>V1.0</strong> fue aceptada por Raúl y promovida a producción privada el <strong>08/10/2026</strong>. Funcionalidad principal, estética y apertura financiera consolidada están cerradas. Nexus ejecuta esta producción; la previa conserva un entorno independiente.</p>
 <h2 id="p1-accesos">Accesos</h2>
 <ul>
-<li><strong>Ficha técnica:</strong> <a href="https://docs.thereplicantlab.com/downloads/apps/app-launch.html">HTML autocontenido</a></li>
-<li><strong>Aplicación / Nexus:</strong> <a href="http://192.168.18.220/">App Launch interno</a></li>
-<li><strong>Aplicación / producción:</strong> <a href="https://app.raulatienza.com/">App Launch público</a></li>
-<li><strong>Cartera Estratégica / Nexus:</strong> <a href="http://192.168.18.220:8085/">Aplicación LAN</a></li>
+<li><strong>Producción protegida:</strong> <a href="https://cryptowallet.thereplicantlab.com/">CryptoWallet</a>.</li>
+<li><strong>Previa protegida:</strong> <a href="https://cryptowallet-preview.thereplicantlab.com/">Revisión independiente</a>.</li>
+<li><strong>Pruebas de operaciones:</strong> <a href="https://cryptowallet-preview.thereplicantlab.com/?datos=sinteticos">Demo ficticia aislada de la previa</a>.</li>
+<li><strong>Ficha técnica:</strong> <a href="https://docs.thereplicantlab.com/downloads/apps/cryptowallet.html">HTML autocontenido</a> · <a href="https://docs.thereplicantlab.com/downloads/apps/cryptowallet.pdf">PDF</a>.</li>
+<li><strong>Documentación funcional/técnica:</strong> <a href="https://github.com/ratienza/cryptowallet/tree/main/docs/v1">Índice V1.0</a>, repositorio privado.</li>
+<li><strong>Código y release:</strong> <a href="https://github.com/ratienza/cryptowallet/tree/v1.0.0">ratienza/cryptowallet · v1.0.0</a>.</li>
+<li><strong>App Launch:</strong> tarjeta productiva existente en el catálogo Nexus. El catálogo no ejecuta la aplicación.</li>
 </ul>
-<h2 id="p1-estado-historico-auditado-29082026">Estado histórico auditado · 29/08/2026</h2>
+<h2 id="p1-estado-validado">Estado validado</h2>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
-<th>DigitalOcean</th>
-<th>Nexus</th>
+<th>Estado</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Desarrollo</td>
-<td>Codex · HTML/CSS/JavaScript</td>
-<td>Mismo origen</td>
+<td>Producto</td>
+<td>V1.0 aceptada; PR #3 fusionado por squash, sin revisión funcional pendiente</td>
 </tr>
 <tr>
-<td>Repositorio</td>
-<td><code>ratienza/Apps_Lauch</code> · <code>main</code> · <code>bf6ba47</code></td>
-<td>Mismo origen</td>
+<td>Código ejecutable</td>
+<td><code>5e7c3d79c0a6d66f8d6825be965de92d0420b196</code></td>
 </tr>
 <tr>
-<td>URL</td>
-<td><code>http://app.raulatienza.com</code> y <code>https://app.raulatienza.com</code></td>
-<td><code>http://192.168.18.220</code></td>
+<td>Tag funcional</td>
+<td><code>v1.0.0</code> en <code>2dd0eab5d820fa3ea98cd7054bc87885738c4e56</code>; documentación posterior no cambia ejecutable</td>
 </tr>
 <tr>
-<td>Publicación</td>
-<td>Nginx del host · <code>/opt/portal</code></td>
-<td>Compose <code>app-launch</code> · Nginx <code>1.27-alpine</code></td>
+<td>Imagen productiva</td>
+<td><code>cryptowallet:1.0.0-5e7c3d79</code></td>
 </tr>
 <tr>
-<td>Puerto</td>
-<td><code>80/443</code>, sin puerto explícito</td>
-<td><code>80 → 80/tcp</code></td>
+<td>Runtime</td>
+<td>Nexus · Docker Compose · contenedor <code>cryptowallet-app</code></td>
 </tr>
 <tr>
-<td>Catálogo activo</td>
-<td><code>catalogs/public.json → apps.json</code></td>
-<td><code>catalogs/nexus.json → apps.json</code></td>
+<td>Origen productivo</td>
+<td><code>127.0.0.1:8516 → 8501</code>; sin acceso directo por IP LAN</td>
 </tr>
 <tr>
-<td>Validación</td>
-<td>HTTP/HTTPS, HTML, PNG y JSON: <code>200</code></td>
-<td>HTML, PNG y JSON: <code>200</code>; servicios enlazados sanos</td>
+<td>Previa</td>
+<td><code>cryptowallet-preview-app</code> · <code>127.0.0.1:8517 → 8501</code>; datos independientes</td>
+</tr>
+<tr>
+<td>Persistencia</td>
+<td>SQLite y conjunto privado fuera de Git y del contenedor</td>
+</tr>
+<tr>
+<td>Seguridad</td>
+<td>Cloudflare Access/Tunnel, usuario no root, raíz de solo lectura y montaje real único</td>
+</tr>
+<tr>
+<td>Recuperación</td>
+<td>Copia consistente de aceptación verificada en Nexus y segunda ubicación privada</td>
+</tr>
+<tr>
+<td>Pruebas de entrega</td>
+<td>339 superadas en local e imagen aceptada de Nexus; comparación financiera de solo lectura</td>
+</tr>
+<tr>
+<td>Observación 08/10</td>
+<td>Ambos contenedores saludables; ambos hostnames redirigen a Access sin sesión</td>
 </tr>
 </tbody>
 </table>
-<p>Aquella validación se realizó el <strong>29/08/2026</strong>. GitHub y el checkout local coincidieron entonces en el SHA indicado; ambos catálogos desplegados respondieron <code>200</code>. El SHA de la tabla no representa el estado Nexus actual.</p>
-<h2 id="p1-catalogo-nexus-vigente-04102026">Catálogo Nexus vigente · 04/10/2026</h2>
-<p>El <a href="https://github.com/ratienza/Apps_Lauch/pull/19">PR #19</a> de <code>ratienza/Apps_Lauch</code> se integró con CI verde en <code>main@27a1a179158f874dea52a2748f1bcd20c2091c6a</code>. El checkout Nexus coincide con ese SHA; el catálogo servido y su script de verificación respondieron HTTP <code>200</code>. La tarjeta <strong>Cartera Estratégica v2.0.0</strong> abre su hostname protegido; el enlace secundario <strong>Documentación</strong> abre directamente la ficha vigente. Se comprobó el clic en navegador y la URL de destino. La ruta LAN de Cartera <code>:8085</code> sigue disponible por separado. Esta comprobación no revalida el despliegue público de DigitalOcean ni una sesión autenticada de Cloudflare Access.</p>
-<h2 id="p1-arquitectura-y-funcionamiento">Arquitectura y funcionamiento</h2>
-<p><code>index.html</code> carga <code>./apps.json</code> en tiempo de ejecución y crea las tarjetas mediante nodos DOM. Nombre, descripción y acción se asignan con <code>textContent</code>; el manifiesto no se interpreta como HTML.</p>
-<p>El despliegue publica solo <code>index.html</code>, el fondo y el catálogo seleccionado renombrado como <code>apps.json</code>. DigitalOcean no recibió <code>catalogs/nexus.json</code>, direcciones <code>192.168.18.220</code>, puertos <code>8081–8083</code> ni nombres exclusivos del laboratorio.</p>
-<p>En Nexus el contenedor monta en solo lectura:</p>
-<div class="highlight"><pre><span></span><code>/home/raul/app-launch/site       → /usr/share/nginx/html
-/home/raul/app-launch/nginx.conf → /etc/nginx/conf.d/default.conf
-</code></pre></div>
-<p>Usa una red Compose propia, no tiene persistencia funcional y se recupera con <code>restart: unless-stopped</code>.</p>
-<h2 id="p1-catalogos-y-capsulas-comprobados">Catálogos y cápsulas comprobados</h2>
-<p>El catálogo público contiene Reservas, Consumos Cupra, Multimedia VPalace, CV y PULA. El catálogo Nexus incorpora además la tarjeta <strong>Cartera Estratégica v2.0.0</strong>, que abre el acceso público protegido y enlaza directamente su <a href="https://docs.thereplicantlab.com/aplicaciones/cartera-estrategica/">ficha vigente</a>; la URL LAN de la misma aplicación sigue siendo <code>http://192.168.18.220:8085/</code>. También incluye Replicant Lab, ErasmusHomes · Control del MVP, Control de Red, Reservas, Multimedia VPalace y enlaces externos a Consumos, CV y PULA. En ambos catálogos PULA apunta a <code>https://pula-erasmus-housing-automator.ai.studio/</code>.</p>
-<p>Las tarjetas usan la acción uniforme <strong>Entrar</strong> y cápsulas breves: <code>NEXUS</code>, <code>DIGITAL</code> o <code>REPLICANT</code> indican ubicación; el resto describe tecnologías relevantes, como <code>DOCKER</code>, <code>NGINX</code>, <code>PYTHON</code>, <code>FIREBASE APP HOSTING</code>, <code>CLOUD RUN</code> o <code>POWERSHELL</code>. CV se presenta correctamente como <strong>Firebase App Hosting</strong> sobre Cloud Run. Las cápsulas son informativas, no healthchecks.</p>
-<p><strong>ErasmusHomes · Control del MVP</strong> abre su panel derivado dentro del runtime documental de Replicant Lab. <strong>Control de Red</strong> aparece únicamente en Nexus: <code>Entrar</code> abre su demo Docker read-only mediante <code>red.thereplicantlab.com</code> y el acceso secundario abre la ficha técnica protegida en <code>docs.thereplicantlab.com</code>. El panel operativo y su inventario siguen siendo locales de Replicant/Windows. Un enlace presente en un catálogo no implica que su aplicación se ejecute en el host del launcher.</p>
-<p><strong>Cartera Estratégica</strong> aparece únicamente en el catálogo Nexus. Su tarjeta enlaza el hostname protegido por Cloudflare Access; la ruta LAN <code>:8085</code> permanece accesible por separado. La ficha y sus portables se publican mediante Replicant Lab, no dentro del contenedor de Cartera.</p>
-<div class="admonition important">
-<p class="admonition-title">Regla</p>
-<p><code>Tarjeta App Launch ≠ Runtime local</code>.</p>
-</div>
-<h2 id="p1-actualizacion-y-rollback">Actualización y rollback</h2>
-<div class="highlight"><pre><span></span><code><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">deploy</span><span class="p">\</span><span class="n">deploy</span><span class="p">.</span><span class="n">ps1</span> <span class="n">-Target</span> <span class="n">public</span>
-<span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">deploy</span><span class="p">\</span><span class="n">verify</span><span class="p">.</span><span class="n">ps1</span> <span class="n">-Target</span> <span class="n">public</span>
-<span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">deploy</span><span class="p">\</span><span class="n">deploy</span><span class="p">.</span><span class="n">ps1</span> <span class="n">-Target</span> <span class="n">nexus</span>
-<span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">deploy</span><span class="p">\</span><span class="n">verify</span><span class="p">.</span><span class="n">ps1</span> <span class="n">-Target</span> <span class="n">nexus</span>
-</code></pre></div>
-<p>La actualización permanente debe partir de <code>main</code>. Para rollback se revierte el cambio en Git mediante una rama/PR y se vuelve a desplegar el destino afectado; no se copian ficheros desde un host hacia GitHub.</p>
-<h2 id="p1-flujo-de-cambio">Flujo de cambio</h2>
-<div class="highlight"><pre><span></span><code>catálogos versionados → validación local → rama/PR/checks → main → despliegue del destino → verify.ps1
-</code></pre></div>
-<p><code>catalogs/inventory.json</code> protege el inventario esperado y <code>scripts/validate_catalogs.py</code> evita deriva entre los catálogos, enlaces, acciones y cápsulas. Todo cambio debe validar el destino público y/o Nexus que alcance; el flujo general de gobierno permanece en <a href="https://docs.thereplicantlab.com/gobierno/flujo-work-codex-git/">Work–Codex–Git</a>.</p>
-<h2 id="p1-seguridad-y-limites">Seguridad y límites</h2>
-<ul>
-<li>El repositorio no contiene claves ni configuración local real; <code>deploy/local.settings.psd1</code> está ignorado.</li>
-<li>La portada pública no solicita contraseña. La autenticación pertenece a cada aplicación enlazada.</li>
-<li>Nexus es HTTP de LAN; no se declara HTTPS interno.</li>
-<li>El puerto <code>8080</code> está libre y no pertenece a App Launch.</li>
-<li>El despliegue público conserva algunos assets PWA históricos no versionados en <code>/opt/portal/assets</code>; no intervienen en la portada actual y quedan como deriva a limpiar solo mediante un cambio Git deliberado.</li>
-</ul>
-<h2 id="p1-pruebas-realizadas">Pruebas realizadas</h2>
-<ul>
-<li>Verificación versionada <code>public</code>: catálogo exacto, ausencia de referencias Nexus y HTTP/HTTPS correctos.</li>
-<li>Verificación versionada <code>nexus</code>: catálogo exacto y salud HTTP de <code>8081</code>, <code>8082</code> y <code>8083</code>.</li>
-<li><code>nginx -t</code> correcto en DigitalOcean.</li>
-<li>Comprobación visual automatizada de escritorio y móvil incluida en el cierre documental.</li>
-</ul>
-<h2 id="p1-acceso-externo-mediante-cloudflare">Acceso externo mediante Cloudflare</h2>
-<p>Además del acceso LAN, App Launch de Nexus está publicado en <code>https://launch.thereplicantlab.com/</code> mediante el Tunnel <code>replicant-launch</code> hacia <code>http://localhost:80</code>. La conexión se inicia desde Nexus y no abre puertos en el router. La ruta respondió HTTP <code>200</code> el 06/09/2026.</p>
-<p>El acceso externo exige Google mediante Cloudflare Access. App Launch no guarda usuarios ni autoriza aplicaciones: cada hostname publicado tiene su propia aplicación y política Access. Salones, documentación, Pádel y Control de Red se publican con el mismo Tunnel; el PR <code>Apps_Lauch#15</code> ya fusionado incorporó sus URLs protegidas, observadas también en el catálogo servido el 08/10/2026. El Launch de DigitalOcean sigue existente y no se retira en esta fase.</p>
-<h2 id="p1-cryptowallet-y-catalogo-observado-08102026">CryptoWallet y catálogo observado · 08/10/2026</h2>
-<p>El catálogo Nexus servido contiene diez tarjetas y ya abre <code>https://cryptowallet.thereplicantlab.com/</code>. CryptoWallet V1.0 es producción privada independiente de su previa; <a href="https://docs.thereplicantlab.com/aplicaciones/cryptowallet/">ficha vigente</a>. La descripción del catálogo aún habla de borradores y falta el enlace secundario a la ficha: ajuste de metadatos pendiente en App Launch. Este cierre no modifica catálogo ni despliega Launch; no afirma que sus archivos locales coincidan por completo con Git. Checkout Nexus en <code>27a1a179158f874dea52a2748f1bcd20c2091c6a</code>, con archivos operativos locales no versionados conservados.</p></div>
+<p>No se publican bases, importes, lotes reales, originales, capturas, manifiestos financieros, credenciales ni ubicaciones privadas de respaldos en este repositorio público.</p>
+<h2 id="p1-funcionalidades-aceptadas">Funcionalidades aceptadas</h2>
+<p>Dashboard, Cartera actual, Logbook, Tokens y Configuración mantienen temas, privacidad y USD/EUR. Dashboard distingue BTC, Altcoins, <strong>Liquidez</strong> y <strong>Patrimonio</strong>. Liquidez presenta <strong>Total → Estables → FIAT</strong>, identifica Stable Coin por marca del catálogo y conserva la valoración disponible sin asumir paridad.</p>
+<p>Cartera conserva la tabla financiera, cobertura, lotes y procedencia; gráficos preceden a la tabla. Tokens añade composición por custodia y red. Cantidades aparecen en las ayudas del Dashboard respetando privacidad.</p>
+<p>Compras, ventas, rotaciones, depósitos/retiradas fiat y traslados propios <strong>contabilizan al confirmar</strong>. Guardar borrador no mueve saldo/FIFO. Formularios compactos con grupos, cálculos editables, porcentajes de venta por custodia y rotación con precio/cantidad destino recíprocos. Revisar operación muestra bruto/neto, comisiones, referencias, saldos y efectos FIFO.</p>
+<p>P&amp;G comparable usa coste y valor de las mismas unidades. xN conserva esa cobertura. P&amp;G realizado se distingue del principal retirado en fiat. Valoración EUR de pantalla no constituye base fiscal histórica.</p>
+<h2 id="p1-arquitectura-y-acceso">Arquitectura y acceso</h2>
+<p>Python/Streamlit consume la apertura aceptada, catálogo y confirmaciones nuevas. El motor Decimal valida disponibilidad física por custodia y FIFO global del titular por activo. La apertura permanece inmutable; nuevas confirmaciones transaccionales e idempotentes conservan cadena de huellas y revisión.</p>
+<p>La ruta externa pasa por Cloudflare Access y el Tunnel saliente de Nexus. Los orígenes productivo y previo están ligados a localhost. El modo de privacidad es visual; V1.0 no añade OAuth/PIN internos como los de Cartera Estratégica.</p>
+<p>Producción monta únicamente el conjunto real. La demo sintética se monta solo en la previa; no sigue ni se mezcla con producción. La copia real de la previa tampoco se sincroniza con las confirmaciones productivas posteriores.</p>
+<h2 id="p1-datos-y-proteccion">Datos y protección</h2>
+<p>Originales importados y operaciones contabilizadas están protegidos sin edición/borrado. Los borradores manuales pueden editarse o retirarse de forma recuperable. La primera confirmación real crea la base financiera nueva si aún no existe: una ausencia inicial no se subsana inventando operaciones.</p>
+<p>Costes e ingresos desconocidos mantienen cobertura explícita. CW-004 permanece cerrado, el regalo PEPE sigue excluido y los límites históricos aceptados de TAO no se rellenan con cero ni nuevos supuestos.</p>
+<h2 id="p1-operacion-segura-y-rollback">Operación segura y rollback</h2>
+<p>Antes de un cambio funcional, identificar imagen/esquema y conjunto vivo, detener escrituras para obtener un corte coherente, usar backup SQLite consistente y preservar catálogo, apertura, permiso, borradores y decisiones. Verificar integridad, huellas y restauración aislada; no basta copiar un archivo activo ignorando WAL.</p>
+<p>Después del cambio, comprobar imagen aprobada, mismo montaje real, bind localhost, salud Streamlit, cadena y comparación financiera. El procedimiento completo vive en el repositorio privado. La publicación documental recrea únicamente el sitio de Replicant Lab; no reinicia CryptoWallet.</p>
+<p><strong>Rollback de código y recuperación de datos son decisiones distintas.</strong> Tras nuevas confirmaciones reales, la versión antigua sin motor no es compatible: conservar conjunto vivo y usar imagen de esquema 1 compatible o reparación hacia delante. No restaurar la apertura perdiendo movimientos posteriores. La copia de aceptación es puntual, no un backup automático; la previa no es una réplica de recuperación.</p>
+<h2 id="p1-pendientes-y-limites">Pendientes y límites</h2>
+<p><a href="https://docs.thereplicantlab.com/pendientes/cryptowallet/">Importación funcional CSV/Excel y reconciliación nueva</a> quedan para <strong>V2</strong>. V1.0 permite consultar trazabilidad, pero no importar nuevos archivos desde la pantalla. OAuth/PIN internos, respaldo funcional y preventas están aplazados.</p>
+<p>No hay bridge/cambio de red, edición/reversión de contabilizadas ni inserción anterior a apertura/última confirmación. No se declara conformidad fiscal nueva. Estos límites no reabren la aceptación V1.0.</p>
+<p>La revisión documental confirma runtime y redirección Access, no el contenido actual de todas las políticas del panel Cloudflare ni una nueva prueba autenticada móvil. <a href="https://docs.thereplicantlab.com/red/cloudflare-tunnel/">Cloudflare</a> distingue la evidencia histórica, la observación actual y esos controles pendientes.</p></div>
     </section>
   </main>
   <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:c9eb2cf916b24a57ef9eea5f5c385d1fe0109c3ad1c77cf5f93b1da0fd82bb12</footer>

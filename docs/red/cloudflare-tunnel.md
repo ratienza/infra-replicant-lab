@@ -3,9 +3,9 @@
 Guía canónica de publicación externa de Replicant Lab. Documenta el estado implantado de **Cloudflare Tunnel + Cloudflare Access + Google IdP** para servicios seleccionados de Nexus.
 
 !!! success "Estado vigente"
-    **Implementado:** un único Tunnel `replicant-launch`, seis hostnames públicos, Google como IdP y una aplicación/política Access independiente por hostname.
+    **Implementado:** un único Tunnel `replicant-launch`, seis hostnames históricos y los accesos protegidos de producción/previa CryptoWallet. Google y separación de políticas constan en RL-CF-002; la observación actual confirma redirección Access de los dos nuevos hostnames, sin inspección administrativa de sus políticas.
 
-    **Pendiente operativo:** merge/despliegue del catálogo Nexus corregido en `Apps_Lauch#15`, prueba autenticada desde móvil de cada aplicación y monitorización/alertas del Tunnel.
+    **Pendiente operativo:** prueba autenticada desde móvil por hostname, comprobación administrativa de nuevos accesos, monitorización/alertas y recuperación del Tunnel. `Apps_Lauch#15` ya está fusionado y sus enlaces protegidos figuran en el catálogo servido.
 
     **No implantado:** Authentik. Se conserva únicamente como posible evolución futura.
 
@@ -18,23 +18,16 @@ Publicar servicios de Nexus desde Internet sin abrir puertos entrantes en el rou
 ## Arquitectura
 
 ```mermaid
-flowchart LR
-    U["Usuario externo"] --> CF["Cloudflare<br/>DNS + HTTPS"]
-    CF --> A["Cloudflare Access<br/>autorización"]
-    A --> G["Google IdP<br/>autenticación"]
-    G --> A
-    A --> T["Tunnel<br/>replicant-launch"]
-    T --> F["cloudflared<br/>Nexus"]
-
-    F --> L["Launch :80"]
-    F --> S["Salones :8081"]
-    F --> D["Docs :8082"]
-    F --> P["Pádel :8083"]
-    F --> R["Red :8084"]
-    F --> C["Cartera :8085"]
-    C --> O["OIDC interno → PIN"]
-
-    RT["Router doméstico<br/>sin port forwarding"] -. no publica .-> F
+flowchart TB
+    U["Usuario externo"] --> C["Cloudflare DNS y HTTPS"]
+    C --> A["Access: política del hostname"]
+    A <--> G["Google IdP"]
+    A --> T["Tunnel replicant-launch"]
+    T --> F["cloudflared en Nexus"]
+    F --> L["Launch y documentación"]
+    F --> S["Salones, Pádel y Red"]
+    F --> E["Cartera: 8085, OIDC y PIN"]
+    F --> W["CryptoWallet: 8516 y previa 8517"]
 ```
 
 ### Regla esencial
@@ -53,8 +46,10 @@ Compartir Tunnel tampoco comparte permisos: cada hostname tiene una aplicación 
 | Replicant Padel | `padel.thereplicantlab.com` | `http://192.168.18.220:8083` |
 | Replicant Red | `red.thereplicantlab.com` | `http://192.168.18.220:8084` |
 | Cartera Estratégica | `cartera.thereplicantlab.com` | `http://192.168.18.220:8085` |
+| CryptoWallet producción · acceso protegido observado | `cryptowallet.thereplicantlab.com` | `http://127.0.0.1:8516` |
+| CryptoWallet previa · acceso protegido observado | `cryptowallet-preview.thereplicantlab.com` | `http://127.0.0.1:8517` |
 
-Configuración registrada en RL-CF-002:
+Configuración histórica registrada en RL-CF-002 para los seis servicios originales (no certifica por extrapolación los valores actuales de CryptoWallet):
 
 - un único Tunnel: `replicant-launch`;
 - CNAME proxied para los seis hostnames;
@@ -117,7 +112,7 @@ Para una aplicación alojada fuera de Nexus hay que diseñar su protección de f
 cloudflared --version
 systemctl is-active cloudflared
 systemctl is-enabled cloudflared
-systemctl status cloudflared --no-pager
+systemctl show cloudflared -p ActiveState -p SubState
 
 curl -I http://localhost:80/
 curl -I https://launch.thereplicantlab.com/
@@ -161,14 +156,15 @@ El token es secreto: se utiliza únicamente mediante el mecanismo seguro de inst
 - [x] Orígenes Nexus responden en LAN.
 - [x] Launch autenticado registrado correctamente en Access.
 - [x] Router sin port forwarding para esta arquitectura.
-- [ ] Merge y despliegue de `Apps_Lauch#15`.
-- [ ] Prueba autenticada desde móvil de Launch, Salones, Docs, Pádel y Red tras desplegar el catálogo.
+- [x] `Apps_Lauch#15` fusionado; enlaces protegidos observados en el catálogo servido el 08/10/2026.
+- [ ] Prueba autenticada desde móvil de cada hostname, incluidos Cartera y ambos entornos CryptoWallet.
+- [ ] Revisar en panel administrativo las políticas, IdP, sesión y ausencia de Bypass de los nuevos hostnames; no inferirlo solo de HTTP 302.
 - [ ] Monitorización y alertas del Tunnel.
 - [ ] Procedimiento de recuperación probado después de reinicio controlado.
 
 ### Secuencia inicial preservada de Launch
 
-La implantación inicial quedó documentada antes de ampliar el Tunnel a los cinco hostnames actuales:
+La implantación inicial quedó documentada antes de las ampliaciones posteriores; la referencia a cinco hostnames de esa secuencia es histórica:
 
 1. La versión 2 de la configuración contenía dos reglas idénticas para `launch.thereplicantlab.com`.
 2. La versión 3 eliminó la duplicada y conservó una sola ruta hacia `http://localhost:80`.
@@ -221,3 +217,9 @@ El App Launch de DigitalOcean permanece operativo hasta que exista una auditorí
 - [Host · Nexus](../hosts/nexus.md)
 - [Aplicación · App Launch](../aplicaciones/app-launch.md)
 - [Encargo RL-CF-002](../encargos/RL-CF-002.md)
+
+## CryptoWallet · comprobación 08/10/2026
+
+Producción V1.0 y previa responden mediante hostnames distintos; sin sesión ambas rutas devuelven HTTP 302 hacia Access. Contenedores saludables y orígenes loopback `8516/8517` comprobados en Nexus; cloudflared activo/habilitado. Esta revisión no modifica DNS, ingress, Access o Tunnel ni lee tokens. No se afirma una nueva prueba autenticada móvil ni los parámetros exactos de las políticas sin panel administrativo.
+
+A diferencia de los servicios LAN anteriores, estos orígenes no admiten acceso directo desde la LAN por IP. CryptoWallet no incorpora OIDC/PIN internos en V1.0. [Ficha vigente](../aplicaciones/cryptowallet.md) y [límites V2](../pendientes/cryptowallet.md).

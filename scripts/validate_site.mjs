@@ -34,12 +34,15 @@ const routes = [
   { route: "/aplicaciones/cv-raul/", name: "cv", diagrams: 0 },
   { route: "/aplicaciones/control-red/", name: "control-red", diagrams: 0 },
   { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 2 },
+  { route: "/aplicaciones/cryptowallet/", name: "cryptowallet", diagrams: 0 },
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control", diagrams: 0 },
   { route: "/control/erasmushomes/", name: "erasmushomes-standalone", diagrams: 0 },
   { route: "/pendientes/", name: "pending", diagrams: 0 },
+  { route: "/pendientes/cryptowallet/", name: "pending-cryptowallet", diagrams: 0 },
   { route: "/pendientes/cv-firebase/", name: "pending-detail", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
+  { route: "/cambios/2026-10-08/", name: "changelog-cryptowallet", diagrams: 0 },
   { route: "/cambios/2026-09-12/", name: "changelog-cartera", diagrams: 0 },
   { route: "/cambios/2026-09-06/", name: "changelog-cloudflare", diagrams: 0 },
   { route: "/cambios/2026-08-29/", name: "changelog-current", diagrams: 0 },
@@ -57,6 +60,7 @@ const routes = [
   { route: "/encargos/", name: "engagements", diagrams: 0 },
   { route: "/encargos/TEMPLATE/", name: "engagement-template", diagrams: 0 },
   { route: "/encargos/GOV-001/", name: "gov-001", diagrams: 0 },
+  { route: "/encargos/RL-CW-DOC-001/", name: "rl-cw-doc-001", diagrams: 0 },
   { route: "/encargos/RL-CE-DOC-001/", name: "rl-ce-doc-001", diagrams: 0 },
 ];
 
@@ -118,7 +122,7 @@ for (const item of routes) {
       table: document.querySelector("main table")?.textContent ?? "",
       postCartera: document.querySelector("main")?.textContent.includes("POST-CARTERA") ?? false,
     }));
-    const required = ["Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch", "Cloudflare Tunnel"];
+    const required = ["CryptoWallet", "Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch", "Cloudflare Tunnel"];
     if (!required.every(value => pendingSummary.table.includes(value)) || !pendingSummary.postCartera) {
       failures.push(`${item.route}: incomplete pending summary ${JSON.stringify(pendingSummary)}`);
     }
@@ -128,7 +132,7 @@ for (const item of routes) {
       left: [...document.querySelectorAll(".md-sidebar--primary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
       right: [...document.querySelectorAll(".md-sidebar--secondary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
     }));
-    const expectedLeft = ["Resumen", "Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
+    const expectedLeft = ["Resumen", "CryptoWallet", "Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
     if (!expectedLeft.every(value => navigation.left.includes(value))) failures.push(`${item.route}: incomplete pending navigation ${JSON.stringify(navigation)}`);
     if (item.name === "pending-detail" && ["PULA", "Nexus", "Control de Red"].some(value => navigation.right.includes(value))) {
       failures.push(`${item.route}: unrelated right TOC ${JSON.stringify(navigation.right)}`);
@@ -143,7 +147,7 @@ for (const item of routes) {
       legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
     }));
     if (
-      catalog.cards !== 10 || catalog.types !== 10 || catalog.links.length !== 10 || catalog.legacyMarkdownLinks !== 0
+      catalog.cards !== 11 || catalog.types !== 11 || catalog.links.length !== 11 || catalog.legacyMarkdownLinks !== 0
       || catalog.descriptions.some(length => length < 250)
       || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
     ) {
@@ -156,7 +160,7 @@ for (const item of routes) {
       hasFicha: [...document.querySelectorAll("main a")].some(link => /\/downloads\/apps\/.+\.html$/.test(link.href)),
       left: [...document.querySelectorAll(".md-sidebar--primary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
     }));
-    const expectedApps = ["Índice", "PULA", "App Launch", "ErasmusHomes · Control del MVP", "Salones AV", "Reserva-Pistas-UTP", "Consumos Cupra", "CV de Raúl", "Control de Red", "Cartera Estratégica", "Replicant Lab"];
+    const expectedApps = ["Índice", "PULA", "App Launch", "ErasmusHomes · Control del MVP", "Salones AV", "Reserva-Pistas-UTP", "Consumos Cupra", "CV de Raúl", "Control de Red", "Cartera Estratégica", "CryptoWallet", "Replicant Lab"];
     if (!application.hasAccesses || !application.hasFicha || !expectedApps.every(value => application.left.includes(value))) {
       failures.push(`${item.route}: incomplete application access/navigation ${JSON.stringify(application)}`);
     }
@@ -393,6 +397,7 @@ for (const slug of [
   "cv-raul",
   "control-red",
   "cartera-estrategica",
+  "cryptowallet",
   "replicant-lab",
   "erasmushomes-control",
 ]) {

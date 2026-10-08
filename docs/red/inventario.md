@@ -60,5 +60,9 @@ El inventario sirve para orientación y futuras decisiones de direccionamiento. 
 | `8083` | Reserva-Pistas-UTP | LAN |
 | `8084` | Control de Red · demo read-only | LAN |
 | `8085` | Cartera Estratégica | LAN; origen de `cartera.thereplicantlab.com` mediante Tunnel |
+| `8516` | CryptoWallet V1.0 · producción privada | Solo localhost; origen de Tunnel |
+| `8517` | CryptoWallet · previa independiente | Solo localhost; origen de Tunnel |
 
-Cloudflare publica seis hostnames mediante el Tunnel existente. Cartera conserva su bind LAN en `8085`; su publicación externa solo pasa por `cartera.thereplicantlab.com`, Cloudflare Access y los controles internos de la aplicación.
+Cloudflare publica los seis hostnames históricos y los dos accesos protegidos de CryptoWallet mediante el Tunnel existente. Cartera conserva su bind LAN en `8085`; su publicación externa solo pasa por `cartera.thereplicantlab.com`, Cloudflare Access y los controles internos de la aplicación.
+
+CryptoWallet `8516/8517` no son servicios LAN directos: los binds observados son `127.0.0.1`. Producción y previa tienen almacenamiento independiente. Ver [ficha](../aplicaciones/cryptowallet.md) y [Cloudflare](cloudflare-tunnel.md).

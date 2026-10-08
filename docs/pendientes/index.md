@@ -10,6 +10,7 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o Reserva-Pi
 | Control de Red | Separación de datos operativos | Media | POST-CARTERA |
 | Nexus | Backups y gobierno de checkouts | Media | POST-CARTERA |
 | App Launch | Assets históricos, filtros y workflow de estado | Baja | Mejora opcional |
-| Cloudflare Tunnel + Access | Desplegar catálogo, validar los cinco hostnames, alertas y recuperación | Alta | Implementado / validación operativa pendiente |
+| Cloudflare Tunnel + Access | Validación móvil/administrativa por hostname, alertas y recuperación | Alta | Tunnel operativo; catálogo #15 integrado/desplegado, controles transversales pendientes |
+| CryptoWallet | Importación CSV/Excel y reconciliación nueva; demás ampliaciones separadas | V2 | V1.0 aceptada y productiva; [alcance y límites](cryptowallet.md) |
 
 Cada detalle se mantiene una sola vez en su página de este grupo.

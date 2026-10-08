@@ -38,8 +38,8 @@ El alias solo resuelve el nombre. El protocolo, puerto, usuario y credenciales s
 
 La LAN conserva sus direcciones y puertos actuales. La publicación externa no usa NAT ni port forwarding: `cloudflared` en Nexus mantiene una conexión saliente hacia Cloudflare mediante el Tunnel `replicant-launch`.
 
-Seis hostnames publican servicios seleccionados de Nexus: Launch, Salones, Docs, Pádel, Control de Red y Cartera Estratégica. **Cloudflare Access + Google IdP están implantados** y cada hostname dispone de una aplicación y política Access independientes.
+El inventario actual añade a los seis hostnames históricos los dos entornos CryptoWallet: producción y previa. Sus orígenes escuchan solo en localhost `8516/8517`; no ofrecen acceso directo por IP LAN. **Cloudflare Access + Google IdP están implantados** y cada hostname dispone de una aplicación y política Access independientes.
 
 El acceso por IP privada sigue siendo independiente: Cloudflare protege la ruta externa, no la LAN.
 
-Cartera Estratégica conserva su acceso LAN en `http://192.168.18.220:8085` y además se publica en `https://cartera.thereplicantlab.com` mediante el mismo Tunnel. La ruta pública atraviesa Cloudflare Access y, dentro de Cartera, Google OIDC y PIN; App Launch sigue enlazando solo la ruta LAN.
+Cartera Estratégica conserva su acceso LAN en `http://192.168.18.220:8085` y además se publica en `https://cartera.thereplicantlab.com` mediante el mismo Tunnel. La ruta pública atraviesa Cloudflare Access y, dentro de Cartera, Google OIDC y PIN; App Launch enlaza ahora el hostname protegido y su ficha; la ruta LAN sigue disponible por separado.

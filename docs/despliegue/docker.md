@@ -40,7 +40,9 @@ servicios
 | `8083` | Reserva-Pistas-UTP | Operativo |
 | `8084` | Control Red · demo read-only | Operativo |
 | `8085` | Cartera Estratégica · Streamlit | Operativo · LAN; origen privado del Tunnel |
-| `8086+` | Próximos servicios | Asignación secuencial |
+| `8086+` | Próximos servicios LAN | Asignación secuencial |
+| `8516` | CryptoWallet V1.0 | Solo localhost · producción privada |
+| `8517` | CryptoWallet previa | Solo localhost · independiente |
 
 Reglas:
 
@@ -153,3 +155,9 @@ Cada cambio documental desplegado requiere reconstruir la imagen porque Nginx si
 ### Separación de estados
 
 El modelo estático está implementado, probado localmente y validado en Nexus. La validación del 09/08/2026 incluyó el contenedor Nginx estable, HTTP y navegación, cinco diagramas Mermaid, descargas reales idénticas a Git, HTML offline y PDF completo. No implica validación en producción.
+
+## CryptoWallet · excepción deliberada de exposición
+
+V1.0 ejecuta Python/Streamlit con Compose, imagen `cryptowallet:1.0.0-5e7c3d79` y bind `127.0.0.1:8516:8501`. La previa usa localhost `8517`. Se conservan estos puertos de revisión/promoción aprobados; no se renumeran al rango LAN ni se abren en `0.0.0.0`. Datos independientes fuera del contenedor, raíz read-only y usuario no root. Solo el origen Tunnel alcanza la aplicación publicada.
+
+La composición y procedimiento operativo privados no equivalen al Dockerfile del sitio documental. No ejecutar la actualización genérica de este capítulo sobre CryptoWallet sin su guía/imagen aprobada. Tras nuevas confirmaciones, rollback exige esquema compatible y conservación del conjunto vivo; imagen previa al motor no válida. [Ficha vigente](../aplicaciones/cryptowallet.md).

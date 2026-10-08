@@ -146,7 +146,7 @@ const changeLogDates = await page.evaluate(() => {
     .find(item => item.querySelector(":scope > .nav-group-label")?.textContent.trim() === "Change Log");
   return group ? [...group.querySelectorAll(":scope > .nav-children > [data-page-item] > a")].map(item => item.textContent.trim()) : [];
 });
-if (JSON.stringify(changeLogDates) !== JSON.stringify(["Índice", "4 de octubre de 2026", "13 de septiembre de 2026", "12 de septiembre de 2026", "6 de septiembre de 2026", "30 de agosto de 2026", "29 de agosto de 2026", "21 de agosto de 2026", "13 de agosto de 2026", "9 de agosto de 2026", "8 de agosto de 2026"])) {
+if (JSON.stringify(changeLogDates) !== JSON.stringify(["Índice", "8 de octubre de 2026", "4 de octubre de 2026", "13 de septiembre de 2026", "12 de septiembre de 2026", "6 de septiembre de 2026", "30 de agosto de 2026", "29 de agosto de 2026", "21 de agosto de 2026", "13 de agosto de 2026", "9 de agosto de 2026", "8 de agosto de 2026"])) {
   throw new Error(`Change Log hierarchy differs from MkDocs nav: ${JSON.stringify(changeLogDates)}`);
 }
 
@@ -158,7 +158,7 @@ const pendingSummary = await page.evaluate(() => ({
   table: document.querySelector(".doc-page.is-active table")?.textContent ?? "",
   postCartera: document.querySelector(".doc-page.is-active")?.textContent.includes("POST-CARTERA") ?? false,
 }));
-const requiredPendingItems = ["Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
+const requiredPendingItems = ["CryptoWallet", "Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
 if (!requiredPendingItems.every(item => pendingSummary.table.includes(item)) || !pendingSummary.postCartera) {
   throw new Error(`Pending summary is incomplete: ${JSON.stringify(pendingSummary)}`);
 }

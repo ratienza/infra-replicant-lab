@@ -93,4 +93,8 @@ catálogos versionados → validación local → rama/PR/checks → main → des
 
 Además del acceso LAN, App Launch de Nexus está publicado en `https://launch.thereplicantlab.com/` mediante el Tunnel `replicant-launch` hacia `http://localhost:80`. La conexión se inicia desde Nexus y no abre puertos en el router. La ruta respondió HTTP `200` el 06/09/2026.
 
-El acceso externo exige Google mediante Cloudflare Access. App Launch no guarda usuarios ni autoriza aplicaciones: cada hostname publicado tiene su propia aplicación y política Access. Salones, documentación, Pádel y Control de Red se publican con el mismo Tunnel; el catálogo propone sus URLs protegidas en `Apps_Lauch#15`. El Launch de DigitalOcean sigue existente y no se retira en esta fase.
+El acceso externo exige Google mediante Cloudflare Access. App Launch no guarda usuarios ni autoriza aplicaciones: cada hostname publicado tiene su propia aplicación y política Access. Salones, documentación, Pádel y Control de Red se publican con el mismo Tunnel; el PR `Apps_Lauch#15` ya fusionado incorporó sus URLs protegidas, observadas también en el catálogo servido el 08/10/2026. El Launch de DigitalOcean sigue existente y no se retira en esta fase.
+
+## CryptoWallet y catálogo observado · 08/10/2026
+
+El catálogo Nexus servido contiene diez tarjetas y ya abre `https://cryptowallet.thereplicantlab.com/`. CryptoWallet V1.0 es producción privada independiente de su previa; [ficha vigente](cryptowallet.md). La descripción del catálogo aún habla de borradores y falta el enlace secundario a la ficha: ajuste de metadatos pendiente en App Launch. Este cierre no modifica catálogo ni despliega Launch; no afirma que sus archivos locales coincidan por completo con Git. Checkout Nexus en `27a1a179158f874dea52a2748f1bcd20c2091c6a`, con archivos operativos locales no versionados conservados.

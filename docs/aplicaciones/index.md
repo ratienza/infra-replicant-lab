@@ -108,6 +108,22 @@ Gestiona y analiza una cartera personal de inversión. La release v2.0.0 está p
 </article>
 
 <article class="app-card" markdown>
+## CryptoWallet
+<p class="app-type">Cartera cripto privada · V1.0 aceptada</p>
+Seguimiento, liquidez, cotizaciones y operaciones confirmadas con FIFO sobre la apertura consolidada.
+<dl>
+<dt>Herramienta</dt><dd>Codex</dd>
+<dt>Stack</dt><dd>Python · Streamlit · SQLite</dd>
+<dt>Repositorio</dt><dd><code>ratienza/cryptowallet</code> · privado</dd>
+<dt>Deploy</dt><dd>Docker Compose</dd>
+<dt>Runtime</dt><dd>Nexus · producción privada</dd>
+<dt>Estado</dt><dd>V1.0 aceptada · previa independiente</dd>
+<dt>URL pública</dt><dd>Cloudflare Access</dd>
+</dl>
+<p class="app-accesses"><a href="../downloads/apps/cryptowallet.html">Ficha técnica</a> · <a href="https://cryptowallet.thereplicantlab.com/" target="_blank" rel="noopener">Entrar</a> · <a href="cryptowallet/">Documentación</a></p>
+</article>
+
+<article class="app-card" markdown>
 ## Replicant Lab
 <p class="app-type">Documentación operativa</p>
 Documenta infraestructura, despliegue y operación del laboratorio. Genera un sitio navegable y versiones portables HTML/PDF desde fuentes Markdown canónicas.
