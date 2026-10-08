@@ -46,6 +46,7 @@ El diagrama anterior expresa responsabilidades, no el sentido físico de apertur
 | Consumos Cupra | AI Studio + Codex / GitHub | Cloud Build + Artifact Registry | Google Cloud Run |
 | CV | AI Studio / GitHub | Despliegue Firebase | Firebase Hosting |
 | Cartera Estratégica v2.0.0 | Codex / GitHub | Docker Compose · SQLite privada real | Nexus · `8085` |
+| CryptoWallet V1.0 | Codex / GitHub privado | Docker Compose · conjunto financiero privado | Nexus · producción localhost `8516`; previa `8517` |
 | Control de Red | PowerShell + Codex | Ejecución local + demo aislada | Replicant + demo Nexus |
 | App Launch | Codex / GitHub | Scripts por destino | Nginx en Nexus y DigitalOcean |
 | Replicant Lab | Codex / GitHub | Docker Compose | Nexus |
@@ -60,6 +61,6 @@ El diagrama anterior expresa responsabilidades, no el sentido físico de apertur
 
 ## Estado de Cloudflare
 
-El Tunnel `replicant-launch` publica cinco servicios Nexus mediante hostnames independientes. Cada hostname tiene su propia aplicación y política Cloudflare Access con Google como IdP. El router no usa port forwarding para esta publicación.
+El Tunnel `replicant-launch` publica seis servicios históricos y los dos entornos protegidos de CryptoWallet mediante hostnames separados. CryptoWallet es producción privada en Nexus; no se extrapola el destino VPS de otras aplicaciones. Cada hostname tiene su propia aplicación y política Cloudflare Access con Google como IdP. El router no usa port forwarding para esta publicación.
 
 El Launch de DigitalOcean no se sustituye automáticamente por el Launch de Nexus: ambos siguen siendo destinos distintos hasta que exista una decisión explícita de retirada o redirección.

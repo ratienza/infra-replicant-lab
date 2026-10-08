@@ -51,6 +51,7 @@ APP_PORTABLES = {
     "cv-raul": ("CV de Raúl", "aplicaciones/cv-raul.md"),
     "control-red": ("Control de Red", "aplicaciones/control-red.md"),
     "cartera-estrategica": ("Cartera Estratégica", "aplicaciones/cartera-estrategica.md"),
+    "cryptowallet": ("CryptoWallet", "aplicaciones/cryptowallet.md"),
     "replicant-lab": ("Replicant Lab", "aplicaciones/replicant-lab.md"),
     "erasmushomes-control": ("ErasmusHomes · Control del MVP", "aplicaciones/erasmushomes-control.md"),
 }
@@ -64,6 +65,7 @@ APP_EXPECTED_MARKERS = {
     "cv-raul": ("Firebase Hosting", "POST-CARTERA", "0da08cfa"),
     "control-red": ("PowerShell", "Replicant", "rollback"),
     "cartera-estrategica": ("192.168.18.220:8085", "CE-SEC-001", "rollback"),
+    "cryptowallet": ("8516", "V1.0", "rollback", "CSV/Excel", "Stable Coin"),
     "replicant-lab": ("MkDocs", "8082", "rollback"),
     "erasmushomes-control": ("Objetivo diciembre", "SHA ErasmusHomes main", "roadmap.yaml"),
 }
@@ -429,6 +431,28 @@ def portable_html_bytes() -> tuple[bytes, str, list[str]]:
 def app_portable_html_bytes(slug: str, title: str, relative: str, fingerprint: str) -> bytes:
     source = (DOCS / relative).read_text(encoding="utf-8")
     rendered, mermaid_count = render_markdown(source, 1)
+
+    def portable_app_link(match: re.Match[str]) -> str:
+        reference = html.unescape(match.group(1))
+        parsed = urlparse(reference)
+        if parsed.scheme or reference.startswith(("//", "#")) or not parsed.path:
+            return match.group(0)
+        base = "" if parsed.path.startswith("/") else posixpath.dirname(relative)
+        route = posixpath.normpath(posixpath.join(base, parsed.path.lstrip("/")))
+        if route.endswith(".md"):
+            route = portable_page_route(route) + "/"
+        elif not posixpath.splitext(route)[1]:
+            route = route.rstrip("/") + "/"
+        target = "https://docs.thereplicantlab.com/" + route.lstrip("/")
+        if parsed.query:
+            target += "?" + parsed.query
+        if parsed.fragment:
+            target += "#" + parsed.fragment
+        return f'href="{html.escape(target, quote=True)}"'
+
+    # Cross-page Markdown links must stay usable when the fiche is opened
+    # as file://; they target the canonical site rather than this machine.
+    rendered = HREF_ATTRIBUTE.sub(portable_app_link, rendered)
     css = PORTABLE_CSS.read_text(encoding="utf-8")
     portable_state = "ready"
     mermaid_runtime = ""

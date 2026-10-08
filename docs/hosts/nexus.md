@@ -49,6 +49,8 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
+| `8516/tcp` | CryptoWallet V1.0 · producción privada | localhost; Tunnel |
+| `8517/tcp` | CryptoWallet · previa independiente | localhost; Tunnel |
 | `53` | systemd-resolved | localhost |
 
 ## Estado observado el 13/08/2026
@@ -92,3 +94,9 @@ Esta actualización sustituyó exclusivamente la observación histórica del 13/
 Google está configurado como IdP de Cloudflare Access. Cada hostname tiene una aplicación y una política Access independientes; el Tunnel transporta tráfico y Access aplica la autorización. El router no expone puertos entrantes para esta arquitectura.
 
 El acceso LAN a `80`, `8081`, `8082`, `8083`, `8084` y `8085` no cambia y no pasa por Cloudflare. Tokens, secretos OAuth y configuración sensible permanecen fuera de Git.
+
+## CryptoWallet · actualización 08/10/2026
+
+V1.0 aceptada y promovida: `cryptowallet-app`, imagen `cryptowallet:1.0.0-5e7c3d79`, origen `127.0.0.1:8516 → 8501`, producción privada de esta aplicación. `cryptowallet-preview-app` sigue saludable en localhost `8517`, con copia real y demo ficticia separadas. Producción monta solo su conjunto real; ningún movimiento sintético se promueve. Copia consistente puntual verificada en Nexus y segunda ubicación privada.
+
+Ambos hostnames externos redirigen a Access sin sesión; cloudflared activo/habilitado. No se inspeccionó el panel administrativo de políticas. El mantenimiento documental no reinicia estos contenedores ni toca las bases. [Ficha y recuperación compatible](../aplicaciones/cryptowallet.md).

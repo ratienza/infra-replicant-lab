@@ -30,6 +30,7 @@ Cada pareja HTML/PDF se genera desde la misma página Markdown incluida en la na
 | CV de Raúl | [Descargar](downloads/apps/cv-raul.html) | [Descargar](downloads/apps/cv-raul.pdf) |
 | Control de Red | [Descargar](downloads/apps/control-red.html) | [Descargar](downloads/apps/control-red.pdf) |
 | Cartera Estratégica | [Descargar](downloads/apps/cartera-estrategica.html) | [Descargar](downloads/apps/cartera-estrategica.pdf) |
+| CryptoWallet | [Descargar](downloads/apps/cryptowallet.html) | [Descargar](downloads/apps/cryptowallet.pdf) |
 | Replicant Lab | [Descargar](downloads/apps/replicant-lab.html) | [Descargar](downloads/apps/replicant-lab.pdf) |
 | ErasmusHomes · Control del MVP | [Descargar](downloads/apps/erasmushomes-control.html) | [Descargar](downloads/apps/erasmushomes-control.pdf) |
 
@@ -54,3 +55,7 @@ CI ejecuta el modo `check`, vuelve a renderizar un PDF de control, verifica la h
 ## Estado de despliegue
 
 El pipeline y el runtime estático están implementados y probados localmente. La evidencia del 21/08/2026 comprobó el dossier global y las nueve parejas de fichas individuales existentes entonces, incluida PULA; los ficheros servidos por el entorno de validación coincidieron byte a byte con los artefactos generados. El pipeline actual vuelve a validar todas las parejas registradas tras cada cambio. La publicación en Nexus se valida de nuevo después de integrar el cambio en `main`; esta evidencia corresponde al laboratorio privado y no se extrapola a producción.
+
+## Actualización 08/10/2026
+
+CryptoWallet se incorpora como undécima ficha técnica: doce parejas HTML/PDF contando el dossier global. Las fuentes se actualizan con V1.0 productiva; los resultados y la publicación documental se registran en RL-CW-DOC-001. La generación no modifica los runtimes ni las bases financieras.

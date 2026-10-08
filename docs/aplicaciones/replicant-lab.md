@@ -55,3 +55,7 @@ La actualización se realiza solo después de integrar el PR. Para rollback se r
 ## Acceso externo y seguridad
 
 Replicant Lab sigue accesible en LAN mediante [http://192.168.18.220:8082](http://192.168.18.220:8082). El hostname externo [https://docs.thereplicantlab.com](https://docs.thereplicantlab.com) está implantado mediante el Tunnel `replicant-launch` hacia ese origen Nexus y protegido por Cloudflare Access + Google con una política independiente.
+
+## Documentación CryptoWallet · 08/10/2026
+
+Se incorporan la ficha CryptoWallet V1.0, infraestructura/Cloudflare y límites V2. El pipeline registra once fichas de aplicación además del dossier global, doce parejas HTML/PDF. La huella de fuentes identifica el contenido servido y se comprueba después de publicar; no se recrea ningún contenedor financiero.

@@ -36,20 +36,16 @@ flowchart LR
 La publicación externa de Nexus usa **un único Cloudflare Tunnel**. El conector `cloudflared` se ejecuta en Nexus y mantiene una conexión saliente; el router doméstico no publica puertos entrantes.
 
 ```mermaid
-flowchart LR
-    U["Usuario externo"] --> CF["Cloudflare<br/>DNS + HTTPS"]
-    CF --> ACCESS["Cloudflare Access<br/>autorización"]
-    ACCESS --> G["Google IdP<br/>autenticación"]
-    G --> ACCESS
-    ACCESS --> T["Tunnel<br/>replicant-launch"]
-    T --> CFD["cloudflared<br/>Nexus"]
-
-    CFD --> L["Launch<br/>:80"]
-    CFD --> S["Salones<br/>:8081"]
-    CFD --> D["Docs<br/>:8082"]
-    CFD --> P["Pádel<br/>:8083"]
-    CFD --> R["Control de Red<br/>:8084"]
-    CFD --> C["Cartera<br/>:8085 → OIDC → PIN"]
+flowchart TB
+    U["Usuario externo"] --> C["Cloudflare DNS y HTTPS"]
+    C --> A["Access: política del hostname"]
+    A <--> G["Google IdP"]
+    A --> T["Tunnel replicant-launch"]
+    T --> F["cloudflared en Nexus"]
+    F --> L["Launch y documentación"]
+    F --> S["Salones, Pádel y Red"]
+    F --> E["Cartera: 8085, OIDC y PIN"]
+    F --> W["CryptoWallet: 8516 y previa 8517"]
 ```
 
 El orden lógico es **HTTPS/DNS → Access → Google IdP → política Access → Tunnel → origen Nexus**. El Tunnel transporta tráfico; **no autentica usuarios**.
@@ -64,6 +60,8 @@ Cada hostname tiene una aplicación y una política Access independientes. Compa
 | Reserva Pistas UTP | `padel.thereplicantlab.com` | `http://192.168.18.220:8083` |
 | Control de Red | `red.thereplicantlab.com` | `http://192.168.18.220:8084` |
 | Cartera Estratégica | `cartera.thereplicantlab.com` | `http://192.168.18.220:8085` |
+| CryptoWallet producción | `cryptowallet.thereplicantlab.com` | `http://127.0.0.1:8516` |
+| CryptoWallet previa | `cryptowallet-preview.thereplicantlab.com` | `http://127.0.0.1:8517` |
 
 ## LAN y host físico
 
@@ -127,10 +125,14 @@ Docker es el patrón preferido para servicios internos de Nexus cuando encaja, n
 
 ## Estado actual de seguridad externa
 
-**Implementado:** Cloudflare Tunnel, seis hostnames, Google como IdP y una aplicación/política Access independiente por hostname. Cartera añade además Google OIDC interno y PIN de seis cifras.
+**Implementado:** Cloudflare Tunnel con seis hostnames históricos y producción/previa CryptoWallet. Google como IdP y separación de políticas documentadas en el despliegue histórico. Los nuevos accesos redirigen a Access sin sesión; no se infiere de esa respuesta el contenido administrativo actual de sus políticas. Cartera añade además Google OIDC interno y PIN de seis cifras.
 
 **Pendiente operativo general:** validar desde móvil cada aplicación protegida y añadir monitorización/alertas del Tunnel. La actualización del catálogo Cartera v2.0.0 se documenta por separado.
 
 Authentik queda como evolución opcional futura; no forma parte del runtime actual.
 
 La guía operativa y de recuperación está en [Cloudflare Tunnel](red/cloudflare-tunnel.md).
+
+## Producción privada CryptoWallet
+
+Nexus ejecuta V1.0 aceptada con origen localhost `8516`, datos reales independientes y ningún montaje sintético. La previa localhost `8517` permanece separada. Manual y modelo financiero en el repositorio privado; [ficha de infraestructura](aplicaciones/cryptowallet.md). La actualización documental no toca operaciones ni runtimes financieros.
