@@ -25,3 +25,9 @@ Los desconocidos históricos permanecen no disponibles, nunca cero. El regalo PE
 - Datos y respaldos exclusivamente privados. La ficha pública documenta la infraestructura, no la cartera.
 
 [Ficha vigente](../aplicaciones/cryptowallet.md) · [Documentación funcional privada](https://github.com/ratienza/cryptowallet/tree/main/docs/v1).
+
+## Mejora posterior a V1.0 · anotada 08/10/2026
+
+Raúl solicita que los resúmenes de operaciones se presenten en una **pantalla de revisión separada**, siguiendo Cartera Estratégica, con más contexto y comparación **antes → variación → después**. Incluir activos/custodias, cantidades/importes, comisiones y efectos P&G/FIFO cuando correspondan, con cobertura explícita y acciones de volver/modificar y confirmar accesibles.
+
+**Solo pendiente; no implementar todavía.** La captura es una referencia privada de presentación y sus cifras no se publican. Es mejora posterior, sin reabrir la aceptación V1.0 ni modificar el motor actual.
