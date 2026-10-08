@@ -17,7 +17,7 @@ Estas reglas se aplican a todo el repositorio. Las instrucciones explícitas del
 
 ## Entornos y aplicaciones
 
-- Replicant/Hyper-V es el host físico y puesto de administración; Nexus es el laboratorio privado; DigitalOcean es producción.
+- Replicant/Hyper-V es el host físico y puesto de administración; Nexus es el laboratorio privado y puede alojar producción privada expresamente aprobada para una aplicación (como CryptoWallet). DigitalOcean mantiene sus servicios productivos; el runtime canónico se determina por la ficha y aceptación de cada aplicación, nunca por extrapolación.
 - Cada aplicación tiene su propio repositorio, instrucciones, arquitectura, datos y ciclo de despliegue. No mezcles ni extrapoles contexto, código, secretos o procedimientos entre aplicaciones.
 - Identifica siempre el entorno objetivo y diferencia expresamente entre `implementado`, `probado localmente`, `validado en Nexus` y `validado en producción`.
 
