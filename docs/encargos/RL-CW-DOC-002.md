@@ -2,7 +2,7 @@
 
 ## Estado
 
-`blocked` · cierre documental preparado para integración por PR; publicación Nexus pendiente de recuperar el canal remoto: RAN-CASA observado desconectado. Las referencias de commit, PR y CI se registran en GitHub. No se declara publicado este cambio.
+`done` · etapa documental CryptoWallet V1.5 cerrada. El contenido de PR #51 está integrado y publicado en Nexus, con origen HTTP, páginas de cierre y descargables verificados. Google interno, el recorrido exterior autenticado y la réplica Drive conservan su estado pendiente y no forman parte de este cierre.
 
 ## Repositorios y Git
 
@@ -37,8 +37,26 @@ Raúl solicita el 09/10/2026: «Documentar todo en nexus, en la docu general, pe
 
 Repositorio público: sin saldos, datos privados, cuentas autorizadas, rutas privadas de copias, manifiestos financieros ni secretos. No cambiar bases, aplicaciones, permisos, Access/Tunnel, DNS ni puertos. La propuesta Drive es futura; no se crea una tarea ni se envía correo.
 
-Canal privado Nexus no disponible durante la preparación. La integración en Git y la publicación Nexus son estados separados; no extrapolar uno al otro. Rollback documental con imagen previa o revert Git y reconstrucción exclusiva del sitio, nunca recuperación de bases financieras.
+La integración en Git y la publicación Nexus son estados separados; se verificaron ambas expresamente. Rollback documental disponible mediante la imagen etiquetada antes de la reconstrucción, o mediante revert Git y reconstrucción exclusiva del sitio; nunca mediante recuperación de bases financieras.
 
-## Siguiente paso
+## Resultado verificado en Nexus · 09/10/2026
 
-Completar los gates de Git/CI registrados en el PR y publicar cuando el canal Nexus esté disponible. La etapa funcional V1.5 está cerrada; el gate documental Nexus permanece pendiente hasta comprobar el sitio servido.
+| Control | Resultado |
+|---|---|
+| Git canónico | PR [#51](https://github.com/ratienza/infra-replicant-lab/pull/51) fusionado en `b113043a511bd01d78e5654c62ad1d42d39f8f5f` |
+| CI de #51 | `Docs check / build` correcto: [run 37940044934, job 113851805773](https://github.com/ratienza/infra-replicant-lab/actions/runs/37940044934/job/113851805773) |
+| Checkout Nexus publicado | `/opt/apps/infra-replicant-lab`, rama `main`, limpio y alineado con `origin/main` en `b113043a511bd01d78e5654c62ad1d42d39f8f5f` |
+| Publicación | Solo servicio Compose `docs`; contenedor `infra-replicant-docs`; origen [http://192.168.18.220:8082/](http://192.168.18.220:8082/) |
+| Imagen publicada | `sha256:1d76508fdce99d723653d357956d6e2386ed94722b91aeeb7f592ba0e397c138` |
+| Recuperación | Imagen anterior `sha256:b4c8804eff74637d6db955afe882aa4bdfe3fdb8e65ac036419680ef39db3861`, conservada como `infra-replicant-docs:rollback-8701f03-before-b113043` |
+
+Comprobaciones realizadas tras `docker compose up -d --build docs`:
+
+- HTTP 200 en portada, ficha CryptoWallet, pendientes CryptoWallet, Change Log del 09/10/2026 y propuesta Drive.
+- El contenido servido muestra V1.5, PIN activo 24 horas, privacidad inicial ON y copias locales entregadas.
+- Google interno figura preparado pero OFF; OIDC real y recorrido exterior autenticado continúan pendientes.
+- Drive figura como proyecto futuro independiente, no implementado ni programado.
+- Las doce parejas HTML/PDF contractuales, 24 archivos, coinciden byte a byte por SHA-256 con el checkout publicado.
+- El contenedor activo usa la imagen reconstruida desde el checkout citado. No se redeplegaron CryptoWallet, Cartera ni otros servicios, y no se modificaron bases, datos, secretos, PIN, OAuth, Access, Tunnel, DNS o puertos.
+
+El cierre operativo se tramita en una PR posterior de alcance único. Su SHA de merge, CI y la repetición de estas comprobaciones sobre el contenido final se registran en la propia PR para evitar una referencia circular dentro del documento versionado.

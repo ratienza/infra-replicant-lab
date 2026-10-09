@@ -104,8 +104,8 @@ await page.pdf({
   displayHeaderFooter: true,
   preferCSSPageSize: true,
   margin: { top: "14mm", right: "12mm", bottom: "16mm", left: "12mm" },
-  headerTemplate: '<div style="font:8px Arial;color:#667085;width:100%;padding:0 12mm;text-align:right">Replicant Lab · Ficha técnica</div>',
-  footerTemplate: '<div style="font:8px Arial;color:#667085;width:100%;padding:0 12mm;display:flex;justify-content:space-between"><span>Documento derivado</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>',
+  headerTemplate: '<div style="font:8px Arial;color:#667085;width:100%;position:relative"><span style="position:absolute;right:12mm">Replicant Lab · Ficha técnica</span></div>',
+  footerTemplate: '<div style="font:8px Arial;color:#667085;width:100%;position:relative"><span style="position:absolute;left:12mm">Documento derivado</span><span style="position:absolute;right:12mm"><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>',
 });
 
 const report = {
