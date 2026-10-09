@@ -11,6 +11,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: #f5f7f9; }
 body { margin: 0; color: var(--ink); background: #fff; font: 15px/1.58 Arial, Helvetica, sans-serif; }
+.doc-content { overflow-wrap: anywhere; }
 a { color: #0d5f9a; text-decoration-thickness: .08em; text-underline-offset: .14em; }
 button, input { font: inherit; }
 code, pre { font-family: Consolas, "Liberation Mono", monospace; }

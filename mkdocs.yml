@@ -45,10 +45,12 @@ nav:
       - RL-CF-002: encargos/RL-CF-002.md
       - RL-CE-DOC-001: encargos/RL-CE-DOC-001.md
       - RL-CW-DOC-001: encargos/RL-CW-DOC-001.md
+      - RL-CW-DOC-002: encargos/RL-CW-DOC-002.md
   - Autodocumentación: autodocumentacion.md
   - Decisiones: decisiones.md
   - Change Log:
       - Índice: cambios/index.md
+      - 9 de octubre de 2026: cambios/2026-10-09.md
       - 8 de octubre de 2026: cambios/2026-10-08.md
       - 4 de octubre de 2026: cambios/2026-10-04.md
       - 13 de septiembre de 2026: cambios/2026-09-13.md
@@ -64,6 +66,7 @@ nav:
       - Resumen: pendientes/index.md
       - Cartera Estratégica: pendientes/cartera-estrategica.md
       - CryptoWallet: pendientes/cryptowallet.md
+      - Copias remotas Drive: pendientes/backups-drive.md
       - PULA: pendientes/pula.md
       - CV / Firebase: pendientes/cv-firebase.md
       - Control de Red: pendientes/control-red.md

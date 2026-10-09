@@ -223,3 +223,10 @@ El App Launch de DigitalOcean permanece operativo hasta que exista una auditorí
 Producción V1.0 y previa responden mediante hostnames distintos; sin sesión ambas rutas devuelven HTTP 302 hacia Access. Contenedores saludables y orígenes loopback `8516/8517` comprobados en Nexus; cloudflared activo/habilitado. Esta revisión no modifica DNS, ingress, Access o Tunnel ni lee tokens. No se afirma una nueva prueba autenticada móvil ni los parámetros exactos de las políticas sin panel administrativo.
 
 A diferencia de los servicios LAN anteriores, estos orígenes no admiten acceso directo desde la LAN por IP. CryptoWallet no incorpora OIDC/PIN internos en V1.0. [Ficha vigente](../aplicaciones/cryptowallet.md) y [límites V2](../pendientes/cryptowallet.md).
+
+
+## CryptoWallet · V1.5, evidencia 09/10/2026
+
+La afirmación histórica anterior de ausencia de PIN corresponde solo a V1.0. V1.5 añade **PIN interno activo, 24 horas y privacidad inicial ON**. Google OIDC interno está implementado pero **OFF**, pendiente de credenciales propias y pruebas. Google como IdP de Access y Google interno de Streamlit son capas distintas; no comparten automáticamente sesión ni secretos.
+
+CW-V15 registra origen productivo healthy y Tunnel activo; el exterior sin sesión sigue devolviendo 302 hacia Access. El recorrido exterior autenticado Access → aplicación → PIN, y posteriormente Google interno → PIN, permanecen pendientes de verificación real. No se modifican DNS, políticas, ingress, Tunnel ni puertos para este cierre documental. [Ficha](../aplicaciones/cryptowallet.md) · [Pendientes](../pendientes/cryptowallet.md).

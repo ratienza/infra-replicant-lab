@@ -65,7 +65,7 @@ APP_EXPECTED_MARKERS = {
     "cv-raul": ("Firebase Hosting", "POST-CARTERA", "0da08cfa"),
     "control-red": ("PowerShell", "Replicant", "rollback"),
     "cartera-estrategica": ("192.168.18.220:8085", "CE-SEC-001", "rollback"),
-    "cryptowallet": ("8516", "V1.0", "rollback", "CSV/Excel", "Stable Coin"),
+    "cryptowallet": ("8516", "V1.5", "rollback", "CSV/Excel", "Stable Coin", "24 horas", "multibase", "Google interno OFF"),
     "replicant-lab": ("MkDocs", "8082", "rollback"),
     "erasmushomes-control": ("Objetivo diciembre", "SHA ErasmusHomes main", "roadmap.yaml"),
 }
@@ -708,7 +708,8 @@ def validate_app_pdf(slug: str, path: Path, title: str, expected_fingerprint: st
         raise ValueError(f"{path} is missing title or source fingerprint")
     if len(text) < 1_200:
         raise ValueError(f"{path} has insufficient selectable text: {len(text)} characters")
-    missing_markers = [marker for marker in APP_EXPECTED_MARKERS[slug] if marker.casefold() not in text.casefold()]
+    normalized_text = " ".join(text.split()).casefold()
+    missing_markers = [marker for marker in APP_EXPECTED_MARKERS[slug] if " ".join(marker.split()).casefold() not in normalized_text]
     if missing_markers:
         raise ValueError(f"{path} is missing semantic markers: {missing_markers}")
     for page in reader.pages:

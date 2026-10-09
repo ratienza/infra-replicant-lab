@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="de150f852de18b5c15a7f2a40cb1b9ba2ed1dea0e6616a497b534dfd453cd07c">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="c2b2df291c4ccd73010115064988b6096093df3efb81bea755d773c0bfce842e">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:de150f852de18b5c15a7f2a40cb1b9ba2ed1dea0e6616a497b534dfd453cd07c">
-  <title>CryptoWallet · Ficha técnica · de150f852de1</title>
+  <meta name="source-fingerprint" content="sha256:c2b2df291c4ccd73010115064988b6096093df3efb81bea755d773c0bfce842e">
+  <title>CryptoWallet · Ficha técnica · c2b2df291c4c</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -19,6 +19,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: #f5f7f9; }
 body { margin: 0; color: var(--ink); background: #fff; font: 15px/1.58 Arial, Helvetica, sans-serif; }
+.doc-content { overflow-wrap: anywhere; }
 a { color: #0d5f9a; text-decoration-thickness: .08em; text-underline-offset: .14em; }
 button, input { font: inherit; }
 code, pre { font-family: Consolas, "Liberation Mono", monospace; }
@@ -160,21 +161,22 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>CryptoWallet</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cryptowallet.md</dd><dt>Versión reproducible</dt><dd>sha256:de150f852de18b5c15a7f2a40cb1b9ba2ed1dea0e6616a497b534dfd453cd07c</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cryptowallet.md</dd><dt>Versión reproducible</dt><dd>sha256:c2b2df291c4ccd73010115064988b6096093df3efb81bea755d773c0bfce842e</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/cryptowallet.md">
       <p class="source-path">aplicaciones/cryptowallet.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-cryptowallet">Aplicación · CryptoWallet</h1>
-<p>CryptoWallet <strong>V1.0</strong> fue aceptada por Raúl y promovida a producción privada el <strong>08/10/2026</strong>. Funcionalidad principal, estética y apertura financiera consolidada están cerradas. Nexus ejecuta esta producción; la previa conserva un entorno independiente.</p>
+<p>CryptoWallet <strong>V1.5 / 1.5.0</strong> está cerrada y desplegada en producción privada Nexus desde el <strong>09/10/2026</strong>. Conserva la apertura financiera aceptada y añade PIN persistente, privacidad inicial, copias multibase y navegación adaptable. La previa conserva un entorno independiente; no se presume actualizada a V1.5.</p>
+<p>La evidencia operativa procede del <a href="https://github.com/ratienza/cryptowallet/blob/17489d38ab5398de80c37d4985b15f23f131874f/HANDOFF.md">HANDOFF privado</a> y de la <a href="https://github.com/ratienza/cryptowallet/blob/17489d38ab5398de80c37d4985b15f23f131874f/docs/evidence/CW-V15/acceptance.md">aceptación CW-V15</a>. Este cierre documental contrasta esas fuentes; no constituye una nueva inspección del runtime de Nexus.</p>
 <h2 id="p1-accesos">Accesos</h2>
 <ul>
 <li><strong>Producción protegida:</strong> <a href="https://cryptowallet.thereplicantlab.com/">CryptoWallet</a>.</li>
 <li><strong>Previa protegida:</strong> <a href="https://cryptowallet-preview.thereplicantlab.com/">Revisión independiente</a>.</li>
 <li><strong>Pruebas de operaciones:</strong> <a href="https://cryptowallet-preview.thereplicantlab.com/?datos=sinteticos">Demo ficticia aislada de la previa</a>.</li>
 <li><strong>Ficha técnica:</strong> <a href="https://docs.thereplicantlab.com/downloads/apps/cryptowallet.html">HTML autocontenido</a> · <a href="https://docs.thereplicantlab.com/downloads/apps/cryptowallet.pdf">PDF</a>.</li>
-<li><strong>Documentación funcional/técnica:</strong> <a href="https://github.com/ratienza/cryptowallet/tree/main/docs/v1">Índice V1.0</a>, repositorio privado.</li>
-<li><strong>Código y release:</strong> <a href="https://github.com/ratienza/cryptowallet/tree/v1.0.0">ratienza/cryptowallet · v1.0.0</a>.</li>
+<li><strong>Documentación funcional/técnica:</strong> <a href="https://github.com/ratienza/cryptowallet/tree/main/docs/v1">Manual vigente V1.5</a>, repositorio privado.</li>
+<li><strong>Código y release:</strong> <a href="https://github.com/ratienza/cryptowallet/tree/v1.5.0">ratienza/cryptowallet · v1.5.0</a>.</li>
 <li><strong>App Launch:</strong> tarjeta productiva existente en el catálogo Nexus. El catálogo no ejecuta la aplicación.</li>
 </ul>
 <h2 id="p1-estado-validado">Estado validado</h2>
@@ -188,23 +190,27 @@ tr:nth-child(even) td { background: #fafcfd; }
 <tbody>
 <tr>
 <td>Producto</td>
-<td>V1.0 aceptada; PR #3 fusionado por squash, sin revisión funcional pendiente</td>
+<td>V1.5 cerrada; PR #13–#17 fusionados</td>
 </tr>
 <tr>
-<td>Código ejecutable</td>
-<td><code>5e7c3d79c0a6d66f8d6825be965de92d0420b196</code></td>
+<td>Código ejecutable / tag</td>
+<td><code>d7aac669b5f905933558c3a7ffa7b42cdae9741e</code> · <code>v1.5.0</code></td>
 </tr>
 <tr>
-<td>Tag funcional</td>
-<td><code>v1.0.0</code> en <code>2dd0eab5d820fa3ea98cd7054bc87885738c4e56</code>; documentación posterior no cambia ejecutable</td>
+<td>Main documental del producto</td>
+<td><code>17489d38ab5398de80c37d4985b15f23f131874f</code>; distinto del ejecutable</td>
 </tr>
 <tr>
 <td>Imagen productiva</td>
-<td><code>cryptowallet:1.0.0-5e7c3d79</code></td>
+<td><code>cryptowallet:1.5.0-d7aac669b5f9</code></td>
+</tr>
+<tr>
+<td>ID de imagen</td>
+<td><code>sha256:d764f7f40619b6229e4b1db8bd7db7c04863598babe00b982b47dc9ce9d2cdc5</code></td>
 </tr>
 <tr>
 <td>Runtime</td>
-<td>Nexus · Docker Compose · contenedor <code>cryptowallet-app</code></td>
+<td>Nexus · Docker Compose · <code>cryptowallet-app</code> · usuario <code>1000:1000</code></td>
 </tr>
 <tr>
 <td>Origen productivo</td>
@@ -212,54 +218,98 @@ tr:nth-child(even) td { background: #fafcfd; }
 </tr>
 <tr>
 <td>Previa</td>
-<td><code>cryptowallet-preview-app</code> · <code>127.0.0.1:8517 → 8501</code>; datos independientes</td>
+<td><code>cryptowallet-preview-app</code> · localhost <code>8517</code>; almacenamiento y versión independientes</td>
 </tr>
 <tr>
 <td>Persistencia</td>
-<td>SQLite y conjunto privado fuera de Git y del contenedor</td>
+<td>Conjunto financiero, copias y seguridad en montajes privados separados</td>
 </tr>
 <tr>
-<td>Seguridad</td>
-<td>Cloudflare Access/Tunnel, usuario no root, raíz de solo lectura y montaje real único</td>
+<td>Seguridad efectiva</td>
+<td>Cloudflare Access/Tunnel + PIN activo; 24 horas; privacidad inicial ON; Google interno OFF</td>
 </tr>
 <tr>
 <td>Recuperación</td>
-<td>Copia consistente de aceptación verificada en Nexus y segunda ubicación privada</td>
+<td>Copias multibase verificadas; seguridad respaldada aparte; restauración probada en aislamiento</td>
 </tr>
 <tr>
 <td>Pruebas de entrega</td>
-<td>339 superadas en local e imagen aceptada de Nexus; comparación financiera de solo lectura</td>
+<td>379 pruebas + 68 subpruebas locales; 379 pruebas dentro de la imagen sin red</td>
 </tr>
 <tr>
-<td>Observación 08/10</td>
-<td>Ambos contenedores saludables; ambos hostnames redirigen a Access sin sesión</td>
+<td>Evidencia de promoción 09/10</td>
+<td>Healthy, origen privado OK, Tunnel activo; 27 componentes financieros idénticos antes/después</td>
+</tr>
+<tr>
+<td>Límite exterior</td>
+<td>HTTP 302 sin sesión acredita Access; recorrido autenticado de Raúl pendiente</td>
 </tr>
 </tbody>
 </table>
 <p>No se publican bases, importes, lotes reales, originales, capturas, manifiestos financieros, credenciales ni ubicaciones privadas de respaldos en este repositorio público.</p>
 <h2 id="p1-funcionalidades-aceptadas">Funcionalidades aceptadas</h2>
-<p>Dashboard, Cartera actual, Logbook, Tokens y Configuración mantienen temas, privacidad y USD/EUR. Dashboard distingue BTC, Altcoins, <strong>Liquidez</strong> y <strong>Patrimonio</strong>. Liquidez presenta <strong>Total → Estables → FIAT</strong>, identifica Stable Coin por marca del catálogo y conserva la valoración disponible sin asumir paridad.</p>
+<p>Dashboard, Cartera actual, Logbook y Tokens mantienen temas, privacidad y USD/EUR. <strong>Ajustes</strong> agrupa tres pestañas: <strong>Generales</strong> (tema, frescura de cotizaciones, tokens y preferencias existentes), <strong>Seguridad</strong> y <strong>Backup</strong>. En móvil la hamburguesa arranca cerrada, indica la sección activa y se cierra al navegar; en escritorio se conserva el menú horizontal. Revisión sintética en claro/oscuro, escritorio y móvil 390 × 844, sin desbordamiento horizontal. Dashboard distingue BTC, Altcoins, <strong>Liquidez</strong> y <strong>Patrimonio</strong>. Liquidez presenta <strong>Total → Estables → FIAT</strong>, identifica Stable Coin por marca del catálogo y conserva la valoración disponible sin asumir paridad.</p>
 <p>Cartera conserva la tabla financiera, cobertura, lotes y procedencia; gráficos preceden a la tabla. Tokens añade composición por custodia y red. Cantidades aparecen en las ayudas del Dashboard respetando privacidad.</p>
 <p>Compras, ventas, rotaciones, depósitos/retiradas fiat y traslados propios <strong>contabilizan al confirmar</strong>. Guardar borrador no mueve saldo/FIFO. Formularios compactos con grupos, cálculos editables, porcentajes de venta por custodia y rotación con precio/cantidad destino recíprocos. Revisar operación muestra bruto/neto, comisiones, referencias, saldos y efectos FIFO.</p>
 <p>P&amp;G comparable usa coste y valor de las mismas unidades. xN conserva esa cobertura. P&amp;G realizado se distingue del principal retirado en fiat. Valoración EUR de pantalla no constituye base fiscal histórica.</p>
 <h2 id="p1-arquitectura-y-acceso">Arquitectura y acceso</h2>
 <p>Python/Streamlit consume la apertura aceptada, catálogo y confirmaciones nuevas. El motor Decimal valida disponibilidad física por custodia y FIFO global del titular por activo. La apertura permanece inmutable; nuevas confirmaciones transaccionales e idempotentes conservan cadena de huellas y revisión.</p>
-<p>La ruta externa pasa por Cloudflare Access y el Tunnel saliente de Nexus. Los orígenes productivo y previo están ligados a localhost. El modo de privacidad es visual; V1.0 no añade OAuth/PIN internos como los de Cartera Estratégica.</p>
+<p>La ruta externa pasa por Cloudflare Access y el Tunnel saliente de Nexus. Los orígenes productivo y previo están ligados a localhost. Cloudflare Access es la barrera exterior; el PIN de la aplicación es una capa independiente. Google OIDC interno está implementado con correo verificado y cuentas autorizadas, pero permanece <strong>desactivado</strong> hasta instalar y probar un cliente OAuth dedicado. La privacidad oculta cifras; no sustituye al control de acceso.</p>
 <p>Producción monta únicamente el conjunto real. La demo sintética se monta solo en la previa; no sigue ni se mezcla con producción. La copia real de la previa tampoco se sincroniza con las confirmaciones productivas posteriores.</p>
 <h2 id="p1-datos-y-proteccion">Datos y protección</h2>
 <p>Originales importados y operaciones contabilizadas están protegidos sin edición/borrado. Los borradores manuales pueden editarse o retirarse de forma recuperable. La primera confirmación real crea la base financiera nueva si aún no existe: una ausencia inicial no se subsana inventando operaciones.</p>
 <p>Costes e ingresos desconocidos mantienen cobertura explícita. CW-004 permanece cerrado, el regalo PEPE sigue excluido y los límites históricos aceptados de TAO no se rellenan con cero ni nuevos supuestos.</p>
+<h2 id="p1-seguridad-y-privacidad-v15">Seguridad y privacidad V1.5</h2>
+<p>PIN ASCII de seis cifras, conservado como hash scrypt con sal. El desbloqueo firmado queda ligado a identidad y revisión, con caducidad absoluta de <strong>24 horas</strong> por defecto; persiste tras recarga, reapertura y reinicio. El servidor conserva intentos, bloqueo y revocaciones: <strong>5 intentos / 30 segundos</strong> por defecto. El PIN muestra cuenta atrás y reactiva las casillas automáticamente, con validación del servidor en cada envío.</p>
+<p><strong>Bloquear ahora</strong>, cierre de sesión, caducidad y cambios de seguridad invalidan el desbloqueo correspondiente. La privacidad inicial <strong>ON</strong> se aplica antes del primer render financiero y se repone al volver a acceder; el ojo funciona normalmente durante la sesión. Los parámetros son modificables en Seguridad; credenciales y ajustes técnicos quedan en Configuración avanzada, plegada por defecto. Secretos, PIN y sesiones no se versionan.</p>
+<p>Para completar Google: cliente Web OAuth exclusivo de CryptoWallet, callbacks local y productivo registrados, credenciales por canal privado, carga del TOML en Streamlit y reinicio controlado. Después comprobar Google → PIN, cuenta no autorizada, cancelación/error y recorrido exterior sin bucles. No reutilizar secretos ni almacenamiento de Cartera. <a href="https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md">Procedimiento privado</a>.</p>
+<h2 id="p1-copias-locales-y-restauracion-v15">Copias locales y restauración V1.5</h2>
+<p><strong>Ajustes → Backup</strong> permite crear, inspeccionar, proteger, descargar y restaurar copias del conjunto completo. Cada <code>.cwbak.zip</code> incluye manifiesto, versiones, entorno, componentes, tamaños, SHA-256, esquemas, integridad SQLite y cadena de confirmaciones. Incluye apertura, catálogo, bases financieras presentes, borradores/revisiones, decisiones, fuentes y configuración funcional. Las SQLite usan su API de backup bajo el bloqueo coordinado compartido con las escrituras; no se copian WAL/SHM en bruto.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Comportamiento</th>
+<th>Retención efectiva</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manual</td>
+<td>Solicitada desde Backup</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Diaria</td>
+<td>Solo si cambia el estado; una por fecha, sin duplicarse al recargar</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Previa</td>
+<td>Verificada antes de confirmaciones, restauración e integración/migración</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Protegida</td>
+<td>Conservación explícita; fuera de caducidad ordinaria</td>
+<td>Se conserva</td>
+</tr>
+</tbody>
+</table>
+<p>Consultar, previsualizar o cancelar no crea copias. Si falla una previa, se bloquea la escritura; un fallo diario posterior no convierte una operación ya confirmada en una invitación a repetirla. Nunca se elimina la única recuperación válida. Las copias locales no acreditan todavía una réplica automática remota en Drive.</p>
+<p>Restaurar exige validar compatibilidad, huellas, integridad y cadena, revisar las operaciones posteriores que se perderían y confirmar; hay confirmación adicional ante copia vacía. Se crea <code>pre_restore</code>, se prepara el candidato aislado y se instala el conjunto completo con escrituras bloqueadas. Un fallo parcial recupera y verifica el conjunto anterior. La restauración completa se probó <strong>solo en aislamiento</strong>, nunca sobre producción.</p>
+<p>Seguridad se respalda separadamente: credenciales, PIN, estado y secretos no aparecen en descargas financieras. Restaurar finanzas preserva la seguridad actual y no revive sesiones revocadas. Antes de V1.5 se verificó una copia protegida y el estado financiero permaneció idéntico antes/después. Referencias privadas de recuperación en el manual del producto, sin publicar rutas ni manifiestos financieros aquí.</p>
 <h2 id="p1-operacion-segura-y-rollback">Operación segura y rollback</h2>
 <p>Antes de un cambio funcional, identificar imagen/esquema y conjunto vivo, detener escrituras para obtener un corte coherente, usar backup SQLite consistente y preservar catálogo, apertura, permiso, borradores y decisiones. Verificar integridad, huellas y restauración aislada; no basta copiar un archivo activo ignorando WAL.</p>
 <p>Después del cambio, comprobar imagen aprobada, mismo montaje real, bind localhost, salud Streamlit, cadena y comparación financiera. El procedimiento completo vive en el repositorio privado. La publicación documental recrea únicamente el sitio de Replicant Lab; no reinicia CryptoWallet.</p>
-<p><strong>Rollback de código y recuperación de datos son decisiones distintas.</strong> Tras nuevas confirmaciones reales, la versión antigua sin motor no es compatible: conservar conjunto vivo y usar imagen de esquema 1 compatible o reparación hacia delante. No restaurar la apertura perdiendo movimientos posteriores. La copia de aceptación es puntual, no un backup automático; la previa no es una réplica de recuperación.</p>
+<p><strong>Rollback de código y recuperación de datos son decisiones distintas.</strong> Tras nuevas confirmaciones reales, la versión antigua sin motor no es compatible: conservar conjunto vivo y usar imagen de esquema 1 compatible o reparación hacia delante. No restaurar la apertura perdiendo movimientos posteriores. V1.5 añade las copias locales descritas arriba; la copia puntual de aceptación V1.0 queda como evidencia histórica. La previa no es una réplica de recuperación. La recuperación de seguridad es una intervención privada separada.</p>
 <h2 id="p1-pendientes-y-limites">Pendientes y límites</h2>
-<p><a href="https://docs.thereplicantlab.com/pendientes/cryptowallet/">Importación funcional CSV/Excel y reconciliación nueva</a> quedan para <strong>V2</strong>. V1.0 permite consultar trazabilidad, pero no importar nuevos archivos desde la pantalla. OAuth/PIN internos, respaldo funcional y preventas están aplazados.</p>
-<p>No hay bridge/cambio de red, edición/reversión de contabilizadas ni inserción anterior a apertura/última confirmación. No se declara conformidad fiscal nueva. Estos límites no reabren la aceptación V1.0.</p>
-<p>La revisión documental confirma runtime y redirección Access, no el contenido actual de todas las políticas del panel Cloudflare ni una nueva prueba autenticada móvil. <a href="https://docs.thereplicantlab.com/red/cloudflare-tunnel/">Cloudflare</a> distingue la evidencia histórica, la observación actual y esos controles pendientes.</p></div>
+<p><a href="https://docs.thereplicantlab.com/pendientes/cryptowallet/">Importación funcional CSV/Excel y reconciliación nueva</a> quedan para <strong>V2</strong>. V1.5 permite consultar trazabilidad, pero no importar nuevos archivos desde la pantalla. PIN y respaldo funcional ya están desplegados. Google interno está preparado pero pendiente de activación y verificación; preventas y otras ampliaciones siguen separadas.</p>
+<p>No hay bridge/cambio de red, edición/reversión de contabilizadas ni inserción anterior a apertura/última confirmación. No se declara conformidad fiscal nueva. Estos límites no reabren la aceptación financiera V1.0 ni el cierre de V1.5.</p>
+<p>La evidencia de promoción del producto registra runtime y redirección Access. Esta actualización consulta esa evidencia versionada; no certifica una nueva inspección de Nexus, el contenido actual de todas las políticas Cloudflare ni una prueba autenticada móvil. <a href="https://docs.thereplicantlab.com/red/cloudflare-tunnel/">Cloudflare</a> distingue la evidencia histórica y los controles pendientes.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:de150f852de18b5c15a7f2a40cb1b9ba2ed1dea0e6616a497b534dfd453cd07c</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:c2b2df291c4ccd73010115064988b6096093df3efb81bea755d773c0bfce842e</footer>
 
 </body>
 </html>
