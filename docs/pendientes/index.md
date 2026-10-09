@@ -12,6 +12,6 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o Reserva-Pi
 | Réplica de backups a Drive | Servicio independiente, rclone, informe diario y log | Por definir | [Propuesta anotada, no implementada](backups-drive.md) |
 | App Launch | Assets históricos, filtros y workflow de estado | Baja | Mejora opcional |
 | Cloudflare Tunnel + Access | Validación móvil/administrativa por hostname, alertas y recuperación | Alta | Tunnel operativo; catálogo #15 integrado/desplegado, controles transversales pendientes |
-| CryptoWallet | Google interno y recorrido exterior real; desarrollo nuevo separado | Operación / V2 | V1.5 cerrada y desplegada; PIN y copias entregados; [pendientes reales](cryptowallet.md) |
+| CryptoWallet | Cobertura OIDC/móvil no verificada y desarrollo nuevo separado | Límite aceptado / V2 | V1.5 cerrada; Google interno, PIN y copias entregados; [límites vigentes](cryptowallet.md) |
 
 Cada detalle se mantiene una sola vez en su página de este grupo.

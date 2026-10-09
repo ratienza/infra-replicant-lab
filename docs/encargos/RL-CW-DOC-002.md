@@ -1,5 +1,8 @@
 # RL-CW-DOC-002 · Cierre documental CryptoWallet V1.5
 
+!!! note "Registro histórico"
+    Este encargo conserva la publicación inicial con Google interno OFF. El cierre posterior de activación y aceptación manual se tramita en [RL-CW-DOC-003](RL-CW-DOC-003.md); no se reescribe la evidencia observada de este despliegue.
+
 ## Estado
 
 `done` · etapa documental CryptoWallet V1.5 cerrada. El contenido de PR #51 está integrado y publicado en Nexus, con origen HTTP, páginas de cierre y descargables verificados. Google interno, el recorrido exterior autenticado y la réplica Drive conservan su estado pendiente y no forman parte de este cierre.

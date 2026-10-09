@@ -1,18 +1,19 @@
 # Pendientes · CryptoWallet
 
-**V1.5 cerrada y desplegada el 09/10/2026.** PIN, privacidad inicial, copias multibase, pestañas de Ajustes y hamburguesa móvil están entregados. La apertura financiera V1.0 sigue aceptada; CW-004 y CW-005 no se reabren.
+**V1.5 cerrada y desplegada el 09/10/2026.** Google interno, PIN, privacidad inicial, copias multibase, pestañas de Ajustes y hamburguesa móvil están entregados. Raúl confirmó manualmente en incógnito Google → PIN → cartera a las 22:33 Europe/Madrid y aceptó cerrar la etapa. La apertura financiera V1.0 sigue aceptada; CW-004 y CW-005 no se reabren.
 
 ## Controles operativos reales
 
 | Tema | Estado | Acción siguiente |
 |---|---|---|
-| Google OIDC interno | Implementado, OFF en producción | Crear/completar cliente Web OAuth dedicado, registrar callbacks y cargar credenciales por canal privado; reiniciar y comprobar readiness antes de activar |
-| Pruebas OIDC reales | Pendientes | Google → PIN, autorizado/no autorizado, cancelación/error e ida/vuelta a través de Access |
-| Exterior autenticado | Pendiente de sesión de Raúl | Repetir recorrido completo Access → aplicación → PIN en escritorio/móvil; el 302 no prueba el interior |
+| Google OIDC interno | Activo; alta y credenciales privadas completadas | Conservar configuración privada; no repetir ni exponer el alta para documentar |
+| Recorrido autorizado | Cerrado por confirmación manual de Raúl | Google → PIN → cartera confirmado en incógnito; no atribuir prueba independiente al agente |
+| Cobertura OIDC no verificada | Límite aceptado | Cuenta no autorizada y cancelación/error no constan probados; no afirmar que se ejecutaron |
+| Exterior móvil | Límite aceptado | No consta probado; no bloquea el cierre aceptado |
 | Access/Tunnel transversales | Pendientes operativos del Lab | Revisión administrativa por hostname, monitorización, alertas y recuperación controlada |
 | Metadatos de tarjeta App Launch | Ajuste independiente | Revisar descripción vigente y enlace a ficha, sin cambiar runtime financiero |
 
-PIN ya configurado: no solicitar uno nuevo para documentar ni activarlo de nuevo. Duración efectiva 24 horas, privacidad inicial ON y Google interno OFF. No compartir secretos por chat o Git. [Alta y recuperación privadas](https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md).
+PIN ya configurado: no solicitar uno nuevo para documentar ni activarlo de nuevo. Duración efectiva 24 horas, privacidad inicial ON y Google interno activo. No compartir secretos por chat o Git. [Alta y recuperación privadas](https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md).
 
 ## Desarrollo futuro, con otro encargo
 
@@ -32,4 +33,4 @@ Las copias manuales, diarias por cambios y previas, retención y restauración a
 
 Producción, previa y demo son independientes; movimientos de prueba exclusivamente sintéticos. Los desconocidos históricos siguen no disponibles, nunca cero; no reabrir decisiones financieras aceptadas ni pedir históricos ya cerrados. USD/EUR de pantalla no es una base fiscal histórica. Datos y respaldos permanecen privados.
 
-[Ficha vigente](../aplicaciones/cryptowallet.md) · [Manual privado](https://github.com/ratienza/cryptowallet/tree/main/docs/v1) · [Aceptación V1.5](https://github.com/ratienza/cryptowallet/blob/17489d38ab5398de80c37d4985b15f23f131874f/docs/evidence/CW-V15/acceptance.md).
+[Ficha vigente](../aplicaciones/cryptowallet.md) · [Manual privado](https://github.com/ratienza/cryptowallet/tree/main/docs/v1) · [Aceptación V1.5](https://github.com/ratienza/cryptowallet/blob/118577c7cf60f7f5733e6f4822f7194f7d37cd72/docs/evidence/CW-V15/acceptance.md).

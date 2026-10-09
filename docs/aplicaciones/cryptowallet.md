@@ -2,7 +2,7 @@
 
 CryptoWallet **V1.5 / 1.5.0** está cerrada y desplegada en producción privada Nexus desde el **09/10/2026**. Conserva la apertura financiera aceptada y añade PIN persistente, privacidad inicial, copias multibase y navegación adaptable. La previa conserva un entorno independiente; no se presume actualizada a V1.5.
 
-La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza/cryptowallet/blob/17489d38ab5398de80c37d4985b15f23f131874f/HANDOFF.md) y de la [aceptación CW-V15](https://github.com/ratienza/cryptowallet/blob/17489d38ab5398de80c37d4985b15f23f131874f/docs/evidence/CW-V15/acceptance.md). Este cierre documental contrasta esas fuentes; no constituye una nueva inspección del runtime de Nexus.
+La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza/cryptowallet/blob/118577c7cf60f7f5733e6f4822f7194f7d37cd72/HANDOFF.md) y de la [aceptación CW-V15](https://github.com/ratienza/cryptowallet/blob/118577c7cf60f7f5733e6f4822f7194f7d37cd72/docs/evidence/CW-V15/acceptance.md). La activación de Google y el recorrido Google → PIN → cartera se atribuyen a la confirmación manual de Raúl en incógnito el 09/10/2026 a las 22:33 Europe/Madrid; este cierre documental no los repite ni constituye una nueva inspección del runtime.
 
 ## Accesos
 
@@ -20,18 +20,19 @@ La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza
 |---|---|
 | Producto | V1.5 cerrada; PR #13–#17 fusionados |
 | Código ejecutable / tag | `d7aac669b5f905933558c3a7ffa7b42cdae9741e` · `v1.5.0` |
-| Main documental del producto | `17489d38ab5398de80c37d4985b15f23f131874f`; distinto del ejecutable |
+| Main documental del producto | `118577c7cf60f7f5733e6f4822f7194f7d37cd72`; distinto del ejecutable |
 | Imagen productiva | `cryptowallet:1.5.0-d7aac669b5f9` |
 | ID de imagen | `sha256:d764f7f40619b6229e4b1db8bd7db7c04863598babe00b982b47dc9ce9d2cdc5` |
 | Runtime | Nexus · Docker Compose · `cryptowallet-app` · usuario `1000:1000` |
 | Origen productivo | `127.0.0.1:8516 → 8501`; sin acceso directo por IP LAN |
 | Previa | `cryptowallet-preview-app` · localhost `8517`; almacenamiento y versión independientes |
 | Persistencia | Conjunto financiero, copias y seguridad en montajes privados separados |
-| Seguridad efectiva | Cloudflare Access/Tunnel + PIN activo; 24 horas; privacidad inicial ON; Google interno OFF |
+| Seguridad efectiva | Cloudflare Access/Tunnel + Google interno activo + PIN activo; 24 horas; privacidad inicial ON |
 | Recuperación | Copias multibase verificadas; seguridad respaldada aparte; restauración probada en aislamiento |
 | Pruebas de entrega | 379 pruebas + 68 subpruebas locales; 379 pruebas dentro de la imagen sin red |
 | Evidencia de promoción 09/10 | Healthy, origen privado OK, Tunnel activo; 27 componentes financieros idénticos antes/después |
-| Límite exterior | HTTP 302 sin sesión acredita Access; recorrido autenticado de Raúl pendiente |
+| Aceptación exterior | Raúl confirmó manualmente en incógnito Google → PIN → cartera; no fue una prueba independiente del agente |
+| Cobertura no verificada | Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior; límite aceptado sin bloquear el cierre |
 
 No se publican bases, importes, lotes reales, originales, capturas, manifiestos financieros, credenciales ni ubicaciones privadas de respaldos en este repositorio público.
 
@@ -49,7 +50,7 @@ P&G comparable usa coste y valor de las mismas unidades. xN conserva esa cobertu
 
 Python/Streamlit consume la apertura aceptada, catálogo y confirmaciones nuevas. El motor Decimal valida disponibilidad física por custodia y FIFO global del titular por activo. La apertura permanece inmutable; nuevas confirmaciones transaccionales e idempotentes conservan cadena de huellas y revisión.
 
-La ruta externa pasa por Cloudflare Access y el Tunnel saliente de Nexus. Los orígenes productivo y previo están ligados a localhost. Cloudflare Access es la barrera exterior; el PIN de la aplicación es una capa independiente. Google OIDC interno está implementado con correo verificado y cuentas autorizadas, pero permanece **desactivado** hasta instalar y probar un cliente OAuth dedicado. La privacidad oculta cifras; no sustituye al control de acceso.
+La ruta externa pasa por Cloudflare Access y el Tunnel saliente de Nexus. Los orígenes productivo y previo están ligados a localhost. Cloudflare Access es la barrera exterior; Google OIDC interno y el PIN son capas propias de la aplicación. El cliente Web OAuth dedicado y sus credenciales privadas quedaron instalados y Google interno está activo. La privacidad oculta cifras; no sustituye al control de acceso.
 
 Producción monta únicamente el conjunto real. La demo sintética se monta solo en la previa; no sigue ni se mezcla con producción. La copia real de la previa tampoco se sincroniza con las confirmaciones productivas posteriores.
 
@@ -65,7 +66,7 @@ PIN ASCII de seis cifras, conservado como hash scrypt con sal. El desbloqueo fir
 
 **Bloquear ahora**, cierre de sesión, caducidad y cambios de seguridad invalidan el desbloqueo correspondiente. La privacidad inicial **ON** se aplica antes del primer render financiero y se repone al volver a acceder; el ojo funciona normalmente durante la sesión. Los parámetros son modificables en Seguridad; credenciales y ajustes técnicos quedan en Configuración avanzada, plegada por defecto. Secretos, PIN y sesiones no se versionan.
 
-Para completar Google: cliente Web OAuth exclusivo de CryptoWallet, callbacks local y productivo registrados, credenciales por canal privado, carga del TOML en Streamlit y reinicio controlado. Después comprobar Google → PIN, cuenta no autorizada, cancelación/error y recorrido exterior sin bucles. No reutilizar secretos ni almacenamiento de Cartera. [Procedimiento privado](https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md).
+El alta del cliente Web OAuth, callbacks, credenciales privadas, activación y recorrido autorizado Google → PIN → cartera ya no son pendientes. Conservar secretos fuera de Git y no reutilizar los de Cartera. Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior no constan probados; se registran como cobertura no verificada aceptada. [Procedimiento privado](https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md).
 
 ## Copias locales y restauración V1.5
 
@@ -94,7 +95,7 @@ Después del cambio, comprobar imagen aprobada, mismo montaje real, bind localho
 
 ## Pendientes y límites
 
-[Importación funcional CSV/Excel y reconciliación nueva](../pendientes/cryptowallet.md) quedan para **V2**. V1.5 permite consultar trazabilidad, pero no importar nuevos archivos desde la pantalla. PIN y respaldo funcional ya están desplegados. Google interno está preparado pero pendiente de activación y verificación; preventas y otras ampliaciones siguen separadas.
+[Importación funcional CSV/Excel y reconciliación nueva](../pendientes/cryptowallet.md) quedan para **V2**. V1.5 permite consultar trazabilidad, pero no importar nuevos archivos desde la pantalla. PIN, respaldo funcional y Google interno ya están activos. Las variantes OIDC y móvil no probadas son límites aceptados, no funciones pendientes; preventas y otras ampliaciones siguen separadas.
 
 No hay bridge/cambio de red, edición/reversión de contabilizadas ni inserción anterior a apertura/última confirmación. No se declara conformidad fiscal nueva. Estos límites no reabren la aceptación financiera V1.0 ni el cierre de V1.5.
 

@@ -53,7 +53,8 @@ Registro corto de decisiones que no conviene redescubrir.
 | Decisión | Motivo |
 |---|---|
 | PIN interno persistente y privacidad inicial ON | 24 horas de desbloqueo con caducidad absoluta, revocación y privacidad restaurada al volver a entrar |
-| Google interno preparado pero OFF | No afirmar operativo un cliente sin credenciales ni pruebas reales; Access permanece independiente |
+| Estado inicial de Google, histórico: preparado pero OFF | La primera publicación no podía afirmar operativo un cliente sin credenciales ni pruebas reales |
+| Google interno activo y cierre manual aceptado | Raúl confirmó en incógnito Google → PIN → cartera; Access permanece independiente y las variantes no probadas se declaran como límite |
 | Copia financiera completa y coherente | Capturar todas las bases/componentes bajo bloqueo coordinado; verificar antes de escribir y restaurar el conjunto entero |
 | Seguridad respaldada separadamente | No descargar secretos junto a finanzas ni revivir sesiones al recuperar datos |
 | Réplica Drive como servicio independiente | Reutilizar copias finalizadas de varias apps con rclone; no acoplarlas al login de CryptoWallet ni reabrir V1.5 |

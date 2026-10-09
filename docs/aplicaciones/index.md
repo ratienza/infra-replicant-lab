@@ -110,7 +110,7 @@ Gestiona y analiza una cartera personal de inversión. La release v2.0.0 está p
 <article class="app-card" markdown>
 ## CryptoWallet
 <p class="app-type">Cartera cripto privada · V1.5 desplegada</p>
-Seguimiento, liquidez, cotizaciones y operaciones confirmadas con FIFO sobre la apertura consolidada. PIN persistente 24 horas, privacidad inicial ON y copias locales multibase; Google interno preparado pero desactivado.
+Seguimiento, liquidez, cotizaciones y operaciones confirmadas con FIFO sobre la apertura consolidada. Google interno activo, PIN persistente 24 horas, privacidad inicial ON y copias locales multibase; recorrido autorizado confirmado manualmente por Raúl.
 <dl>
 <dt>Herramienta</dt><dd>Codex</dd>
 <dt>Stack</dt><dd>Python · Streamlit · SQLite</dd>

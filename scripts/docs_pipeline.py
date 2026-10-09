@@ -65,7 +65,7 @@ APP_EXPECTED_MARKERS = {
     "cv-raul": ("Firebase Hosting", "POST-CARTERA", "0da08cfa"),
     "control-red": ("PowerShell", "Replicant", "rollback"),
     "cartera-estrategica": ("192.168.18.220:8085", "CE-SEC-001", "rollback"),
-    "cryptowallet": ("8516", "V1.5", "rollback", "CSV/Excel", "Stable Coin", "24 horas", "multibase", "Google interno OFF"),
+    "cryptowallet": ("8516", "V1.5", "rollback", "CSV/Excel", "Stable Coin", "24 horas", "multibase", "Google interno activo"),
     "replicant-lab": ("MkDocs", "8082", "rollback"),
     "erasmushomes-control": ("Objetivo diciembre", "SHA ErasmusHomes main", "roadmap.yaml"),
 }
