@@ -1,5 +1,7 @@
 # Change Log
 
+- [10 de octubre de 2026 · cierre OAuth de CryptoWallet V1.5](2026-10-10.md)
+
 - [9 de octubre de 2026 · CryptoWallet V1.5 y copias Drive](2026-10-09.md)
 
 - [8 de octubre de 2026 · CryptoWallet V1.0](2026-10-08.md)

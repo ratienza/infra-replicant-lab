@@ -107,7 +107,7 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ [v2.0.0 productiva](aplicaciones/cartera-estrategica.md) · Nexus `8085` · OAuth interno + PIN · Indexa API oficial |
-| CryptoWallet | ✅ [V1.5 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · PIN 24 h · privacidad ON · copias multibase · previa `8517` |
+| CryptoWallet | ✅ [V1.5 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · Google interno activo · PIN 24 h · privacidad ON · copias multibase · previa `8517` |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
@@ -137,6 +137,6 @@ Los estados distinguen entre contenido **implementado en Git**, **probado localm
 
 ## CryptoWallet · cierre V1.5
 
-V1.5 cerrada y desplegada el 09/10/2026: PIN persistente 24 horas, privacidad inicial ON, copias locales multibase, Ajustes en Generales / Seguridad / Backup y hamburguesa móvil. Google interno permanece OFF hasta completar credenciales y pruebas reales. Producción localhost `8516` y previa `8517` independientes; datos de prueba exclusivamente sintéticos. [Ficha](aplicaciones/cryptowallet.md), [pendientes reales](pendientes/cryptowallet.md) y [registro de cierre](cambios/2026-10-09.md). Evidencia de promoción en el repositorio privado; no se publican cartera, secretos ni respaldos.
+V1.5 cerrada y desplegada el 09/10/2026: Google interno activo, PIN persistente 24 horas, privacidad inicial ON, copias locales multibase, Ajustes en Generales / Seguridad / Backup y hamburguesa móvil. Raúl confirmó manualmente en incógnito Google → PIN → cartera a las 22:33 Europe/Madrid; el Lab documenta esa confirmación y no la presenta como prueba independiente. Producción localhost `8516` y previa `8517` independientes. [Ficha](aplicaciones/cryptowallet.md), [límites aceptados](pendientes/cryptowallet.md) y [cierre documental](cambios/2026-10-10.md). No se publican cartera, secretos ni respaldos.
 
 La [réplica automática de copias a Drive](pendientes/backups-drive.md) queda anotada como proyecto independiente del Lab, con rclone, informe diario y log exportable; aún no implementada.

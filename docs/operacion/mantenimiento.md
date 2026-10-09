@@ -31,10 +31,10 @@ La release productiva v2.0.0 está fijada al tag y SHA `c672eb1cadfcb191aaff6db8
 
 ## CryptoWallet V1.5
 
-Producción privada en localhost `8516`; previa independiente en `8517`. Identidad vigente y fuentes en la [ficha](../aplicaciones/cryptowallet.md). PIN 24 horas, privacidad inicial ON y Google interno OFF. Un cambio documental recrea únicamente Replicant Lab; conserva servicios y datos financieros.
+Producción privada en localhost `8516`; previa independiente en `8517`. Identidad vigente y fuentes en la [ficha](../aplicaciones/cryptowallet.md). Google interno activo, PIN 24 horas y privacidad inicial ON. La confirmación manual de Raúl acredita el recorrido autorizado; no sustituirla por una supuesta prueba del agente. Un cambio documental recrea únicamente Replicant Lab; conserva servicios y datos financieros.
 
 Antes de actualizar código: identificar imagen/esquema y conjunto vivo; obtener copia previa completa y verificar huellas, integridad y restauración aislada; respaldar seguridad separadamente. Tras promover código compatible, comprobar montajes, usuario, salud, cadena y comparación financiera. Conservar imagen y compose previos; rollback de código no autoriza restaurar datos antiguos sobre movimientos nuevos.
 
 Copias locales desde **Ajustes → Backup**: manuales, diarias solo si cambia el estado y previas verificadas que bloquean la escritura si fallan. Retención 7 / 10 / 10; protegidas conservadas. Restaurar requiere previsualización, confirmación, `pre_restore`, candidato aislado e instalación completa con recuperación ante fallo. No ensayar sobre producción. Seguridad excluida de las descargas financieras y preservada al restaurar finanzas. [Procedimiento privado](https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md).
 
-La previa no es réplica de recuperación. La [réplica automática Drive](../pendientes/backups-drive.md) y sus avisos son un proyecto futuro independiente; las copias locales no acreditan recuperación remota del host. Activación Google y prueba exterior autenticada quedan en [pendientes](../pendientes/cryptowallet.md).
+La previa no es réplica de recuperación. La [réplica automática Drive](../pendientes/backups-drive.md) y sus avisos son un proyecto futuro independiente; las copias locales no acreditan recuperación remota del host. Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior quedan como [cobertura no verificada aceptada](../pendientes/cryptowallet.md).
