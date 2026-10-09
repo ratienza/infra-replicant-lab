@@ -30,6 +30,8 @@ pnpm install --frozen-lockfile
 pnpm exec playwright install chromium
 ```
 
+Para generar los PDF en Linux, instalar también las fuentes Liberation (Ubuntu 24.04: `fonts-liberation` versión `1:2.1.5-3`). Arial debe resolverse a Liberation Sans y el código a Liberation Mono, como en el runner oficial. Una fuente sustituta puede cambiar la paginación aunque los textos coincidan; `check` conserva la comprobación estricta del número de páginas.
+
 Un único comando construye MkDocs, genera los portables globales y por aplicación, renderiza los diecisiete Mermaid y valida enlaces, recursos, HTML offline y PDF:
 
 ```bash
