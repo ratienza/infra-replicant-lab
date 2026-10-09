@@ -2,7 +2,7 @@
 
 ## Estado
 
-`ready_for_review` · fuentes y derivados preparados; pendientes PR, CI, merge, publicación exclusiva de `docs` y verificación final en Nexus.
+`done` · cambios de producto y Lab integrados; contenido publicado reconstruyendo exclusivamente `docs`; HTTP, marcadores, SHA y doce parejas HTML/PDF verificados en Nexus. La confirmación real Google → PIN → cartera sigue atribuida únicamente a Raúl.
 
 ## Repositorios y fuentes
 
@@ -44,4 +44,23 @@ No redeplegar ni reiniciar CryptoWallet o Cartera. No modificar datos, PIN, cred
 
 ## Resultado
 
-Pendiente de integración y publicación. Los SHA, PR, CI, imagen, rollback y comprobaciones reales se completarán antes de declarar `done`.
+| Control | Resultado |
+|---|---|
+| Producto | PR [CryptoWallet #18](https://github.com/ratienza/cryptowallet/pull/18) fusionado en `118577c7cf60f7f5733e6f4822f7194f7d37cd72` |
+| CI del producto | El repositorio no tiene workflows/checks asociados a la PR; `statusCheckRollup` vacío, registrado sin fingir CI |
+| Documentación | PR [Replicant Lab #53](https://github.com/ratienza/infra-replicant-lab/pull/53) fusionado en `8fd8efd7b5ad4b6399980846a5b501b5f94dec7c` |
+| CI documental | `build` correcto en [run 37998259323, job 114049692950](https://github.com/ratienza/infra-replicant-lab/actions/runs/37998259323/job/114049692950) |
+| Pipeline | `generate` y `check` correctos; `synchronized`; huella `edcaf44d3f01bf1c923b3850a527bc3c1a4af69be44e97c42f9e68e91598e759` |
+| Publicación Nexus | Solo servicio `docs`; [http://192.168.18.220:8082/](http://192.168.18.220:8082/); checkout limpio y alineado en `8fd8efd7b5ad4b6399980846a5b501b5f94dec7c` |
+| Imagen inicial del cierre | `sha256:4dd544159d77417c366bf4d96e8a2ab26db869848c86845c7596cf62e0a37190` |
+| Recuperación | `infra-replicant-docs:rollback-ca6a970-before-8fd8efd` → `sha256:524c09cb59cdfe95b4161fe32bacf2340172d45e88f5b25c52612bb629613206` |
+
+Comprobaciones realizadas tras `docker compose up -d --build docs`:
+
+- HTTP 200 en portada, ficha CryptoWallet, pendientes, operación, Change Log 10/10, RL-CW-DOC-003 y propuesta Drive.
+- Contenido servido: Google interno activo; confirmación manual de Raúl a las 22:33; PIN 24 horas; privacidad inicial ON; copias locales entregadas; límites OIDC/móvil no verificados y Drive independiente.
+- Las doce parejas contractuales, 24 archivos, coinciden byte a byte con Git por SHA-256 (`MISMATCH=0`).
+- Contenedor `infra-replicant-docs` en ejecución. No se reiniciaron ni redeplegaron CryptoWallet, Cartera u otros servicios.
+- No se modificaron datos, PIN, credenciales, OAuth, Access, Tunnel, DNS, puertos, roadmap ni cachés de ErasmusHomes.
+
+Esta actualización de cierre cambia de nuevo la fuente y sus derivados. Su PR, CI, SHA final servido, imagen final y repetición de las comprobaciones se registran en la propia PR para evitar una autorreferencia circular dentro del documento versionado.
