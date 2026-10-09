@@ -107,13 +107,13 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ [v2.0.0 productiva](aplicaciones/cartera-estrategica.md) · Nexus `8085` · OAuth interno + PIN · Indexa API oficial |
-| CryptoWallet | ✅ [V1.0 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · previa independiente `8517` · importación nueva V2 |
+| CryptoWallet | ✅ [V1.5 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · PIN 24 h · privacidad ON · copias multibase · previa `8517` |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
 | Control de Red | ✅ Herramienta local · demo Nexus read-only en `8084` · separación de datos POST-CARTERA |
 | Producción DigitalOcean | ✅ App Launch y Reservas; no es runtime de Consumos ni CV |
-| Backups Nexus | ⏳ POST-CARTERA |
+| Backups Nexus | ⏳ Política global y réplica Drive pendientes; copias locales CryptoWallet V1.5 operativas |
 | Nombres locales | ✅ `replicant` y `nexus` mediante `hosts` en Replicant |
 
 ## Cómo usar esta documentación
@@ -135,6 +135,8 @@ Los estados distinguen entre contenido **implementado en Git**, **probado localm
 
 `launch.thereplicantlab.com` y los hostnames de Salones, Docs, Pádel, Red y Cartera publican servicios Nexus mediante un único Cloudflare Tunnel, DNS y HTTPS. Google identifica y Access autoriza por aplicación; Cartera añade Google OIDC interno y PIN; `cloudflared` mantiene la conexión saliente sin abrir puertos en el router. Los accesos LAN por IP y puerto permanecen sin cambios.
 
-## CryptoWallet · cierre V1.0
+## CryptoWallet · cierre V1.5
 
-Aceptada y promovida el 08/10/2026: funcionalidades principales, estética y apertura consolidada. Producción y previa separadas, ambos orígenes solo localhost; nuevos movimientos de prueba exclusivamente en la demo sintética de la previa. [Ficha](aplicaciones/cryptowallet.md), [pendientes V2](pendientes/cryptowallet.md) y [registro de cierre](cambios/2026-10-08.md). La documentación pública no incluye cartera ni respaldos privados.
+V1.5 cerrada y desplegada el 09/10/2026: PIN persistente 24 horas, privacidad inicial ON, copias locales multibase, Ajustes en Generales / Seguridad / Backup y hamburguesa móvil. Google interno permanece OFF hasta completar credenciales y pruebas reales. Producción localhost `8516` y previa `8517` independientes; datos de prueba exclusivamente sintéticos. [Ficha](aplicaciones/cryptowallet.md), [pendientes reales](pendientes/cryptowallet.md) y [registro de cierre](cambios/2026-10-09.md). Evidencia de promoción en el repositorio privado; no se publican cartera, secretos ni respaldos.
+
+La [réplica automática de copias a Drive](pendientes/backups-drive.md) queda anotada como proyecto independiente del Lab, con rclone, informe diario y log exportable; aún no implementada.

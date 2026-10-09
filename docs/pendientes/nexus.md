@@ -2,7 +2,9 @@
 
 ## Backups
 
-Definir una política global de backups y ejecutar una prueba de restauración.
+Definir una política global de backups y ejecutar una prueba de restauración. CryptoWallet V1.5 ya dispone de copias locales multibase verificadas y retención; esto no acredita respaldo remoto del host ni de otras aplicaciones.
+
+[Servicio independiente de réplica a Google Drive](backups-drive.md): propuesta anotada, con rclone, configuración por aplicación, informe diario y log exportable. Sin implementación ni credenciales instaladas; requiere encargo propio.
 
 ## Checkouts
 

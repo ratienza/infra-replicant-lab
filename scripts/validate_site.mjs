@@ -40,9 +40,11 @@ const routes = [
   { route: "/control/erasmushomes/", name: "erasmushomes-standalone", diagrams: 0 },
   { route: "/pendientes/", name: "pending", diagrams: 0 },
   { route: "/pendientes/cryptowallet/", name: "pending-cryptowallet", diagrams: 0 },
+  { route: "/pendientes/backups-drive/", name: "pending-backups-drive", diagrams: 0 },
   { route: "/pendientes/cv-firebase/", name: "pending-detail", diagrams: 0 },
   { route: "/cambios/", name: "changelog-index", diagrams: 0 },
   { route: "/cambios/2026-10-08/", name: "changelog-cryptowallet", diagrams: 0 },
+  { route: "/cambios/2026-10-09/", name: "changelog-cryptowallet-v15", diagrams: 0 },
   { route: "/cambios/2026-09-12/", name: "changelog-cartera", diagrams: 0 },
   { route: "/cambios/2026-09-06/", name: "changelog-cloudflare", diagrams: 0 },
   { route: "/cambios/2026-08-29/", name: "changelog-current", diagrams: 0 },
@@ -61,6 +63,7 @@ const routes = [
   { route: "/encargos/TEMPLATE/", name: "engagement-template", diagrams: 0 },
   { route: "/encargos/GOV-001/", name: "gov-001", diagrams: 0 },
   { route: "/encargos/RL-CW-DOC-001/", name: "rl-cw-doc-001", diagrams: 0 },
+  { route: "/encargos/RL-CW-DOC-002/", name: "rl-cw-doc-002", diagrams: 0 },
   { route: "/encargos/RL-CE-DOC-001/", name: "rl-ce-doc-001", diagrams: 0 },
 ];
 
@@ -79,7 +82,7 @@ for (const item of routes) {
   const consoleErrors = [];
   const requestFailures = [];
   const responseFailures = [];
-  const onConsole = message => { if (message.type() === "error") consoleErrors.push(message.text()); };
+  const onConsole = message => { if (message.type() === "error" && !isOptionalFontFailure(message.location().url)) consoleErrors.push(message.text()); };
   const onRequest = request => requestFailures.push(`${request.url()} :: ${request.failure()?.errorText ?? "failed"}`);
   const onResponse = response => { if (response.status() >= 400) responseFailures.push(`${response.status()} ${response.url()}`); };
   page.on("console", onConsole);
@@ -132,7 +135,7 @@ for (const item of routes) {
       left: [...document.querySelectorAll(".md-sidebar--primary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
       right: [...document.querySelectorAll(".md-sidebar--secondary nav a")].map(link => link.textContent.replace(/\s+/g, " ").trim()),
     }));
-    const expectedLeft = ["Resumen", "CryptoWallet", "Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
+    const expectedLeft = ["Resumen", "CryptoWallet", "Copias remotas Drive", "Cartera Estratégica", "PULA", "CV / Firebase", "Control de Red", "Nexus", "App Launch"];
     if (!expectedLeft.every(value => navigation.left.includes(value))) failures.push(`${item.route}: incomplete pending navigation ${JSON.stringify(navigation)}`);
     if (item.name === "pending-detail" && ["PULA", "Nexus", "Control de Red"].some(value => navigation.right.includes(value))) {
       failures.push(`${item.route}: unrelated right TOC ${JSON.stringify(navigation.right)}`);
@@ -284,7 +287,7 @@ for (const viewport of [
   const consoleErrors = [];
   const requestFailures = [];
   const responseFailures = [];
-  const onConsole = message => { if (message.type() === "error") consoleErrors.push(message.text()); };
+  const onConsole = message => { if (message.type() === "error" && !isOptionalFontFailure(message.location().url)) consoleErrors.push(message.text()); };
   const onRequest = request => requestFailures.push(`${request.url()} :: ${request.failure()?.errorText ?? "failed"}`);
   const onResponse = response => { if (response.status() >= 400) responseFailures.push(`${response.status()} ${response.url()}`); };
   page.on("console", onConsole);

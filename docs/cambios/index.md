@@ -1,5 +1,7 @@
 # Change Log
 
+- [9 de octubre de 2026 · CryptoWallet V1.5 y copias Drive](2026-10-09.md)
+
 - [8 de octubre de 2026 · CryptoWallet V1.0](2026-10-08.md)
 - [4 de octubre de 2026 · Cartera v2.0.0](2026-10-04.md)
 - [13 de septiembre de 2026](2026-09-13.md)

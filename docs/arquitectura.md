@@ -135,4 +135,4 @@ La guía operativa y de recuperación está en [Cloudflare Tunnel](red/cloudflar
 
 ## Producción privada CryptoWallet
 
-Nexus ejecuta V1.0 aceptada con origen localhost `8516`, datos reales independientes y ningún montaje sintético. La previa localhost `8517` permanece separada. Manual y modelo financiero en el repositorio privado; [ficha de infraestructura](aplicaciones/cryptowallet.md). La actualización documental no toca operaciones ni runtimes financieros.
+Nexus ejecuta V1.5 cerrada con origen localhost `8516`, datos reales independientes y ningún montaje sintético. La previa localhost `8517` permanece separada. Manual y modelo financiero en el repositorio privado; [ficha de infraestructura](aplicaciones/cryptowallet.md). PIN activo con persistencia 24 horas, privacidad inicial ON y copias locales multibase; Google OIDC interno preparado y OFF. La réplica Drive es una propuesta independiente. La actualización documental no toca operaciones ni runtimes financieros.

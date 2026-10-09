@@ -101,6 +101,6 @@ No almacenar aquí contraseñas, tokens, claves privadas, bases de datos ni secr
 
 La publicación externa del Lab usa un único Tunnel saliente `replicant-launch` desde Nexus. Launch, Salones, Docs, Pádel, Red y Cartera disponen de hostnames propios protegidos mediante Cloudflare Access, con Google como IdP y política independiente por aplicación. No se abren puertos entrantes en el router. La guía canónica, operación y recuperación están en `docs/red/cloudflare-tunnel.md`.
 
-## CryptoWallet V1.0 · cierre documental 08/10/2026
+## CryptoWallet V1.5 · cierre documental 09/10/2026
 
-Producción privada en Nexus mediante origen localhost `8516`, previa independiente `8517`, ambos hostnames protegidos. Ficha canónica `docs/aplicaciones/cryptowallet.md`, pendientes V2 y documentación funcional en su repositorio privado. Once fichas individuales y dossier global: doce parejas HTML/PDF desde el generador existente. Ver RL-CW-DOC-001 para alcance, evidencias y límites; la publicación solo recrea el sitio documental.
+Producción privada en Nexus mediante origen localhost `8516`, previa independiente `8517`, ambos hostnames protegidos. Ficha canónica `docs/aplicaciones/cryptowallet.md`, pendientes V2 y documentación funcional en su repositorio privado. Once fichas individuales y dossier global: doce parejas HTML/PDF desde el generador existente. V1.5 incorpora PIN persistente 24 horas, privacidad ON, copias multibase y Ajustes por pestañas / hamburguesa móvil; Google interno preparado y OFF. La réplica Drive es un proyecto independiente anotado, aún no implementado. Ver RL-CW-DOC-002 para fuentes, evidencia y gate de publicación; la publicación solo recrea el sitio documental.

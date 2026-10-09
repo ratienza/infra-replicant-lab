@@ -49,7 +49,7 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
-| `8516/tcp` | CryptoWallet V1.0 · producción privada | localhost; Tunnel |
+| `8516/tcp` | CryptoWallet V1.5 · producción privada | localhost; Tunnel |
 | `8517/tcp` | CryptoWallet · previa independiente | localhost; Tunnel |
 | `53` | systemd-resolved | localhost |
 
@@ -100,3 +100,12 @@ El acceso LAN a `80`, `8081`, `8082`, `8083`, `8084` y `8085` no cambia y no pas
 V1.0 aceptada y promovida: `cryptowallet-app`, imagen `cryptowallet:1.0.0-5e7c3d79`, origen `127.0.0.1:8516 → 8501`, producción privada de esta aplicación. `cryptowallet-preview-app` sigue saludable en localhost `8517`, con copia real y demo ficticia separadas. Producción monta solo su conjunto real; ningún movimiento sintético se promueve. Copia consistente puntual verificada en Nexus y segunda ubicación privada.
 
 Ambos hostnames externos redirigen a Access sin sesión; cloudflared activo/habilitado. No se inspeccionó el panel administrativo de políticas. El mantenimiento documental no reinicia estos contenedores ni toca las bases. [Ficha y recuperación compatible](../aplicaciones/cryptowallet.md).
+
+
+## CryptoWallet · V1.5, promoción registrada 09/10/2026
+
+La evidencia privada de CW-V15 sustituye únicamente la identidad productiva histórica anterior: tag `v1.5.0`, ejecutable `d7aac669b5f905933558c3a7ffa7b42cdae9741e`, imagen `cryptowallet:1.5.0-d7aac669b5f9`, usuario `1000:1000`, contenedor healthy y origen localhost `8516`. Previa `8517` independiente, sin promoción de datos sintéticos.
+
+PIN activo y persistente 24 horas, privacidad inicial ON y Google interno OFF. Datos, copias multibase y seguridad persisten en montajes privados separados; retención efectiva 7 diarias / 10 manuales / 10 previas y protegidas conservadas. Restauración comprobada en aislamiento y 27 componentes financieros idénticos antes/después. Access/Tunnel se mantienen; 302 exterior no acredita sesión autenticada. [Ficha y fuentes](../aplicaciones/cryptowallet.md).
+
+Esta actualización documental consulta la aceptación versionada, sin nueva inspección remota de Nexus. La publicación de la documentación tiene su propio gate en [RL-CW-DOC-002](../encargos/RL-CW-DOC-002.md). La [réplica Drive](../pendientes/backups-drive.md) aún no es un servicio de Nexus.

@@ -1,33 +1,35 @@
 # Pendientes · CryptoWallet
 
-**V1.0 aceptada, integrada y en producción privada desde el 08/10/2026.** Funcionalidad principal, estética y apertura consolidada cerradas. Ninguna nota de revisión anterior mantiene abierto CW-005 ni reabre CW-004.
+**V1.5 cerrada y desplegada el 09/10/2026.** PIN, privacidad inicial, copias multibase, pestañas de Ajustes y hamburguesa móvil están entregados. La apertura financiera V1.0 sigue aceptada; CW-004 y CW-005 no se reabren.
 
-| Tema | Estado | Próximo alcance, si Raúl lo encarga |
+## Controles operativos reales
+
+| Tema | Estado | Acción siguiente |
 |---|---|---|
-| Importar CSV/Excel | Pendiente V2 | Flujo funcional con análisis, mapeo, errores legibles, revisión e idempotencia |
-| Reconciliación nueva | Pendiente V2 | Nuevas fuentes sin duplicar apertura ni modificar cierres aceptados |
-| OAuth/PIN internos | Aplazado | Diseño específico; Access externo permanece vigente |
-| Respaldo desde la app | Aplazado | Consistencia multibase, retención y restauración comprobada |
-| Preventas / ampliaciones Configuración | Aplazado | Encargo separado |
-| Corrección/reversión de contabilizadas | Limitación V1.0 | Sin implementación autorizada |
-| Bridge/cambio de red y retroactividad | No habilitados | Sin simulación ni reescritura histórica |
-| Backups automáticos/alertas | Pendiente operativo | La copia puntual V1.0 no constituye automatización |
+| Google OIDC interno | Implementado, OFF en producción | Crear/completar cliente Web OAuth dedicado, registrar callbacks y cargar credenciales por canal privado; reiniciar y comprobar readiness antes de activar |
+| Pruebas OIDC reales | Pendientes | Google → PIN, autorizado/no autorizado, cancelación/error e ida/vuelta a través de Access |
+| Exterior autenticado | Pendiente de sesión de Raúl | Repetir recorrido completo Access → aplicación → PIN en escritorio/móvil; el 302 no prueba el interior |
+| Access/Tunnel transversales | Pendientes operativos del Lab | Revisión administrativa por hostname, monitorización, alertas y recuperación controlada |
+| Metadatos de tarjeta App Launch | Ajuste independiente | Revisar descripción vigente y enlace a ficha, sin cambiar runtime financiero |
 
-No siguen pendientes los depósitos/retiradas fiat, contabilización, ajustes estéticos, cálculos recíprocos de rotación ni Liquidez Total/Estables/FIAT: ya fueron entregados y aceptados.
+PIN ya configurado: no solicitar uno nuevo para documentar ni activarlo de nuevo. Duración efectiva 24 horas, privacidad inicial ON y Google interno OFF. No compartir secretos por chat o Git. [Alta y recuperación privadas](https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md).
 
-Los desconocidos históricos permanecen no disponibles, nunca cero. El regalo PEPE sigue excluido y no se solicitan históricos para TAO. USD/EUR de pantalla no constituye una base fiscal histórica.
+## Desarrollo futuro, con otro encargo
 
-## Operación del Lab
+| Tema | Estado / alcance |
+|---|---|
+| Importar CSV/Excel | V2: análisis, mapeo, errores, revisión e idempotencia |
+| Reconciliación nueva | V2: nuevas fuentes sin duplicar apertura ni modificar cierres |
+| Nuevos cálculos antes/después | Aplazados: simulación, medias posteriores y comparación calculada; la pantalla propia con datos existentes ya está entregada |
+| Preventas / otras ampliaciones | Aplazadas |
+| Corrección/reversión de contabilizadas | Sin implementación autorizada |
+| Bridge/cambio de red y retroactividad | No habilitados; sin reescritura histórica |
+| Réplica automática remota en Drive | [Proyecto independiente del Lab](backups-drive.md); propuesta anotada, no implementada |
 
-- Mantener producción y previa independientes; practicar movimientos exclusivamente con la demo ficticia de la previa.
-- Validación administrativa y móvil de Access por hostname, monitorización y recuperación del Tunnel: controles transversales, no nuevas funciones de CryptoWallet.
-- La tarjeta Nexus ya abre producción. Su descripción aún menciona borradores y no incluye enlace secundario a la ficha: actualización de metadatos del catálogo mediante el flujo de App Launch, sin cambiar el runtime financiero.
-- Datos y respaldos exclusivamente privados. La ficha pública documenta la infraestructura, no la cartera.
+Las copias manuales, diarias por cambios y previas, retención y restauración aislada **ya están implementadas y desplegadas**. No mantenerlas como deuda. La réplica externa y el informe diario no forman parte del cierre V1.5.
 
-[Ficha vigente](../aplicaciones/cryptowallet.md) · [Documentación funcional privada](https://github.com/ratienza/cryptowallet/tree/main/docs/v1).
+## Límites conservados
 
-## Mejora posterior a V1.0 · anotada 08/10/2026
+Producción, previa y demo son independientes; movimientos de prueba exclusivamente sintéticos. Los desconocidos históricos siguen no disponibles, nunca cero; no reabrir decisiones financieras aceptadas ni pedir históricos ya cerrados. USD/EUR de pantalla no es una base fiscal histórica. Datos y respaldos permanecen privados.
 
-Raúl solicita que los resúmenes de operaciones se presenten en una **pantalla de revisión separada**, siguiendo Cartera Estratégica, con más contexto y comparación **antes → variación → después**. Incluir activos/custodias, cantidades/importes, comisiones y efectos P&G/FIFO cuando correspondan, con cobertura explícita y acciones de volver/modificar y confirmar accesibles.
-
-**Solo pendiente; no implementar todavía.** La captura es una referencia privada de presentación y sus cifras no se publican. Es mejora posterior, sin reabrir la aceptación V1.0 ni modificar el motor actual.
+[Ficha vigente](../aplicaciones/cryptowallet.md) · [Manual privado](https://github.com/ratienza/cryptowallet/tree/main/docs/v1) · [Aceptación V1.5](https://github.com/ratienza/cryptowallet/blob/17489d38ab5398de80c37d4985b15f23f131874f/docs/evidence/CW-V15/acceptance.md).

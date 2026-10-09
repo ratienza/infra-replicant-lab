@@ -46,7 +46,7 @@ El diagrama anterior expresa responsabilidades, no el sentido físico de apertur
 | Consumos Cupra | AI Studio + Codex / GitHub | Cloud Build + Artifact Registry | Google Cloud Run |
 | CV | AI Studio / GitHub | Despliegue Firebase | Firebase Hosting |
 | Cartera Estratégica v2.0.0 | Codex / GitHub | Docker Compose · SQLite privada real | Nexus · `8085` |
-| CryptoWallet V1.0 | Codex / GitHub privado | Docker Compose · conjunto financiero privado | Nexus · producción localhost `8516`; previa `8517` |
+| CryptoWallet V1.5 | Codex / GitHub privado | Docker Compose · conjunto financiero privado | Nexus · producción localhost `8516`; previa `8517` |
 | Control de Red | PowerShell + Codex | Ejecución local + demo aislada | Replicant + demo Nexus |
 | App Launch | Codex / GitHub | Scripts por destino | Nginx en Nexus y DigitalOcean |
 | Replicant Lab | Codex / GitHub | Docker Compose | Nexus |

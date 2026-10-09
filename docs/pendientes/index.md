@@ -8,9 +8,10 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o Reserva-Pi
 | PULA | Seguridad, operación y calidad | Alta | Pendiente |
 | CV / Firebase | CI, trazabilidad, seguridad y UX | Media | POST-CARTERA |
 | Control de Red | Separación de datos operativos | Media | POST-CARTERA |
-| Nexus | Backups y gobierno de checkouts | Media | POST-CARTERA |
+| Nexus | Política global de backups y gobierno de checkouts | Media | Pendiente; CryptoWallet ya tiene copias locales |
+| Réplica de backups a Drive | Servicio independiente, rclone, informe diario y log | Por definir | [Propuesta anotada, no implementada](backups-drive.md) |
 | App Launch | Assets históricos, filtros y workflow de estado | Baja | Mejora opcional |
 | Cloudflare Tunnel + Access | Validación móvil/administrativa por hostname, alertas y recuperación | Alta | Tunnel operativo; catálogo #15 integrado/desplegado, controles transversales pendientes |
-| CryptoWallet | Importación CSV/Excel y reconciliación nueva; demás ampliaciones separadas | V2 | V1.0 aceptada y productiva; [alcance y límites](cryptowallet.md) |
+| CryptoWallet | Google interno y recorrido exterior real; desarrollo nuevo separado | Operación / V2 | V1.5 cerrada y desplegada; PIN y copias entregados; [pendientes reales](cryptowallet.md) |
 
 Cada detalle se mantiene una sola vez en su página de este grupo.

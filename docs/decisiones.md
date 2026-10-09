@@ -46,3 +46,15 @@ Registro corto de decisiones que no conviene redescubrir.
 | Recuperación de código compatible sin sobrescribir datos | No perder operaciones posteriores a la copia de aceptación |
 | Importación funcional CSV/Excel en V2 | Pantalla de consulta no equivale a importación operativa |
 | Manual funcional en repositorio privado | Infra público sin información financiera, datos ni ubicaciones de backups |
+
+
+## CryptoWallet V1.5 y copias remotas · 09/10/2026
+
+| Decisión | Motivo |
+|---|---|
+| PIN interno persistente y privacidad inicial ON | 24 horas de desbloqueo con caducidad absoluta, revocación y privacidad restaurada al volver a entrar |
+| Google interno preparado pero OFF | No afirmar operativo un cliente sin credenciales ni pruebas reales; Access permanece independiente |
+| Copia financiera completa y coherente | Capturar todas las bases/componentes bajo bloqueo coordinado; verificar antes de escribir y restaurar el conjunto entero |
+| Seguridad respaldada separadamente | No descargar secretos junto a finanzas ni revivir sesiones al recuperar datos |
+| Réplica Drive como servicio independiente | Reutilizar copias finalizadas de varias apps con rclone; no acoplarlas al login de CryptoWallet ni reabrir V1.5 |
+| Retención remota y cifrado por definir en otro encargo | Evitar propagar borrados; clave recuperable fuera de Nexus y ensayo de restauración remota antes de aceptación |
