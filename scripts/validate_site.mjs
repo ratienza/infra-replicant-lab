@@ -392,6 +392,7 @@ const downloads = {
   apps: {},
 };
 for (const slug of [
+  "backups-lab",
   "pula",
   "app-launch",
   "salones-av",
