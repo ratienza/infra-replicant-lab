@@ -1,6 +1,6 @@
 # Change Log
 
-- [12 de octubre de2026 · Backups Lab V1.0](2026-10-12.md)
+- [12 de octubre de 2026 · Cartera v2.1.0 y Backups Lab V1.0](2026-10-12.md)
 
 - [10 de octubre de 2026 · cierre OAuth de CryptoWallet V1.5](2026-10-10.md)
 
