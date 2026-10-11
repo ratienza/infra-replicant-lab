@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="425916525f05d7ae2f3d9fe0e2d90c04073f98f322a9cede92de70e0d88b5274">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="d76a40b906afa62dc5923e07a366588d85cd6f75911093def938aac989dc3e9a">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:425916525f05d7ae2f3d9fe0e2d90c04073f98f322a9cede92de70e0d88b5274">
-  <title>Backups Lab V1.0 · Ficha técnica · 425916525f05</title>
+  <meta name="source-fingerprint" content="sha256:d76a40b906afa62dc5923e07a366588d85cd6f75911093def938aac989dc3e9a">
+  <title>Backups Lab V1.0 · Ficha técnica · d76a40b906af</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -161,14 +161,20 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>Backups Lab V1.0</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/backups-lab.md</dd><dt>Versión reproducible</dt><dd>sha256:425916525f05d7ae2f3d9fe0e2d90c04073f98f322a9cede92de70e0d88b5274</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/backups-lab.md</dd><dt>Versión reproducible</dt><dd>sha256:d76a40b906afa62dc5923e07a366588d85cd6f75911093def938aac989dc3e9a</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/backups-lab.md">
       <p class="source-path">aplicaciones/backups-lab.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-backups-lab-v10">Aplicación · Backups Lab V1.0</h1>
-<p>Versión 1.0.0, 12/10/2026. Cierre técnico autorizado por Raúl; no sustituye su aceptación humana. Repositorio <a href="https://github.com/ratienza/backups-lab">ratienza/backups-lab</a>, <a href="https://github.com/ratienza/backups-lab/releases/tag/v1.0.0">release v1.0.0</a>. La referencia d2c7e1c/PR21 es histórica: PR22/main4c63ac1 ya integró cobertura, Drive, menú móvil, cola durable y la decisión explícita de diferir sustitución a v2.0.</p>
+<p>Versión 1.0.1, 12/10/2026. Cierre técnico autorizado por Raúl; no sustituye su aceptación humana. Repositorio <a href="https://github.com/ratienza/backups-lab">ratienza/backups-lab</a>, <a href="https://github.com/ratienza/backups-lab/releases/tag/v1.0.1">release v1.0.1</a>. <a href="https://github.com/ratienza/backups-lab/releases/tag/v1.0.0">v1.0.0 histórica e inmutable</a>. La referencia d2c7e1c/PR21 es histórica: PR22/main4c63ac1 ya integró cobertura, Drive, menú móvil, cola durable y la decisión explícita de diferir sustitución a v2.0.</p>
 <p>Runtime privado en Nexus, puerto LAN <strong>8087</strong>.</p>
+<h2 id="p1-correccion-v101-configuracion-y-controles-globales">Corrección v1.0.1 · Configuración y controles globales</h2>
+<p>Configuración → Origen y descubrimiento muestra las carpetas guardadas, inicialmente <code>/opt/apps</code> (sin <code>$</code>). Añadir, editar y quitar → Guardar carpetas persiste la lista; Buscar nuevas aplicaciones enumera únicamente carpetas inmediatas de Nexus, sin leer archivos ni escanear la red. No sigue symlinks. Rutas inválidas, de sistema o no accesibles muestran causas concretas. Se admite una lista vacía para suspender el descubrimiento. Las candidatas nuevas aparecen NEW, pendientes de preparar: ninguna se activa ni copia; las previews siguen excluidas. Guardar o buscar no modifica adaptadores existentes, sus orígenes, horarios, exclusiones ni historial.</p>
+<p>Cada aplicación tiene fuentes propias. Aplicaciones → Ver aplicación/Ver pendiente muestra las rutas efectivas del contrato; Cartera y Reserva usan <code>/opt/data</code>, Launch <code>/home/raul/app-launch</code>, Facility los volúmenes <code>docker-volume:facility-fac001_pg</code> y <code>docker-volume:facility-fac001_minio</code>. Descubrimiento no es el origen global de las copias ni amplía su cobertura.</p>
+<p>Programación global ON/OFF requiere acceso autorizado y persiste separadamente de Activa por aplicación. OFF pausa reservas y ejecución automática pendiente; no cancela una copia ya iniciada y las manuales siguen disponibles. Conserva horarios y preferencias. ON reanuda solo las habilitadas desde ese instante, sin ejecutar copias inmediatas ni recuperar horas vencidas durante la pausa. La interfaz muestra su número. Siete aplicaciones habilitadas y Control Red OFF se preservan, sin modificar sus horas.</p>
+<p>Retención ON/OFF de Configuración y Retención comparte estado real y confirmación. ON abre revisión de política 7/4/12/3 y alcance de ocho aplicaciones sin previews; exige acceso autorizado y casilla explícita. Cancelar no activa. OFF detiene futuras ejecuciones, no una operación manual ya aceptada. Inicialmente OFF; la última copia válida sigue protegida con programación global o individual OFF. La activación y borrado se prueban únicamente con estado sintético aislado.</p>
+<p>Junto al campo de operaciones se muestra <strong>Pista: raemda</strong>. Es exclusivamente el recordatorio aprobado; no se utiliza como clave, no cambia la credencial ni revela su valor. Restore permanece diferido a V2.0.</p>
 <h2 id="p1-acceso-y-seguridad">Acceso y seguridad</h2>
 <p>Aplicación: <a href="https://backups.thereplicantlab.com/">HTTPS</a> y <a href="http://192.168.18.220:8087/">LAN</a>. Documentación canónica: <a href="https://docs.thereplicantlab.com/aplicaciones/backups-lab/">Replicant Lab</a>, <a href="http://192.168.18.220:8082/aplicaciones/backups-lab/">Nexus LAN</a>.</p>
 <p>HTTPS exige Cloudflare Access existente y, además, autorización de operaciones propia de Backups Lab. Configuración → Autorizar operaciones con la clave conocida. La pista recordatoria no es una credencial y nunca se usa como clave. No introducir ni guardar claves en chat, Git, capturas o logs.</p>
@@ -253,7 +259,7 @@ tr:nth-child(even) td { background: #fafcfd; }
 <p><a href="https://github.com/ratienza/backups-lab/blob/main/CHANGELOG.md">Changelog V1.0</a> · <a href="https://github.com/ratienza/backups-lab/blob/main/BACKLOG_V2.md">Backlog canónico V2.0</a> · <a href="https://github.com/ratienza/backups-lab/blob/main/HANDOFF.md">HANDOFF</a>.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:425916525f05d7ae2f3d9fe0e2d90c04073f98f322a9cede92de70e0d88b5274</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:d76a40b906afa62dc5923e07a366588d85cd6f75911093def938aac989dc3e9a</footer>
 
 </body>
 </html>
