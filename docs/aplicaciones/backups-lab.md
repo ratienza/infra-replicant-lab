@@ -1,4 +1,4 @@
-# Backups Lab · V1.0
+# Aplicación · Backups Lab V1.0
 
 Versión 1.0.0, 12/10/2026. Cierre técnico autorizado por Raúl; no sustituye su aceptación humana. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.0.0](https://github.com/ratienza/backups-lab/releases/tag/v1.0.0). La referencia d2c7e1c/PR21 es histórica: PR22/main4c63ac1 ya integró cobertura, Drive, menú móvil, cola durable y la decisión explícita de diferir sustitución a v2.0.
 
