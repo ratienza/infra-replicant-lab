@@ -150,7 +150,7 @@ for (const item of routes) {
       legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
     }));
     if (
-      catalog.cards !== 11 || catalog.types !== 11 || catalog.links.length !== 11 || catalog.legacyMarkdownLinks !== 0
+      catalog.cards !== 12 || catalog.types !== 12 || catalog.links.length !== 12 || catalog.legacyMarkdownLinks !== 0
       || catalog.descriptions.some(length => length < 250)
       || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
     ) {
@@ -392,6 +392,7 @@ const downloads = {
   apps: {},
 };
 for (const slug of [
+  "backups-lab",
   "pula",
   "app-launch",
   "salones-av",

@@ -43,6 +43,7 @@ MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 
 APP_PORTABLES = {
+    "backups-lab": ("Backups Lab V1.0", "aplicaciones/backups-lab.md"),
     "pula": ("PULA", "aplicaciones/pula.md"),
     "app-launch": ("App Launch", "aplicaciones/app-launch.md"),
     "salones-av": ("Salones AV", "aplicaciones/salones-av.md"),
@@ -57,6 +58,7 @@ APP_PORTABLES = {
 }
 
 APP_EXPECTED_MARKERS = {
+    "backups-lab": ("V1.0", "8087", "retención", "rollback", "V2.0"),
     "pula": ("No forma parte de ErasmusHomes", "Cloud Run", "SSRF"),
     "app-launch": ("apps.json", "Tarjeta App Launch", "rollback"),
     "salones-av": ("192.168.18.220:8081", "Nexus", "Compose"),
