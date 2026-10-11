@@ -1,0 +1,12 @@
+{
+  "url": "https://backups.thereplicantlab.com/?view=settings",
+  "existing_owner_session_authorized": true,
+  "reload_persisted": true,
+  "screen_change_persisted": true,
+  "manual_preview_included": 8,
+  "preview_cancelled": true,
+  "no_copy_execute": true,
+  "automatic_retention_paused_by_https": true,
+  "raw_key_read_or_exported": false,
+  "hint_used_as_credential": false
+}

@@ -133,6 +133,14 @@ Documenta infraestructura, despliegue y operación del laboratorio. Genera un si
 <p class="app-accesses"><a href="../downloads/apps/replicant-lab.html">Ficha técnica</a> · <a href="http://192.168.18.220:8082/">Nexus</a></p>
 </article>
 
+
+<article class="app-card" markdown>
+## Backups Lab
+<p class="app-type">Copias y recuperación aislada</p>
+V1.0: ocho alcances verificados por Drive, copias manuales, cola y programación; Facility detenida/alcance parcial, previews excluidas y retención automática OFF. Sustitución de originales diferida expresamente a V2.0.
+<dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>React,FastAPI,SQLite,rclone</dd><dt>Repositorio</dt><dd><code>ratienza/backups-lab</code></dd><dt>Runtime</dt><dd>Nexus ·8087</dd><dt>Estado</dt><dd>V1.0 · cierre técnico</dd><dt>Acceso</dt><dd>Cloudflare Access y operaciones privadas</dd></dl>
+<p class="app-accesses"><a href="../downloads/apps/backups-lab.html">Ficha técnica</a> · <a href="https://backups.thereplicantlab.com/">HTTPS</a> · <a href="http://192.168.18.220:8087/">LAN</a> · <a href="backups-lab/">Manual</a></p>
+</article>
 </div>
 
 `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.

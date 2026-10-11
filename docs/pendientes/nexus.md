@@ -4,7 +4,7 @@
 
 Definir una política global de backups y ejecutar una prueba de restauración. CryptoWallet V1.5 ya dispone de copias locales multibase verificadas y retención; esto no acredita respaldo remoto del host ni de otras aplicaciones.
 
-[Servicio independiente de réplica a Google Drive](backups-drive.md): propuesta anotada, con rclone, configuración por aplicación, informe diario y log exportable. Sin implementación ni credenciales instaladas; requiere encargo propio.
+[Backups Lab V1.0](../aplicaciones/backups-lab.md) está implementado/publicado con ocho alcances Drive/recuperación aislada y retención automática OFF. No acredita backup integral del host. Informe diario,log exportable y fuentes adicionales quedan en [Backlog V2.0](backups-drive.md), con decisiones pendientes.
 
 ## Checkouts
 
