@@ -1,6 +1,6 @@
 # Aplicación · Cartera Estratégica
 
-Aplicación privada de análisis y seguimiento financiero desarrollada con Python y Streamlit. Su runtime productivo v2.0.0 se ejecuta en Nexus. El PR #27 integró la entrega en `ratienza/cartera-estrategica`; `main`, tag y release `v2.0.0` señalan `c672eb1cadfcb191aaff6db8aeb1ed783321b692`. El 04/10/2026 se verificó ese SHA en el checkout y el contenedor saludable de Nexus, con HTTP `200` en `:8085`.
+Aplicación privada de análisis y seguimiento financiero desarrollada con Python y Streamlit. Su runtime productivo v2.1.0 se ejecuta en Nexus. Los PR #30 y #31 integraron la entrega aprobada en `ratienza/cartera-estrategica`; el tag y la release `v2.1.0` señalan `f520216889d7c1f78551125b66a068fb54df6b99`. El 12/10/2026 se verificó ese SHA en la imagen y el contenedor saludable de Nexus, con HTTP `200` en `:8085`.
 
 ## Accesos
 
@@ -8,7 +8,7 @@ Aplicación privada de análisis y seguimiento financiero desarrollada con Pytho
 - **Aplicación / LAN:** [Cartera Estratégica](http://192.168.18.220:8085/)
 - **Aplicación / Internet:** [Cartera Estratégica](https://cartera.thereplicantlab.com/)
 - **Entrada de navegación LAN:** [App Launch](http://192.168.18.220/) en el puerto canónico `80`.
-- **Repositorio:** [ratienza/cartera-estrategica](https://github.com/ratienza/cartera-estrategica) · [release v2.0.0](https://github.com/ratienza/cartera-estrategica/releases/tag/v2.0.0).
+- **Repositorio:** [ratienza/cartera-estrategica](https://github.com/ratienza/cartera-estrategica) · [release v2.1.0](https://github.com/ratienza/cartera-estrategica/releases/tag/v2.1.0).
 
 La URL pública se publica exclusivamente mediante el Tunnel existente y no convierte el bind LAN en una exposición directa a Internet. App Launch es una entrada de navegación y enlaza esta ficha.
 
@@ -22,14 +22,14 @@ La URL pública se publica exclusivamente mediante el Tunnel existente y no conv
 | Acceso LAN | `http://192.168.18.220:8085` · HTTP `200` validado |
 | Acceso público | `https://cartera.thereplicantlab.com` · HTTPS mediante Tunnel y Access |
 | Seguridad | Cloudflare Access → Google OIDC interno → PIN de seis cifras |
-| Release | `v2.0.0` · `c672eb1cadfcb191aaff6db8aeb1ed783321b692` |
+| Release | `v2.1.0` · `f520216889d7c1f78551125b66a068fb54df6b99` |
 | Datos | Base real preservada; ningún dato financiero se publica aquí |
 
 Las bases, secretos, copias y exportaciones reales permanecen fuera de Git. No se publican rutas privadas, valores de configuración ni datos financieros.
 
 ## Funcionalidades
 
-Las diez secciones son **Dashboard**, **Cartera actual**, **Objetivos**, **Rotaciones**, **Análisis técnico**, **Mercado**, **Operaciones**, **Cash**, **Importación y conciliación** y **Configuración**. Dashboard resume el estado; Cartera incluye la composición y el detalle de Indexa. La ficha portable está disponible en [HTML](/downloads/apps/cartera-estrategica.html) y [PDF](/downloads/apps/cartera-estrategica.pdf).
+Las once secciones son **Dashboard**, **Cartera actual**, **P&G realizadas**, **Objetivos**, **Rotaciones**, **Análisis técnico**, **Mercado**, **Operaciones**, **Cash**, **Importación y conciliación** y **Configuración**. Dashboard resume el estado; Cartera incluye la composición y el detalle de Indexa. P&G realizadas reúne tarjetas, anillos, filtros y todos los movimientos en una tabla con detalle FIFO. Gráfico y filtro comparten `Intereses`, `Ventas`, `Dividendos` y `Otros`; los activos mantienen su filtro independiente. La ficha portable está disponible en [HTML](/downloads/apps/cartera-estrategica.html) y [PDF](/downloads/apps/cartera-estrategica.pdf).
 
 ## Arquitectura y acceso
 
@@ -60,7 +60,7 @@ CE-SEC-001 está implementado, desplegado y validado en el flujo manual real:
 
 La validación manual real confirma el orden **Cloudflare Access → Google OIDC interno → PIN → Cartera**. Las dos capas de Google son deliberadamente independientes: comparten proveedor de identidad, pero no comparten sesión de autorización de la aplicación.
 
-## Flujo de datos de Indexa v2.0.0
+## Flujo de datos de Indexa vigente en v2.1.0
 
 ```mermaid
 flowchart LR
@@ -86,6 +86,6 @@ Está prohibido versionar bases SQLite, Excel, CSV, `.env`, credenciales, secret
 
 ## Pendientes
 
-No queda un pendiente bloqueante específico de publicación o autenticación de Cartera. Las mejoras no bloqueantes y la operación general del Tunnel se mantienen, si proceden, en sus páginas correspondientes.
+No queda un pendiente bloqueante específico de publicación o autenticación de Cartera. La actualización autónoma de Indexa con la aplicación cerrada continúa fuera de alcance; las demás mejoras requieren un encargo posterior.
 
-Las actas de [12/09/2026](https://docs.thereplicantlab.com/cambios/2026-09-12/) y [RL-CE-DOC-001](https://docs.thereplicantlab.com/encargos/RL-CE-DOC-001/) son históricas; sus estados v1 y Google desactivado no describen v2.0.0.
+Las actas de [12/09/2026](https://docs.thereplicantlab.com/cambios/2026-09-12/) y [RL-CE-DOC-001](https://docs.thereplicantlab.com/encargos/RL-CE-DOC-001/) son históricas; sus estados v1 y Google desactivado no describen v2.1.0.

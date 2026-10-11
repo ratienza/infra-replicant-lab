@@ -1,3 +1,9 @@
+# HANDOFF · Cartera Estratégica v2.1.0
+
+12/10/2026. Raúl aprobó y autorizó el cierre. `ratienza/cartera-estrategica` publica la release `v2.1.0` en `f520216889d7c1f78551125b66a068fb54df6b99`; PR funcional #30 y PR de release #31 fusionados. Nexus `:8085` ejecuta una imagen con ese SHA y versión, conserva la fuente de datos, montajes, OAuth, PIN y evidencia Indexa, y no incorpora bases de Windows.
+
+Backup SQLite consistente, imagen v2.0.0 y checkout anterior disponibles para rollback. Integridad, huella y conteos coinciden antes y después. Salud HTTP, P&G por conceptos/activos, filtros, visual móvil/escritorio, temas, privacidad, cabecera, pie y favicon verificados. La documentación canónica, ficha HTML/PDF e índice se regeneran mediante el pipeline; App Launch actualiza solo la descripción de la tarjeta Nexus. No queda bloqueante de esta release; el refresco autónomo de Indexa cerrado sigue fuera de alcance.
+
 # HANDOFF · Documentación Backups Lab V1.0.1
 
 ## Corrección vigente v1.0.1 ·12/10/2026
