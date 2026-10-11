@@ -17,3 +17,5 @@ La historia detallada se conserva en el [Change Log](../cambios/index.md). Para 
 ## Criterio de validación
 
 Cada aplicación se valida con los mecanismos apropiados para su tecnología: tests, lint, build, configuración, Compose, healthchecks, runtime o HTTP. La evidencia concreta vive en su [ficha técnica](../aplicaciones/index.md), sin duplicar aquí los listados de pruebas.
+
+Corrección Backups Lab **v1.0.1** del mismo cierre: carpetas de descubrimiento persistentes y candidatas NEW sin activar; orígenes propios/volúmenes visibles; selectores globales de programación y retención con acceso/confirmación. Retención OFF, horarios y Control Red pausada preservados; v1.0.0 histórica y Restore V2. [Manual vigente](../aplicaciones/backups-lab.md).

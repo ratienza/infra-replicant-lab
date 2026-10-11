@@ -144,3 +144,5 @@ V1.0: ocho alcances verificados por Drive, copias manuales, cola y programación
 </div>
 
 `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.
+
+Corrección Backups Lab **v1.0.1** del mismo cierre: carpetas de descubrimiento persistentes y candidatas NEW sin activar; orígenes propios/volúmenes visibles; selectores globales de programación y retención con acceso/confirmación. Retención OFF, horarios y Control Red pausada preservados; v1.0.0 histórica y Restore V2. [Manual vigente](../aplicaciones/backups-lab.md).

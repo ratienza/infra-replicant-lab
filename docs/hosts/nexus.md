@@ -117,3 +117,5 @@ Google interno quedó activo y Raúl confirmó manualmente en incógnito Google 
 ## Backups Lab V1.0 ·12/10/2026
 
 Repositorio /opt/apps/backups-lab, API/web enCompose y ayudante fijo en socket Unix0600; datos,estado,OAuth y clave privados fuera de Git. [HTTPS](https://backups.thereplicantlab.com/) y [LAN8087](http://192.168.18.220:8087/). Ocho aptas; sieteON05Madrid y Control RedOFF posterior preservado, Facility originales detenidos. Retención automáticaOFF; incidentes/historial y limitaciones en [ficha/manual](../aplicaciones/backups-lab.md). No equivale a respaldo integral de Nexus.
+
+Corrección Backups Lab **v1.0.1** del mismo cierre: carpetas de descubrimiento persistentes y candidatas NEW sin activar; orígenes propios/volúmenes visibles; selectores globales de programación y retención con acceso/confirmación. Retención OFF, horarios y Control Red pausada preservados; v1.0.0 histórica y Restore V2. [Manual vigente](../aplicaciones/backups-lab.md).

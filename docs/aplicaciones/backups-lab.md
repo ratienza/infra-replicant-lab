@@ -1,8 +1,20 @@
 # Aplicación · Backups Lab V1.0
 
-Versión 1.0.0, 12/10/2026. Cierre técnico autorizado por Raúl; no sustituye su aceptación humana. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.0.0](https://github.com/ratienza/backups-lab/releases/tag/v1.0.0). La referencia d2c7e1c/PR21 es histórica: PR22/main4c63ac1 ya integró cobertura, Drive, menú móvil, cola durable y la decisión explícita de diferir sustitución a v2.0.
+Versión 1.0.1, 12/10/2026. Cierre técnico autorizado por Raúl; no sustituye su aceptación humana. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.0.1](https://github.com/ratienza/backups-lab/releases/tag/v1.0.1). [v1.0.0 histórica e inmutable](https://github.com/ratienza/backups-lab/releases/tag/v1.0.0). La referencia d2c7e1c/PR21 es histórica: PR22/main4c63ac1 ya integró cobertura, Drive, menú móvil, cola durable y la decisión explícita de diferir sustitución a v2.0.
 
 Runtime privado en Nexus, puerto LAN **8087**.
+
+## Corrección v1.0.1 · Configuración y controles globales
+
+Configuración → Origen y descubrimiento muestra las carpetas guardadas, inicialmente `/opt/apps` (sin `$`). Añadir, editar y quitar → Guardar carpetas persiste la lista; Buscar nuevas aplicaciones enumera únicamente carpetas inmediatas de Nexus, sin leer archivos ni escanear la red. No sigue symlinks. Rutas inválidas, de sistema o no accesibles muestran causas concretas. Se admite una lista vacía para suspender el descubrimiento. Las candidatas nuevas aparecen NEW, pendientes de preparar: ninguna se activa ni copia; las previews siguen excluidas. Guardar o buscar no modifica adaptadores existentes, sus orígenes, horarios, exclusiones ni historial.
+
+Cada aplicación tiene fuentes propias. Aplicaciones → Ver aplicación/Ver pendiente muestra las rutas efectivas del contrato; Cartera y Reserva usan `/opt/data`, Launch `/home/raul/app-launch`, Facility los volúmenes `docker-volume:facility-fac001_pg` y `docker-volume:facility-fac001_minio`. Descubrimiento no es el origen global de las copias ni amplía su cobertura.
+
+Programación global ON/OFF requiere acceso autorizado y persiste separadamente de Activa por aplicación. OFF pausa reservas y ejecución automática pendiente; no cancela una copia ya iniciada y las manuales siguen disponibles. Conserva horarios y preferencias. ON reanuda solo las habilitadas desde ese instante, sin ejecutar copias inmediatas ni recuperar horas vencidas durante la pausa. La interfaz muestra su número. Siete aplicaciones habilitadas y Control Red OFF se preservan, sin modificar sus horas.
+
+Retención ON/OFF de Configuración y Retención comparte estado real y confirmación. ON abre revisión de política 7/4/12/3 y alcance de ocho aplicaciones sin previews; exige acceso autorizado y casilla explícita. Cancelar no activa. OFF detiene futuras ejecuciones, no una operación manual ya aceptada. Inicialmente OFF; la última copia válida sigue protegida con programación global o individual OFF. La activación y borrado se prueban únicamente con estado sintético aislado.
+
+Junto al campo de operaciones se muestra **Pista: raemda**. Es exclusivamente el recordatorio aprobado; no se utiliza como clave, no cambia la credencial ni revela su valor. Restore permanece diferido a V2.0.
 
 ## Acceso y seguridad
 
@@ -58,13 +70,13 @@ Historial durable completo, sin reintroducir copias ni borrar registros. Los con
 
 ## Despliegue, SHA y rollback
 
-Release/tag v1.0.0 sin sobrescritura. VERSION, API/OpenAPI y paquete frontend1.0.0. /api/status identifica versión y source_sha de la imagen; labels OCI de API/web identifican el mismo SHA construido. Construir con BACKUPS_LAB_REVISION del commit verificado, validar CI/Compose y recursos servidos contra bytes de la imagen. No requiere migración destructiva ni repite OAuth. Esperar que terminen copias/operaciones antes de recrear API o desplegar documentación.
+Release/tag v1.0.1; v1.0.0 histórico sin sobrescritura. VERSION, API/OpenAPI y paquete frontend1.0.1. /api/status identifica versión y source_sha de la imagen; labels OCI de API/web identifican el mismo SHA construido. Construir con BACKUPS_LAB_REVISION del commit verificado, validar CI/Compose y recursos servidos contra bytes de la imagen. No requiere migración destructiva ni repite OAuth. Esperar que terminen copias/operaciones antes de recrear API o desplegar documentación.
 
 Antes de desplegar: snapshots SQLite consistentes con permisos 0600 privados, imágenes/API/web/documentación anteriores etiquetadas y script privado de rollback. Rollback rechaza trabajo en curso, restaura solo código/imágenes y documentación; conserva historial actual y elecciones posteriores de horarios. No restaura aplicaciones originales ni borra Drive. El snapshot de DB es protección separada, no se restaura automáticamente. Seguir el recibo de publicación; no ejecutar rollback como prueba sobre producción.
 
 ## Verificación y continuidad
 
-CI aplicable: 97 pruebas backend en Linux, build, compatibilidad HTTP sin randomUUID, confirmación/error/doble envío/ID, colaocho slots/persistencia/DST, última válidaOFF/1990/política cero, móvil/selección/orden/Drive y bloqueo v1. Evidencias reales previas de captura/Drive/descarga/hashes/recuperación reutilizadas. API aislada ya verificó ocho guardar/activar/pausar/restart sin trabajadores. HTTP/LAN y sesión HTTPS autorizada, recarga/pantallas, previsualización/cancelación y controles principales verificados; ningún valor de clave en evidencias. Los fixtures no sustituyen la prueba de Drive.
+CI aplicable: 97 pruebas backend previas y cuatro nuevas dirigidas en Linux, build, compatibilidad HTTP sin randomUUID, confirmación/error/doble envío/ID, colaocho slots/persistencia/DST, última válidaOFF/1990/política cero, móvil/selección/orden/Drive y bloqueo v1. Evidencias reales previas de captura/Drive/descarga/hashes/recuperación reutilizadas. API aislada ya verificó ocho guardar/activar/pausar/restart sin trabajadores. HTTP/LAN y sesión HTTPS autorizada, recarga/pantallas, previsualización/cancelación y controles principales verificados; ningún valor de clave en evidencias. Los fixtures no sustituyen la prueba de Drive.
 
 Alcance V1 técnico entregado; aceptación humana independiente. V2 solo backlog, sin implementación nueva. Informe diario por correo, log exportable, cifrado adicional, agentes externos, nuevos adaptadores y recuperación integral del host son propuestas anteriores pendientes de decisión/contrato, no se presentan como entregadas.
 
