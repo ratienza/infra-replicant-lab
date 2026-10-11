@@ -64,4 +64,4 @@ Primera publicación del cierre CryptoWallet comprobada el 08/10/2026 en `main@c
 
 ## Actualización Backups Lab V1.0 ·12/10/2026
 
-Se añade la ficha canónica de [Backups Lab](backups-lab.md),manual/incidente/backlog y cierre. Son doce fichas individuales más el dossier global: trece parejas HTML/PDF regeneradas por el mismo pipeline. [Descargas](../descargas.md) y [cambios](../cambios/2026-10-12.md). La protección de Drive abarca fuentes documentales; el respaldo integral del host sigue separado.
+Se añade la ficha canónica de [Backups Lab](backups-lab.md),manual/incidente/backlog y cierre. Son doce fichas individuales más el dossier global: trece parejas HTML/PDF regeneradas por el mismo pipeline. [Descargas](https://docs.thereplicantlab.com/descargas/) y [cambios](../cambios/2026-10-12.md). La protección de Drive abarca fuentes documentales; el respaldo integral del host sigue separado.
