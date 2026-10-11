@@ -9,3 +9,7 @@ Ocho aptas, siete ON a las 05:00 Europe/Madrid y Control Red OFF posterior prese
 Sustitución/rollback originales expresamente V2; código/evidencias/snapshots preservados. No implementar V2. Respaldo integral, cifrado adicional, correo/log y agentes/nuevosadaptadores son propuestas anteriores pendientes de decisiones/contratos. Las observaciones históricas no sustituyen el estado actual. Aceptación humana independiente del cierre técnico.
 
 Publicación: construirMkDocs estricto, validar derivados, enlaces y bytes servidos en Nexus, puerto 8082; imágenes anteriores y rollback privado preparados. Solo recrear infra-replicant-docs y Backups Lab autorizados. No modificar otros servicios financieros, DNS/Cloudflare, OAuth ni datos privados.
+
+## Corrección vigente v1.0.1 ·12/10/2026
+
+Mismo cierre. Ficha/manual, índice, catálogo, fases, Nexus y cambio del12/10 recogen descubrimiento persistente, candidatas NEW pendientes, fuentes/volúmenes propios y controles globales de programación/retención. v1.0.0/tag no se mueve; release v1.0.1. Horarios, Control Red OFF, exclusiones y Facility detenida preservados; automática de retención OFF y Restore V2. Documentos/derivados sincronizados mediante pipeline existente; CI/recibo/PR/release referencian SHAs servidos. No se leen ni exportan claves privadas o contenido de copias; la pista raemda es solo recordatorio autorizado.
