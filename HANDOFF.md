@@ -15,4 +15,3 @@ Ocho aptas, siete ON a las 05:00 Europe/Madrid y Control Red OFF posterior prese
 Sustitución/rollback originales expresamente V2; código/evidencias/snapshots preservados. No implementar V2. Respaldo integral, cifrado adicional, correo/log y agentes/nuevosadaptadores son propuestas anteriores pendientes de decisiones/contratos. Las observaciones históricas no sustituyen el estado actual. Aceptación humana independiente del cierre técnico.
 
 Publicación: construirMkDocs estricto, validar derivados, enlaces y bytes servidos en Nexus, puerto 8082; imágenes anteriores y rollback privado preparados. Solo recrear infra-replicant-docs y Backups Lab autorizados. No modificar otros servicios financieros, DNS/Cloudflare, OAuth ni datos privados.
-
