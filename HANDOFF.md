@@ -1,3 +1,9 @@
+# HANDOFF · Documentación Backups Lab v1.1.2
+
+12/10/2026. `ratienza/backups-lab` publica v1.1.2 en `69c2957a99137bfe48bb9e97859c1e161a243e1d`, PR funcional #28 y evidencia #29. La corrección conserva fichas compactas, muestra solo candidatas independientes con distintivo propio y mueve siete orígenes vinculados al final, plegados por defecto y fuera de contadores/copias. Ignorar/ocultar/revertir es persistente, solicita autorización en contexto y nunca borra directorios.
+
+Se preservan 55 copias, BL-002, seis horarios ON, retención ON 7/4/12/3, Facility detenida, previews fuera y Restore V2. La publicación de Backups Lab se comprobó con 24 capturas de solo lectura, sin trabajos ni mutaciones. La ficha, índices, Nexus, fases, cambios, pendientes y trece parejas HTML/PDF se regeneran y validan con el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, con rollback propio; no modificar Backups Lab, otros runtimes, Cloudflare, OAuth ni datos privados.
+
 # HANDOFF · Cartera Estratégica v2.1.0
 
 12/10/2026. Raúl aprobó y autorizó el cierre. `ratienza/cartera-estrategica` publica la release `v2.1.0` en `f520216889d7c1f78551125b66a068fb54df6b99`; PR funcional #30 y PR de release #31 fusionados. Nexus `:8085` ejecuta una imagen con ese SHA y versión, conserva la fuente de datos, montajes, OAuth, PIN y evidencia Indexa, y no incorpora bases de Windows.
