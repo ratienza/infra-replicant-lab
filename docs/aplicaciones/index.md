@@ -137,12 +137,12 @@ Documenta infraestructura, despliegue y operación del laboratorio. Genera un si
 <article class="app-card" markdown>
 ## Backups Lab
 <p class="app-type">Copias y recuperación aislada</p>
-v1.1.0 aprobada y publicada: ocho alcances verificados por Drive, copias manuales seleccionadas/todas comprobadas, cola y programación; Dashboard ON/OFF, retención editable 7/4/12/3 y grupos activo/inactivo. Facility detenida/alcance parcial, previews excluidas. Sustitución de originales diferida expresamente a V2.0.
-<dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>React,FastAPI,SQLite,rclone</dd><dt>Repositorio</dt><dd><code>ratienza/backups-lab</code></dd><dt>Runtime</dt><dd>Nexus ·8087</dd><dt>Estado</dt><dd>v1.1.0 · aprobada y verificada</dd><dt>Acceso</dt><dd>Cloudflare Access y operaciones privadas</dd></dl>
+v1.1.1 aprobada y publicada: nueve alcances verificados por Drive; descubrimiento persistente, clasificación sin duplicados y primera copia/recuperación de Backups Lab comprobadas. Seis horarios ON, tres OFF y retención 7/4/12/3 ON preservados. Facility detenida/alcance parcial, previews excluidas. Sustitución de originales diferida expresamente a V2.0.
+<dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>React,FastAPI,SQLite,rclone</dd><dt>Repositorio</dt><dd><code>ratienza/backups-lab</code></dd><dt>Runtime</dt><dd>Nexus ·8087</dd><dt>Estado</dt><dd>v1.1.1 · aprobada y verificada</dd><dt>Acceso</dt><dd>Cloudflare Access y operaciones privadas</dd></dl>
 <p class="app-accesses"><a href="../downloads/apps/backups-lab.html">Ficha técnica</a> · <a href="https://backups.thereplicantlab.com/">HTTPS</a> · <a href="http://192.168.18.220:8087/">LAN</a> · <a href="backups-lab/">Manual</a></p>
 </article>
 </div>
 
 `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.
 
-Backups Lab **v1.1.0**: copias manuales reparadas y ejecutadas en Nexus (1 seleccionada y 8 de todas, verificadas/recuperadas, sin previews), estado operativo ON/OFF compartido, retención 7/4/12/3 editable y persistente, e inactivas separadas. La retención ya estaba ON y se preservó sin limpieza; horarios intactos. [Manual vigente](../aplicaciones/backups-lab.md).
+Backups Lab **v1.1.1**: seis candidatas solicitadas y cinco checkouts relacionados clasificados, 0 pendientes, y Backups Lab incorporada como novena apta tras una sola copia/recuperación verificada. Estado operativo, copias automáticas, aptitud y NEW permanecen separados. [Manual vigente](../aplicaciones/backups-lab.md).

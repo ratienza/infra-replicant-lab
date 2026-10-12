@@ -1,21 +1,21 @@
 # Backlog V2.0 · Backups Lab
 
-Derivado de propuestas previas y del aplazamiento expreso de sustitución el 11/10/2026. No implementa V2 ni convierte requisitos v1.1.0 incumplidos en mejoras. v1.1.0 está aprobada y publicada con ocho alcances/Drive/recuperación aislada, manual/cola/horarios, retención protegida y editable, acceso HTTP/HTTPS, interfaz y documentación. Cierre y evidencia: [v1.1.0](../aplicaciones/backups-lab.md).
+Derivado de propuestas previas y del aplazamiento expreso de sustitución el 11/10/2026. No implementa V2 ni convierte requisitos v1.1.1 incumplidos en mejoras. v1.1.1 está aprobada y publicada con nueve alcances/Drive/recuperación aislada, manual/cola/horarios, descubrimiento persistente, retención protegida y editable, acceso HTTP/HTTPS, interfaz y documentación. Cierre y evidencia: [v1.1.1](../aplicaciones/backups-lab.md).
 
 | ID / prioridad | Qué falta / problema | Dependencias y decisión | Criterio de aceptación |
 |---|---|---|---|
 | V2-001 · P1 | Habilitar sustitución y rollback originales en producto V2; hoy API/ayudante V1 bloqueados | Decisión explícita de Raúl sobre destino/ventana/riesgo; código, 16 variantes y snapshots existentes | Revisión vinculada a copia/destino/hash, backup previo consistente, confirmación, idempotencia, bloqueos, reanudación solo de servicios antes activos y fallos con rollback probados en aislamiento; operación original solo tras elección/confirmación futura |
-| V2-002 · P1 | Adaptadores restantes y fuentes fuera de Nexus, incluida base Windows hoy excluida | Raúl decide apps/rutas/agente/transporte/disponibilidad; contrato y exclusiones de secretos | Captura consistente, Drive remota, descarga y hashes iguales, lectores/HTTP aislado y originales preservados por adaptador; no previews/aptitud implícita; incorporación05 propuesta con autorización |
+| V2-002 · P1 | Adaptadores futuros y fuentes fuera de Nexus, incluida base Windows hoy excluida | Raúl decide apps/rutas/agente/transporte/disponibilidad; contrato y exclusiones de secretos | Captura consistente, Drive remota, descarga y hashes iguales, lectores/HTTP aislado y originales preservados por adaptador; no previews/aptitud implícita; incorporación05 propuesta con autorización |
 | V2-003 · P1 | Evaluar cifrado adicional de archivos financieros con rclone crypt propuesto; V1 no promete cifrado de cliente extremo a extremo | Decisión de Raúl sobre alcance, clave/custodia externa, cuota y recuperación; no modificar copias actuales sin protocolo | Dataset sintético cifrado/subido/descargado/descifrado con hashes iguales, recuperación de clave probada y ausencia de valores sensibles en Git/logs/capturas; evidencia separada del transporte V1 |
 | V2-004 · P2 | Informe diario por correo y log exportable propuestos en 09/10 | Destinatario, hora, proveedor/canal y campos/exportación por decidir por Raúl; no hay envío autorizado | Diferenciar captura ausente, transferencia fallida y remota verificada; informe derivado de eventos reales, exportación sin secretos, deduplicación y ensayo aislado sin enviar a terceros no autorizados |
 | V2-005 · P2 | Reintentos/avisos de réplica de la propuesta inicial más allá de los comportamientos actuales | Raúl define límites de reintento/alerta/canal; respetar política latest-only de 24 horas y unicidad | Caídas/red/origen ausente probados sintéticamente, estados/cause claras, retorno de conexión sin duplicar copia/slot ni eliminar destino por desaparición local |
-| V2-006 · P1 | Recuperación integral del host Nexus y reprovisión de secretos/IAM excluidos | Política global del host separada, fuentes de secretos privadas y runbook/ventana elegidos por Raúl | Inventario autorizado y ensayo de desastre aislado de host/secretos con recuperación segura; no confundir ocho alcances de apps con respaldo integral Nexus |
+| V2-006 · P1 | Recuperación integral del host Nexus y reprovisión de secretos/IAM excluidos | Política global del host separada, fuentes de secretos privadas y runbook/ventana elegidos por Raúl | Inventario autorizado y ensayo de desastre aislado de host/secretos con recuperación segura; no confundir nueve alcances de apps con respaldo integral Nexus |
 
 P1: seguridad/recuperación y alcance; P2: operación y observabilidad. Las prioridades ordenan el backlog, no autorizan ejecución. Propuesta09/10 de sondeo15-60min no se activa: V1 mantiene horarios explícitos elegidos, sin reaplicar al iniciar/desplegar/descubrir. Identidad corporativa aprobada existente se conserva; no reabrir diseño de banners ni inventar variantes.
 
 ## Histórico · Propuesta del09/10/2026
 
-> La propuesta inicial se conserva como historial; sus estados «no implementado» no describen Backups Lab v1.1.0 ni la implementación posterior. El alcance cerrado y las decisiones necesarias de V2 se declaran arriba.
+> La propuesta inicial se conserva como historial; sus estados «no implementado» no describen Backups Lab v1.1.1 ni la implementación posterior. El alcance cerrado y las decisiones necesarias de V2 se declaran arriba.
 
 # Pendiente · Réplica automática de copias en Google Drive
 
