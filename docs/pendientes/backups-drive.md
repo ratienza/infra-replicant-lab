@@ -1,6 +1,6 @@
 # Backlog V2.0 · Backups Lab
 
-Derivado de propuestas previas y del aplazamiento expreso de sustitución el 11/10/2026. No implementa V2 ni convierte requisitos V1 incumplidos en mejoras. V1: ocho alcances/Drive/recuperación aislada, manual/cola/horarios, retención protegida, acceso HTTP/HTTPS, interfaz y documentación. Cierre y evidencia: [V1.0](../aplicaciones/backups-lab.md).
+Derivado de propuestas previas y del aplazamiento expreso de sustitución el 11/10/2026. No implementa V2 ni convierte requisitos v1.1.0 incumplidos en mejoras. v1.1.0 está aprobada y publicada con ocho alcances/Drive/recuperación aislada, manual/cola/horarios, retención protegida y editable, acceso HTTP/HTTPS, interfaz y documentación. Cierre y evidencia: [v1.1.0](../aplicaciones/backups-lab.md).
 
 | ID / prioridad | Qué falta / problema | Dependencias y decisión | Criterio de aceptación |
 |---|---|---|---|
@@ -15,7 +15,7 @@ P1: seguridad/recuperación y alcance; P2: operación y observabilidad. Las prio
 
 ## Histórico · Propuesta del09/10/2026
 
-> La propuesta inicial se conserva como historial; sus estados «no implementado» no describen Backups Lab V1.0 ni la implementación posterior. El alcance de V1 y las decisiones necesarias de V2 se declaran arriba.
+> La propuesta inicial se conserva como historial; sus estados «no implementado» no describen Backups Lab v1.1.0 ni la implementación posterior. El alcance cerrado y las decisiones necesarias de V2 se declaran arriba.
 
 # Pendiente · Réplica automática de copias en Google Drive
 
