@@ -4,6 +4,12 @@
 
 Backup SQLite consistente, imagen v2.0.0 y checkout anterior disponibles para rollback. Integridad, huella y conteos coinciden antes y después. Salud HTTP, P&G por conceptos/activos, filtros, visual móvil/escritorio, temas, privacidad, cabecera, pie y favicon verificados. La documentación canónica, ficha HTML/PDF e índice se regeneran mediante el pipeline; App Launch actualiza solo la descripción de la tarjeta Nexus. No queda bloqueante de esta release; el refresco autónomo de Indexa cerrado sigue fuera de alcance.
 
+# HANDOFF · Documentación Backups Lab v1.1.0
+
+12/10/2026. Raúl aprobó y autorizó cierre, fusión y publicación. `ratienza/backups-lab` sirve la release `v1.1.0` y SHA `75c0e452b040c1bfca474fbed444b3d12c6c8f98` en Nexus. PR funcional #25 fusionado; copia seleccionada 1/1 y copia de todas 8/8 verificadas y recuperadas, sin previews. Dashboard ON/OFF, retención editable 7/4/12/3 y grupos activo/inactivo comprobados. Guardar parámetros y reiniciar la API preservó política, horarios y el estado de retención ya ON; no hubo limpieza, cambio de ON/OFF, borrado ni restauración.
+
+La ficha, índices, Nexus, fases, cambio del 12/10, pendientes y derivados HTML/PDF se actualizan al estado aprobado. El pipeline canónico regenera trece parejas contando el dossier global. Publicar solo `infra-replicant-docs` en Nexus `:8082`, con imagen anterior etiquetada para rollback; no modificar Backups Lab, otros runtimes, Cloudflare, OAuth ni datos privados. La aplicación conserva su rollback v1.0.1 y snapshot SQLite privado preparados.
+
 # HANDOFF · Documentación Backups Lab V1.0.1
 
 ## Corrección vigente v1.0.1 ·12/10/2026

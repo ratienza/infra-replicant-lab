@@ -1,8 +1,16 @@
-# Aplicación · Backups Lab V1.0
+# Aplicación · Backups Lab v1.1.0
 
-Versión 1.0.1, 12/10/2026. Cierre técnico autorizado por Raúl; no sustituye su aceptación humana. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.0.1](https://github.com/ratienza/backups-lab/releases/tag/v1.0.1). [v1.0.0 histórica e inmutable](https://github.com/ratienza/backups-lab/releases/tag/v1.0.0). La referencia d2c7e1c/PR21 es histórica: PR22/main4c63ac1 ya integró cobertura, Drive, menú móvil, cola durable y la decisión explícita de diferir sustitución a v2.0.
+Versión 1.1.0, 12/10/2026. Resultado aprobado por Raúl, fusionado y publicado. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.1.0](https://github.com/ratienza/backups-lab/releases/tag/v1.1.0), PR funcional [#25](https://github.com/ratienza/backups-lab/pull/25). Runtime comprobado en SHA `75c0e452b040c1bfca474fbed444b3d12c6c8f98`; las versiones v1.0.0 y v1.0.1 permanecen históricas e inmutables.
 
 Runtime privado en Nexus, puerto LAN **8087**.
+
+## v1.1.0 · Copias manuales y controles finales
+
+«Copiar seleccionadas» y «Copiar todas» vuelven a completar el recorrido real. Si falta autorización, la aplicación conserva la selección o la intención de copiar todas, explica lo que falta y permite autorizar sin abandonar Aplicaciones; después continúa con la revisión protegida. La confirmación ejecuta exactamente las aplicaciones revisadas, con `request_id` estable y guardas contra doble clic o reintentos duplicados. «Todas» incluye las ocho admitidas, activas o inactivas, y excluye previews.
+
+La comprobación publicada ejecutó dos lotes reales autorizados: `manual-6fca8984d688de47f781c95ee3344411` para Control Red, 1/1 verificada y recuperada; y `manual-a17f628f32b43a65faac19734addf205` para todas las admitidas, 8/8 verificadas y recuperadas, cero previews y una sola copia efectiva en ejecución. Los resultados aparecen en Copias. Al cierre había 52 registros y ningún trabajo activo.
+
+El Dashboard muestra ON/OFF informativo por aplicación desde el mismo `operational_state` de Aplicaciones y aclara que no es el horario. En cada grupo, activas aparecen primero e «Inactivas» después, sin duplicados. La política permite editar diarias, semanales, mensuales y anuales; guardar exige autorización, persiste los valores y recalcula la previsualización, pero no ejecuta limpieza ni cambia el ON/OFF. Política observada y persistida tras reiniciar la API: 7/4/12/3.
 
 ## Corrección v1.0.1 · Configuración y controles globales
 
@@ -12,7 +20,7 @@ Cada aplicación tiene fuentes propias. Aplicaciones → Ver aplicación/Ver pen
 
 Programación global ON/OFF requiere acceso autorizado y persiste separadamente de Activa por aplicación. OFF pausa reservas y ejecución automática pendiente; no cancela una copia ya iniciada y las manuales siguen disponibles. Conserva horarios y preferencias. ON reanuda solo las habilitadas desde ese instante, sin ejecutar copias inmediatas ni recuperar horas vencidas durante la pausa. La interfaz muestra su número. Siete aplicaciones habilitadas y Control Red OFF se preservan, sin modificar sus horas.
 
-Retención ON/OFF de Configuración y Retención comparte estado real y confirmación. ON abre revisión de política 7/4/12/3 y alcance de ocho aplicaciones sin previews; exige acceso autorizado y casilla explícita. Cancelar no activa. OFF detiene futuras ejecuciones, no una operación manual ya aceptada. Inicialmente OFF; la última copia válida sigue protegida con programación global o individual OFF. La activación y borrado se prueban únicamente con estado sintético aislado.
+Retención ON/OFF de Configuración y Retención comparte estado real y confirmación. ON abre revisión de la política guardada y alcance de ocho aplicaciones sin previews; exige acceso autorizado y casilla explícita. Cancelar no activa. OFF detiene futuras ejecuciones, no una operación manual ya aceptada. En la observación de cierre v1.1.0 ya estaba ON y se mantuvo ON: este encargo no la activó, pausó ni aplicó manualmente. La última copia válida y las copias protegidas se conservan siempre.
 
 Junto al campo de operaciones se muestra **Pista: raemda**. Es exclusivamente el recordatorio aprobado; no se utiliza como clave, no cambia la credencial ni revela su valor. Restore permanece diferido a V2.0.
 
@@ -41,9 +49,9 @@ Ocho aptas dentro de contratos verificados, no ocho respaldos integrales de todo
 | Reserva Pistas | Tareas, sincronización y auditoría con bloqueos compartidos | Credenciales, SSH, Telegram, procesos; no ejecuta reservas |
 | Facility | PostgreSQL y objetos/buckets MinIO de servicios detenidos | IAM, identidades, proveedores, credenciales/sesiones; cobertura parcial, reprovisión necesaria |
 
-Previews excluidas de nuevas copias, horarios y retención, con historial conservado. Facility está en el bloque plegable de inactivas, cuenta en Copiar todas y puede configurar copias sin arrancar sus diez contenedores originales. Candidatas pendientes sin adaptador validado no son seleccionables, tienen causa/Ver pendiente y conservan historial. Validar una candidata requiere su propio alcance autorizado y recorrido Drive.
+Previews excluidas de nuevas copias, horarios y retención, con historial conservado. Facility está en el bloque «Inactivas» de su grupo, cuenta en Copiar todas y puede configurar copias sin arrancar sus diez contenedores originales. Candidatas pendientes sin adaptador validado no son seleccionables, tienen causa/Ver pendiente y conservan historial. Validar una candidata requiere su propio alcance autorizado y recorrido Drive.
 
-Copiar una, seleccionadas o todas las aptas → revisar incluidos/excluidos → cancelar o confirmar. La verificación de cierre usa solo revisión/cancelación; no crea copias para probar ni ejecuta purgas. Los lotes comparten cola global de una ejecución y reserva/idempotencia en SQLite; cada aplicación tiene resultado independiente. El favicon caja fuerte, enlace Ver en Drive a la raíz configurada y menú móvil de cinco vistas reutilizan la identidad corporativa aprobada. Escape, foco y320px sin desbordamiento comprobados.
+Copiar una, seleccionadas o todas las aptas → autorizar en contexto si falta acceso → revisar incluidos/excluidos → cancelar o confirmar. El cierre v1.1.0 ejecutó los dos lotes reales descritos arriba; no ejecutó purgas. Los lotes comparten cola global de una ejecución y reserva/idempotencia en SQLite; cada aplicación tiene resultado independiente. El favicon caja fuerte, enlace Ver en Drive a la raíz configurada y menú móvil de cinco vistas reutilizan la identidad corporativa aprobada. Escape, foco y320px sin desbordamiento comprobados.
 
 Activa significa programación automática ON/OFF. OFF conserva copia manual e historial. Configurar horario es accesible sin horario o en OFF; ON sin horario abre días/hora; Guardar y activar requiere autorización explícita y horario válido. Aptitud/cliente OAuth propio verificado son requisitos; el estado operativo detenido no bloquea el horario.
 
@@ -57,27 +65,27 @@ Copias → Detalle → resultado de recuperación o Probar recuperación aislada
 
 La sustitución de originales y rollback de aplicaciones fueron diferidos expresamente a v2.0 por Raúl el 11/10, no desplazados para ocultar un incumplimiento. En V1 no hay acciones operativas y API/ayudante rechazan preparación/confirmación/rollback (409). Código, 16 variantes de clones, diarios y snapshots se conservan. [Backlog V2.0](../pendientes/backups-drive.md) y [procedimiento futuro](https://github.com/ratienza/backups-lab/blob/main/docs/operational-lifecycle.md). El rollback de publicación de Backups Lab, descrito abajo, sí pertenece a V1.
 
-## Retención e incidente
+## Retención e historial
 
-Automática **OFF**, independiente de horarios. Política7 diarias / 4 semanales / 12 mensuales / 3 anuales por aplicación, unión sin duplicar IDs. Conserva siempre última válida aun OFF/antigua fuera de bandas, BL-002, referencias de aptitud y registros usados en restauración. Excluye previews, objetos ajenos, originales y copias nativas fuera de gestión. Ensayo → revisar conservadas/eliminables/excluidas y motivos. Aplicación manual exige acceso, casilla, hash del inventario e ID estable; revalida antes de borrar. No aplicar retención para probar el cierre. Activación automática necesita elección explícita separada.
+Automática **ON en la observación de cierre**, independiente de horarios y sin que este encargo cambiara ese estado. Política editable guardada: 7 diarias / 4 semanales / 12 mensuales / 3 anuales por aplicación, unión sin duplicar IDs. Conserva siempre última válida aun OFF/antigua fuera de bandas, BL-002, referencias de aptitud y registros usados en restauración. Excluye previews, objetos ajenos, originales y copias nativas fuera de gestión. Guardar parámetros no limpia ni cambia ON/OFF. Aplicación manual exige acceso, casilla, hash del inventario e ID estable; revalida antes de borrar. En v1.1.0 no se aplicó retención ni se ejecutaron borrados de verificación.
 
 - Fallo manual randomUUID: en HTTP sin contexto seguro la función no existía; falló antes delPOST y no reservó operación. Corregido con generador central getRandomValues, confirmación, useRef contra doble envío e ID estable tras error/respuesta perdida. Restauración/rollback tienen IDs de servidor.
 - Automática retention-auto-20261011: 11/10/2026 20:20:01UTC =22:20:01Madrid, succeeded, eliminó dos antiguas de Cartera y Launch. Auditoría remota de solo lectura confirmó ausencia; no se atribuye identidad a los cambios ON/OFF/ON.
 - Manual retention-91413a6646a6d87e72ad5a68130d5213:20:53:13UTC del 11/10, succeeded, cero eliminaciones.
 - Manual retention-81a56f35ed64306375f4ba48dfbcc160: iniciada22:02:21UTC del 11/10 =00:02:21Madrid del 12/10, ya running al comenzar este cierre; terminó succeeded con ocho eliminaciones. No fue una prueba de este encargo ni se atribuye autoría sin evidencia. No ocultarla ni confundirla con las dos automáticas anteriores. Se pausó la automática al observar ON según la instrucción vigente; esa pausa no cancela una manual ya aceptada.
 
-Historial durable completo, sin reintroducir copias ni borrar registros. Los contadores y nuevas operaciones normales pueden cambiar; consultar API/recibo fechado en vez de congelar el total histórico19. Retención OFF y protecciones verificadas al publicar.
+Historial durable completo, sin reintroducir copias ni borrar registros. Los contadores y nuevas operaciones normales pueden cambiar; consultar API/recibo fechado. El estado OFF citado en cierres anteriores es histórico; v1.1.0 encontró retención ON y la preservó, con cuatro operaciones históricas sin cambios durante la comprobación final.
 
 ## Despliegue, SHA y rollback
 
-Release/tag v1.0.1; v1.0.0 histórico sin sobrescritura. VERSION, API/OpenAPI y paquete frontend1.0.1. /api/status identifica versión y source_sha de la imagen; labels OCI de API/web identifican el mismo SHA construido. Construir con BACKUPS_LAB_REVISION del commit verificado, validar CI/Compose y recursos servidos contra bytes de la imagen. No requiere migración destructiva ni repite OAuth. Esperar que terminen copias/operaciones antes de recrear API o desplegar documentación.
+Release/tag v1.1.0; versiones anteriores históricas sin sobrescritura. VERSION, API/OpenAPI y paquete frontend 1.1.0. `/api/status` y labels OCI de API/web identifican el mismo SHA desplegado `75c0e452b040c1bfca474fbed444b3d12c6c8f98`. CI [38228427739](https://github.com/ratienza/backups-lab/actions/runs/38228427739) verde. No hubo migración destructiva ni repetición de OAuth.
 
 Antes de desplegar: snapshots SQLite consistentes con permisos 0600 privados, imágenes/API/web/documentación anteriores etiquetadas y script privado de rollback. Rollback rechaza trabajo en curso, restaura solo código/imágenes y documentación; conserva historial actual y elecciones posteriores de horarios. No restaura aplicaciones originales ni borra Drive. El snapshot de DB es protección separada, no se restaura automáticamente. Seguir el recibo de publicación; no ejecutar rollback como prueba sobre producción.
 
 ## Verificación y continuidad
 
-CI aplicable: 97 pruebas backend previas y cuatro nuevas dirigidas en Linux, build, compatibilidad HTTP sin randomUUID, confirmación/error/doble envío/ID, colaocho slots/persistencia/DST, última válidaOFF/1990/política cero, móvil/selección/orden/Drive y bloqueo v1. Evidencias reales previas de captura/Drive/descarga/hashes/recuperación reutilizadas. API aislada ya verificó ocho guardar/activar/pausar/restart sin trabajadores. HTTP/LAN y sesión HTTPS autorizada, recarga/pantallas, previsualización/cancelación y controles principales verificados; ningún valor de clave en evidencias. Los fixtures no sustituyen la prueba de Drive.
+CI aplicable: suite backend 98 correctas y 4 omitidas, build, controles del frontend, Compose, imágenes y etiquetas. Compatibilidad HTTP sin randomUUID, confirmación/error/doble envío/ID, cola, persistencia/DST, protecciones, selección y orden siguen cubiertos. La prueba final en Nexus recorrió la interfaz, ejecutó ambas acciones manuales y esperó `verified` más recuperación `verified`; también guardó 7/4/12/3 y reinició solo la API para acreditar persistencia. Horarios, cuatro operaciones históricas de retención y ON/OFF quedaron idénticos; ninguna clave aparece en evidencias.
 
-Alcance V1 técnico entregado; aceptación humana independiente. V2 solo backlog, sin implementación nueva. Informe diario por correo, log exportable, cifrado adicional, agentes externos, nuevos adaptadores y recuperación integral del host son propuestas anteriores pendientes de decisión/contrato, no se presentan como entregadas.
+Alcance v1.1.0 aprobado, fusionado, desplegado y verificado. V2 solo backlog, sin implementación nueva. Informe diario por correo, log exportable, cifrado adicional, agentes externos, nuevos adaptadores y recuperación integral del host son propuestas anteriores pendientes de decisión/contrato, no se presentan como entregadas.
 
-[Changelog V1.0](https://github.com/ratienza/backups-lab/blob/main/CHANGELOG.md) · [Backlog canónico V2.0](https://github.com/ratienza/backups-lab/blob/main/BACKLOG_V2.md) · [HANDOFF](https://github.com/ratienza/backups-lab/blob/main/HANDOFF.md).
+[Changelog v1.1.0](https://github.com/ratienza/backups-lab/blob/main/CHANGELOG.md) · [Evidencia final](https://github.com/ratienza/backups-lab/blob/main/artifacts/v1.1.0/published-manual/verification.json) · [Backlog canónico V2.0](https://github.com/ratienza/backups-lab/blob/main/BACKLOG_V2.md) · [HANDOFF](https://github.com/ratienza/backups-lab/blob/main/HANDOFF.md).

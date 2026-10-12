@@ -10,7 +10,7 @@ La historia detallada se conserva en el [Change Log](../cambios/index.md). Para 
 | Publicación externa | Un único Tunnel publica Launch, Salones, Docs, Pádel y Red sin puertos entrantes; Google y Access autorizan cada hostname de forma independiente. |
 | CryptoWallet V1.0 · 08/10/2026 | Aceptada y en producción privada Nexus; previa independiente, copia consistente y documentación vigente. Importación nueva en V2. |
 | CryptoWallet V1.5 · 09/10/2026 | Google interno activo, PIN 24 h, privacidad inicial ON, copias multibase y navegación adaptable desplegados; recorrido autorizado confirmado manualmente. Réplica Drive independiente. |
-| Backups Lab V1.0 ·12/10/2026 | Ocho adaptadores aptos por Drive/recuperación aislada,manual/cola/horarios,acceso HTTP/HTTPS y retención protegida OFF; [manual y límites](../aplicaciones/backups-lab.md). |
+| Backups Lab v1.1.0 ·12/10/2026 | Aprobada y publicada: ocho adaptadores, copias manuales seleccionadas/todas verificadas y recuperadas, ON/OFF informativo, retención 7/4/12/3 editable y persistente; [manual y límites](../aplicaciones/backups-lab.md). |
 | Estado actual | Las fases 2A, 2B y 2C están cerradas. No hay una incidencia crítica abierta en esas aplicaciones. |
 | Trabajo futuro | La deuda aceptada se concentra en [Pendientes](../pendientes/index.md); Cartera v2.0.0 y CryptoWallet V1.5 ya están cerradas. Un nuevo bloque requiere encargo. |
 
@@ -18,4 +18,4 @@ La historia detallada se conserva en el [Change Log](../cambios/index.md). Para 
 
 Cada aplicación se valida con los mecanismos apropiados para su tecnología: tests, lint, build, configuración, Compose, healthchecks, runtime o HTTP. La evidencia concreta vive en su [ficha técnica](../aplicaciones/index.md), sin duplicar aquí los listados de pruebas.
 
-Corrección Backups Lab **v1.0.1** del mismo cierre: carpetas de descubrimiento persistentes y candidatas NEW sin activar; orígenes propios/volúmenes visibles; selectores globales de programación y retención con acceso/confirmación. Retención OFF, horarios y Control Red pausada preservados; v1.0.0 histórica y Restore V2. [Manual vigente](../aplicaciones/backups-lab.md).
+Backups Lab **v1.1.0** cierra la reparación de copias manuales y los ajustes informativos/de retención. La retención ya estaba ON y se preservó; guardar parámetros no limpió ni cambió el estado. [Manual vigente](../aplicaciones/backups-lab.md).
