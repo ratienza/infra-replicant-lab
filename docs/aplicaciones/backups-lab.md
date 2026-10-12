@@ -1,6 +1,6 @@
 # Aplicación · Backups Lab v1.1.2
 
-Versión 1.1.2, 12/10/2026. Resultado aprobado por Raúl, fusionado y publicado. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.1.2](https://github.com/ratienza/backups-lab/releases/tag/v1.1.2), PR funcional [#28](https://github.com/ratienza/backups-lab/pull/28) y evidencia [#29](https://github.com/ratienza/backups-lab/pull/29). Runtime comprobado en SHA `69c2957a99137bfe48bb9e97859c1e161a243e1d`; las versiones anteriores permanecen históricas e inmutables.
+Versión 1.1.2, 12/10/2026. Aceptada definitivamente por Raúl, fusionada y publicada. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.1.2](https://github.com/ratienza/backups-lab/releases/tag/v1.1.2), PR funcional [#28](https://github.com/ratienza/backups-lab/pull/28) y evidencia [#29](https://github.com/ratienza/backups-lab/pull/29). Código funcional `8f703237…`; runtime y release comprobados en `69c2957a99137bfe48bb9e97859c1e161a243e1d`. El sello documental posterior no cambia el runtime; las versiones anteriores permanecen históricas e inmutables.
 
 ## v1.1.2 · Fichas de descubrimiento y visibilidad
 
@@ -8,7 +8,7 @@ Aplicaciones conserva la cuadrícula compacta aceptada. Solo candidatas independ
 
 «Ignorar esta carpeta» corresponde a candidatas pendientes y «Ocultar del descubrimiento» a orígenes vinculados. Las dos acciones son persistentes y reversibles; si falta acceso, conservan la intención, ofrecen autorización y continúan después. Ocultar no borra carpetas de Nexus ni modifica vínculos, adaptadores, cobertura, horarios, retención, copias o historial. Redescubrir conserva lo oculto y no duplica filas.
 
-La comprobación publicada fue de solo lectura: 20 capturas de cinco vistas más 4 de vinculadas desplegadas, claro/oscuro y 1440/390, sin mutaciones, errores ni desbordamiento. Se preservaron 55 copias, cero trabajos activos, programación global ON, seis horarios ON, retención ON 7/4/12/3, Facility detenida, previews excluidas, BL-002 y Restore V2. No se ejecutaron copias, purgas o restauraciones productivas.
+La comprobación publicada fue de solo lectura: 20 capturas de cinco vistas más 4 de vinculadas desplegadas, claro/oscuro y 1440/390, sin mutaciones, errores ni desbordamiento. Observación de cierre a las 22:53 CEST: 55 registros, cero trabajos activos, programación global ON, seis horarios ON, retención ON 7/4/12/3, Facility detenida, previews excluidas, BL-002 y Restore V2. No se ejecutaron copias, purgas o restauraciones productivas.
 
 Runtime privado en Nexus, puerto LAN **8087**.
 
@@ -105,6 +105,6 @@ Antes de desplegar: snapshots SQLite consistentes con permisos 0600 privados, im
 
 CI aplicable v1.1.1: suite backend 103 correctas y 4 omitidas, build, siete recorridos del frontend, Compose, imágenes y etiquetas. La UI publicada cubre cinco vistas, claro/oscuro y 1440/390: 20 layouts sin errores ni desbordamiento. Compatibilidad HTTP sin randomUUID, confirmación/error/doble envío/ID, cola, persistencia/DST, protecciones, selección y orden siguen cubiertos. La comprobación de v1.1.1 ejecutó solo la primera copia necesaria de Backups Lab; las dos acciones manuales y ocho recuperaciones de v1.1.0 permanecen como evidencia reutilizada. Horarios, cuatro operaciones históricas de retención y ON/OFF quedaron preservados; ninguna clave aparece en evidencias.
 
-Alcance v1.1.1 aprobado, fusionado, desplegado y verificado. V2 solo backlog, sin implementación nueva. Informe diario por correo, log exportable, cifrado adicional, agentes externos, nuevos adaptadores y recuperación integral del host son propuestas anteriores pendientes de decisión/contrato, no se presentan como entregadas.
+Alcance v1.1.2 aceptado definitivamente, fusionado, desplegado y verificado. V2 solo backlog, sin implementación nueva. Informe diario por correo, log exportable, cifrado adicional, agentes externos, nuevos adaptadores y recuperación integral del host son propuestas anteriores pendientes de decisión/contrato, no se presentan como entregadas.
 
 [Changelog v1.1.2](https://github.com/ratienza/backups-lab/blob/main/CHANGELOG.md) · [Recibo y capturas publicadas](https://github.com/ratienza/backups-lab/tree/main/artifacts/v1.1.2/published) · [Backlog canónico V2.0](https://github.com/ratienza/backups-lab/blob/main/BACKLOG_V2.md) · [HANDOFF](https://github.com/ratienza/backups-lab/blob/main/HANDOFF.md).

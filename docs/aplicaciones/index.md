@@ -137,7 +137,7 @@ Documenta infraestructura, despliegue y operación del laboratorio. Genera un si
 <article class="app-card" markdown>
 ## Backups Lab
 <p class="app-type">Copias y recuperación aislada</p>
-v1.1.2 aprobada y publicada: fichas compactas, candidatas independientes separadas y siete carpetas vinculadas plegadas/fuera de contadores y copias. Nueve alcances verificados por Drive; seis horarios ON, tres OFF y retención 7/4/12/3 ON preservados. Facility detenida/alcance parcial, previews excluidas. Sustitución de originales diferida expresamente a V2.0.
+v1.1.2 aceptada definitivamente y publicada: fichas compactas, candidatas independientes separadas y siete carpetas vinculadas plegadas/fuera de contadores y copias. Nueve alcances verificados por Drive; seis horarios ON, tres OFF y retención 7/4/12/3 ON preservados. Facility detenida/alcance parcial, previews excluidas. Sustitución de originales diferida expresamente a V2.0.
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>React,FastAPI,SQLite,rclone</dd><dt>Repositorio</dt><dd><code>ratienza/backups-lab</code></dd><dt>Runtime</dt><dd>Nexus ·8087</dd><dt>Estado</dt><dd>v1.1.2 · aprobada y verificada</dd><dt>Acceso</dt><dd>Cloudflare Access y operaciones privadas</dd></dl>
 <p class="app-accesses"><a href="../downloads/apps/backups-lab.html">Ficha técnica</a> · <a href="https://backups.thereplicantlab.com/">HTTPS</a> · <a href="http://192.168.18.220:8087/">LAN</a> · <a href="backups-lab/">Manual</a></p>
 </article>

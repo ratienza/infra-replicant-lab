@@ -1,6 +1,6 @@
 # Backlog V2.0 · Backups Lab
 
-Derivado de propuestas previas y del aplazamiento expreso de sustitución el 11/10/2026. No implementa V2 ni convierte requisitos v1.1.2 incumplidos en mejoras. v1.1.2 está aprobada y publicada con nueve alcances/Drive/recuperación aislada, manual/cola/horarios, descubrimiento persistente, retención protegida y editable, acceso HTTP/HTTPS, interfaz y documentación. Cierre y evidencia: [v1.1.2](../aplicaciones/backups-lab.md).
+Derivado de propuestas previas y del aplazamiento expreso de sustitución el 11/10/2026. No implementa V2 ni convierte requisitos v1.1.2 incumplidos en mejoras. v1.1.2 está aceptada definitivamente y publicada con nueve alcances/Drive/recuperación aislada, manual/cola/horarios, descubrimiento persistente, retención protegida y editable, acceso HTTP/HTTPS, interfaz y documentación. No queda ningún requisito terminado etiquetado como bloqueado; esta página conserva solo limitaciones de cobertura y propuestas V2 reales. Cierre y evidencia: [v1.1.2](../aplicaciones/backups-lab.md).
 
 | ID / prioridad | Qué falta / problema | Dependencias y decisión | Criterio de aceptación |
 |---|---|---|---|
