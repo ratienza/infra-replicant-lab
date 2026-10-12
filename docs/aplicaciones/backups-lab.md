@@ -1,6 +1,14 @@
-# Aplicación · Backups Lab v1.1.1
+# Aplicación · Backups Lab v1.1.2
 
-Versión 1.1.1, 12/10/2026. Resultado aprobado por Raúl, fusionado y publicado. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.1.1](https://github.com/ratienza/backups-lab/releases/tag/v1.1.1), PR funcional [#27](https://github.com/ratienza/backups-lab/pull/27). Runtime comprobado en SHA `50a65d1f708cae7ecd5c3f6402c589da79fa0529`; las versiones anteriores permanecen históricas e inmutables.
+Versión 1.1.2, 12/10/2026. Resultado aprobado por Raúl, fusionado y publicado. Repositorio [ratienza/backups-lab](https://github.com/ratienza/backups-lab), [release v1.1.2](https://github.com/ratienza/backups-lab/releases/tag/v1.1.2), PR funcional [#28](https://github.com/ratienza/backups-lab/pull/28) y evidencia [#29](https://github.com/ratienza/backups-lab/pull/29). Runtime comprobado en SHA `69c2957a99137bfe48bb9e97859c1e161a243e1d`; las versiones anteriores permanecen históricas e inmutables.
+
+## v1.1.2 · Fichas de descubrimiento y visibilidad
+
+Aplicaciones conserva la cuadrícula compacta aceptada. Solo candidatas independientes pendientes llevan «NUEVA CANDIDATA» y cuentan en Dashboard; ruta, estado y acciones permanecen visibles y el detalle técnico queda plegado. Los siete orígenes vinculados aparecen al final en «Carpetas vinculadas (7)», cerrada por defecto, identifican su aplicación y no participan como aplicaciones independientes en contadores o copias.
+
+«Ignorar esta carpeta» corresponde a candidatas pendientes y «Ocultar del descubrimiento» a orígenes vinculados. Las dos acciones son persistentes y reversibles; si falta acceso, conservan la intención, ofrecen autorización y continúan después. Ocultar no borra carpetas de Nexus ni modifica vínculos, adaptadores, cobertura, horarios, retención, copias o historial. Redescubrir conserva lo oculto y no duplica filas.
+
+La comprobación publicada fue de solo lectura: 20 capturas de cinco vistas más 4 de vinculadas desplegadas, claro/oscuro y 1440/390, sin mutaciones, errores ni desbordamiento. Se preservaron 55 copias, cero trabajos activos, programación global ON, seis horarios ON, retención ON 7/4/12/3, Facility detenida, previews excluidas, BL-002 y Restore V2. No se ejecutaron copias, purgas o restauraciones productivas.
 
 Runtime privado en Nexus, puerto LAN **8087**.
 
@@ -89,7 +97,7 @@ Historial durable completo, sin reintroducir copias ni borrar registros. Los con
 
 ## Despliegue, SHA y rollback
 
-Release/tag v1.1.1; versiones anteriores históricas sin sobrescritura. VERSION, API/OpenAPI y paquete frontend 1.1.1. `/api/status` y labels OCI de API/web identifican el mismo SHA desplegado `50a65d1f708cae7ecd5c3f6402c589da79fa0529`. CI [38272103094](https://github.com/ratienza/backups-lab/actions/runs/38272103094) verde. No hubo migración destructiva ni repetición de OAuth.
+Release/tag v1.1.2; versiones anteriores históricas sin sobrescritura. VERSION, API/OpenAPI y paquete frontend 1.1.2. `/api/status` y labels OCI de API/web identifican el mismo SHA desplegado `69c2957a99137bfe48bb9e97859c1e161a243e1d`. CI de [#28](https://github.com/ratienza/backups-lab/actions/runs/38284107972) y [#29](https://github.com/ratienza/backups-lab/actions/runs/38284814489) verde. No hubo migración destructiva ni repetición de OAuth.
 
 Antes de desplegar: snapshots SQLite consistentes con permisos 0600 privados, imágenes/API/web/documentación anteriores etiquetadas y script privado de rollback. Rollback rechaza trabajo en curso, restaura solo código/imágenes y documentación; conserva historial actual y elecciones posteriores de horarios. No restaura aplicaciones originales ni borra Drive. El snapshot de DB es protección separada, no se restaura automáticamente. Seguir el recibo de publicación; no ejecutar rollback como prueba sobre producción.
 
@@ -99,4 +107,4 @@ CI aplicable v1.1.1: suite backend 103 correctas y 4 omitidas, build, siete reco
 
 Alcance v1.1.1 aprobado, fusionado, desplegado y verificado. V2 solo backlog, sin implementación nueva. Informe diario por correo, log exportable, cifrado adicional, agentes externos, nuevos adaptadores y recuperación integral del host son propuestas anteriores pendientes de decisión/contrato, no se presentan como entregadas.
 
-[Changelog v1.1.1](https://github.com/ratienza/backups-lab/blob/main/CHANGELOG.md) · [Evidencia final](https://github.com/ratienza/backups-lab/blob/main/artifacts/v1.1.1/runtime-verification.json) · [Capturas publicadas](https://github.com/ratienza/backups-lab/tree/main/artifacts/v1.1.1/published) · [Backlog canónico V2.0](https://github.com/ratienza/backups-lab/blob/main/BACKLOG_V2.md) · [HANDOFF](https://github.com/ratienza/backups-lab/blob/main/HANDOFF.md).
+[Changelog v1.1.2](https://github.com/ratienza/backups-lab/blob/main/CHANGELOG.md) · [Recibo y capturas publicadas](https://github.com/ratienza/backups-lab/tree/main/artifacts/v1.1.2/published) · [Backlog canónico V2.0](https://github.com/ratienza/backups-lab/blob/main/BACKLOG_V2.md) · [HANDOFF](https://github.com/ratienza/backups-lab/blob/main/HANDOFF.md).
