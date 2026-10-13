@@ -1,8 +1,8 @@
 # Aplicación · CryptoWallet
 
-CryptoWallet **V1.5 / 1.5.0** está cerrada y desplegada en producción privada Nexus desde el **09/10/2026**. Conserva la apertura financiera aceptada y añade PIN persistente, privacidad inicial, copias multibase y navegación adaptable. La previa conserva un entorno independiente; no se presume actualizada a V1.5.
+CryptoWallet **V1.6 / 1.6.0** está cerrada y desplegada en producción privada Nexus desde el **13/10/2026**. Conserva la apertura financiera aceptada, los controles V1.5 y añade origen Tarjeta/Liquidez/Otros en compras, comisión Externa/Cartera, migración compatible y revisión compacta. La previa conserva un entorno independiente; no se presume actualizada a V1.6.
 
-La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza/cryptowallet/blob/118577c7cf60f7f5733e6f4822f7194f7d37cd72/HANDOFF.md) y de la [aceptación CW-V15](https://github.com/ratienza/cryptowallet/blob/118577c7cf60f7f5733e6f4822f7194f7d37cd72/docs/evidence/CW-V15/acceptance.md). La activación de Google y el recorrido Google → PIN → cartera se atribuyen a la confirmación manual de Raúl en incógnito el 09/10/2026 a las 22:33 Europe/Madrid; este cierre documental no los repite ni constituye una nueva inspección del runtime.
+La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza/cryptowallet/blob/c448a6b49f368dddc734835adfd31ef83d0fa07b/HANDOFF.md) y de la [release V1.6](https://github.com/ratienza/cryptowallet/blob/c448a6b49f368dddc734835adfd31ef83d0fa07b/docs/releases/v1.6.md). La activación de Google y el recorrido Google → PIN → cartera siguen atribuidos a la confirmación manual de Raúl en incógnito el 09/10/2026; la publicación V1.6 sí comprobó la sesión exterior existente con privacidad activa, sin desactivarla ni exponer importes.
 
 ## Accesos
 
@@ -10,28 +10,28 @@ La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza
 - **Previa protegida:** [Revisión independiente](https://cryptowallet-preview.thereplicantlab.com/).
 - **Pruebas de operaciones:** [Demo ficticia aislada de la previa](https://cryptowallet-preview.thereplicantlab.com/?datos=sinteticos).
 - **Ficha técnica:** [HTML autocontenido](/downloads/apps/cryptowallet.html) · [PDF](/downloads/apps/cryptowallet.pdf).
-- **Documentación funcional/técnica:** [Manual vigente V1.5](https://github.com/ratienza/cryptowallet/tree/main/docs/v1), repositorio privado.
-- **Código y release:** [ratienza/cryptowallet · v1.5.0](https://github.com/ratienza/cryptowallet/tree/v1.5.0).
+- **Documentación funcional/técnica:** [Manual vigente V1.6](https://github.com/ratienza/cryptowallet/tree/main/docs/v1), repositorio privado.
+- **Código y release:** [ratienza/cryptowallet · v1.6.0](https://github.com/ratienza/cryptowallet/tree/v1.6.0).
 - **App Launch:** tarjeta productiva existente en el catálogo Nexus. El catálogo no ejecuta la aplicación.
 
 ## Estado validado
 
 | Campo | Estado |
 |---|---|
-| Producto | V1.5 cerrada; PR #13–#17 fusionados |
-| Código ejecutable / tag | `d7aac669b5f905933558c3a7ffa7b42cdae9741e` · `v1.5.0` |
-| Main documental del producto | `118577c7cf60f7f5733e6f4822f7194f7d37cd72`; distinto del ejecutable |
-| Imagen productiva | `cryptowallet:1.5.0-d7aac669b5f9` |
-| ID de imagen | `sha256:d764f7f40619b6229e4b1db8bd7db7c04863598babe00b982b47dc9ce9d2cdc5` |
+| Producto | V1.6 cerrada; PR #19 funcional y PR #20 documental fusionados |
+| Código ejecutable / tag | `256cff7f490ff67601a514848555c19d38bde48e` · `v1.6.0` |
+| Main documental del producto | `c448a6b49f368dddc734835adfd31ef83d0fa07b`; distinto del ejecutable etiquetado |
+| Imagen productiva | `cryptowallet:1.6.0-256cff7f490f` |
+| ID de imagen | `sha256:471c75eda3b83139533317066ab811d36ac3314d7f76804a9b86d196f4e892f3` |
 | Runtime | Nexus · Docker Compose · `cryptowallet-app` · usuario `1000:1000` |
 | Origen productivo | `127.0.0.1:8516 → 8501`; sin acceso directo por IP LAN |
 | Previa | `cryptowallet-preview-app` · localhost `8517`; almacenamiento y versión independientes |
 | Persistencia | Conjunto financiero, copias y seguridad en montajes privados separados |
 | Seguridad efectiva | Cloudflare Access/Tunnel + Google interno activo + PIN activo; 24 horas; privacidad inicial ON |
 | Recuperación | Copias multibase verificadas; seguridad respaldada aparte; restauración probada en aislamiento |
-| Pruebas de entrega | 379 pruebas + 68 subpruebas locales; 379 pruebas dentro de la imagen sin red |
-| Evidencia de promoción 09/10 | Healthy, origen privado OK, Tunnel activo; 27 componentes financieros idénticos antes/después |
-| Aceptación exterior | Raúl confirmó manualmente en incógnito Google → PIN → cartera; no fue una prueba independiente del agente |
+| Pruebas de entrega | 387 pruebas + 68 subpruebas locales; 387 pruebas dentro de la imagen sin red |
+| Evidencia de promoción 13/10 | Healthy, origen privado OK, montajes conservados; migración repetida con 0 cambios e integridad SQLite correcta |
+| Aceptación exterior | Sesión autenticada comprobada con privacidad activa; la aceptación Google → PIN → cartera sigue siendo la confirmación manual previa de Raúl |
 | Cobertura no verificada | Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior; límite aceptado sin bloquear el cierre |
 
 No se publican bases, importes, lotes reales, originales, capturas, manifiestos financieros, credenciales ni ubicaciones privadas de respaldos en este repositorio público.
@@ -42,13 +42,13 @@ Dashboard, Cartera actual, Logbook y Tokens mantienen temas, privacidad y USD/EU
 
 Cartera conserva la tabla financiera, cobertura, lotes y procedencia; gráficos preceden a la tabla. Tokens añade composición por custodia y red. Cantidades aparecen en las ayudas del Dashboard respetando privacidad.
 
-Compras, ventas, rotaciones, depósitos/retiradas fiat y traslados propios **contabilizan al confirmar**. Guardar borrador no mueve saldo/FIFO. Formularios compactos con grupos, cálculos editables, porcentajes de venta por custodia y rotación con precio/cantidad destino recíprocos. Revisar operación muestra bruto/neto, comisiones, referencias, saldos y efectos FIFO.
+Compras, ventas, rotaciones, depósitos/retiradas fiat y traslados propios **contabilizan al confirmar**. Guardar borrador no mueve saldo/FIFO. En compras, **Tarjeta** y **Otros** no descuentan principal de liquidez; **Liquidez** sí exige y descuenta el saldo interno. La comisión declara por separado si es **Externa** o sale de **Cartera**. BTC parte de Tarjeta y el resto de Otros. La revisión usa exactamente tres bloques: datos, pago/origen/comisiones y resultado/confirmación; no muestra proyecciones futuras.
 
 P&G comparable usa coste y valor de las mismas unidades. xN conserva esa cobertura. P&G realizado se distingue del principal retirado en fiat. Valoración EUR de pantalla no constituye base fiscal histórica.
 
 ## Arquitectura y acceso
 
-Python/Streamlit consume la apertura aceptada, catálogo y confirmaciones nuevas. El motor Decimal valida disponibilidad física por custodia y FIFO global del titular por activo. La apertura permanece inmutable; nuevas confirmaciones transaccionales e idempotentes conservan cadena de huellas y revisión.
+Python/Streamlit consume la apertura aceptada, catálogo y confirmaciones nuevas. El motor Decimal valida disponibilidad física por custodia y FIFO global del titular por activo. La apertura y `finance.sqlite3` permanecen inmutables; `purchase-payment.sqlite3` conserva origen visible, efecto histórico real y revisiones idempotentes. Corregir el origen reproduce y valida la cadena efectiva sin duplicar ni reescribir confirmaciones.
 
 La ruta externa pasa por Cloudflare Access y el Tunnel saliente de Nexus. Los orígenes productivo y previo están ligados a localhost. Cloudflare Access es la barrera exterior; Google OIDC interno y el PIN son capas propias de la aplicación. El cliente Web OAuth dedicado y sus credenciales privadas quedaron instalados y Google interno está activo. La privacidad oculta cifras; no sustituye al control de acceso.
 
@@ -56,11 +56,11 @@ Producción monta únicamente el conjunto real. La demo sintética se monta solo
 
 ## Datos y protección
 
-Originales importados y operaciones contabilizadas están protegidos sin edición/borrado. Los borradores manuales pueden editarse o retirarse de forma recuperable. La primera confirmación real crea la base financiera nueva si aún no existe: una ausencia inicial no se subsana inventando operaciones.
+Originales importados permanecen protegidos. Las operaciones contabilizadas no se borran ni reescriben; solo una compra permite corregir origen de pago/comisión mediante metadatos auditables. Los borradores manuales pueden editarse o retirarse de forma recuperable. Los dos borradores BTC productivos se asignaron a Tarjeta y se prepararon sin contabilizarlos ni cambiar sus archivos.
 
 Costes e ingresos desconocidos mantienen cobertura explícita. CW-004 permanece cerrado, el regalo PEPE sigue excluido y los límites históricos aceptados de TAO no se rellenan con cero ni nuevos supuestos.
 
-## Seguridad y privacidad V1.5
+## Seguridad y privacidad V1.6
 
 PIN ASCII de seis cifras, conservado como hash scrypt con sal. El desbloqueo firmado queda ligado a identidad y revisión, con caducidad absoluta de **24 horas** por defecto; persiste tras recarga, reapertura y reinicio. El servidor conserva intentos, bloqueo y revocaciones: **5 intentos / 30 segundos** por defecto. El PIN muestra cuenta atrás y reactiva las casillas automáticamente, con validación del servidor en cada envío.
 
@@ -68,7 +68,7 @@ PIN ASCII de seis cifras, conservado como hash scrypt con sal. El desbloqueo fir
 
 El alta del cliente Web OAuth, callbacks, credenciales privadas, activación y recorrido autorizado Google → PIN → cartera ya no son pendientes. Conservar secretos fuera de Git y no reutilizar los de Cartera. Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior no constan probados; se registran como cobertura no verificada aceptada. [Procedimiento privado](https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md).
 
-## Copias locales y restauración V1.5
+## Copias locales y restauración V1.6
 
 **Ajustes → Backup** permite crear, inspeccionar, proteger, descargar y restaurar copias del conjunto completo. Cada `.cwbak.zip` incluye manifiesto, versiones, entorno, componentes, tamaños, SHA-256, esquemas, integridad SQLite y cadena de confirmaciones. Incluye apertura, catálogo, bases financieras presentes, borradores/revisiones, decisiones, fuentes y configuración funcional. Las SQLite usan su API de backup bajo el bloqueo coordinado compartido con las escrituras; no se copian WAL/SHM en bruto.
 
@@ -83,7 +83,7 @@ Consultar, previsualizar o cancelar no crea copias. Si falla una previa, se bloq
 
 Restaurar exige validar compatibilidad, huellas, integridad y cadena, revisar las operaciones posteriores que se perderían y confirmar; hay confirmación adicional ante copia vacía. Se crea `pre_restore`, se prepara el candidato aislado y se instala el conjunto completo con escrituras bloqueadas. Un fallo parcial recupera y verifica el conjunto anterior. La restauración completa se probó **solo en aislamiento**, nunca sobre producción.
 
-Seguridad se respalda separadamente: credenciales, PIN, estado y secretos no aparecen en descargas financieras. Restaurar finanzas preserva la seguridad actual y no revive sesiones revocadas. Antes de V1.5 se verificó una copia protegida y el estado financiero permaneció idéntico antes/después. Referencias privadas de recuperación en el manual del producto, sin publicar rutas ni manifiestos financieros aquí.
+Seguridad se respalda separadamente: credenciales, PIN, estado y secretos no aparecen en descargas financieras. Restaurar finanzas preserva la seguridad actual y no revive sesiones revocadas. Antes de V1.6 se verificó y protegió una copia completa; la migración generó otra previa válida y protegida. El inventario pasó de 30 a 31 componentes solo por la nueva base de metadatos, con 0 confirmaciones. Referencias privadas de recuperación en el manual del producto, sin publicar rutas ni manifiestos financieros aquí.
 
 ## Operación segura y rollback
 
@@ -91,12 +91,12 @@ Antes de un cambio funcional, identificar imagen/esquema y conjunto vivo, detene
 
 Después del cambio, comprobar imagen aprobada, mismo montaje real, bind localhost, salud Streamlit, cadena y comparación financiera. El procedimiento completo vive en el repositorio privado. La publicación documental recrea únicamente el sitio de Replicant Lab; no reinicia CryptoWallet.
 
-**Rollback de código y recuperación de datos son decisiones distintas.** Tras nuevas confirmaciones reales, la versión antigua sin motor no es compatible: conservar conjunto vivo y usar imagen de esquema 1 compatible o reparación hacia delante. No restaurar la apertura perdiendo movimientos posteriores. V1.5 añade las copias locales descritas arriba; la copia puntual de aceptación V1.0 queda como evidencia histórica. La previa no es una réplica de recuperación. La recuperación de seguridad es una intervención privada separada.
+**Rollback de código y recuperación de datos son decisiones distintas.** Tras nuevas confirmaciones reales, la versión antigua sin motor no es compatible: conservar conjunto vivo y usar imagen de esquema 1 compatible o reparación hacia delante. No restaurar la apertura perdiendo movimientos posteriores. V1.6 mantiene formato y modelo de copia 1 e incorpora la base de metadatos al conjunto; la copia puntual de aceptación V1.0 queda como evidencia histórica. La previa no es una réplica de recuperación. La recuperación de seguridad es una intervención privada separada.
 
 ## Pendientes y límites
 
-[Importación funcional CSV/Excel y reconciliación nueva](../pendientes/cryptowallet.md) quedan para **V2**. V1.5 permite consultar trazabilidad, pero no importar nuevos archivos desde la pantalla. PIN, respaldo funcional y Google interno ya están activos. Las variantes OIDC y móvil no probadas son límites aceptados, no funciones pendientes; preventas y otras ampliaciones siguen separadas.
+[Importación funcional CSV/Excel y reconciliación nueva](../pendientes/cryptowallet.md) quedan para **V2**. V1.6 permite consultar trazabilidad, pero no importar nuevos archivos desde la pantalla. PIN, respaldo funcional y Google interno ya están activos. Las variantes OIDC y móvil no probadas son límites aceptados, no funciones pendientes; preventas y otras ampliaciones siguen separadas.
 
-No hay bridge/cambio de red, edición/reversión de contabilizadas ni inserción anterior a apertura/última confirmación. No se declara conformidad fiscal nueva. Estos límites no reabren la aceptación financiera V1.0 ni el cierre de V1.5.
+No hay bridge/cambio de red, reversión de contabilizadas, edición de campos distintos al origen en compras ni inserción anterior a apertura/última confirmación. Los logos claro/oscuro siguen bloqueados hasta recibir los dos recursos oficiales; no se usa una aproximación. No se declara conformidad fiscal nueva. Estos límites no reabren la aceptación financiera V1.0 ni los cierres anteriores.
 
-La evidencia de promoción del producto registra runtime y redirección Access. Esta actualización consulta esa evidencia versionada; no certifica una nueva inspección de Nexus, el contenido actual de todas las políticas Cloudflare ni una prueba autenticada móvil. [Cloudflare](../red/cloudflare-tunnel.md) distingue la evidencia histórica y los controles pendientes.
+La evidencia de promoción del producto registra runtime, salud y sesión autenticada con privacidad activa. No certifica el contenido actual de todas las políticas Cloudflare ni una prueba autenticada móvil. [Cloudflare](../red/cloudflare-tunnel.md) distingue la evidencia histórica y los controles pendientes.

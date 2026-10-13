@@ -103,9 +103,9 @@ No almacenar aquí contraseñas, tokens, claves privadas, bases de datos ni secr
 
 La publicación externa del Lab usa un único Tunnel saliente `replicant-launch` desde Nexus. Launch, Salones, Docs, Pádel, Red y Cartera disponen de hostnames propios protegidos mediante Cloudflare Access, con Google como IdP y política independiente por aplicación. No se abren puertos entrantes en el router. La guía canónica, operación y recuperación están en `docs/red/cloudflare-tunnel.md`.
 
-## CryptoWallet V1.5 · cierre documental 09/10/2026
+## CryptoWallet V1.6 · cierre productivo 13/10/2026
 
-Producción privada en Nexus mediante origen localhost `8516`, previa independiente `8517`, ambos hostnames protegidos. Ficha canónica `docs/aplicaciones/cryptowallet.md`, límites V2 y documentación funcional en su repositorio privado. Once fichas individuales y dossier global: doce parejas HTML/PDF desde el generador existente. V1.5 incorpora Google interno activo, PIN persistente 24 horas, privacidad ON, copias multibase y Ajustes por pestañas / hamburguesa móvil; Raúl confirmó manualmente el recorrido autorizado. Ese estado es histórico: Backups Lab v1.1.1 está publicado; ver docs/aplicaciones/backups-lab.md y backlog V2. Ver RL-CW-DOC-003 para fuentes, límites y gate de publicación; la publicación solo recrea el sitio documental.
+Producción privada en Nexus mediante origen localhost `8516`, previa independiente `8517`, ambos hostnames protegidos. Ficha canónica `docs/aplicaciones/cryptowallet.md`, límites V2 y documentación funcional en su repositorio privado. Doce fichas individuales y dossier global: trece parejas HTML/PDF desde el generador existente. V1.6 añade origen Tarjeta/Liquidez/Otros, comisión Externa/Cartera, migración compatible y revisión compacta; conserva Google interno, PIN 24 horas, privacidad ON y copias multibase. La publicación documental solo recrea `infra-replicant-docs`; no reinicia CryptoWallet ni toca datos o seguridad.
 
 ## Backups Lab v1.1.1 ·12/10/2026
 

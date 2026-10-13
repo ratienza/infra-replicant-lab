@@ -1,6 +1,6 @@
 # Pendientes · CryptoWallet
 
-**V1.5 cerrada y desplegada el 09/10/2026.** Google interno, PIN, privacidad inicial, copias multibase, pestañas de Ajustes y hamburguesa móvil están entregados. Raúl confirmó manualmente en incógnito Google → PIN → cartera a las 22:33 Europe/Madrid y aceptó cerrar la etapa. La apertura financiera V1.0 sigue aceptada; CW-004 y CW-005 no se reabren.
+**V1.6 cerrada y desplegada el 13/10/2026.** Origen de pago, comisión externa/cartera, migración compatible, favicon BTC y revisión compacta están entregados; Google interno, PIN, privacidad inicial, copias multibase, pestañas de Ajustes y hamburguesa móvil permanecen activos. La apertura financiera V1.0 sigue aceptada; CW-004 y CW-005 no se reabren.
 
 ## Controles operativos reales
 
@@ -23,14 +23,15 @@ PIN ya configurado: no solicitar uno nuevo para documentar ni activarlo de nuevo
 | Reconciliación nueva | V2: nuevas fuentes sin duplicar apertura ni modificar cierres |
 | Nuevos cálculos antes/después | Aplazados: simulación, medias posteriores y comparación calculada; la pantalla propia con datos existentes ya está entregada |
 | Preventas / otras ampliaciones | Aplazadas |
-| Corrección/reversión de contabilizadas | Sin implementación autorizada |
+| Corrección/reversión de contabilizadas | Solo origen de pago/comisión en compras está entregado; otros campos y la reversión siguen fuera |
+| Logos oficiales claro/oscuro | Bloqueado hasta recibir las dos variantes oficiales; no aproximar ni reutilizar marca de Replicant Lab |
 | Bridge/cambio de red y retroactividad | No habilitados; sin reescritura histórica |
 | Réplica automática remota en Drive | [Proyecto independiente del Lab](backups-drive.md); propuesta anotada, no implementada |
 
-Las copias manuales, diarias por cambios y previas, retención y restauración aislada **ya están implementadas y desplegadas**. No mantenerlas como deuda. La réplica externa y el informe diario no forman parte del cierre V1.5.
+Las copias manuales, diarias por cambios y previas, retención y restauración aislada **ya están implementadas y desplegadas**. No mantenerlas como deuda. La réplica externa y el informe diario no forman parte del cierre V1.6.
 
 ## Límites conservados
 
 Producción, previa y demo son independientes; movimientos de prueba exclusivamente sintéticos. Los desconocidos históricos siguen no disponibles, nunca cero; no reabrir decisiones financieras aceptadas ni pedir históricos ya cerrados. USD/EUR de pantalla no es una base fiscal histórica. Datos y respaldos permanecen privados.
 
-[Ficha vigente](../aplicaciones/cryptowallet.md) · [Manual privado](https://github.com/ratienza/cryptowallet/tree/main/docs/v1) · [Aceptación V1.5](https://github.com/ratienza/cryptowallet/blob/118577c7cf60f7f5733e6f4822f7194f7d37cd72/docs/evidence/CW-V15/acceptance.md).
+[Ficha vigente](../aplicaciones/cryptowallet.md) · [Manual privado V1.6](https://github.com/ratienza/cryptowallet/tree/v1.6.0/docs/v1) · [Release V1.6](https://github.com/ratienza/cryptowallet/blob/c448a6b49f368dddc734835adfd31ef83d0fa07b/docs/releases/v1.6.md).
