@@ -1,3 +1,11 @@
+# HANDOFF · CryptoWallet V1.6 / documentación Replicant Lab
+
+13/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #19 en `256cff7f490ff67601a514848555c19d38bde48e`, tag `v1.6.0`, y el PR documental #20 en `c448a6b49f368dddc734835adfd31ef83d0fa07b`. Nexus ejecuta `cryptowallet:1.6.0-256cff7f490f` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
+
+Origen Tarjeta/Liquidez/Otros, comisión Externa/Cartera, migración idempotente, edición acotada, favicon BTC y revisión de tres bloques están desplegados. Dos borradores BTC se migraron a Tarjeta, se prepararon sin contabilizar y conservaron su huella. No existían confirmaciones históricas: regularización propuesta 0, no ejecutada. Copia previa, rollback, seguridad separada e integridad de la base nueva verificados. 387 pruebas + 68 subpruebas locales y 387 dentro de la imagen sin red. Sesión exterior comprobada con privacidad activa.
+
+La ficha, índices, Nexus, operación, fases, pendientes, cambio del 13/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, conservando su imagen/composición anterior para rollback. No reiniciar CryptoWallet ni cambiar datos, copias, OAuth, Access, Tunnel o seguridad. Los logos claro/oscuro quedan bloqueados hasta recibir ambos recursos oficiales; no aproximarlos.
+
 # HANDOFF · v1.1.2 ACEPTADA POR RAÚL / CIERRE DEFINITIVO
 
 12/10/2026. Raúl acepta definitivamente Backups Lab v1.1.2. Código funcional `8f703237619e0501c78a202524c05149abdd0339` (PR #28); evidencia, release y runtime construido `69c2957a99137bfe48bb9e97859c1e161a243e1d` (PR #29). La documentación Replicant Lab previa a este sello está en `6666f70023e8a628035fe8b09746c95e2b92b013` (PR #60); el merge del PR documental de cierre es su SHA final publicado. La corrección conserva fichas compactas, muestra solo candidatas independientes con distintivo propio y mueve siete orígenes vinculados al final, plegados por defecto y fuera de contadores/copias. Ignorar/ocultar/revertir es persistente, solicita autorización en contexto y nunca borra directorios.

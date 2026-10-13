@@ -49,7 +49,7 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
-| `8516/tcp` | CryptoWallet V1.5 · producción privada | localhost; Tunnel |
+| `8516/tcp` | CryptoWallet V1.6 · producción privada | localhost; Tunnel |
 | `8517/tcp` | CryptoWallet · previa independiente | localhost; Tunnel |
 | `53` | systemd-resolved | localhost |
 
@@ -113,6 +113,12 @@ Esta actualización documental consulta la aceptación versionada, sin nueva ins
 ## CryptoWallet · cierre OAuth confirmado 09/10/2026 22:33
 
 Google interno quedó activo y Raúl confirmó manualmente en incógnito Google → PIN → cartera. La documentación atribuye la prueba al propietario; no afirma una nueva inspección independiente. Se conservan PIN 24 horas, privacidad inicial ON y copias locales. Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior no constan probados y son límites aceptados. [RL-CW-DOC-003](../encargos/RL-CW-DOC-003.md) registra la publicación documental posterior sin reiniciar CryptoWallet.
+
+## CryptoWallet · V1.6, promoción verificada 13/10/2026
+
+Producción ejecuta `cryptowallet:1.6.0-256cff7f490f`, SHA `256cff7f490ff67601a514848555c19d38bde48e`, usuario `1000:1000`, healthy y origen localhost `8516`. Los montajes privados de datos, copias y seguridad permanecen separados. Se verificaron copia previa protegida, rollback de composición, respaldo de seguridad, 387 pruebas dentro de la imagen sin red y salud loopback.
+
+La migración añadió `purchase-payment.sqlite3` al conjunto multibase: dos borradores BTC quedaron como Tarjeta y alcanzaron preparación sin contabilizarse; su huella de archivos no cambió. La segunda ejecución migró 0 filas y la SQLite devolvió integridad correcta. No existía base de confirmaciones, por lo que no procede regularización histórica de liquidez. La sesión exterior existente se comprobó con privacidad activa; no se desactivó ni se expusieron importes.
 
 ## Backups Lab v1.1.2 ·12/10/2026
 

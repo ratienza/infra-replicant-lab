@@ -109,15 +109,15 @@ Gestiona y analiza una cartera personal de inversión. La release v2.1.0 añade 
 
 <article class="app-card" markdown>
 ## CryptoWallet
-<p class="app-type">Cartera cripto privada · V1.5 desplegada</p>
-Seguimiento, liquidez, cotizaciones y operaciones confirmadas con FIFO sobre la apertura consolidada. Google interno activo, PIN persistente 24 horas, privacidad inicial ON y copias locales multibase; recorrido autorizado confirmado manualmente por Raúl.
+<p class="app-type">Cartera cripto privada · V1.6 desplegada</p>
+Seguimiento, liquidez, cotizaciones y operaciones confirmadas con FIFO sobre la apertura consolidada. Compras con origen Tarjeta/Liquidez/Otros, comisión Externa/Cartera y migración compatible; Google interno, PIN, privacidad inicial y copias multibase permanecen activos.
 <dl>
 <dt>Herramienta</dt><dd>Codex</dd>
 <dt>Stack</dt><dd>Python · Streamlit · SQLite</dd>
 <dt>Repositorio</dt><dd><code>ratienza/cryptowallet</code> · privado</dd>
 <dt>Deploy</dt><dd>Docker Compose</dd>
 <dt>Runtime</dt><dd>Nexus · producción privada</dd>
-<dt>Estado</dt><dd>V1.5 productiva · previa independiente</dd>
+<dt>Estado</dt><dd>V1.6 productiva · previa independiente</dd>
 <dt>URL pública</dt><dd>Cloudflare Access</dd>
 </dl>
 <p class="app-accesses"><a href="../downloads/apps/cryptowallet.html">Ficha técnica</a> · <a href="https://cryptowallet.thereplicantlab.com/" target="_blank" rel="noopener">Entrar</a> · <a href="cryptowallet/">Documentación</a></p>
