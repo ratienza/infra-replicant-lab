@@ -1,6 +1,6 @@
 # Change Log
 
-- [13 de octubre de 2026 · CryptoWallet V1.6](2026-10-13.md)
+- [13 de octubre de 2026 · CryptoWallet V1.6.1](2026-10-13.md)
 
 - [12 de octubre de 2026 · Cartera v2.1.0 y Backups Lab v1.1.2](2026-10-12.md)
 

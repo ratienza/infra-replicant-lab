@@ -49,7 +49,7 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
-| `8516/tcp` | CryptoWallet V1.6 · producción privada | localhost; Tunnel |
+| `8516/tcp` | CryptoWallet V1.6.1 · producción privada | localhost; Tunnel |
 | `8517/tcp` | CryptoWallet · previa independiente | localhost; Tunnel |
 | `53` | systemd-resolved | localhost |
 
@@ -119,6 +119,10 @@ Google interno quedó activo y Raúl confirmó manualmente en incógnito Google 
 Producción ejecuta `cryptowallet:1.6.0-256cff7f490f`, SHA `256cff7f490ff67601a514848555c19d38bde48e`, usuario `1000:1000`, healthy y origen localhost `8516`. Los montajes privados de datos, copias y seguridad permanecen separados. Se verificaron copia previa protegida, rollback de composición, respaldo de seguridad, 387 pruebas dentro de la imagen sin red y salud loopback.
 
 La migración añadió `purchase-payment.sqlite3` al conjunto multibase: dos borradores BTC quedaron como Tarjeta y alcanzaron preparación sin contabilizarse; su huella de archivos no cambió. La segunda ejecución migró 0 filas y la SQLite devolvió integridad correcta. No existía base de confirmaciones, por lo que no procede regularización histórica de liquidez. La sesión exterior existente se comprobó con privacidad activa; no se desactivó ni se expusieron importes.
+
+## CryptoWallet · V1.6.1, estabilización verificada 13/10/2026
+
+Producción ejecuta `cryptowallet:1.6.1-2cc792dea050`, SHA `2cc792dea0509881c1beeddebce9a006065e8010`, healthy y origen localhost `8516`. Los montajes privados permanecen separados. La entrega superó 391 pruebas + 68 subpruebas en aislamiento; copia previa, restauración aislada, rollback de composición y seguridad separada quedaron verificados. El estado productivo conservó 32 componentes, 1 operación y su huella; el único borrador BTC activo conservó su árbol y prepara como Tarjeta sin contabilizarse.
 
 ## Backups Lab v1.1.2 ·12/10/2026
 
