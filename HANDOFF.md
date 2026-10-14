@@ -1,10 +1,20 @@
-# HANDOFF · CryptoWallet V1.6.1 / documentación Replicant Lab
+# HANDOFF · CryptoWallet V1.6.2 / documentación Replicant Lab
+
+14/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #23 en `43d04a2e8d3681e9cb8631ba6c7f16582327b813`, tag `v1.6.2`. Nexus ejecuta `cryptowallet:1.6.2-43d04a2e8d36` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
+
+V1.6.2 conserva íntegro el Logbook V1.6.1 y completa la identidad visual: favicon BTC SVG versionado, marca oficial de The Replicant Lab a la derecha de la cabecera, título y navegación centrados, y lockup corporativo centrado en el pie. La referencia aprobada procede de Cartera Estratégica y usa el bitmap corporativo exacto sin transformación. 395 pruebas superadas; revisión visual sintética 1280/390 en claro/oscuro y comprobación autenticada de producción. Copia previa restaurada en aislamiento; 33 componentes, 1 operación y árbol del borrador BTC permanecieron idénticos antes/después.
+
+La ficha, índices, Nexus, operación, fases, pendientes, cambio del 14/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, conservando su imagen/composición anterior para rollback. No reiniciar CryptoWallet ni cambiar datos, copias, OAuth, Access, Tunnel o seguridad.
+
+---
+
+# Histórico · CryptoWallet V1.6.1 / documentación Replicant Lab
 
 13/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #21 en `2cc792dea0509881c1beeddebce9a006065e8010`, tag `v1.6.1`, y el PR documental #22 en `de75bba00755331a1187196bc90f337e30038936`. Nexus ejecuta `cryptowallet:1.6.1-2cc792dea050` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
 
 V1.6.1 conserva origen Tarjeta/Liquidez/Otros, comisión Externa/Cartera y favicon BTC, y estabiliza alta, borradores anteriores y correcciones contabilizadas mediante reproducción cronológica. Las seis clases manuales admiten edición completa y eliminación reversible con CAS, idempotencia, eventos append-only y tombstones; `finance.sqlite3` permanece inmutable y la revisión usa solo tres bloques. 391 pruebas + 68 subpruebas superadas en aislamiento antes de promover. Copia previa, restauración aislada, rollback, seguridad separada, imagen, versión y salud verificados. Producción conservó exactamente 32 componentes, 1 operación y su huella; el único borrador BTC activo conservó su árbol y prepara como Tarjeta sin contabilizarse.
 
-La ficha, índices, Nexus, operación, fases, pendientes, cambio del 13/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, conservando su imagen/composición anterior para rollback. No reiniciar CryptoWallet ni cambiar datos, copias, OAuth, Access, Tunnel o seguridad. Los logos claro/oscuro quedan bloqueados hasta recibir ambos recursos oficiales; no aproximarlos.
+La ficha, índices, Nexus, operación, fases, pendientes, cambio del 13/10 y derivados HTML/PDF se regeneraron mediante el pipeline canónico. La nota histórica sobre logos quedó resuelta por V1.6.2 con la identidad corporativa aprobada.
 
 # HANDOFF · v1.1.2 ACEPTADA POR RAÚL / CIERRE DEFINITIVO
 
