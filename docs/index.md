@@ -107,13 +107,13 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ [v2.0.0 productiva](aplicaciones/cartera-estrategica.md) · Nexus `8085` · OAuth interno + PIN · Indexa API oficial |
-| CryptoWallet | ✅ [V1.6.1 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · Logbook corregible/auditable · Google interno · PIN 24 h · privacidad ON · copias multibase · previa `8517` |
+| CryptoWallet | ✅ [V1.6.2 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · identidad corporativa oficial · Logbook corregible/auditable · Google interno · PIN 24 h · privacidad ON · copias multibase · previa `8517` |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
 | Control de Red | ✅ Herramienta local · demo Nexus read-only en `8084` · separación de datos POST-CARTERA |
 | Producción DigitalOcean | ✅ App Launch y Reservas; no es runtime de Consumos ni CV |
-| Backups Nexus | ⏳ Política global y réplica Drive pendientes; copias locales CryptoWallet V1.6.1 operativas |
+| Backups Nexus | ⏳ Política global y réplica Drive pendientes; copias locales CryptoWallet V1.6.2 operativas |
 | Nombres locales | ✅ `replicant` y `nexus` mediante `hosts` en Replicant |
 
 ## Cómo usar esta documentación
@@ -135,9 +135,9 @@ Los estados distinguen entre contenido **implementado en Git**, **probado localm
 
 `launch.thereplicantlab.com` y los hostnames de Salones, Docs, Pádel, Red y Cartera publican servicios Nexus mediante un único Cloudflare Tunnel, DNS y HTTPS. Google identifica y Access autoriza por aplicación; Cartera añade Google OIDC interno y PIN; `cloudflared` mantiene la conexión saliente sin abrir puertos en el router. Los accesos LAN por IP y puerto permanecen sin cambios.
 
-## CryptoWallet · cierre V1.6.1
+## CryptoWallet · cierre V1.6.2
 
-V1.6.1 cerrada y desplegada el 13/10/2026: conserva origen Tarjeta/Liquidez/Otros y comisión Externa/Cartera, y estabiliza alta, borradores anteriores, edición completa y eliminación reversible mediante reproducción cronológica y eventos auditables. El único borrador BTC activo se preservó sin contabilizar; datos y borradores conservaron sus huellas. Google interno, PIN 24 horas, privacidad inicial y copias multibase permanecen activos. Producción localhost `8516` y previa `8517` independientes. [Ficha](aplicaciones/cryptowallet.md), [límites aceptados](pendientes/cryptowallet.md) y [cierre](cambios/2026-10-13.md). No se publican cartera, secretos ni respaldos.
+V1.6.2 cerrada y desplegada el 14/10/2026: conserva el Logbook corregible y auditable de V1.6.1 y completa favicon BTC SVG, identidad oficial en cabecera/pie y centrado de título/navegación. El único borrador BTC activo se preservó sin contabilizar; datos y borradores conservaron sus huellas. Google interno, PIN 24 horas, privacidad inicial y copias multibase permanecen activos. Producción localhost `8516` y previa `8517` independientes. [Ficha](aplicaciones/cryptowallet.md), [límites aceptados](pendientes/cryptowallet.md) y [cierre](cambios/2026-10-14.md). No se publican cartera, secretos ni respaldos.
 
 [Backups Lab v1.1.2](aplicaciones/backups-lab.md) está aceptado definitivamente y publicado en Nexus: fichas compactas, cero candidatas pendientes y siete orígenes vinculados plegados/fuera de copias. Nueve alcances siguen verificados en Drive y recuperación aislada; seis horarios ON, tres OFF y retención 7/4/12/3 ON se preservaron. El informe diario, log exportable, agentes externos/cifrado adicional y recuperación integral de host pertenecen a [Backlog V2.0](pendientes/backups-drive.md).
 
