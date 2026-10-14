@@ -1,4 +1,14 @@
-# HANDOFF · CryptoWallet V1.6.2 / documentación Replicant Lab
+# HANDOFF · CryptoWallet V1.6.4 / documentación Replicant Lab
+
+14/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #27 en `0111397b51ca8b9119fdc08593eca4bd59d9b2e5`, tag `v1.6.4`; el PR #28 registró la promoción. Nexus ejecuta `cryptowallet:1.6.4-0111397b51ca` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
+
+V1.6.4 cierra visualmente el Logbook: distintivos para estados reales, filtro Estado combinable y paginación coherente, siete filtros en una línea de escritorio y distribución móvil, importe del listado a dos decimales sin perder precisión interna, Activo alineado a la derecha y colores compartidos entre Añadir y Revisar operación. 397 pruebas y 68 subpruebas superadas. Copia previa restaurada en aislamiento; 33 componentes, 2 operaciones y huella financiera idéntica antes/después.
+
+La ficha, índices, Nexus, fases, pendientes, cambio del 14/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, conservando su imagen anterior para rollback. No reiniciar CryptoWallet ni cambiar datos, copias, OAuth, Access, Tunnel o seguridad.
+
+---
+
+# Histórico · CryptoWallet V1.6.2 / documentación Replicant Lab
 
 14/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #23 en `43d04a2e8d3681e9cb8631ba6c7f16582327b813`, tag `v1.6.2`. Nexus ejecuta `cryptowallet:1.6.2-43d04a2e8d36` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
 
