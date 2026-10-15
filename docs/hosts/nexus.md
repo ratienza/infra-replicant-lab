@@ -108,7 +108,7 @@ La evidencia privada de CW-V15 sustituye únicamente la identidad productiva his
 
 En la promoción inicial, PIN activo y persistente 24 horas, privacidad inicial ON y Google interno OFF. Este estado es histórico. Datos, copias multibase y seguridad persisten en montajes privados separados; retención efectiva 7 diarias / 10 manuales / 10 previas y protegidas conservadas. Restauración comprobada en aislamiento y 27 componentes financieros idénticos antes/después. Access/Tunnel se mantienen; 302 exterior no acredita sesión autenticada. [Ficha y fuentes](../aplicaciones/cryptowallet.md).
 
-Esta actualización documental consulta la aceptación versionada, sin nueva inspección remota de Nexus. La publicación de la documentación tiene su propio gate en [RL-CW-DOC-002](../encargos/RL-CW-DOC-002.md). Esta observación era histórica: [Backups Lab v1.1.2](../aplicaciones/backups-lab.md) es ahora el servicio de nueve alcances Drive en8087.
+Esta actualización documental consulta la aceptación versionada, sin nueva inspección remota de Nexus. La publicación de la documentación tiene su propio gate en [RL-CW-DOC-002](../encargos/RL-CW-DOC-002.md). Esta observación era histórica: [Backups Lab v1.1.3](../aplicaciones/backups-lab.md) es ahora el servicio de nueve alcances Drive en8087.
 
 ## CryptoWallet · cierre OAuth confirmado 09/10/2026 22:33
 
@@ -128,8 +128,8 @@ Producción ejecuta `cryptowallet:1.6.4-0111397b51ca`, SHA `0111397b51ca8b9119fd
 
 Producción ejecuta `cryptowallet:1.6.5-36d50affe9af`, SHA `36d50affe9afac059f399e75e80fabe0cf8aca56`, healthy y origen localhost `8516`. Los montajes privados permanecen separados. La entrega superó 404 pruebas localmente y dentro de la imagen aislada. Copia previa, restauración aislada, rollback de composición y seguridad separada quedaron verificados. El estado productivo conservó 33 componentes, 2 operaciones y la misma huella financiera antes/después. La ruta exterior alcanzó la puerta PIN sin leer secretos; no se declara una nueva aceptación autenticada.
 
-## Backups Lab v1.1.2 ·12/10/2026
+## Backups Lab v1.1.3 ·15/10/2026
 
-Repositorio `/opt/apps/backups-lab`, API/web en Compose y ayudante fijo en socket Unix 0600; datos, estado, OAuth y clave privados fuera de Git. [HTTPS](https://backups.thereplicantlab.com/) y [LAN 8087](http://192.168.18.220:8087/). Runtime v1.1.2 en `69c2957a99137bfe48bb9e97859c1e161a243e1d`, API healthy. Nueve aptas; once carpetas, 0 candidatas pendientes y 7 vinculadas plegadas/fuera de copias; previews excluidas y Facility original detenida. Retención 7/4/12/3 observada ON y preservada sin limpieza. [Ficha/manual](../aplicaciones/backups-lab.md). No equivale a respaldo integral de Nexus.
+Repositorio `/opt/apps/backups-lab`, API/web en Compose y ayudante fijo en socket Unix 0600; datos, estado, OAuth y clave privados fuera de Git. [HTTPS](https://backups.thereplicantlab.com/) y [LAN 8087](http://192.168.18.220:8087/). Runtime v1.1.3 en `1e7acbef8235faeb43ac8f7eeb07a70b24927abd`, API healthy y contratos esquema 2. Nueve aptas; CryptoWallet/Control Red con copia Drive y recuperación nuevas; previews excluidas y Facility original detenida. Retención 7/4/12/3 ON, seis horarios ON/tres OFF e historial preservados. [Ficha/manual](../aplicaciones/backups-lab.md). No equivale a respaldo integral de Nexus.
 
 Rollback de publicación v1.1.0 y snapshot SQLite privado consistente preparados. BL-002, seis horarios ON/tres OFF y operaciones históricas de retención intactos; no se ejecutaron borrados, sustituciones ni restauraciones productivas en el cierre v1.1.1.
