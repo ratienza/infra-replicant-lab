@@ -1,4 +1,14 @@
-# HANDOFF · CryptoWallet V1.6.4 / documentación Replicant Lab
+# HANDOFF · CryptoWallet V1.6.5 / documentación Replicant Lab
+
+15/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #29 en `36d50affe9afac059f399e75e80fabe0cf8aca56`, tag `v1.6.5`; el PR #30 registró la promoción. Nexus ejecuta `cryptowallet:1.6.5-36d50affe9af` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
+
+V1.6.5 añade pesos coherentes sobre patrimonio total completo en Dashboard y Cartera, separa Estables/FIAT y mantiene P&G como rentabilidad sobre coste. No muestra peso en Invertido FIFO ni porcentajes derivados de subtotales. La cabecera identifica v1.6.5 y retira `Cartera privada`. 404 pruebas superadas localmente y en imagen aislada. Copia previa restaurada en aislamiento; 33 componentes, 2 operaciones y huella financiera idéntica antes/después.
+
+La ficha, índices, Nexus, fases, pendientes, cambio del 15/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, conservando su imagen anterior para rollback. No reiniciar CryptoWallet ni cambiar datos, copias, OAuth, Access, Tunnel o seguridad.
+
+---
+
+# Histórico · CryptoWallet V1.6.4 / documentación Replicant Lab
 
 14/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #27 en `0111397b51ca8b9119fdc08593eca4bd59d9b2e5`, tag `v1.6.4`; el PR #28 registró la promoción. Nexus ejecuta `cryptowallet:1.6.4-0111397b51ca` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
 
