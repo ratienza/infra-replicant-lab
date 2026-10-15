@@ -12,6 +12,6 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o Reserva-Pi
 | Backups Lab | v1.1.2 aceptada definitivamente y publicada; solo propuestas V2 reales | P1/P2 | [Backlog V2.0](backups-drive.md); sin requisitos v1.1.2 pendientes |
 | App Launch | Assets históricos, filtros y workflow de estado | Baja | Mejora opcional |
 | Cloudflare Tunnel + Access | Validación móvil/administrativa por hostname, alertas y recuperación | Alta | Tunnel operativo; catálogo #15 integrado/desplegado, controles transversales pendientes |
-| CryptoWallet | Cobertura OIDC/móvil y desarrollo nuevo separado | Límite aceptado / V2 | V1.6.4 cerrada; identidad corporativa, Logbook visual/filtrable/auditable, origen de pago, Google interno, PIN y copias entregados; [límites vigentes](cryptowallet.md) |
+| CryptoWallet | Cobertura OIDC/móvil y desarrollo nuevo separado | Límite aceptado / V2 | V1.6.5 cerrada; pesos de cartera, identidad corporativa, Logbook, origen de pago, Google interno, PIN y copias entregados; [límites vigentes](cryptowallet.md) |
 
 Cada detalle se mantiene una sola vez en su página de este grupo.
