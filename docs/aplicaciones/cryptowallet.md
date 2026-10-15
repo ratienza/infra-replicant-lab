@@ -1,6 +1,6 @@
 # Aplicación · CryptoWallet
 
-CryptoWallet **V1.6.5 / 1.6.5** está cerrada y desplegada en producción privada Nexus desde el **15/10/2026**. Conserva la apertura financiera aceptada, los controles V1.5, el origen de pago de V1.6, la identidad visual y el Logbook de V1.6.4. V1.6.5 añade pesos coherentes respecto al patrimonio total actual en Dashboard y Cartera, separa el peso de la rentabilidad P&G y desglosa Estables/FIAT; no añade peso a Invertido FIFO ni usa subtotales cuando el patrimonio completo no está disponible. La previa conserva un entorno independiente; no se presume actualizada a V1.6.5.
+CryptoWallet **V1.6.5 / 1.6.5** está cerrada y desplegada en producción privada Nexus desde el **15/10/2026**. Conserva la apertura financiera aceptada, los controles V1.5, el origen de pago de V1.6, la identidad visual y el Logbook de V1.6.4. V1.6.5 añade pesos coherentes respecto al patrimonio total actual en Dashboard y Cartera, separa el peso de la rentabilidad P&G y desglosa Estables/FIAT; la corrección productiva muestra `Peso` como una fila completa igual a las demás y conserva ambos gráficos de redes. No añade peso a Invertido FIFO ni usa subtotales cuando el patrimonio completo no está disponible. La previa conserva un entorno independiente; no se presume actualizada a V1.6.5.
 
 La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza/cryptowallet/blob/main/HANDOFF.md) y de la [release V1.6.5](https://github.com/ratienza/cryptowallet/blob/v1.6.5/docs/releases/v1.6.md). La activación de Google y el recorrido Google → PIN → cartera siguen atribuidos a la confirmación manual de Raúl en incógnito el 09/10/2026; este cierre llegó a la puerta PIN sin usar secretos y no acciona controles financieros.
 
@@ -18,18 +18,18 @@ La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza
 
 | Campo | Estado |
 |---|---|
-| Producto | V1.6.5 cerrada; PR #29 funcional y PR #30 documental fusionados |
-| Código ejecutable / tag | `36d50affe9afac059f399e75e80fabe0cf8aca56` · `v1.6.5` |
+| Producto | V1.6.5 cerrada; PR #29 funcional, PR #31 correctivo y PR #32 documental fusionados |
+| Código ejecutable / tag | `69f121ac86eb1a738f8b47db5dce8a081c7415fc` · `v1.6.5` |
 | Main documental del producto | Documentación de cierre posterior; no desplaza el tag funcional |
-| Imagen productiva | `cryptowallet:1.6.5-36d50affe9af` |
-| ID de imagen | `sha256:61b8113bfe0e1799bfa08f83eca3e27522bb25f1cd88647e73127d03a1ae841b` |
+| Imagen productiva | `cryptowallet:1.6.5-69f121ac86eb` |
+| ID de imagen | `sha256:f3d421ad43dfa00eae9727f4fafbf3b399363a5c39f43fcd147b2a9b51d30fcb` |
 | Runtime | Nexus · Docker Compose · `cryptowallet-app` · usuario `1000:1000` |
 | Origen productivo | `127.0.0.1:8516 → 8501`; sin acceso directo por IP LAN |
 | Previa | `cryptowallet-preview-app` · localhost `8517`; almacenamiento y versión independientes |
 | Persistencia | Conjunto financiero, copias y seguridad en montajes privados separados |
 | Seguridad efectiva | Cloudflare Access/Tunnel + Google interno activo + PIN activo; 24 horas; privacidad inicial ON |
 | Recuperación | Copias multibase verificadas; seguridad respaldada aparte; restauración probada en aislamiento |
-| Pruebas de entrega | 404 pruebas; revisión Streamlit sintética de Dashboard/Cartera, claro/oscuro y privacidad |
+| Pruebas de entrega | 405 pruebas dentro de la imagen; regresiones específicas de filas, pesos, liquidez y conexión de ambos gráficos de redes |
 | Evidencia de promoción 15/10 | Healthy, versión/SHA/imagen correctos; copia de 33 componentes y 2 operaciones restaurada en aislamiento, con estado idéntico antes/después |
 | Aceptación exterior | La comprobación llegó a la puerta PIN sin usar secretos; Google → PIN → cartera sigue siendo la confirmación manual previa de Raúl |
 | Cobertura no verificada | Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior; límite aceptado sin bloquear el cierre |
@@ -40,7 +40,7 @@ No se publican bases, importes, lotes reales, originales, capturas, manifiestos 
 
 Dashboard, Cartera actual, Logbook y Tokens mantienen temas, privacidad y USD/EUR. **Ajustes** agrupa tres pestañas: **Generales** (tema, frescura de cotizaciones, tokens y preferencias existentes), **Seguridad** y **Backup**. En móvil la hamburguesa arranca cerrada, indica la sección activa y se cierra al navegar; en escritorio se conserva el menú horizontal. Revisión sintética en claro/oscuro, escritorio y móvil 390 × 844, sin desbordamiento horizontal. Dashboard distingue BTC, Altcoins, **Liquidez** y **Patrimonio**. Liquidez presenta **Total → Estables → FIAT**, identifica Stable Coin por marca del catálogo y conserva la valoración disponible sin asumir paridad.
 
-Las valoraciones muestran su peso sobre el mismo patrimonio total completo que aparece en la aplicación. Liquidez presenta pesos separados para Estables y FIAT; P&G muestra rentabilidad sobre coste con signo y color financiero; `Invertido FIFO` no presenta peso. El gráfico de distribución conserva colores y disposición con porcentajes visibles en las etiquetas. Si el total completo es cero o no está disponible, no se publica un porcentaje derivado de un subtotal. La cabecera identifica `Mi cartera crypto · v1.6.5` sin la antigua etiqueta `Cartera privada`.
+Las valoraciones muestran su peso sobre el mismo patrimonio total completo que aparece en la aplicación. En las fichas, `Peso` ocupa una fila completa con el mismo formato que `Invertido` y `Valor actual`; Liquidez presenta filas completas separadas para Estables/FIAT y sus pesos. P&G muestra rentabilidad sobre coste con signo y color financiero; `Invertido FIFO` no presenta peso. El gráfico de distribución conserva colores y disposición con porcentajes visibles en las etiquetas; `Peso por red` y `Activos por red` permanecen en el Dashboard. Si el total completo es cero o no está disponible, no se publica un porcentaje derivado de un subtotal. La cabecera identifica `Mi cartera crypto · v1.6.5` sin la antigua etiqueta `Cartera privada`.
 
 Cartera conserva la tabla financiera, cobertura, lotes y procedencia; gráficos preceden a la tabla. Tokens añade composición por custodia y red. Cantidades aparecen en las ayudas del Dashboard respetando privacidad.
 
