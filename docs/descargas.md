@@ -33,7 +33,7 @@ Cada pareja HTML/PDF se genera desde la misma página Markdown incluida en la na
 | CryptoWallet | [Descargar](downloads/apps/cryptowallet.html) | [Descargar](downloads/apps/cryptowallet.pdf) |
 | Replicant Lab | [Descargar](downloads/apps/replicant-lab.html) | [Descargar](downloads/apps/replicant-lab.pdf) |
 | ErasmusHomes · Control del MVP | [Descargar](downloads/apps/erasmushomes-control.html) | [Descargar](downloads/apps/erasmushomes-control.pdf) |
-| Backups Lab v1.1.2 | [Descargar](downloads/apps/backups-lab.html) | [Descargar](downloads/apps/backups-lab.pdf) |
+| Backups Lab v1.1.3 | [Descargar](downloads/apps/backups-lab.html) | [Descargar](downloads/apps/backups-lab.pdf) |
 
 ## Propiedades verificables
 
@@ -63,4 +63,4 @@ CryptoWallet se incorpora como undécima ficha técnica: doce parejas HTML/PDF c
 
 ## Actualización12/10/2026
 
-Backups Lab aporta la duodécima ficha: trece parejas HTML/PDF contando el dossier global. Fuentes, huellas y descargas se regeneran y validan juntas. La documentación publicada corresponde a v1.1.2 aprobada; registra fichas compactas, candidatas y vinculadas separadas, y estados preservados. Sustitución original sigue diferida expresamente a V2.
+Backups Lab aporta la duodécima ficha: trece parejas HTML/PDF contando el dossier global. Fuentes, huellas y descargas se regeneran y validan juntas. La documentación vigente corresponde a v1.1.3 publicada y verificada técnicamente; registra contratos de compatibilidad, pruebas reales y estados preservados. Sustitución original sigue diferida expresamente a V2.

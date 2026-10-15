@@ -1,3 +1,13 @@
+# HANDOFF · Backups Lab v1.1.3 / compatibilidad de aplicaciones
+
+15/10/2026. `ratienza/backups-lab` fusionó el PR funcional #31 en `1e7acbef8235faeb43ac8f7eeb07a70b24927abd`, publicó el tag/release inmutable `v1.1.3` y registró la evidencia posterior en PR #32 / `d59a6fc803f741cb983b82ae0233ac66d754f2d7`. Nexus sirve API/web 1.1.3 con el SHA funcional; el ayudante usa contratos esquema 2. La CI del PR, `main` y el recibo documental están verdes. Esto acredita cierre técnico, no una aceptación humana nueva.
+
+La corrección sustituye hashes completos y versiones rígidas por contratos separados de captura/recuperación. CryptoWallet usa snapshot gestionado sin importar su código cambiante; Control Red se valida estructuralmente y se sirve en aislamiento sin ejecutar su módulo. Las dos copias reales nuevas completaron Drive, `check --download`, hashes y recuperación funcional aislada. Se preservaron seis horarios ON, tres OFF, retención 7/4/12/3 ON, Facility detenida, preview y Cartera Windows excluidas, historial y Restore V2. Rollback privado preparado; sin OAuth, purga ni restauración sobre originales.
+
+La ficha, índices, Nexus, fases, pendientes, cambio del 15/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, con rollback propio. No reconstruir ni reiniciar Backups Lab ni otros runtimes, ni modificar Drive, Cloudflare, OAuth o datos privados.
+
+---
+
 # HANDOFF · CryptoWallet V1.6.5 / documentación Replicant Lab
 
 15/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #29 en `36d50affe9afac059f399e75e80fabe0cf8aca56`, tag `v1.6.5`; los PR #31 y #32 corrigieron y documentaron la composición de las tarjetas. Nexus ejecuta `cryptowallet:1.6.5-69f121ac86eb` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.

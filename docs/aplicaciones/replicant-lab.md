@@ -62,6 +62,10 @@ Se incorporan la ficha CryptoWallet V1.0, infraestructura/Cloudflare y límites 
 
 Primera publicación del cierre CryptoWallet comprobada el 08/10/2026 en `main@c0757ed`: 58 rutas de navegación HTTP 200 y 25 descargas idénticas a Git. Solo se recreó documentación; contenedores financieros y huellas de SQLite productivas intactos. El registro [RL-CW-DOC-001](../encargos/RL-CW-DOC-001.md) conserva integración/CI/evidencia y la huella identifica los derivados finales.
 
-## Actualización Backups Lab v1.1.2 ·12/10/2026
+## Actualización Backups Lab v1.1.3 ·15/10/2026
+
+La ficha canónica de [Backups Lab](backups-lab.md) registra contratos versionados de captura/recuperación, estados de compatibilidad y las nuevas pruebas Drive/recuperación de CryptoWallet y Control Red. Son doce fichas individuales más el dossier global: trece parejas HTML/PDF regeneradas por el mismo pipeline. [Descargas](https://docs.thereplicantlab.com/descargas/) y [cambios](../cambios/2026-10-15.md). La cobertura sigue limitada a nueve contratos declarados; no equivale al respaldo integral del host.
+
+## Histórico · Backups Lab v1.1.2 ·12/10/2026
 
 Se actualiza la ficha canónica de [Backups Lab](backups-lab.md) al cierre aprobado v1.1.2: fichas compactas, candidatas independientes separadas y siete orígenes vinculados plegados/fuera de contadores y copias. Son doce fichas individuales más el dossier global: trece parejas HTML/PDF regeneradas por el mismo pipeline. [Descargas](https://docs.thereplicantlab.com/descargas/) y [cambios](../cambios/2026-10-12.md). La protección de Drive abarca nueve contratos declarados; el respaldo integral del host sigue separado.
