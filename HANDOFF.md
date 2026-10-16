@@ -1,3 +1,13 @@
+# HANDOFF · CryptoWallet V1.6.6 / documentación Replicant Lab
+
+16/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #34 en `fe6620f00b3ec7aa5425b17c40b5b5ce1844fbf0`, publicó el tag `v1.6.6` y registró la promoción en PR #35. Nexus ejecuta `cryptowallet:1.6.6-fe6620f00b3e` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
+
+V1.6.6 conserva el último campo editado durante revisión, elimina el porcentaje de Venta cuando ya no coincide con la cantidad manual y evita que una comisión vuelva a imponer el importe anterior. Las referencias ejecutadas EUR/USD mantienen valor, fecha y fuente; un dato ausente se explica sin inventar FX actual. Los seis campos existentes de Operación comparten una línea de escritorio y se apilan en móvil. 411 pruebas superadas en la imagen final; revisión visual sintética y productiva sin confirmar una operación. Copia previa restaurada en aislamiento; 33 componentes, 2 operaciones y huella financiera idéntica antes/después.
+
+La ficha, índices, Nexus, fases, pendientes, cambio del 16/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, conservando su imagen anterior para rollback. No reiniciar CryptoWallet ni cambiar datos, copias, OAuth, Access, Tunnel o seguridad.
+
+---
+
 # HANDOFF · Backups Lab v1.1.3 / compatibilidad de aplicaciones
 
 15/10/2026. `ratienza/backups-lab` fusionó el PR funcional #31 en `1e7acbef8235faeb43ac8f7eeb07a70b24927abd`, publicó el tag/release inmutable `v1.1.3` y registró la evidencia posterior en PR #32 / `d59a6fc803f741cb983b82ae0233ac66d754f2d7`. Nexus sirve API/web 1.1.3 con el SHA funcional; el ayudante usa contratos esquema 2. La CI del PR, `main` y el recibo documental están verdes. Esto acredita cierre técnico, no una aceptación humana nueva.
