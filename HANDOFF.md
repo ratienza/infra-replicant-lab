@@ -1,4 +1,14 @@
-# HANDOFF · CryptoWallet V1.6.7 / documentación Replicant Lab
+# HANDOFF · CryptoWallet V1.6.8 / documentación Replicant Lab
+
+16/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #38 en `24895424be4d80763e9f69e8c9334641a8e683cd`, publicó el tag/release `v1.6.8` y registró la promoción en PR #39. Nexus ejecuta `cryptowallet:1.6.8-24895424be4d` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
+
+V1.6.8 corrige el borrador bloqueado por valoración: el formulario restaura el JSON persistido antes de crear widgets con clave y muestra referencia USD/EUR, fecha y fuente en un bloque visible. Permite editarlas, volver, guardar, recargar y confirmar; BCE es una propuesta fechada y la entrada manual permanece activa. La regresión sintética completa `60 EUR → 64.65556087 USDC` cubre tarjeta, gasto incluido, pendiente, recuperación, edición, persistencia, confirmación y reintento idempotente. 419 pruebas y 68 subpruebas locales y 419 pruebas dentro de la imagen final sin red. Copia previa restaurada en aislamiento; 34 componentes, 2 operaciones y huella financiera idéntica antes/después. Ninguna operación real fue guardada ni confirmada.
+
+La ficha, índices, Nexus, fases, pendientes, cambio del 16/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, conservando su imagen anterior para rollback. No reiniciar CryptoWallet ni cambiar datos, copias, OAuth, Access, Tunnel o seguridad.
+
+---
+
+# Histórico · CryptoWallet V1.6.7 / documentación Replicant Lab
 
 16/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #36 en `592a325be9ea94cdc8780c7dfbda630b462434a1`, publicó el tag `v1.6.7` y registró la promoción en PR #37. Nexus ejecuta `cryptowallet:1.6.7-592a325be9ea` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
 
