@@ -49,7 +49,7 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
-| `8516/tcp` | CryptoWallet V1.6.5 · producción privada | localhost; Tunnel |
+| `8516/tcp` | CryptoWallet V1.6.6 · producción privada | localhost; Tunnel |
 | `8517/tcp` | CryptoWallet · previa independiente | localhost; Tunnel |
 | `53` | systemd-resolved | localhost |
 
@@ -127,6 +127,10 @@ Producción ejecuta `cryptowallet:1.6.4-0111397b51ca`, SHA `0111397b51ca8b9119fd
 ## CryptoWallet · V1.6.5, pesos coherentes verificados 15/10/2026
 
 Producción ejecuta `cryptowallet:1.6.5-36d50affe9af`, SHA `36d50affe9afac059f399e75e80fabe0cf8aca56`, healthy y origen localhost `8516`. Los montajes privados permanecen separados. La entrega superó 404 pruebas localmente y dentro de la imagen aislada. Copia previa, restauración aislada, rollback de composición y seguridad separada quedaron verificados. El estado productivo conservó 33 componentes, 2 operaciones y la misma huella financiera antes/después. La ruta exterior alcanzó la puerta PIN sin leer secretos; no se declara una nueva aceptación autenticada.
+
+## CryptoWallet · V1.6.6, revisión fiel verificada 16/10/2026
+
+Producción ejecuta `cryptowallet:1.6.6-fe6620f00b3e`, SHA `fe6620f00b3ec7aa5425b17c40b5b5ce1844fbf0`, healthy y origen localhost `8516`. Los montajes privados permanecen separados. La entrega superó 411 pruebas dentro de la imagen final, revisión sintética claro/oscuro/móvil/confidencialidad y comprobación productiva autenticada sin confirmar una operación. Copia previa, restauración aislada, rollback de composición y seguridad separada quedaron verificados. El estado productivo conservó 33 componentes, 2 operaciones y la misma huella financiera antes/después.
 
 ## Backups Lab v1.1.3 ·15/10/2026
 
