@@ -49,7 +49,7 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
-| `8516/tcp` | CryptoWallet V1.6.6 · producción privada | localhost; Tunnel |
+| `8516/tcp` | CryptoWallet V1.6.7 · producción privada | localhost; Tunnel |
 | `8517/tcp` | CryptoWallet · previa independiente | localhost; Tunnel |
 | `53` | systemd-resolved | localhost |
 
@@ -131,6 +131,10 @@ Producción ejecuta `cryptowallet:1.6.5-36d50affe9af`, SHA `36d50affe9afac059f39
 ## CryptoWallet · V1.6.6, revisión fiel verificada 16/10/2026
 
 Producción ejecuta `cryptowallet:1.6.6-fe6620f00b3e`, SHA `fe6620f00b3ec7aa5425b17c40b5b5ce1844fbf0`, healthy y origen localhost `8516`. Los montajes privados permanecen separados. La entrega superó 411 pruebas dentro de la imagen final, revisión sintética claro/oscuro/móvil/confidencialidad y comprobación productiva autenticada sin confirmar una operación. Copia previa, restauración aislada, rollback de composición y seguridad separada quedaron verificados. El estado productivo conservó 33 componentes, 2 operaciones y la misma huella financiera antes/después.
+
+## CryptoWallet · V1.6.7, justificantes reales verificados 16/10/2026
+
+Producción ejecuta `cryptowallet:1.6.7-592a325be9ea`, SHA `592a325be9ea94cdc8780c7dfbda630b462434a1`, healthy y origen localhost `8516`. Los montajes privados permanecen separados. La entrega superó 417 pruebas y 68 subpruebas localmente, más 417 pruebas dentro de la imagen final sin red; se revisaron la compra sintética `60 EUR → 64.65556087 USDC`, claro/oscuro, formulario compacto y estado recuperable sin referencia. La sesión productiva autenticada mostró V1.6.7, privacidad activa y los cuatro gráficos, sin guardar ni confirmar una operación. Copia previa, restauración aislada, rollback de composición y seguridad separada quedaron verificados. El estado productivo conservó 33 componentes, 2 operaciones y la misma huella financiera antes/después.
 
 ## Backups Lab v1.1.3 ·15/10/2026
 

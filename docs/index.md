@@ -107,13 +107,13 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ [v2.0.0 productiva](aplicaciones/cartera-estrategica.md) · Nexus `8085` · OAuth interno + PIN · Indexa API oficial |
-| CryptoWallet | ✅ [V1.6.6 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · revisión fiel y formulario compacto · referencias ejecutadas conservadas · pesos/P&G coherentes · Google interno · PIN 24 h · privacidad ON · copias multibase · previa `8517` |
+| CryptoWallet | ✅ [V1.6.7 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · compras por total/cantidad neta · referencias ausentes recuperables fuera de contabilidad · pesos/P&G coherentes · Google interno · PIN 24 h · privacidad ON · copias multibase · previa `8517` |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
 | Control de Red | ✅ Herramienta local · demo Nexus read-only en `8084` · separación de datos POST-CARTERA |
 | Producción DigitalOcean | ✅ App Launch y Reservas; no es runtime de Consumos ni CV |
-| Backups Nexus | ⏳ Política global pendiente; copias locales CryptoWallet V1.6.6 operativas y réplica Drive gestionada por Backups Lab |
+| Backups Nexus | ⏳ Política global pendiente; copias locales CryptoWallet V1.6.7 operativas y réplica Drive gestionada por Backups Lab |
 | Nombres locales | ✅ `replicant` y `nexus` mediante `hosts` en Replicant |
 
 ## Cómo usar esta documentación
@@ -135,9 +135,9 @@ Los estados distinguen entre contenido **implementado en Git**, **probado localm
 
 `launch.thereplicantlab.com` y los hostnames de Salones, Docs, Pádel, Red y Cartera publican servicios Nexus mediante un único Cloudflare Tunnel, DNS y HTTPS. Google identifica y Access autoriza por aplicación; Cartera añade Google OIDC interno y PIN; `cloudflared` mantiene la conexión saliente sin abrir puertos en el router. Los accesos LAN por IP y puerto permanecen sin cambios.
 
-## CryptoWallet · cierre V1.6.6
+## CryptoWallet · cierre V1.6.7
 
-V1.6.6 cerrada y desplegada el 16/10/2026: la revisión conserva el último campo editado y las referencias ejecutadas, evita que un porcentaje anterior vuelva a imponer el importe y reúne los campos actuales de Operación en una línea de escritorio. Los pesos, la identidad y el Logbook vigentes se conservan. Los datos mantuvieron su huella y no se crearon operaciones reales. Google interno, PIN 24 horas, privacidad inicial y copias multibase permanecen activos. Producción localhost `8516` y previa `8517` independientes. [Ficha](aplicaciones/cryptowallet.md), [límites aceptados](pendientes/cryptowallet.md) y [cierre](cambios/2026-10-16.md).
+V1.6.7 cerrada y desplegada el 16/10/2026: Compra admite total pagado y cantidad neta, calcula el coste unitario efectivo y conserva el modo histórico. Las comisiones y orígenes se contabilizan sin duplicidad; los hechos del justificante, el FX documentado y la valoración histórica permanecen separados. Si falta una conversión imprescindible, el borrador queda recuperable y fuera de contabilidad/P&G. Los datos mantuvieron su huella y no se crearon operaciones reales. Google interno, PIN 24 horas, privacidad inicial y copias multibase permanecen activos. Producción localhost `8516` y previa `8517` independientes. [Ficha](aplicaciones/cryptowallet.md), [límites aceptados](pendientes/cryptowallet.md) y [cierre](cambios/2026-10-16.md).
 
 [Backups Lab v1.1.3](aplicaciones/backups-lab.md) está publicado y verificado técnicamente en Nexus: contratos versionados toleran evolución normal y bloquean solo la aplicación incompatible. CryptoWallet y Control Red repitieron Drive/descarga/hashes/recuperación aislada; seis horarios ON, tres OFF y retención 7/4/12/3 ON se preservaron. El informe diario, log exportable, agentes externos/cifrado adicional y recuperación integral de host pertenecen a [Backlog V2.0](pendientes/backups-drive.md).
 
