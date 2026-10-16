@@ -1,6 +1,6 @@
 # Pendientes · CryptoWallet
 
-**V1.6.7 cerrada y desplegada el 16/10/2026.** Compras por total pagado/cantidad neta, coste unitario efectivo, comisiones sin duplicidad y borradores recuperables ante referencias ausentes están entregados junto con la revisión fiel, el formulario compacto, pesos, Logbook e identidad corporativa; Google interno, PIN, privacidad inicial y copias multibase permanecen activos. La apertura financiera V1.0 sigue aceptada; CW-004 y CW-005 no se reabren.
+**V1.6.8 cerrada y desplegada el 16/10/2026.** Los borradores pendientes restauran y permiten editar referencia USD/EUR, fecha, fuente, total y cantidad antes de revisar y confirmar una sola vez. Compras por total pagado/cantidad neta, coste unitario efectivo, comisiones sin duplicidad, revisión fiel, formulario compacto, pesos, Logbook e identidad corporativa siguen entregados; Google interno, PIN, privacidad inicial y copias multibase permanecen activos. La apertura financiera V1.0 sigue aceptada; CW-004 y CW-005 no se reabren.
 
 ## Controles operativos reales
 
@@ -28,10 +28,10 @@ PIN ya configurado: no solicitar uno nuevo para documentar ni activarlo de nuevo
 | Bridge/cambio de red y retroactividad | No habilitados; sin reescritura histórica |
 | Réplica automática remota en Drive | [Proyecto independiente del Lab](backups-drive.md); propuesta anotada, no implementada |
 
-Las copias manuales, diarias por cambios y previas, retención y restauración aislada **ya están implementadas y desplegadas**. No mantenerlas como deuda. La réplica externa y el informe diario no forman parte del cierre V1.6.7.
+Las copias manuales, diarias por cambios y previas, retención y restauración aislada **ya están implementadas y desplegadas**. No mantenerlas como deuda. La réplica externa y el informe diario no forman parte del cierre V1.6.8.
 
 ## Límites conservados
 
 Producción, previa y demo son independientes; movimientos de prueba exclusivamente sintéticos. Los desconocidos históricos siguen no disponibles, nunca cero; no reabrir decisiones financieras aceptadas ni pedir históricos ya cerrados. USD/EUR de pantalla no es una base fiscal histórica. Datos y respaldos permanecen privados.
 
-[Ficha vigente](../aplicaciones/cryptowallet.md) · [Manual privado V1.6.7](https://github.com/ratienza/cryptowallet/tree/v1.6.7/docs/v1) · [Release V1.6.7](https://github.com/ratienza/cryptowallet/blob/v1.6.7/docs/releases/v1.6.md).
+[Ficha vigente](../aplicaciones/cryptowallet.md) · [Manual privado V1.6.8](https://github.com/ratienza/cryptowallet/tree/v1.6.8/docs/v1) · [Release V1.6.8](https://github.com/ratienza/cryptowallet/blob/v1.6.8/docs/releases/v1.6.md).

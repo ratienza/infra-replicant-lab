@@ -46,4 +46,4 @@ La aceptación exigirá descargar una copia remota, verificarla, descifrarla y r
 
 rclone es una herramienta de línea de comandos para copiar y gestionar archivos en servicios de almacenamiento. Referencias oficiales: [Google Drive](https://rclone.org/drive/), [copy](https://rclone.org/commands/rclone_copy/) y [crypt](https://rclone.org/crypt/). `copy` replica sin borrar el destino por la desaparición del origen; la política de conservación deberá implementarse y validarse expresamente.
 
-[Pendientes Nexus](nexus.md) · [Copias locales de CryptoWallet](../aplicaciones/cryptowallet.md#copias-locales-y-restauracion-v167).
+[Pendientes Nexus](nexus.md) · [Copias locales de CryptoWallet](../aplicaciones/cryptowallet.md#copias-locales-y-restauracion-v168).

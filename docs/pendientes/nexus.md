@@ -2,7 +2,7 @@
 
 ## Backups
 
-Definir una política global de backups y ejecutar una prueba de restauración. CryptoWallet V1.6.7 ya dispone de copias locales multibase verificadas y retención; esto no acredita respaldo remoto del host ni de otras aplicaciones.
+Definir una política global de backups y ejecutar una prueba de restauración. CryptoWallet V1.6.8 ya dispone de copias locales multibase verificadas y retención; esto no acredita respaldo remoto del host ni de otras aplicaciones.
 
 [Backups Lab v1.1.3](../aplicaciones/backups-lab.md) está publicado y verificado técnicamente con contratos de compatibilidad y nueve alcances Drive/recuperación aislada. Su retención ya estaba ON y se preservó; esto no acredita backup integral del host. Informe diario, log exportable y fuentes adicionales quedan en [Backlog V2.0](backups-drive.md), con decisiones pendientes.
 
