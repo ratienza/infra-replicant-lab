@@ -4,8 +4,11 @@
 
 ## Controles operativos reales
 
+Cierre del encargo confirmado por Raúl el **18/10/2026**: desarrollo, pruebas, publicación y documentación V1.6.11 quedan cerrados. Los pendientes de hacer de esta página conservan su estado y requieren su propio encargo; este cierre no los da por ejecutados.
+
 | Tema | Estado | Acción siguiente |
 |---|---|---|
+| Compra Bit2Me real | Pendiente, fuera del cierre técnico | Revisar y confirmar por decisión del titular; la aceptación del caso y del borrador se ejecutó únicamente en copias aisladas |
 | Google OIDC interno | Activo; alta y credenciales privadas completadas | Conservar configuración privada; no repetir ni exponer el alta para documentar |
 | Recorrido autorizado | Cerrado por confirmación manual de Raúl | Google → PIN → cartera confirmado en incógnito; no atribuir prueba independiente al agente |
 | Cobertura OIDC no verificada | Límite aceptado | Cuenta no autorizada y cancelación/error no constan probados; no afirmar que se ejecutaron |
