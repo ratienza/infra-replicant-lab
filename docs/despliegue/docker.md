@@ -41,7 +41,7 @@ servicios
 | `8084` | Control Red · demo read-only | Operativo |
 | `8085` | Cartera Estratégica · Streamlit | Operativo · LAN; origen privado del Tunnel |
 | `8086+` | Próximos servicios LAN | Asignación secuencial |
-| `8516` | CryptoWallet V1.6.10 | Solo localhost · producción privada |
+| `8516` | CryptoWallet V1.6.11 | Solo localhost · producción privada |
 | `8517` | CryptoWallet previa | Solo localhost · independiente |
 
 Reglas:
