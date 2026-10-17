@@ -1,4 +1,14 @@
-# HANDOFF · CryptoWallet V1.6.8 / documentación Replicant Lab
+# HANDOFF · CryptoWallet V1.6.10 / documentación Replicant Lab
+
+17/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #42 en `18c39adc75653150abbdc27e784820e85443cc5d`, publicó tag/release `v1.6.10` y registró la promoción en PR #43. Nexus ejecuta `cryptowallet:1.6.10-18c39adc7565` healthy en localhost `8516`, con usuario `1000:1000`, raíz de solo lectura y datos, copias y seguridad en montajes privados separados.
+
+V1.6.10 consulta el histórico oficial BCE y propone la publicación exacta de la ejecución o la última anterior, siempre con valor, fecha y fuente. El borrador real conserva sin reescritura silenciosa la cantidad de menor precisión ya persistida y continúa pendiente; ninguna compra real se guardó o confirmó. La aceptación completa `60 EUR → 64.65556087 USDC`, Bit2Me y BCE `1.1253` del 16/10/2026 se ejecutó en navegador sobre datos sintéticos aislados, con confirmación y reintento idempotente. La restauración prepara el candidato bajo el montaje vivo escribible y diferencia fallo previo de rollback real; éxito, fallo previo y recuperación parcial se comprobaron con raíz de solo lectura y montajes separados. Pasaron 429 pruebas locales y 429 dentro de la imagen sin red. La copia previa protegida contiene 35 componentes y 5 operaciones; la huella productiva coincidió antes/después.
+
+La ficha, índices, Nexus, fases, pendientes, cambio del 17/10 y derivados HTML/PDF se regeneran mediante el pipeline canónico. Publicar solo `infra-replicant-docs` en Nexus `:8082`, conservando su imagen anterior para rollback. No reiniciar CryptoWallet ni cambiar datos, copias, OAuth, Access, Tunnel o seguridad. El 302 anónimo acredita la puerta Access, no una nueva aceptación autenticada humana.
+
+---
+
+# Histórico · CryptoWallet V1.6.8 / documentación Replicant Lab
 
 16/10/2026. `ratienza/cryptowallet` fusionó el PR funcional #38 en `24895424be4d80763e9f69e8c9334641a8e683cd`, publicó el tag/release `v1.6.8` y registró la promoción en PR #39. Nexus ejecuta `cryptowallet:1.6.8-24895424be4d` healthy en localhost `8516`, con datos, copias y seguridad en montajes privados separados.
 
