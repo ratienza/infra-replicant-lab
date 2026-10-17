@@ -13,9 +13,10 @@ La historia detallada se conserva en el [Change Log](../cambios/index.md). Para 
 | CryptoWallet V1.6.5 · 15/10/2026 | Pesos coherentes sobre patrimonio total completo en Dashboard/Cartera, Liquidez Estables/FIAT y P&G sobre coste; cabecera versionada. Identidad, Logbook y datos preservados. |
 | CryptoWallet V1.6.6 · 16/10/2026 | Revisión conserva último campo editado y referencias ejecutadas; porcentaje de Venta obsoleto no reaparece. Formulario compacto en escritorio y adaptable en móvil; datos/FIFO preservados. |
 | CryptoWallet V1.6.8 · 16/10/2026 | Borradores pendientes recuperan referencia, fecha, fuente, total y cantidad; pueden corregirse y confirmarse una sola vez. BCE permanece como propuesta y los datos/FIFO quedan preservados. |
+| CryptoWallet V1.6.10 · 17/10/2026 | BCE histórico exacto/anterior con fecha y fuente; compra sintética confirmada de forma idempotente; borrador real preservado; restauración read-only y rollback parcial verificados. |
 | Backups Lab v1.1.3 ·15/10/2026 | Publicada y verificada técnicamente: contratos de compatibilidad, bloqueo aislado y estados visibles; CryptoWallet/Control Red revalidados por Drive/recuperación; [manual y límites](../aplicaciones/backups-lab.md). |
 | Estado actual | Las fases 2A, 2B y 2C están cerradas. No hay una incidencia crítica abierta en esas aplicaciones. |
-| Trabajo futuro | La deuda aceptada se concentra en [Pendientes](../pendientes/index.md); Cartera v2.1.0 y CryptoWallet V1.6.8 ya están cerradas. Un nuevo bloque requiere encargo. |
+| Trabajo futuro | La deuda aceptada se concentra en [Pendientes](../pendientes/index.md); Cartera v2.1.0 y CryptoWallet V1.6.10 ya están cerradas. Un nuevo bloque requiere encargo. |
 
 ## Criterio de validación
 

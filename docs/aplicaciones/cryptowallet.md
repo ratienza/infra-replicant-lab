@@ -1,8 +1,8 @@
 # Aplicación · CryptoWallet
 
-CryptoWallet **V1.6.8 / 1.6.8** está cerrada y desplegada en producción privada Nexus desde el **16/10/2026**. Conserva la apertura financiera aceptada y los cierres anteriores. V1.6.8 permite completar y confirmar un borrador pendiente: referencia USD/EUR, fecha y fuente son visibles, editables y se restauran antes de crear los widgets; BCE se ofrece solo como propuesta fechada y la entrada manual permanece disponible. No modifica operaciones históricas, saldos, conciliaciones ni FIFO. La previa conserva un entorno independiente; no se presume actualizada a V1.6.8.
+CryptoWallet **V1.6.10 / 1.6.10** está cerrada y desplegada en producción privada Nexus desde el **17/10/2026**. Conserva la apertura financiera aceptada y los cierres anteriores. Consulta el histórico oficial BCE y propone la referencia exacta de la ejecución o la última publicación anterior, con valor, fecha y fuente explícitos. La restauración funciona con raíz de contenedor de solo lectura y montajes separados; Dashboard y Cartera comparten el orden Patrimonio, BTC, Altcoins y Liquidez. La previa conserva un entorno independiente; no se presume actualizada a V1.6.10.
 
-La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza/cryptowallet/blob/main/HANDOFF.md) y de la [release V1.6.8](https://github.com/ratienza/cryptowallet/blob/v1.6.8/docs/releases/v1.6.md). La activación de Google y el recorrido Google → PIN → cartera siguen atribuidos a la confirmación manual de Raúl en incógnito el 09/10/2026. En este cierre el origen productivo y la identidad de imagen se comprobaron hasta la puerta PIN; el flujo completo se verificó sobre datos sintéticos aislados, sin guardar ni confirmar una operación real.
+La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza/cryptowallet/blob/main/HANDOFF.md) y de la [release V1.6.10](https://github.com/ratienza/cryptowallet/blob/v1.6.10/docs/releases/v1.6.md). La activación de Google y el recorrido Google → PIN → cartera siguen atribuidos a la confirmación manual de Raúl en incógnito el 09/10/2026. En este cierre el origen productivo, la identidad de imagen y la puerta Access se comprobaron; el flujo completo se verificó sobre datos sintéticos aislados, sin guardar ni confirmar una compra real. El borrador real conserva la cantidad de menor precisión ya persistida y continúa pendiente.
 
 ## Accesos
 
@@ -10,28 +10,28 @@ La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza
 - **Previa protegida:** [Revisión independiente](https://cryptowallet-preview.thereplicantlab.com/).
 - **Pruebas de operaciones:** [Demo ficticia aislada de la previa](https://cryptowallet-preview.thereplicantlab.com/?datos=sinteticos).
 - **Ficha técnica:** [HTML autocontenido](/downloads/apps/cryptowallet.html) · [PDF](/downloads/apps/cryptowallet.pdf).
-- **Documentación funcional/técnica:** [Manual vigente V1.6.8](https://github.com/ratienza/cryptowallet/tree/main/docs/v1), repositorio privado.
-- **Código y release:** [ratienza/cryptowallet · v1.6.8](https://github.com/ratienza/cryptowallet/tree/v1.6.8).
+- **Documentación funcional/técnica:** [Manual vigente V1.6.10](https://github.com/ratienza/cryptowallet/tree/main/docs/v1), repositorio privado.
+- **Código y release:** [ratienza/cryptowallet · v1.6.10](https://github.com/ratienza/cryptowallet/tree/v1.6.10).
 - **App Launch:** tarjeta productiva existente en el catálogo Nexus. El catálogo no ejecuta la aplicación.
 
 ## Estado validado
 
 | Campo | Estado |
 |---|---|
-| Producto | V1.6.8 cerrada; PR #38 funcional y PR #39 documental fusionados |
-| Código ejecutable / tag | `24895424be4d80763e9f69e8c9334641a8e683cd` · `v1.6.8` |
+| Producto | V1.6.10 cerrada; PR #42 funcional y PR #43 documental fusionados |
+| Código ejecutable / tag | `18c39adc75653150abbdc27e784820e85443cc5d` · `v1.6.10` |
 | Main documental del producto | Documentación de cierre posterior; no desplaza el tag funcional |
-| Imagen productiva | `cryptowallet:1.6.8-24895424be4d` |
-| ID de imagen | `sha256:6bbeff7512bbdd0418d3336b0a57c358ba64f4f1e5f66dd2c06c7e4d6cf54c23` |
+| Imagen productiva | `cryptowallet:1.6.10-18c39adc7565` |
+| ID de imagen | `sha256:c50862d200235d929b01431c728f4c00e1bed0c9aa61003a34e86ea3fb07bae7` |
 | Runtime | Nexus · Docker Compose · `cryptowallet-app` · usuario `1000:1000` |
 | Origen productivo | `127.0.0.1:8516 → 8501`; sin acceso directo por IP LAN |
 | Previa | `cryptowallet-preview-app` · localhost `8517`; almacenamiento y versión independientes |
 | Persistencia | Conjunto financiero, copias y seguridad en montajes privados separados |
 | Seguridad efectiva | Cloudflare Access/Tunnel + Google interno activo + PIN activo; 24 horas; privacidad inicial ON |
 | Recuperación | Copias multibase verificadas; seguridad respaldada aparte; restauración probada en aislamiento |
-| Pruebas de entrega | 419 pruebas + 68 subpruebas localmente y 419 dentro de la imagen final sin red; compra `60 EUR → 64.65556087 USDC`, borrador, recuperación, edición, recarga, confirmación y reintento sin duplicado |
-| Evidencia de promoción 16/10 | Healthy, versión/SHA/imagen correctos; copia de 34 componentes y 2 operaciones restaurada en aislamiento, con estado idéntico antes/después |
-| Aceptación exterior | Origen productivo comprobado hasta PIN sin guardar ni confirmar; Google → PIN → cartera sigue siendo la confirmación manual previa de Raúl |
+| Pruebas de entrega | 429 pruebas localmente y 429 dentro de la imagen final sin red; compra sintética `60 EUR → 64.65556087 USDC`, Bit2Me, BCE `1.1253`, confirmación y reintento sin duplicado |
+| Evidencia de promoción 17/10 | Healthy, versión/SHA/imagen correctos; copia protegida de 35 componentes y 5 operaciones, con estado idéntico antes/después; restauración realista verificada en aislamiento |
+| Aceptación exterior | Respuesta anónima 302 de Access; Google → PIN → cartera sigue siendo la confirmación manual previa de Raúl, no una nueva aceptación humana |
 | Cobertura no verificada | Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior; límite aceptado sin bloquear el cierre |
 
 No se publican bases, importes, lotes reales, originales, capturas, manifiestos financieros, credenciales ni ubicaciones privadas de respaldos en este repositorio público.
@@ -40,11 +40,11 @@ No se publican bases, importes, lotes reales, originales, capturas, manifiestos 
 
 Dashboard, Cartera actual, Logbook y Tokens mantienen temas, privacidad y USD/EUR. **Ajustes** agrupa tres pestañas: **Generales** (tema, frescura de cotizaciones, tokens y preferencias existentes), **Seguridad** y **Backup**. En móvil la hamburguesa arranca cerrada, indica la sección activa y se cierra al navegar; en escritorio se conserva el menú horizontal. Revisión sintética en claro/oscuro, escritorio y móvil 390 × 844, sin desbordamiento horizontal. Dashboard distingue BTC, Altcoins, **Liquidez** y **Patrimonio**. Liquidez presenta **Total → Estables → FIAT**, identifica Stable Coin por marca del catálogo y conserva la valoración disponible sin asumir paridad.
 
-Las valoraciones muestran su peso sobre el mismo patrimonio total completo que aparece en la aplicación. En las fichas, `Peso` ocupa una fila completa con el mismo formato que `Invertido` y `Valor actual`; Liquidez presenta filas completas separadas para Estables/FIAT y sus pesos. P&G muestra rentabilidad sobre coste con signo y color financiero; `Invertido FIFO` no presenta peso. El gráfico de distribución conserva colores y disposición con porcentajes visibles en las etiquetas; `Peso por red` y `Activos por red` permanecen en el Dashboard. Si el total completo es cero o no está disponible, no se publica un porcentaje derivado de un subtotal. La cabecera identifica `Mi cartera crypto · v1.6.8` sin la antigua etiqueta `Cartera privada`.
+Las valoraciones muestran su peso sobre el mismo patrimonio total completo que aparece en la aplicación. En las fichas, `Peso` ocupa una fila completa con el mismo formato que `Invertido` y `Valor actual`; Liquidez presenta filas completas separadas para Estables/FIAT y sus pesos. P&G muestra rentabilidad sobre coste con signo y color financiero; `Invertido FIFO` no presenta peso. El gráfico de distribución conserva colores y disposición con porcentajes visibles en las etiquetas; `Peso por red` y `Activos por red` permanecen en el Dashboard. Si el total completo es cero o no está disponible, no se publica un porcentaje derivado de un subtotal. La cabecera identifica `Mi cartera crypto · v1.6.10`; Dashboard y Cartera ordenan Patrimonio, BTC, Altcoins y Liquidez.
 
 La revisión de operaciones conserva el último campo editado en Precio–Cantidad–Importe. En Compra se puede elegir `Precio y cantidad` o `Total pagado y cantidad neta`: en el segundo modo, Activo, total, moneda, cantidad neta y origen comparten una línea de escritorio y el coste unitario efectivo se calcula en el servidor. El justificante puede conservar precio mostrado y spread como datos informativos, sin sustituir los hechos autoritativos. Las comisiones distinguen importe incluido del total y cargo adicional, incluso en otra moneda, evitando doble contabilización. Tarjeta/Otros no descuentan principal interno; Liquidez sí. USDC adquirido se incorpora a Liquidez.
 
-Los hechos de compra, el FX documentado y la valoración histórica se muestran por separado. No se deriva un EUR/USD ausente ni se equipara USDC con USD. Si falta una conversión imprescindible, la operación queda como borrador recuperable fuera de contabilidad, saldos, FIFO y P&G. Al volver o recuperarlo, el bloque visible restaura referencia, fecha, fuente, total y cantidad; se pueden corregir y revisar de nuevo. La propuesta BCE solo se aplica cuando su fecha coincide con la ejecución y nunca sustituye la entrada manual ni acredita un cambio ejecutado. En móvil, el formulario se apila sin desbordamiento.
+Los hechos de compra, el FX documentado y la valoración histórica se muestran por separado. No se deriva un EUR/USD ausente ni se equipara USDC con USD. Si falta una conversión imprescindible, la operación queda como borrador recuperable fuera de contabilidad, saldos, FIFO y P&G. Al volver o recuperarlo, el bloque visible restaura referencia, fecha, fuente, total y cantidad. La consulta BCE selecciona la publicación exacta o la última anterior, nunca una posterior; la entrada manual sigue disponible. Un hecho real ya truncado no se amplía con precisión inventada. En móvil, el formulario se apila sin desbordamiento.
 
 Cartera conserva la tabla financiera, cobertura, lotes y procedencia; gráficos preceden a la tabla. Tokens añade composición por custodia y red. Cantidades aparecen en las ayudas del Dashboard respetando privacidad.
 
@@ -66,7 +66,7 @@ Originales importados permanecen protegidos. Las seis clases manuales contabiliz
 
 Costes e ingresos desconocidos mantienen cobertura explícita. CW-004 permanece cerrado, el regalo PEPE sigue excluido y los límites históricos aceptados de TAO no se rellenan con cero ni nuevos supuestos.
 
-## Seguridad y privacidad V1.6.8
+## Seguridad y privacidad V1.6.10
 
 PIN ASCII de seis cifras, conservado como hash scrypt con sal. El desbloqueo firmado queda ligado a identidad y revisión, con caducidad absoluta de **24 horas** por defecto; persiste tras recarga, reapertura y reinicio. El servidor conserva intentos, bloqueo y revocaciones: **5 intentos / 30 segundos** por defecto. El PIN muestra cuenta atrás y reactiva las casillas automáticamente, con validación del servidor en cada envío.
 
@@ -74,7 +74,7 @@ PIN ASCII de seis cifras, conservado como hash scrypt con sal. El desbloqueo fir
 
 El alta del cliente Web OAuth, callbacks, credenciales privadas, activación y recorrido autorizado Google → PIN → cartera ya no son pendientes. Conservar secretos fuera de Git y no reutilizar los de Cartera. Cuenta no autorizada, cancelación/error OIDC y recorrido móvil exterior no constan probados; se registran como cobertura no verificada aceptada. [Procedimiento privado](https://github.com/ratienza/cryptowallet/blob/main/docs/v1/operacion.md).
 
-## Copias locales y restauración V1.6.8
+## Copias locales y restauración V1.6.10
 
 **Ajustes → Backup** permite crear, inspeccionar, proteger, descargar y restaurar copias del conjunto completo. Cada `.cwbak.zip` incluye manifiesto, versiones, entorno, componentes, tamaños, SHA-256, esquemas, integridad SQLite y cadena de confirmaciones. Incluye apertura, catálogo, bases financieras presentes, borradores/revisiones, decisiones, fuentes y configuración funcional. Las SQLite usan su API de backup bajo el bloqueo coordinado compartido con las escrituras; no se copian WAL/SHM en bruto.
 
@@ -87,9 +87,9 @@ El alta del cliente Web OAuth, callbacks, credenciales privadas, activación y r
 
 Consultar, previsualizar o cancelar no crea copias. Si falla una previa, se bloquea la escritura; un fallo diario posterior no convierte una operación ya confirmada en una invitación a repetirla. Nunca se elimina la única recuperación válida. Las copias locales no acreditan todavía una réplica automática remota en Drive.
 
-Restaurar exige validar compatibilidad, huellas, integridad y cadena, revisar las operaciones posteriores que se perderían y confirmar; hay confirmación adicional ante copia vacía. Se crea `pre_restore`, se prepara el candidato aislado y se instala el conjunto completo con escrituras bloqueadas. Un fallo parcial recupera y verifica el conjunto anterior. La restauración completa se probó **solo en aislamiento**, nunca sobre producción.
+Restaurar exige validar compatibilidad, huellas, integridad y cadena, revisar las operaciones posteriores que se perderían y confirmar; hay confirmación adicional ante copia vacía. Se crea `pre_restore`, se prepara el candidato bajo el montaje vivo escribible y se instala el conjunto completo con escrituras bloqueadas. Un fallo previo informa que no modificó el conjunto; un fallo parcial recupera y verifica el conjunto anterior. Éxito, fallo previo y recuperación parcial se probaron **solo en aislamiento**, con raíz de solo lectura y montajes separados, nunca sobre producción.
 
-Seguridad se respalda separadamente: credenciales, PIN, estado y secretos no aparecen en descargas financieras. Restaurar finanzas preserva la seguridad actual y no revive sesiones revocadas. Antes de V1.6.8 se protegió una copia de 34 componentes y 2 operaciones, restaurada y verificada en aislamiento; su huella coincidió con producción después de promover. Referencias privadas de recuperación en el manual del producto, sin publicar rutas ni manifiestos financieros aquí.
+Seguridad se respalda separadamente: credenciales, PIN, estado y secretos no aparecen en descargas financieras. Restaurar finanzas preserva la seguridad actual y no revive sesiones revocadas. Antes de V1.6.10 se protegió una copia de 35 componentes y 5 operaciones; su huella coincidió con producción después de promover. Referencias privadas de recuperación en el manual del producto, sin publicar rutas ni manifiestos financieros aquí.
 
 ## Operación segura y rollback
 
@@ -97,11 +97,11 @@ Antes de un cambio funcional, identificar imagen/esquema y conjunto vivo, detene
 
 Después del cambio, comprobar imagen aprobada, mismo montaje real, bind localhost, salud Streamlit, cadena y comparación financiera. El procedimiento completo vive en el repositorio privado. La publicación documental recrea únicamente el sitio de Replicant Lab; no reinicia CryptoWallet.
 
-**Rollback de código y recuperación de datos son decisiones distintas.** Tras nuevas confirmaciones reales, conservar el conjunto vivo y usar una imagen de esquema 1 compatible o reparación hacia delante. No restaurar la apertura perdiendo movimientos posteriores. V1.6.8 mantiene formato y modelo de copia 1; la imagen V1.6.7 y la composición anterior se conservan como rollback de código, no como autorización para sustituir datos. La copia puntual de aceptación V1.0 queda como evidencia histórica. La previa no es una réplica de recuperación. La recuperación de seguridad es una intervención privada separada.
+**Rollback de código y recuperación de datos son decisiones distintas.** Tras nuevas confirmaciones reales, conservar el conjunto vivo y usar una imagen de esquema 1 compatible o reparación hacia delante. No restaurar la apertura perdiendo movimientos posteriores. V1.6.10 mantiene formato y modelo de copia 1; la imagen V1.6.9 y la composición anterior se conservan como rollback de código, no como autorización para sustituir datos. La copia puntual de aceptación V1.0 queda como evidencia histórica. La previa no es una réplica de recuperación. La recuperación de seguridad es una intervención privada separada.
 
 ## Pendientes y límites
 
-[Importación funcional CSV/Excel y reconciliación nueva](../pendientes/cryptowallet.md) quedan para **V2**. V1.6.8 conserva la trazabilidad, edición y eliminación reversible, pero no importa nuevos archivos desde la pantalla. PIN, respaldo funcional y Google interno ya están activos. Las variantes OIDC no probadas son límites aceptados, no funciones pendientes; preventas y otras ampliaciones siguen separadas.
+[Importación funcional CSV/Excel y reconciliación nueva](../pendientes/cryptowallet.md) quedan para **V2**. V1.6.10 conserva la trazabilidad, edición y eliminación reversible, pero no importa nuevos archivos desde la pantalla. PIN, respaldo funcional y Google interno ya están activos. Las variantes OIDC no probadas son límites aceptados, no funciones pendientes; preventas y otras ampliaciones siguen separadas.
 
 No hay bridge/cambio de red ni inserción anterior a la apertura aceptada. Las operaciones manuales anteriores a la última confirmación sí pueden prepararse o corregirse, pero solo si la reproducción completa mantiene saldos, custodia y FIFO coherentes. La identidad corporativa queda cerrada con el bitmap y la composición oficial ya aprobados; no autoriza nuevas variantes. No se declara conformidad fiscal nueva. Estos límites no reabren la aceptación financiera V1.0 ni los cierres anteriores.
 
