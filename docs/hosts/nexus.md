@@ -49,7 +49,7 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
-| `8516/tcp` | CryptoWallet V1.6.10 · producción privada | localhost; Tunnel |
+| `8516/tcp` | CryptoWallet V1.6.11 · producción privada | localhost; Tunnel |
 | `8517/tcp` | CryptoWallet · previa independiente | localhost; Tunnel |
 | `53` | systemd-resolved | localhost |
 
@@ -140,9 +140,9 @@ Producción ejecuta `cryptowallet:1.6.7-592a325be9ea`, SHA `592a325be9ea94cdc878
 
 Producción ejecuta `cryptowallet:1.6.8-24895424be4d`, SHA `24895424be4d80763e9f69e8c9334641a8e683cd`, healthy y origen localhost `8516`. La entrega superó 419 pruebas y 68 subpruebas localmente, más 419 pruebas dentro de la imagen final sin red. El recorrido sintético guardó, recuperó, editó, recargó y confirmó una compra pendiente una sola vez; no se usaron datos productivos ni se confirmó una operación real. Copia previa, restauración aislada, rollback de composición y seguridad separada quedaron verificados. El estado productivo conservó 34 componentes, 2 operaciones y la misma huella financiera antes/después.
 
-## CryptoWallet · V1.6.10, BCE histórico y restauración read-only 17/10/2026
+## CryptoWallet · V1.6.11, regularización estable ante compras retroactivas 17/10/2026
 
-Producción ejecuta `cryptowallet:1.6.10-18c39adc7565`, SHA `18c39adc75653150abbdc27e784820e85443cc5d`, healthy y origen localhost `8516`. Usuario `1000:1000`, raíz de solo lectura y montajes separados siguen activos. La entrega superó 429 pruebas locales y 429 dentro de la imagen sin red; el recorrido sintético completó `60 EUR → 64.65556087 USDC` con Bit2Me y BCE `1.1253`, confirmación única y reintento idempotente. El borrador real no se reescribió ni confirmó. Éxito, fallo previo y recuperación parcial de restauración se probaron en aislamiento bajo la topología productiva. La copia previa protegida conservó 35 componentes, 5 operaciones y la misma huella financiera antes/después. Access respondió 302 anónimo; no se atribuye una nueva aceptación humana.
+Producción ejecuta `cryptowallet:1.6.11-45d83c7ffc7d`, SHA `45d83c7ffc7d6267df0f8926968826de948b4b94`, healthy y origen localhost `8516`. Usuario `1000:1000`, raíz de solo lectura y montajes separados siguen activos. La entrega superó 430 pruebas locales y 430 dentro de la imagen final sin red. Dos restauraciones del estado productivo, sin red y sin montar producción, confirmaron la compra retroactiva exacta, el reintento idempotente y la recuperación del borrador existente. La regularización conserva su delta fijo, evidencia, autorización, cadena y coste desconocido; la compra real continúa pendiente. La copia previa protegida conservó 35 componentes, 5 operaciones y la misma huella financiera antes/después. Access respondió 302 anónimo; no se atribuye una nueva aceptación humana.
 
 ## Backups Lab v1.1.3 ·15/10/2026
 
