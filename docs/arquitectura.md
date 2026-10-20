@@ -136,3 +136,7 @@ La guía operativa y de recuperación está en [Cloudflare Tunnel](red/cloudflar
 ## Producción privada CryptoWallet
 
 Nexus ejecuta V1.5 cerrada con origen localhost `8516`, datos reales independientes y ningún montaje sintético. La previa localhost `8517` permanece separada. Manual y modelo financiero en el repositorio privado; [ficha de infraestructura](aplicaciones/cryptowallet.md). Google OIDC interno activo, PIN con persistencia 24 horas, privacidad inicial ON y copias locales multibase. Raúl confirmó manualmente el recorrido autorizado; las variantes OIDC y móvil no verificadas son límites aceptados. La réplica Drive es una propuesta independiente. La actualización documental no toca operaciones ni runtimes financieros.
+
+## Web comercial pública v1.0 · DigitalOcean (20/10/2026)
+
+El escaparate público https://thereplicantlab.com/ se sirve como sitio estático Nginx en DigitalOcean (`67.205.130.207`), con DNS Cloudflare, certificado Let's Encrypt válido y redirección de www. **No es** la documentación interna de Nexus ni App Launch público. Archivo de referencia en `ratienza/replicant-lab-business`. Operación y rollback: [Host DigitalOcean](hosts/digitalocean.md). Identificación legal, privacidad y GA4 aún pendientes y gestionados en Business Hub privado.
