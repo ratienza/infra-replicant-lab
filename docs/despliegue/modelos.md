@@ -50,6 +50,7 @@ El diagrama anterior expresa responsabilidades, no el sentido físico de apertur
 | Control de Red | PowerShell + Codex | Ejecución local + demo aislada | Replicant + demo Nexus |
 | App Launch | Codex / GitHub | Scripts por destino | Nginx en Nexus y DigitalOcean |
 | Replicant Lab | Codex / GitHub | Docker Compose | Nexus |
+| **The Replicant Lab · web comercial v1.0** | Paquete estático de `ratienza/replicant-lab-business` | Nginx, Git/ZIP y Let's Encrypt | **DigitalOcean** · https://thereplicantlab.com/ |
 
 ## Principios
 
@@ -64,3 +65,5 @@ El diagrama anterior expresa responsabilidades, no el sentido físico de apertur
 El Tunnel `replicant-launch` publica seis servicios históricos y los dos entornos protegidos de CryptoWallet mediante hostnames separados. CryptoWallet es producción privada en Nexus; no se extrapola el destino VPS de otras aplicaciones. Cada hostname tiene su propia aplicación y política Cloudflare Access con Google como IdP. El router no usa port forwarding para esta publicación.
 
 El Launch de DigitalOcean no se sustituye automáticamente por el Launch de Nexus: ambos siguen siendo destinos distintos hasta que exista una decisión explícita de retirada o redirección.
+
+**Separación:** la fila «Replicant Lab» es documentación técnica privada en Nexus, mientras que «web comercial v1.0» es el escaparate público estático de DigitalOcean, sin Cloudflare Tunnel ni el contenedor de documentos del Nexus. [Ficha DigitalOcean](../hosts/digitalocean.md).
