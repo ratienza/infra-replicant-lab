@@ -76,3 +76,12 @@ DigitalOcean conserva el papel de producción `24×7` y no fue modificado. El Tu
 - **Decisión de privacidad:** no publicar datos personales del propietario (nombre, NIF/DNI ni domicilio). Las páginas informativas actuales NO constituyen regularización legal completa: identificación del prestador y del responsable de tratamiento **pendientes**.
 - Para rollback, apuntar `current` a `releases/v1.0.1/site` y verificar HTTPS; no borrar releases conservadas.
 
+
+## Web comercial v1.0.3 — Corrección del pie en todas las secciones (20/10/2026)
+
+- **Versión activa comprobada:** `/var/www/thereplicantlab.com/current` apunta a `releases/v1.0.3/site`. Las versiones v1.0.2 y anteriores siguen almacenadas para rollback.
+- **Motivo:** la v1.0.2 tenía el pie corporativo exclusivamente en FAQ; no era visible desde Inicio, Servicios, Contacto ni las otras secciones. La v1.0.3 distribuye el mismo pie original, con logo central-R4 y enlaces legales, en los siete paneles del sitio.
+- **Artefacto canónico:** `ratienza/replicant-lab-business/docs/06-web/releases/v1.0.3/The_Replicant_Lab_Web_v1.0.3.zip`, 30 recursos, 14.212.089 bytes, SHA-256 `1e0aae303fb9680b862fcd7a979f19d58d1fc49bc446ff4a9060db5e6114f30d` (PR comercial #28).
+- **Validación en producción:** navegador Playwright 1440 y 390 píxeles; un pie y un enlace funcional de Cookies por cada sección, logo cargado, cero solicitudes a Google tras rechazar analítica, sin errores JS o desbordamiento horizontal. El funcionamiento y certificado HTTPS de Nginx no se cambiaron.
+- **Pendientes intactos:** regularización de identidad legal del prestador y responsable de tratamiento, y formulario con envío directo; se conserva la actual decisión del propietario de no publicar nombre, NIF ni dirección.
+
