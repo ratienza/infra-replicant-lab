@@ -85,3 +85,14 @@ DigitalOcean conserva el papel de producción `24×7` y no fue modificado. El Tu
 - **Validación en producción:** navegador Playwright 1440 y 390 píxeles; un pie y un enlace funcional de Cookies por cada sección, logo cargado, cero solicitudes a Google tras rechazar analítica, sin errores JS o desbordamiento horizontal. El funcionamiento y certificado HTTPS de Nginx no se cambiaron.
 - **Pendientes intactos:** regularización de identidad legal del prestador y responsable de tratamiento, y formulario con envío directo; se conserva la actual decisión del propietario de no publicar nombre, NIF ni dirección.
 
+
+## Web pública v1.0.4 — cierre del pie (20/10/2026)
+
+**Versión activa observada:** `/var/www/thereplicantlab.com/current` → `releases/v1.0.4/site`. Releases v1.0.3 y anteriores preservadas como rollback.
+
+- **Artefacto de producción:** `ratienza/replicant-lab-business/docs/06-web/releases/v1.0.4/The_Replicant_Lab_Web_v1.0.4.zip` (PR comercial #30), 30 archivos, 14.212.109 bytes; SHA-256 `9d80240e5f6bd5e75503aaaee9ecef76bcdea511e1937e0cfcec662f3e2713a9`.
+- Cambio localizado de 2 ficheros (`index.html` y `assets/consent.css`): se elimina el cierre «Disruptores por naturaleza» de los siete pies y se hacen visibles los separadores «Aviso legal · Privacidad · Cookies».
+- **Verificación en producción:** Playwright 1440/390 px, siete pies sin cierre, catorce separadores visibles, GA4 no solicitado tras rechazo, cuatro precios, logos, cero errores JS ni overflow. TLS/NGINX/GA4 no cambiados.
+- Identificación legal completa y envío directo del formulario todavía pendientes; este ajuste no constituye regularización legal.
+- **Rollback:** restaurar enlace `current` a `releases/v1.0.3/site` y validar HTTPS.
+
