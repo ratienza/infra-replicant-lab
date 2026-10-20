@@ -64,3 +64,15 @@ DigitalOcean conserva el papel de producción `24×7` y no fue modificado. El Tu
 - **Pendiente fuera de infraestructura:** identidad legal y privacidad, confirmación de eventos en panel GA4 Tiempo real, contacto con envío directo. No equivale a conformidad legal.
 - Rollback operativo: volver a apuntar el symlink `current` a `releases/v1.0/site` sin eliminar versiones. Nginx conserva mismo vhost y certificado de Let's Encrypt.
 
+
+## Actualización 20/10/2026 — Web pública v1.0.2 (pie y páginas mínimas)
+
+**Versión activa comprobada:** `/var/www/thereplicantlab.com/current` → `releases/v1.0.2/site`. Nginx/HTTPS y el resto de servicios no cambiaron. Las releases `v1.0` y `v1.0.1` siguen disponibles para rollback.
+
+- Fuente Git privada: `ratienza/replicant-lab-business/docs/06-web/releases/v1.0.2/The_Replicant_Lab_Web_v1.0.2.zip` (PR #27).
+- ZIP: 30 archivos · 14.211.802 bytes · SHA-256 `3c914c93f6a1eda4530a537f6a94e53d3b17bc5e8a9a4b0d47ddda7fd3aebfce`.
+- Cambios permitidos: logo corporativo central-R4 original sobre fondo oscuro en el pie FAQ, enlaces `/aviso-legal.html`, `/privacidad.html` y Cookies, texto del aviso de cookies abreviado; GA4 `G-PF31D9G91C` y el mailto del formulario permanecen sin cambios funcionales.
+- Validación productiva: HTTPS y certificado correctos, página raíz + aviso legal + privacidad + cookies + logo HTTP 200, Playwright 1440/390 px sin desbordamiento horizontal ni errores JS, rechazo sin peticiones a Google. App Launch sigue HTTP 200.
+- **Decisión de privacidad:** no publicar datos personales del propietario (nombre, NIF/DNI ni domicilio). Las páginas informativas actuales NO constituyen regularización legal completa: identificación del prestador y del responsable de tratamiento **pendientes**.
+- Para rollback, apuntar `current` a `releases/v1.0.1/site` y verificar HTTPS; no borrar releases conservadas.
+
