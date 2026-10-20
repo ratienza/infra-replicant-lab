@@ -52,3 +52,15 @@ DigitalOcean conserva el papel de producción `24×7` y no fue modificado. El Tu
 
 **Pendientes no cubiertos por este despliegue:** identificación legal, privacidad, Google Analytics con ID real y consentimiento, formulario con envío directo, Search Console y prueba interactiva final. La autorización del propietario para publicar antes del cierre legal no equivale a conformidad jurídica. La web es públicamente indexable aunque no se anuncie.
 
+
+## Actualización web comercial v1.0.1 — Analytics (20/10/2026)
+
+**Versión pública activa:** `/var/www/thereplicantlab.com/current` apunta a `releases/v1.0.1/site`. V1.0 se preserva para rollback. Este cambio no afecta a App Launch, Nexus ni a Nginx/HTTPS.
+
+- Artefacto: `ratienza/replicant-lab-business/docs/06-web/releases/v1.0.1/The_Replicant_Lab_Web_v1.0.1.zip`
+- Integridad: **13.927.402 bytes**, 27 entradas con separadores POSIX; SHA-256 `f9e9779f31bec2d5efe2a01f385b92f3ae7e387fb605a992ee5dcf63b84038de`. El PR comercial #24 corrigió rutas Linux antes del despliegue.
+- GA4: `G-PF31D9G91C`. Consent Mode v2 **básico**: no hay etiquetas de Google ni peticiones antes de aceptación. Rechazar y revocar desactivan analítica; nueva ruta pública `/cookies.html`.
+- Validación: HTTPS raíz, página de cookies, `assets/consent.js`, `assets/consent.css`, Inter e imagen original devuelven 200 con TLS válido; Playwright escritorio 1440/móvil 390 confirmó 0 peticiones antes de aceptar o tras rechazar, peticiones tras aceptar y desactivación al retirar.
+- **Pendiente fuera de infraestructura:** identidad legal y privacidad, confirmación de eventos en panel GA4 Tiempo real, contacto con envío directo. No equivale a conformidad legal.
+- Rollback operativo: volver a apuntar el symlink `current` a `releases/v1.0/site` sin eliminar versiones. Nginx conserva mismo vhost y certificado de Let's Encrypt.
+
