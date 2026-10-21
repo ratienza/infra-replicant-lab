@@ -96,3 +96,17 @@ DigitalOcean conserva el papel de producción `24×7` y no fue modificado. El Tu
 - Identificación legal completa y envío directo del formulario todavía pendientes; este ajuste no constituye regularización legal.
 - **Rollback:** restaurar enlace `current` a `releases/v1.0.3/site` y validar HTTPS.
 
+
+
+## Web comercial The Replicant Lab v1.0.5 — precio S01 corregido (21/10/2026)
+
+**ESTADO OBSERVADO EN PRODUCCIÓN:** `/var/www/thereplicantlab.com/current` apunta a `/var/www/thereplicantlab.com/releases/v1.0.5/site`; `v1.0.4/site` permanece como versión de rollback.
+
+- **Motivo:** el propietario confirmó el precio actual del S01 «Tu negocio, más claro.» **desde 1.990 € + IVA** (ADR-024); la v1.0.4 mostraba el antiguo 1.200 € en la metadescripción SEO, tarjeta y detalle del servicio.
+- **Fuente canónica:** `ratienza/replicant-lab-business/docs/06-web/releases/v1.0.5/The_Replicant_Lab_Web_v1.0.5.zip` (PR #43 y evidencia de despliegue PR #44; ADR-031). SHA-256 `4108e59d30b82c8703f5db9079df9a6a3d0ac0a7c81b755515419f434424a30d`, 30 entradas, 14.212.218 bytes.
+- **Cambio mínimo:** solamente el fichero `index.html` varía respecto a v1.0.4, exactamente tres referencias al precio S01 (1.200 → 1.990). S02, S03 y S04, GA4, consentimiento, SEO técnico, diseño, páginas legales y demás assets se conservan.
+- **Verificación real:** `nginx -t` correcto; comprobación HTTPS sobre el origen DigitalOcean y externa con y sin parámetro de consulta. En ambos casos, **S01 1.990 (3 apariciones) y S01 1.200 (0)**. Dominio principal y `www` HTTP 200 con redirección www→raíz; `robots.txt`, `sitemap.xml`, `assets/consent.js`, `cookies.html` y `app.raulatienza.com` HTTP 200. Sin alteraciones en otros vhosts.
+- **Rollback:** `ln -s /var/www/thereplicantlab.com/releases/v1.0.4/site /var/www/thereplicantlab.com/current.rollback && mv -Tf /var/www/thereplicantlab.com/current.rollback /var/www/thereplicantlab.com/current`, únicamente si es necesario y tras comprobar el destino.
+- **Pendientes independientes:** identificación legal del prestador, revisión final de privacidad y formulario de contacto con envío directo. El cambio de precio **no** declara regularización jurídica.
+
+La documentación anterior de v1.0–v1.0.4 conserva el estado histórico que tuvo cada release; la última observación de producción es **v1.0.5**.
