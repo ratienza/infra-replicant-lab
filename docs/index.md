@@ -106,7 +106,7 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Salones AV | ✅ Operativa en Nexus · `8081` · Git/Nexus reconciliados en `8c0bc08` |
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
-| Cartera Estratégica | ✅ [v2.0.0 productiva](aplicaciones/cartera-estrategica.md) · Nexus `8085` · OAuth interno + PIN · Indexa API oficial |
+| Cartera Estratégica | ✅ [v2.1.1 acreditada en HANDOFF](aplicaciones/cartera-estrategica.md) · Nexus `8085` · OAuth interno + PIN · Indexa API oficial |
 | CryptoWallet | ✅ [V1.6.11 productiva](aplicaciones/cryptowallet.md) · Nexus localhost `8516` · regularización por delta fijo · compra retroactiva validada en copia · restauración compatible con raíz read-only · Google interno · PIN 24 h · privacidad ON · previa `8517` |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
@@ -142,3 +142,7 @@ V1.6.11 cerrada y desplegada el 17/10/2026: las regularizaciones se reproducen p
 [Backups Lab v1.1.3](aplicaciones/backups-lab.md) está publicado y verificado técnicamente en Nexus: contratos versionados toleran evolución normal y bloquean solo la aplicación incompatible. CryptoWallet y Control Red repitieron Drive/descarga/hashes/recuperación aislada; seis horarios ON, tres OFF y retención 7/4/12/3 ON se preservaron. El informe diario, log exportable, agentes externos/cifrado adicional y recuperación integral de host pertenecen a [Backlog V2.0](pendientes/backups-drive.md).
 
 Backups Lab **v1.1.3** sirve el SHA `1e7acbef8235faeb43ac8f7eeb07a70b24927abd`; Dashboard/Aplicaciones muestran compatibilidad operativa, fecha, última válida y fallo conservado. [Manual y evidencia](aplicaciones/backups-lab.md).
+
+## Reconciliación documental · 31/10/2026
+
+[Web corporativa y sistema comercial IA](aplicaciones/web-corporativa-trl.md) incorporados al catálogo; Nexus es su centro documental, no su hosting. Cambios del 30/10 registrados con su fuente en las fichas. Los estados anteriores conservan la fecha de su evidencia; no representan una inspección actual de todos los servicios. [Auditoría y publicación pendiente](cambios/2026-10-31.md).

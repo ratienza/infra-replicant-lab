@@ -69,3 +69,7 @@ La ficha canónica de [Backups Lab](backups-lab.md) registra contratos versionad
 ## Histórico · Backups Lab v1.1.2 ·12/10/2026
 
 Se actualiza la ficha canónica de [Backups Lab](backups-lab.md) al cierre aprobado v1.1.2: fichas compactas, candidatas independientes separadas y siete orígenes vinculados plegados/fuera de contadores y copias. Son doce fichas individuales más el dossier global: trece parejas HTML/PDF regeneradas por el mismo pipeline. [Descargas](https://docs.thereplicantlab.com/descargas/) y [cambios](../cambios/2026-10-12.md). La protección de Drive abarca nueve contratos declarados; el respaldo integral del host sigue separado.
+
+## Revisión documental · 31/10/2026
+
+El catálogo pasa a trece fichas con [web corporativa TRL](web-corporativa-trl.md), distinta de este sitio MkDocs y del Business Hub privado. Arquitectura y operaciones completas, identidad y campañas permanecen en su repositorio privado; el índice técnico enlaza las fuentes. [Estado de integración y publicación](../cambios/2026-10-31.md): no se considera publicado por regenerar los derivados.

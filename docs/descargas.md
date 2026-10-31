@@ -11,8 +11,8 @@ La documentación MkDocs de este proyecto es la única referencia canónica. Los
 
 | Artefacto | Ruta | Cobertura |
 |---|---|---|
-| HTML autocontenido | `docs/downloads/Replicant-Lab.html` | Toda la navegación MkDocs, índice interno y diecisiete Mermaid |
-| PDF A4 | `docs/downloads/Replicant-Lab.pdf` | Portada, índice, documentación completa, numeración y diecisiete Mermaid |
+| HTML autocontenido | `docs/downloads/Replicant-Lab.html` | Toda la navegación MkDocs, índice interno y dieciocho Mermaid |
+| PDF A4 | `docs/downloads/Replicant-Lab.pdf` | Portada, índice, documentación completa, numeración y dieciocho Mermaid |
 
 No se mantiene ninguna copia alternativa.
 
@@ -31,6 +31,7 @@ Cada pareja HTML/PDF se genera desde la misma página Markdown incluida en la na
 | Control de Red | [Descargar](downloads/apps/control-red.html) | [Descargar](downloads/apps/control-red.pdf) |
 | Cartera Estratégica | [Descargar](downloads/apps/cartera-estrategica.html) | [Descargar](downloads/apps/cartera-estrategica.pdf) |
 | CryptoWallet | [Descargar](downloads/apps/cryptowallet.html) | [Descargar](downloads/apps/cryptowallet.pdf) |
+| Web corporativa TRL | [Descargar](downloads/apps/web-corporativa-trl.html) | [Descargar](downloads/apps/web-corporativa-trl.pdf) |
 | Replicant Lab | [Descargar](downloads/apps/replicant-lab.html) | [Descargar](downloads/apps/replicant-lab.pdf) |
 | ErasmusHomes · Control del MVP | [Descargar](downloads/apps/erasmushomes-control.html) | [Descargar](downloads/apps/erasmushomes-control.pdf) |
 | Backups Lab v1.1.3 | [Descargar](downloads/apps/backups-lab.html) | [Descargar](downloads/apps/backups-lab.pdf) |

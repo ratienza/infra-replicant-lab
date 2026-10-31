@@ -98,3 +98,7 @@ El acceso externo exige Google mediante Cloudflare Access. App Launch no guarda 
 ## CryptoWallet y catálogo observado · 08/10/2026
 
 El catálogo Nexus servido contiene diez tarjetas y ya abre `https://cryptowallet.thereplicantlab.com/`. CryptoWallet V1.0 es producción privada independiente de su previa; [ficha vigente](cryptowallet.md). La descripción del catálogo aún habla de borradores y falta el enlace secundario a la ficha: ajuste de metadatos pendiente en App Launch. Este cierre no modifica catálogo ni despliega Launch; no afirma que sus archivos locales coincidan por completo con Git. Checkout Nexus en `27a1a179158f874dea52a2748f1bcd20c2091c6a`, con archivos operativos locales no versionados conservados.
+
+## Revisión de vigencia · 31/10/2026
+
+Identidad TRL incorporada a main el 30/10 (`fa1a225`, cambio `781882d`). Se conservan colores propios de pastillas y favicon. La solicitud de abrir todas las apps en ventana nueva no está acreditada por ese HEAD; no marcarla resuelta. Fuente: [README y código](https://github.com/ratienza/Apps_Lauch).

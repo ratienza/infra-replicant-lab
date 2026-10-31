@@ -89,3 +89,7 @@ Está prohibido versionar bases SQLite, Excel, CSV, `.env`, credenciales, secret
 No queda un pendiente bloqueante específico de publicación o autenticación de Cartera. La actualización autónoma de Indexa con la aplicación cerrada continúa fuera de alcance; las demás mejoras requieren un encargo posterior.
 
 Las actas de [12/09/2026](https://docs.thereplicantlab.com/cambios/2026-09-12/) y [RL-CE-DOC-001](https://docs.thereplicantlab.com/encargos/RL-CE-DOC-001/) son históricas; sus estados v1 y Google desactivado no describen v2.1.0.
+
+## Revisión de vigencia · 31/10/2026
+
+Referencia vigente: **v2.1.1**, no v2.0.0. [HANDOFF](https://github.com/ratienza/cartera-estrategica/blob/main/HANDOFF.md) acredita identidad TRL publicada el 30/10, PR #35, funcional `4118db5`, cierre `0de5ec1`; conserva autenticación y reglas financieras. Logo con relieve posterior y candidato de P&G no tienen cierre acreditado aquí. No se repiten pruebas ni inspección de datos financieros.

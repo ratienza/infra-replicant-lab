@@ -59,3 +59,7 @@ Registro corto de decisiones que no conviene redescubrir.
 | Seguridad respaldada separadamente | No descargar secretos junto a finanzas ni revivir sesiones al recuperar datos |
 | Réplica Drive como servicio independiente | Reutilizar copias finalizadas de varias apps con rclone; no acoplarlas al login de CryptoWallet ni reabrir V1.5 |
 | Retención remota y cifrado por definir en otro encargo | Evitar propagar borrados; clave recuperable fuera de Nexus y ensayo de restauración remota antes de aceptación |
+
+## Criterio aplicado en la auditoría documental · 31/10/2026
+
+La ficha técnica de la web y el índice de fuentes se mantienen en infraestructura; arquitectura operativa privada, identidad, comercial y campañas permanecen en el repositorio privado de negocio. Se aplica la separación existente, sin adoptar una arquitectura nueva ni crear una aprobación comercial. Código, CI, main y runtime conservan evidencias independientes.
