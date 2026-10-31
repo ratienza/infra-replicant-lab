@@ -110,3 +110,8 @@ Producción privada en Nexus mediante origen localhost `8516`, previa independie
 ## Backups Lab v1.1.1 ·12/10/2026
 
 Ficha, operación, historial y continuidad en `docs/aplicaciones/backups-lab.md`. La versión aprobada corrige el descubrimiento persistente, clasifica las rutas detectadas e incorpora Backups Lab como novena aplicación solo tras copia Drive y recuperación aislada verificadas. Doce fichas más dossier global (trece parejas HTML/PDF); el mismo generador y CI sincronizan fuentes/derivados. Solo se despliega documentación; los demás runtimes no cambian.
+
+
+## Fuentes de los PDF en Linux
+
+Al regenerar los portables, instalar Liberation Sans y Liberation Mono (paquete `fonts-liberation`) además de las dependencias de Playwright. Arial/Helvetica pueden resolverse a Nimbus Sans en otros sistemas y cambiar la paginación aunque Markdown y huella coincidan. `fc-match Arial` debe resolver Liberation Sans y `fc-match "Liberation Mono"`, Liberation Mono. La CI usa Ubuntu 24.04 y `playwright install --with-deps chromium`; conservar la comprobación de paginación y sincronía.

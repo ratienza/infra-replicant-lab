@@ -35,6 +35,7 @@ const routes = [
   { route: "/aplicaciones/control-red/", name: "control-red", diagrams: 0 },
   { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 2 },
   { route: "/aplicaciones/cryptowallet/", name: "cryptowallet", diagrams: 0 },
+  { route: "/aplicaciones/web-corporativa-trl/", name: "web-corporativa-trl", diagrams: 1 },
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control", diagrams: 0 },
   { route: "/control/erasmushomes/", name: "erasmushomes-standalone", diagrams: 0 },
@@ -150,7 +151,7 @@ for (const item of routes) {
       legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
     }));
     if (
-      catalog.cards !== 12 || catalog.types !== 12 || catalog.links.length !== 12 || catalog.legacyMarkdownLinks !== 0
+      catalog.cards !== 13 || catalog.types !== 13 || catalog.links.length !== 13 || catalog.legacyMarkdownLinks !== 0
       || catalog.descriptions.some(length => length < 250)
       || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
     ) {
@@ -410,7 +411,7 @@ for (const slug of [
     pdf: await compareDownload(`downloads/apps/${slug}.pdf`, "application/pdf"),
   };
 }
-if (totalDiagrams !== 17) failures.push(`Expected seventeen Mermaid diagrams across site, got ${totalDiagrams}`);
+if (totalDiagrams !== 18) failures.push(`Expected eighteen Mermaid diagrams across site, got ${totalDiagrams}`);
 if (failures.length) throw new Error(failures.join("\n"));
 
 const report = {

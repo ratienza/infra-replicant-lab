@@ -47,3 +47,7 @@ No existe un problema crítico actual. Queda aceptado para después de Cartera:
 - restos React, metadata Gemini, artefactos residuales, cabeceras, caché, protección de `main` y UX de revelado de contacto.
 
 El checkout de Nexus no debe ejecutarse ni utilizarse para desplegar o restaurar producción.
+
+## Revisión de vigencia · 31/10/2026
+
+Main `4f04ef2` del 30/10 incorpora etiqueta Google Analytics al CV. [Commit](https://github.com/ratienza/CV-Raul-IA-Estudio-Google-/commit/4f04ef2129fa87da038014fa40b72382be35688b). La lectura HTTPS registrada el 30/10 acredita instalación del código, no recepción de eventos. Launch Nexus servido el 31/10 enlaza un placeholder Cloud Run: contradicción de catálogo pendiente, sin cambiar la producción Firebase.

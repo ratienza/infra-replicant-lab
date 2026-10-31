@@ -108,3 +108,7 @@ Después del cambio, comprobar imagen aprobada, mismo montaje real, bind localho
 No hay bridge/cambio de red ni inserción anterior a la apertura aceptada. Las operaciones manuales anteriores a la última confirmación sí pueden prepararse o corregirse, pero solo si la reproducción completa mantiene saldos, custodia y FIFO coherentes. Una regularización confirmada aporta su delta fijo; no se recalcula para forzar esa coherencia. La identidad corporativa queda cerrada con el bitmap y la composición oficial ya aprobados; no autoriza nuevas variantes. No se declara conformidad fiscal nueva. Estos límites no reabren la aceptación financiera V1.0 ni los cierres anteriores.
 
 La evidencia de promoción del producto registra runtime, salud y sesión autenticada con privacidad activa. No certifica el contenido actual de todas las políticas Cloudflare ni una prueba autenticada móvil. [Cloudflare](../red/cloudflare-tunnel.md) distingue la evidencia histórica y los controles pendientes.
+
+## Revisión de vigencia · 31/10/2026
+
+Se conserva **V1.6.11**. [HANDOFF](https://github.com/ratienza/cryptowallet/blob/main/HANDOFF.md) acredita identidad TRL publicada el 30/10, PR #46, funcional `9cf8f17`, cierre `3162835`, 430 pruebas registradas y preservación de módulos financieros/seguridad. Son evidencias del repositorio, no una batería repetida hoy.

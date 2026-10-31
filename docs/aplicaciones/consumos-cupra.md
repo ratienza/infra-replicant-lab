@@ -41,3 +41,7 @@ El rollback consiste en devolver el tráfico a `cosnumos-cupra-00007-b7b` o desp
 - No mostrar valores de variables, secretos o integraciones externas.
 - Los pushes a ramas conectadas pueden activar Cloud Build; los cambios productivos requieren revisar trigger, candidato y tráfico.
 - `npm audit` registra cuatro vulnerabilidades conocidas: una baja, una moderada y dos altas. No se ejecutó `npm audit fix`; su tratamiento debe hacerse en un cambio separado y probado.
+
+## Revisión de vigencia · 31/10/2026
+
+Main `1edb26a` del 30/10 incorpora únicamente el pie corporativo TRL. [Commit](https://github.com/ratienza/Consumos_Cupra/commit/1edb26a4f81acef761e40c75601ca76613efcef2). No se deduce una nueva revisión Cloud Run desplegada a partir de ese commit; se conserva la última evidencia histórica de runtime.

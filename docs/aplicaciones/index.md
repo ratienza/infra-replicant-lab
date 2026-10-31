@@ -11,9 +11,9 @@ Catálogo operativo del laboratorio. Cada ficha técnica se abre como documento 
 .app-card h2 { margin:0; color:var(--card-accent); font-size:1.2rem; }
 .app-card p { margin:0; }
 .app-card .app-type { color:var(--card-accent); font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
-.app-card dl { display:grid; grid-template-columns:max-content 1fr; gap:.22rem .65rem; margin:.25rem 0; font-size:.82rem; }
+.app-card dl { display:grid; grid-template-columns:max-content minmax(0,1fr); gap:.22rem .65rem; margin:.25rem 0; font-size:.82rem; }
 .app-card dt { font-weight:700; }
-.app-card dd { margin:0; }
+.app-card dd { margin:0; min-width:0; overflow-wrap:anywhere; }
 .app-card .app-accesses { margin-top:auto; padding-top:.45rem; font-weight:700; }
 </style>
 
@@ -140,6 +140,14 @@ Documenta infraestructura, despliegue y operación del laboratorio. Genera un si
 v1.1.3 publicada y verificada técnicamente: contratos separados de captura/recuperación, bloqueo aislado por aplicación y estados visibles. CryptoWallet/Control Red revalidados por Drive; seis horarios ON, tres OFF y retención 7/4/12/3 ON preservados. Facility detenida/alcance parcial, previews excluidas. Sustitución de originales diferida expresamente a V2.0.
 <dl><dt>Herramienta</dt><dd>Codex</dd><dt>Stack</dt><dd>React,FastAPI,SQLite,rclone</dd><dt>Repositorio</dt><dd><code>ratienza/backups-lab</code></dd><dt>Runtime</dt><dd>Nexus ·8087</dd><dt>Estado</dt><dd>v1.1.3 · publicada y verificada</dd><dt>Acceso</dt><dd>Cloudflare Access y operaciones privadas</dd></dl>
 <p class="app-accesses"><a href="../downloads/apps/backups-lab.html">Ficha técnica</a> · <a href="https://backups.thereplicantlab.com/">HTTPS</a> · <a href="http://192.168.18.220:8087/">LAN</a> · <a href="backups-lab/">Manual</a></p>
+</article>
+
+<article class="app-card" markdown>
+## Web corporativa TRL
+<p class="app-type">Web y atención comercial con IA</p>
+Sitio público en DigitalOcean/Nginx y sistema comercial con Cloudflare Worker, colas, backend Python, OpenAI y Gmail. Nexus conserva su ficha técnica; documentación comercial, identidad y campañas permanecen privadas.
+
+<p class="app-accesses"><a href="../downloads/apps/web-corporativa-trl.html">Ficha técnica</a> · <a href="https://thereplicantlab.com/">Web pública</a> · <a href="web-corporativa-trl/">Documentación y fuentes privadas</a></p>
 </article>
 </div>
 

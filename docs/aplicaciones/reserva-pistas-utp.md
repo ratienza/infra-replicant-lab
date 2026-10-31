@@ -172,3 +172,7 @@ No ejecutar reservas ni enviar notificaciones para probar el handover. Las compr
 ## Acceso externo y seguridad
 
 El runtime Nexus conserva su acceso LAN en [http://192.168.18.220:8083](http://192.168.18.220:8083). El hostname externo [https://padel.thereplicantlab.com](https://padel.thereplicantlab.com) está implantado mediante el Tunnel `replicant-launch` hacia ese origen Nexus y protegido por Cloudflare Access + Google con una política independiente. Su publicación productiva por DigitalOcean permanece separada y sin cambios.
+
+## Revisión de vigencia · 31/10/2026
+
+Main `a2a44f9` del 30/10 centra la cabecera corporativa TRL. [Commit](https://github.com/ratienza/Reserva-Pistas-UTP/commit/a2a44f96af54dccef21d9e5aa1761a05937f6372). El cambio es de presentación; no se infiere una publicación nueva ni modificación de reservas, automatizaciones o datos.

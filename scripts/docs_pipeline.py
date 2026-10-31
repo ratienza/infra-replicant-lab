@@ -38,7 +38,7 @@ MERMAID_PACKAGE_RUNTIME = ROOT / "node_modules" / "mermaid" / "dist" / "mermaid.
 PORTABLE_CSS = ROOT / "scripts" / "portable.css"
 NODE_RENDERER = ROOT / "scripts" / "render_portables.mjs"
 APP_RENDERER = ROOT / "scripts" / "render_app_portable.mjs"
-EXPECTED_MERMAID = 17
+EXPECTED_MERMAID = 18
 MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 
@@ -53,6 +53,7 @@ APP_PORTABLES = {
     "control-red": ("Control de Red", "aplicaciones/control-red.md"),
     "cartera-estrategica": ("Cartera Estratégica", "aplicaciones/cartera-estrategica.md"),
     "cryptowallet": ("CryptoWallet", "aplicaciones/cryptowallet.md"),
+    "web-corporativa-trl": ("Web corporativa TRL", "aplicaciones/web-corporativa-trl.md"),
     "replicant-lab": ("Replicant Lab", "aplicaciones/replicant-lab.md"),
     "erasmushomes-control": ("ErasmusHomes · Control del MVP", "aplicaciones/erasmushomes-control.md"),
 }
@@ -68,6 +69,7 @@ APP_EXPECTED_MARKERS = {
     "control-red": ("PowerShell", "Replicant", "rollback"),
     "cartera-estrategica": ("192.168.18.220:8085", "CE-SEC-001", "rollback"),
     "cryptowallet": ("8516", "V1.6", "rollback", "CSV/Excel", "Stable Coin", "24 horas", "multibase", "Google interno activo", "Tarjeta", "Liquidez"),
+    "web-corporativa-trl": ("DigitalOcean", "Worker", "Gmail", "rollback", "Business Hub"),
     "replicant-lab": ("MkDocs", "8082", "rollback"),
     "erasmushomes-control": ("Objetivo diciembre", "SHA ErasmusHomes main", "roadmap.yaml"),
 }

@@ -116,3 +116,7 @@ CI aplicable v1.1.3: 121 pruebas backend, build, recorridos controlados del fron
 Alcance correctivo v1.1.3 fusionado, desplegado y verificado técnicamente; la aceptación humana sigue siendo independiente. V2 solo backlog, sin implementación nueva. Informe diario por correo, log exportable, cifrado adicional, agentes externos, nuevos adaptadores y recuperación integral del host son propuestas anteriores pendientes de decisión/contrato, no se presentan como entregadas.
 
 [Changelog v1.1.3](https://github.com/ratienza/backups-lab/blob/main/CHANGELOG.md) · [Recibo publicado](https://github.com/ratienza/backups-lab/tree/main/artifacts/v1.1.3/published) · [Backlog canónico V2.0](https://github.com/ratienza/backups-lab/blob/main/BACKLOG_V2.md) · [HANDOFF](https://github.com/ratienza/backups-lab/blob/main/HANDOFF.md).
+
+## Revisión de vigencia · 31/10/2026
+
+Se conserva **v1.1.3**. [Acta de identidad](https://github.com/ratienza/backups-lab/blob/main/docs/trl-brand-v1.0-20261030.md) acredita publicación de frontend el 30/10, PR #33, `6fc2cf4`, sin cambio de API. Main `470ce3e` añade refinamientos de última copia: fecha sin hora, amarillo delante y resultado solo con icono/tooltip. El commit final no acredita por sí mismo su despliegue. Nueve contratos declarados no equivalen a backup integral del host; no se ejecutaron copias, purgas ni restauraciones.
