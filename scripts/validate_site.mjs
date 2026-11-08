@@ -35,6 +35,7 @@ const routes = [
   { route: "/aplicaciones/control-red/", name: "control-red", diagrams: 0 },
   { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 2 },
   { route: "/aplicaciones/cryptowallet/", name: "cryptowallet", diagrams: 0 },
+  { route: "/aplicaciones/btc-cycle-lab/", name: "btc-cycle-lab", diagrams: 0 },
   { route: "/aplicaciones/web-corporativa-trl/", name: "web-corporativa-trl", diagrams: 1 },
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control", diagrams: 0 },
@@ -393,6 +394,7 @@ const downloads = {
   apps: {},
 };
 for (const slug of [
+  "btc-cycle-lab",
   "backups-lab",
   "pula",
   "app-launch",
