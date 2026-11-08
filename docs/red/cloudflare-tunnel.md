@@ -49,6 +49,8 @@ Compartir Tunnel tampoco comparte permisos: cada hostname tiene una aplicación 
 | CryptoWallet producción · acceso protegido observado | `cryptowallet.thereplicantlab.com` | `http://127.0.0.1:8516` |
 | CryptoWallet previa · acceso protegido observado | `cryptowallet-preview.thereplicantlab.com` | `http://127.0.0.1:8517` |
 
+[CiclosBTC](../aplicaciones/btc-cycle-lab.md) usa la ruta `/btc-cycle-lab/` del hostname `launch.thereplicantlab.com`. El proxy de Launch dirige la ruta al contenedor privado de CiclosBTC en Nexus y la entrada externa está sujeta a la política Access de Launch.
+
 Configuración histórica registrada en RL-CF-002 para los seis servicios originales (no certifica por extrapolación los valores actuales de CryptoWallet):
 
 - un único Tunnel: `replicant-launch`;

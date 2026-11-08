@@ -1,5 +1,7 @@
 # Aplicaciones
 
+**CiclosBTC** · Reloj interactivo de los ciclos de Bitcoin, auditoría por halving y proyecciones mensuales. [Ficha y guía de uso](btc-cycle-lab.md) · [Abrir el laboratorio](https://launch.thereplicantlab.com/btc-cycle-lab/).
+
 Catálogo operativo del laboratorio. Cada ficha técnica se abre como documento HTML independiente y autocontenido.
 
 <style>
