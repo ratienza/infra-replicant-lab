@@ -149,6 +149,14 @@ Sitio público en DigitalOcean/Nginx y sistema comercial con Cloudflare Worker, 
 
 <p class="app-accesses"><a href="../downloads/apps/web-corporativa-trl.html">Ficha técnica</a> · <a href="https://thereplicantlab.com/">Web pública</a> · <a href="web-corporativa-trl/">Documentación y fuentes privadas</a></p>
 </article>
+<article class="app-card" markdown>
+## CiclosBTC
+<p class="app-type">Observatorio de Bitcoin</p>
+Reloj de ciclo, proyecciones, hitos y simulador de escenarios.
+<dl><dt>Stack</dt><dd>Node.js y Docker Compose</dd><dt>Destino</dt><dd>Nexus</dd><dt>Estado</dt><dd>Despliegue pendiente de validación</dd></dl>
+<p class="app-accesses"><a href="ciclosbtc/">Ficha técnica</a></p>
+</article>
+
 </div>
 
 `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.
