@@ -43,7 +43,7 @@ MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 
 APP_PORTABLES = {
-    "btc-cycle-lab": ("BTC Cycle Lab", "aplicaciones/btc-cycle-lab.md"),
+    "btc-cycle-lab": ("CiclosBTC", "aplicaciones/btc-cycle-lab.md"),
     "backups-lab": ("Backups Lab v1.1.3", "aplicaciones/backups-lab.md"),
     "pula": ("PULA", "aplicaciones/pula.md"),
     "app-launch": ("App Launch", "aplicaciones/app-launch.md"),
@@ -60,7 +60,7 @@ APP_PORTABLES = {
 }
 
 APP_EXPECTED_MARKERS = {
-    "btc-cycle-lab": ("BTC Cycle Lab", "halving", "6 de noviembre de 2026", "Cloudflare"),
+    "btc-cycle-lab": ("CiclosBTC", "halving", "7 de noviembre de 2026", "Cloudflare"),
     "backups-lab": ("v1.1.3", "compatibilidad", "8087", "retención", "rollback", "V2.0"),
     "pula": ("No forma parte de ErasmusHomes", "Cloud Run", "SSRF"),
     "app-launch": ("apps.json", "Tarjeta App Launch", "rollback"),

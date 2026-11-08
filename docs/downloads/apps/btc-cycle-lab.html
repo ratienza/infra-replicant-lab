@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="ea8d45c2e2285ddd72c3e629e342ae399196fb3d351eb5aee5c738cb21b1e707">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="49786973546c8545d15a460e02ecbac1da7ea6041474f1e73521d01ac16b4f44">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:ea8d45c2e2285ddd72c3e629e342ae399196fb3d351eb5aee5c738cb21b1e707">
-  <title>BTC Cycle Lab · Ficha técnica · ea8d45c2e228</title>
+  <meta name="source-fingerprint" content="sha256:49786973546c8545d15a460e02ecbac1da7ea6041474f1e73521d01ac16b4f44">
+  <title>CiclosBTC · Ficha técnica · 49786973546c</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -159,19 +159,19 @@ tr:nth-child(even) td { background: #fafcfd; }
 <body>
   <header class="cover">
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
-    <h1>BTC Cycle Lab</h1>
+    <h1>CiclosBTC</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/btc-cycle-lab.md</dd><dt>Versión reproducible</dt><dd>sha256:ea8d45c2e2285ddd72c3e629e342ae399196fb3d351eb5aee5c738cb21b1e707</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/btc-cycle-lab.md</dd><dt>Versión reproducible</dt><dd>sha256:49786973546c8545d15a460e02ecbac1da7ea6041474f1e73521d01ac16b4f44</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/btc-cycle-lab.md">
       <p class="source-path">aplicaciones/btc-cycle-lab.md</p>
-      <div class="doc-content"><h1 id="p1-aplicacion-btc-cycle-lab">Aplicación · BTC Cycle Lab</h1>
-<p>Laboratorio de análisis de los ciclos de Bitcoin con un reloj concéntrico, comparación histórica y escenarios mensuales. La edición inicial usa cierres hasta el <strong>6 de noviembre de 2026 UTC</strong>.</p>
+      <div class="doc-content"><h1 id="p1-aplicacion-ciclosbtc">Aplicación · CiclosBTC</h1>
+<p>Observatorio privado de ciclos de Bitcoin de The Replicant Lab. La edición <strong>1.1.0</strong> procede del <a href="https://github.com/ratienza/ciclosbtc/tree/892cb01c0ee8d53c3e8102ac9e4c1a89f911dbb5">commit 892cb01 de ciclosbtc</a>. Incluye los logos corporativos, el favicon y la tipografía Inter versionados en el repositorio.</p>
 <h2 id="p1-accesos">Accesos</h2>
 <ul>
-<li><a href="https://launch.thereplicantlab.com/btc-cycle-lab/">BTC Cycle Lab por Cloudflare Access</a>.</li>
-<li><a href="http://192.168.18.220/btc-cycle-lab/">BTC Cycle Lab en la red de Nexus</a>.</li>
+<li><a href="https://launch.thereplicantlab.com/btc-cycle-lab/">CiclosBTC por Cloudflare Access</a>.</li>
+<li><a href="http://192.168.18.220/btc-cycle-lab/">CiclosBTC en Nexus</a>.</li>
 <li>Ficha descargable en <a href="https://docs.thereplicantlab.com/downloads/apps/btc-cycle-lab.html">HTML</a> y <a href="https://docs.thereplicantlab.com/downloads/apps/btc-cycle-lab.pdf">PDF</a>.</li>
 </ul>
 <h2 id="p1-ficha-de-documentacion">Ficha de documentación</h2>
@@ -184,55 +184,38 @@ tr:nth-child(even) td { background: #fafcfd; }
 </thead>
 <tbody>
 <tr>
-<td>Entorno</td>
-<td>Nexus, sitio estático servido por el Nginx de Launch</td>
+<td>Runtime</td>
+<td>Node.js en Docker en Nexus, detrás del proxy de Launch</td>
 </tr>
 <tr>
-<td>Acceso remoto</td>
-<td>Cloudflare Access de Launch</td>
-</tr>
-<tr>
-<td>Acceso LAN</td>
-<td>Nginx de Nexus, puerto 80</td>
+<td>Datos</td>
+<td>Histórico incorporado hasta el 7 de noviembre de 2026. Kraken y Coinbase aportan las observaciones recientes</td>
 </tr>
 <tr>
 <td>Navegación</td>
-<td>Tarjeta «BTC Cycle Lab» y enlace «Documentación» en Launch Nexus</td>
+<td>Tarjeta «CiclosBTC» con enlace «Documentación» en Launch Nexus</td>
 </tr>
 <tr>
 <td>Persistencia</td>
-<td>HTML con datos incluidos y archivos estáticos de consulta</td>
+<td>Volumen <code>ciclosbtc-data</code>, estado y cierres observados</td>
 </tr>
 <tr>
-<td>Cobertura</td>
-<td>Cierres desde julio de 2010 y escenario condicional hasta octubre de 2030</td>
-</tr>
-<tr>
-<td>Series</td>
-<td>Coin Metrics para cierres y Bitstamp para el contraste intradía</td>
+<td>Claude</td>
+<td>Activación de la API pendiente. La app permite preparar y copiar preguntas con el contexto del modelo</td>
 </tr>
 </tbody>
 </table>
 <h2 id="p1-guia-de-uso">Guía de uso</h2>
-<ol>
-<li>Abre el reloj y arrastra un anillo o selecciona un ciclo. Cada vuelta comprime el intervalo entre dos halvings en 24 horas. El centro muestra la fecha elegida y la cuenta atrás al siguiente halving. La tabla compara cada anillo a la misma fracción de su ciclo.</li>
-<li>Selecciona un día, semana, mes, trimestre, año o hito. Usa los botones para avanzar, retroceder o reproducir en la dirección y velocidad elegidas.</li>
-<li>Consulta el gráfico mensual y los hitos. Los tramos proyectados aparecen discontinuos y los precios entre puntos mensuales se identifican como interpolados.</li>
-<li>En Superpuestos, alinea las series por hora del reloj o por días desde el halving, techo o suelo. En Preguntas, consulta el modelo incluido desde el momento seleccionado.</li>
-</ol>
-<h2 id="p1-auditoria-y-datos">Auditoría y datos</h2>
+<p>Usa el reloj para consultar una fecha y comparar ciclos. Cada vuelta representa el intervalo de un halving al siguiente. En Hitos y Proyección puedes seguir los escenarios y distinguir los datos observados de las hipótesis. En Simulador puedes cambiar los supuestos sin modificar el modelo de referencia. Superpuestos, Patrones y Estacionalidad muestran las comparaciones históricas. El precio intradía se distingue de los cierres que usa el modelo. Si faltan cierres recientes, la interfaz indica el hueco y puede pausar la proyección.</p>
 <ul>
-<li><a href="https://launch.thereplicantlab.com/btc-cycle-lab/auditoria.html">Auditoría completa y fuentes</a>.</li>
-<li><a href="https://launch.thereplicantlab.com/btc-cycle-lab/proyeccion-mensual-btc.csv">Proyección mensual en USD</a>.</li>
-<li><a href="https://launch.thereplicantlab.com/btc-cycle-lab/hitos-y-escenarios.csv">Hitos y ventanas de escenarios</a>.</li>
-<li><a href="https://launch.thereplicantlab.com/btc-cycle-lab/prompt.html">Prompt para reproducir la auditoría</a>.</li>
+<li><a href="https://github.com/ratienza/ciclosbtc/blob/892cb01c0ee8d53c3e8102ac9e4c1a89f911dbb5/docs/MODELO.md">Metodología y escenarios</a>.</li>
+<li><a href="https://github.com/ratienza/ciclosbtc/blob/892cb01c0ee8d53c3e8102ac9e4c1a89f911dbb5/docs/API-ANTHROPIC.md">Documentación de la API de Claude</a>.</li>
 </ul>
-<p>El modelo principal y los tres escenarios alternativos se presentan por separado. Los resultados futuros son condicionales y los datos permanecen en el corte indicado hasta reconstruir una edición. La consulta usa respuestas locales sobre los datos incluidos. Las fechas de halving futuras son teóricas y la muestra histórica es pequeña.</p>
 <h2 id="p1-operacion">Operación</h2>
-<p>La ruta externa reutiliza el <a href="https://docs.thereplicantlab.com/red/cloudflare-tunnel/">Cloudflare Tunnel de Launch</a>. El directorio de publicación en Nexus es <code>/home/raul/app-launch/site/btc-cycle-lab/</code>. Para actualizar la edición, genera y valida el HTML autónomo, la auditoría y sus datos, comprueba sus sumas y activa la nueva versión como conjunto. Conserva la versión previa fuera del directorio web para poder recuperarla.</p></div>
+<p>La ruta reutiliza el <a href="https://docs.thereplicantlab.com/red/cloudflare-tunnel/">Cloudflare Tunnel de Launch</a>. El contenedor escucha en la red privada de Docker. Launch sirve la interfaz, la consulta de estado y el endpoint de preguntas bajo <code>/btc-cycle-lab/</code>. Comprueba la edición y la cobertura de mercado con <a href="https://launch.thereplicantlab.com/btc-cycle-lab/healthz">el estado del servicio</a>. El código de Claude está incluido y su configuración de credenciales queda pendiente.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:ea8d45c2e2285ddd72c3e629e342ae399196fb3d351eb5aee5c738cb21b1e707</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:49786973546c8545d15a460e02ecbac1da7ea6041474f1e73521d01ac16b4f44</footer>
 
 </body>
 </html>
