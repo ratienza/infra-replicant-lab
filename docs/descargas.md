@@ -58,6 +58,10 @@ CI ejecuta el modo `check`, vuelve a renderizar un PDF de control, verifica la h
 
 El pipeline y el runtime estático están implementados y probados localmente. La evidencia del 21/08/2026 comprobó el dossier global y las nueve parejas de fichas individuales existentes entonces, incluida PULA; los ficheros servidos por el entorno de validación coincidieron byte a byte con los artefactos generados. El pipeline actual vuelve a validar todas las parejas registradas tras cada cambio. La publicación en Nexus se valida de nuevo después de integrar el cambio en `main`; esta evidencia corresponde al laboratorio privado y no se extrapola a producción.
 
+## Vigencia documental · CryptoWallet V1.7.6 (09/11/2026)
+
+El HTML y PDF de CryptoWallet se regeneran desde su ficha vigente V1.7.6. La consulta unificada Bit2Me Wallet/Pro, la referencia directa USDC/USD y el estado de revisión personal pendiente se documentan en la [ficha](aplicaciones/cryptowallet.md) y en el [cierre de noviembre](cambios/2026-11-09.md). Las anotaciones anteriores se conservan como histórico.
+
 ## Actualización 08/10/2026
 
 CryptoWallet se incorpora como undécima ficha técnica: doce parejas HTML/PDF contando el dossier global. Las fuentes se actualizan con V1.0 productiva; los resultados y la publicación documental se registran en RL-CW-DOC-001. La generación no modifica los runtimes ni las bases financieras.
