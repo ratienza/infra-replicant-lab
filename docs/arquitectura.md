@@ -135,7 +135,7 @@ La guía operativa y de recuperación está en [Cloudflare Tunnel](red/cloudflar
 
 ## Producción privada CryptoWallet
 
-Nexus ejecuta V1.5 cerrada con origen localhost `8516`, datos reales independientes y ningún montaje sintético. La previa localhost `8517` permanece separada. Manual y modelo financiero en el repositorio privado; [ficha de infraestructura](aplicaciones/cryptowallet.md). Google OIDC interno activo, PIN con persistencia 24 horas, privacidad inicial ON y copias locales multibase. Raúl confirmó manualmente el recorrido autorizado; las variantes OIDC y móvil no verificadas son límites aceptados. La réplica Drive es una propuesta independiente. La actualización documental no toca operaciones ni runtimes financieros.
+Nexus ejecuta **CryptoWallet V1.7.6** con origen localhost `8516`, datos reales separados de la previa independiente `8517` y sin montaje sintético en producción. El único refresco de Bit2Me consulta Wallet y Pro secuencialmente; el intercambio Pro se mantiene pendiente hasta confirmación personal. La valoración USDC/USD usa mercado histórico directo, no una paridad asumida. La actualización se muestra incluso en modo privacidad, pero no consulta ni revela cifras sin desactivar ese modo para la sesión. Google OIDC interno, PIN y Cloudflare Access continúan activos. Las copias multibase y rollback se conservan. [Ficha vigente](aplicaciones/cryptowallet.md). Esta sincronización documental no redepliega la aplicación ni cambia operaciones.
 
 ## Web comercial pública v1.0 · DigitalOcean (20/10/2026)
 
