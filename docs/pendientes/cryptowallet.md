@@ -1,5 +1,17 @@
 # Pendientes · CryptoWallet
 
+## Estado actual · 09/11/2026 · V1.7.6
+
+La actualización unificada Bit2Me Wallet + Pro **ya está publicada**; no es un desarrollo pendiente. La compra recurrente de Wallet comprobada está registrada, y el intercambio Pro USDC → BTC **continúa pendiente de revisión y confirmación personal**. El control de actualización siempre aparece en Logbook, incluso en modo privacidad, sin mostrar datos privados hasta que se habilite su visualización. La valoración Pro se apoya en una referencia directa histórica USDC/USD con fuente verificable.
+
+La publicación V1.7.6 superó 455 pruebas locales y 455 en imagen aislada. No cambió el estado financiero ni habilitó contabilización automática. [Ficha vigente](../aplicaciones/cryptowallet.md) · [Notas de cambio](../cambios/2026-11-09.md) · [Manual privado actualizado](https://github.com/ratienza/cryptowallet/tree/main/docs/v1).
+
+---
+
+## Archivo histórico · cierre V1.6.11
+
+Los apartados siguientes recogen la foto de octubre. No representan una deuda de integración Wallet/Pro a noviembre.
+
 **V1.6.11 cerrada y desplegada el 17/10/2026.** Una regularización conserva saldo previo y objetivo como evidencia de aceptación y reproduce su delta fijo. Dos copias restauradas del estado productivo validaron una compra anterior exacta, el reintento sin duplicación y la recuperación del borrador existente; la compra real sigue pendiente y producción conservó su huella. Google interno, PIN, privacidad inicial y copias multibase permanecen activos. La apertura financiera V1.0 sigue aceptada; CW-004 y CW-005 no se reabren.
 
 ## Controles operativos reales

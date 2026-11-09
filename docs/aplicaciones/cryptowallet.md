@@ -1,5 +1,23 @@
 # Aplicación · CryptoWallet
 
+## Estado vigente · V1.7.6 · 09/11/2026
+
+**CryptoWallet V1.7.6 está publicada y verificada en Nexus**, como servicio privado protegido, con la imagen `cryptowallet:1.7.6-a21368c0aacf`. La versión de código fue integrada en el [PR #59](https://github.com/ratienza/cryptowallet/pull/59) y el cierre documental en el [PR #61](https://github.com/ratienza/cryptowallet/pull/61); el producto está etiquetado como [v1.7.6](https://github.com/ratienza/cryptowallet/tree/v1.7.6).
+
+- **Un único «Actualizar Bit2Me»** consulta secuencialmente Wallet y Pro, con resultados identificados y revisión humana previa a toda confirmación.
+- **Visibilidad del control:** con las cifras ocultas se muestra el bloque de actualización, pero no consulta ni revela movimientos. «Mostrar cifras para actualizar» habilita temporalmente la sesión. Con cifras visibles, el bloque se despliega y muestra candidatos pendientes por fuente, sin perder los de Pro al registrar una compra Wallet.
+- **BTC comprado con USDC en Pro:** se conserva el precio de ejecución y una **referencia histórica directa USDC/USD** obtenida de mercado (Kraken), con origen y momento. No se presupone paridad 1:1 ni se reconstruye el cambio con el contravalor EUR de Pro o el BCE. Si falta cotización verificable, se solicita una referencia humana.
+- **Estado contable:** integración de solo lectura; las transferencias propias Wallet/Pro no generan compras adicionales. El intercambio Pro comprobado sigue sujeto a revisión y confirmación expresa del titular. No se contabilizó automáticamente.
+- **Control de entrega:** 455 pruebas locales y 455 en contenedor aislado. El servicio quedó saludable, API Wallet/Pro disponible, previsualización financiera correcta y huella de datos idéntica antes y después de publicar. Se conservaron respaldo y rollback de código.
+
+**Accesos y documentación actual:** [producción protegida](https://cryptowallet.thereplicantlab.com/) · [fuente técnica](https://github.com/ratienza/cryptowallet/tree/main/docs/v1) · [release V1.7](https://github.com/ratienza/cryptowallet/blob/main/docs/releases/v1.7.md) · [historial del 09/11](../cambios/2026-11-09.md). La previa independiente no se declara actualizada a esta versión.
+
+---
+
+## Registro histórico · V1.6.11 (17/10/2026)
+
+La información siguiente documenta **la entrega de octubre**, no el estado vigente de producción. Sus SHAs, imágenes, pruebas y referencias V1.6.11 se conservan como evidencia histórica.
+
 CryptoWallet **V1.6.11 / 1.6.11** está cerrada y desplegada en producción privada Nexus desde el **17/10/2026**. Conserva la apertura financiera aceptada y los cierres anteriores. Una regularización valida saldo previo, delta y objetivo al confirmar; en replay aplica el delta aceptado y conserva saldo previo/objetivo como evidencia, sin reinterpretarlos como el saldo corriente. La previa conserva un entorno independiente; no se presume actualizada a V1.6.11.
 
 La evidencia operativa procede del [HANDOFF privado](https://github.com/ratienza/cryptowallet/blob/main/HANDOFF.md) y de la [release V1.6.11](https://github.com/ratienza/cryptowallet/blob/v1.6.11/docs/releases/v1.6.md). La activación de Google y el recorrido Google → PIN → cartera siguen atribuidos a la confirmación manual de Raúl en incógnito el 09/10/2026. En este cierre el origen productivo, la identidad de imagen y la puerta Access se comprobaron. El flujo completo se confirmó en dos copias restauradas e independientes del estado productivo; producción no se montó en esos contenedores y la compra real continúa pendiente.

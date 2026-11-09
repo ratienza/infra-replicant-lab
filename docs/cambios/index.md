@@ -1,5 +1,7 @@
 # Change Log
 
+- [9 de noviembre de 2026 · CryptoWallet V1.7.6](2026-11-09.md)
+
 - [31 de octubre de 2026 · auditoría documental TRL](2026-10-31.md)
 
 - [17 de octubre de 2026 · CryptoWallet V1.6.11](2026-10-17.md)
