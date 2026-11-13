@@ -1,6 +1,19 @@
 # Aplicación · CryptoWallet
 
-## Estado vigente · V1.7.6 · 09/11/2026
+## Estado vigente · V1.7.7 · 13/11/2026
+
+**CryptoWallet V1.7.7 está publicada y verificada en Nexus.** Versión de producción `cryptowallet:1.7.7-513d941bb9d7`, código en [PR #63](https://github.com/ratienza/cryptowallet/pull/63), cierre documental en [PR #64](https://github.com/ratienza/cryptowallet/pull/64) y etiqueta [v1.7.7](https://github.com/ratienza/cryptowallet/tree/v1.7.7).
+
+- **Actualización Bit2Me completa:** el botón único consulta compras de Wallet, historial general de Wallet, transferencias Pro y fills de trading. Los ingresos bancarios `deposit/funding` no aparecían con el antiguo filtro `operation=deposit`; ya se recuperan por el historial sin filtro.
+- **Cadena real comprobada el 13/11:** ingreso externo de **1.000 EUR**, traslado Wallet→Pro de 1.000 EUR y compra **USDC/EUR** por 999,99999999 EUR; 1.104,85029278 USDC brutos menos 0,1099326 USDC de comisión = **1.104,74036018 USDC netos**. Los tres movimientos se detectan y el traspaso se concilia sin duplicar aportaciones.
+- **Contabilidad controlada:** el ingreso EUR se revisa y confirma antes de comprar USDC con liquidez EUR. El coste USD usa referencia BCE EUR/USD fechada (última disponible el 12/11/2026); la compra anterior BTC/USDC conserva su referencia histórica *directa* Kraken USDC/USD. No se inventan paridades.
+- **Protección y validación:** 461 pruebas locales y 461 en contenedor aislado. API real sin errores, estado financiero íntegro (13 confirmaciones antes/después) y backup/rollback conservados. **El ingreso y la compra nuevos siguen sin contabilizarse hasta la confirmación del titular.** PIN, OAuth y privacidad inicial permanecen activos.
+
+**Documentación vigente:** [CryptoWallet](https://cryptowallet.thereplicantlab.com/) · [manual técnico](https://github.com/ratienza/cryptowallet/tree/main/docs/v1) · [release](https://github.com/ratienza/cryptowallet/blob/main/docs/releases/v1.7.md) · [cierre de 13/11](../cambios/2026-11-13.md).
+
+---
+
+## Archivo histórico · V1.7.6 · 09/11/2026
 
 **CryptoWallet V1.7.6 está publicada y verificada en Nexus**, como servicio privado protegido, con la imagen `cryptowallet:1.7.6-a21368c0aacf`. La versión de código fue integrada en el [PR #59](https://github.com/ratienza/cryptowallet/pull/59) y el cierre documental en el [PR #61](https://github.com/ratienza/cryptowallet/pull/61); el producto está etiquetado como [v1.7.6](https://github.com/ratienza/cryptowallet/tree/v1.7.6).
 

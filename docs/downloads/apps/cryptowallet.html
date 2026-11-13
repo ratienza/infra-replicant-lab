@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="955b1fdcf0f79cdd93d00be8feae33cbc89d7e6828baba3b192b00a16dd14788">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="c7aeb02cdfd724b3a6a3f5ce07c573d07985580af4e73b9d7a32780782a0d124">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:955b1fdcf0f79cdd93d00be8feae33cbc89d7e6828baba3b192b00a16dd14788">
-  <title>CryptoWallet · Ficha técnica · 955b1fdcf0f7</title>
+  <meta name="source-fingerprint" content="sha256:c7aeb02cdfd724b3a6a3f5ce07c573d07985580af4e73b9d7a32780782a0d124">
+  <title>CryptoWallet · Ficha técnica · c7aeb02cdfd7</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -161,13 +161,23 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>CryptoWallet</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cryptowallet.md</dd><dt>Versión reproducible</dt><dd>sha256:955b1fdcf0f79cdd93d00be8feae33cbc89d7e6828baba3b192b00a16dd14788</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cryptowallet.md</dd><dt>Versión reproducible</dt><dd>sha256:c7aeb02cdfd724b3a6a3f5ce07c573d07985580af4e73b9d7a32780782a0d124</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/cryptowallet.md">
       <p class="source-path">aplicaciones/cryptowallet.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-cryptowallet">Aplicación · CryptoWallet</h1>
-<h2 id="p1-estado-vigente-v176-09112026">Estado vigente · V1.7.6 · 09/11/2026</h2>
+<h2 id="p1-estado-vigente-v177-13112026">Estado vigente · V1.7.7 · 13/11/2026</h2>
+<p><strong>CryptoWallet V1.7.7 está publicada y verificada en Nexus.</strong> Versión de producción <code>cryptowallet:1.7.7-513d941bb9d7</code>, código en <a href="https://github.com/ratienza/cryptowallet/pull/63">PR #63</a>, cierre documental en <a href="https://github.com/ratienza/cryptowallet/pull/64">PR #64</a> y etiqueta <a href="https://github.com/ratienza/cryptowallet/tree/v1.7.7">v1.7.7</a>.</p>
+<ul>
+<li><strong>Actualización Bit2Me completa:</strong> el botón único consulta compras de Wallet, historial general de Wallet, transferencias Pro y fills de trading. Los ingresos bancarios <code>deposit/funding</code> no aparecían con el antiguo filtro <code>operation=deposit</code>; ya se recuperan por el historial sin filtro.</li>
+<li><strong>Cadena real comprobada el 13/11:</strong> ingreso externo de <strong>1.000 EUR</strong>, traslado Wallet→Pro de 1.000 EUR y compra <strong>USDC/EUR</strong> por 999,99999999 EUR; 1.104,85029278 USDC brutos menos 0,1099326 USDC de comisión = <strong>1.104,74036018 USDC netos</strong>. Los tres movimientos se detectan y el traspaso se concilia sin duplicar aportaciones.</li>
+<li><strong>Contabilidad controlada:</strong> el ingreso EUR se revisa y confirma antes de comprar USDC con liquidez EUR. El coste USD usa referencia BCE EUR/USD fechada (última disponible el 12/11/2026); la compra anterior BTC/USDC conserva su referencia histórica <em>directa</em> Kraken USDC/USD. No se inventan paridades.</li>
+<li><strong>Protección y validación:</strong> 461 pruebas locales y 461 en contenedor aislado. API real sin errores, estado financiero íntegro (13 confirmaciones antes/después) y backup/rollback conservados. <strong>El ingreso y la compra nuevos siguen sin contabilizarse hasta la confirmación del titular.</strong> PIN, OAuth y privacidad inicial permanecen activos.</li>
+</ul>
+<p><strong>Documentación vigente:</strong> <a href="https://cryptowallet.thereplicantlab.com/">CryptoWallet</a> · <a href="https://github.com/ratienza/cryptowallet/tree/main/docs/v1">manual técnico</a> · <a href="https://github.com/ratienza/cryptowallet/blob/main/docs/releases/v1.7.md">release</a> · <a href="https://docs.thereplicantlab.com/cambios/2026-11-13/">cierre de 13/11</a>.</p>
+<hr>
+<h2 id="p1-archivo-historico-v176-09112026">Archivo histórico · V1.7.6 · 09/11/2026</h2>
 <p><strong>CryptoWallet V1.7.6 está publicada y verificada en Nexus</strong>, como servicio privado protegido, con la imagen <code>cryptowallet:1.7.6-a21368c0aacf</code>. La versión de código fue integrada en el <a href="https://github.com/ratienza/cryptowallet/pull/59">PR #59</a> y el cierre documental en el <a href="https://github.com/ratienza/cryptowallet/pull/61">PR #61</a>; el producto está etiquetado como <a href="https://github.com/ratienza/cryptowallet/tree/v1.7.6">v1.7.6</a>.</p>
 <ul>
 <li><strong>Un único «Actualizar Bit2Me»</strong> consulta secuencialmente Wallet y Pro, con resultados identificados y revisión humana previa a toda confirmación.</li>
@@ -332,7 +342,7 @@ tr:nth-child(even) td { background: #fafcfd; }
 <p>Se conserva <strong>V1.6.11</strong>. <a href="https://github.com/ratienza/cryptowallet/blob/main/HANDOFF.md">HANDOFF</a> acredita identidad TRL publicada el 30/10, PR #46, funcional <code>9cf8f17</code>, cierre <code>3162835</code>, 430 pruebas registradas y preservación de módulos financieros/seguridad. Son evidencias del repositorio, no una batería repetida hoy.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:955b1fdcf0f79cdd93d00be8feae33cbc89d7e6828baba3b192b00a16dd14788</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:c7aeb02cdfd724b3a6a3f5ce07c573d07985580af4e73b9d7a32780782a0d124</footer>
 
 </body>
 </html>
