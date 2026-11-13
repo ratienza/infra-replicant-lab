@@ -1,6 +1,19 @@
 # Aplicación · CryptoWallet
 
-## Estado vigente · V1.7.7 · 13/11/2026
+## Estado vigente · V1.7.8 · 13/11/2026
+
+**CryptoWallet V1.7.8 publicada y verificada en Nexus.** Imagen protegida `cryptowallet:1.7.8-f95578fd91d9`, código en [PR #65](https://github.com/ratienza/cryptowallet/pull/65), cierre de documentación [PR #66](https://github.com/ratienza/cryptowallet/pull/66), precisión sobre la cadena en [PR #67](https://github.com/ratienza/cryptowallet/pull/67) y etiqueta [v1.7.8](https://github.com/ratienza/cryptowallet/tree/v1.7.8).
+
+- **Logbook más limpio:** «Actualizar operaciones» aparece justo debajo de «Añadir operación». Una sola pulsación consulta Wallet y Pro en secuencia y presenta candidatos y errores en un **modal** sobre la misma página; permite repetir la consulta. Añadir, editar y revisar (manual o API) también se realiza en modales, manteniendo la tabla y los filtros visibles de fondo.
+- **Privacidad y control:** en modo cifras ocultas el modal no lanza llamadas privadas ni muestra saldos hasta que el titular habilite su visualización. Toda contabilización sigue requiriendo revisión y confirmación humana. No se realizan trades automáticos.
+- **FIFO BTC auditado (13/11):** última compra confirmada de **0,00797131 BTC netos** por **552,369482 USDC** y **0,00003985 BTC** de comisión. Con el mismo EUR/USD BCE = **1,1052** en la comparación, el precio medio de los lotes BTC pasó de **75.499,98 a 74.058,88 USD/BTC** (−1.441,10; −1,91 %). El cálculo es correcto: no se han reescrito lotes, comisiones, saldos ni coste histórico. En una cartera con costes en EUR y USD, la media expresada en USD requiere un FX vigente para la vista.
+- **Validación y trazabilidad:** **461 pruebas locales + 461 en Docker aislado**, servicio saludable, HTTP local 200 y acceso protegido Cloudflare 302. Antes/después del despliegue se mantuvieron **16 eventos de cadena y 14 operaciones activas**, además de la huella financiera. Backup y rollback v1.7.7 conservados. Los movimientos de ingreso EUR y compra USDC/EUR del 13/11 figuran ya contabilizados tras aprobación individual del titular.
+
+**Accesos:** [CryptoWallet](https://cryptowallet.thereplicantlab.com/) · [manual y código](https://github.com/ratienza/cryptowallet/tree/main/docs/v1) · [release](https://github.com/ratienza/cryptowallet/blob/main/docs/releases/v1.7.md) · [registro del 13/11](../cambios/2026-11-13.md).
+
+---
+
+## Archivo histórico · V1.7.7 · 13/11/2026
 
 **CryptoWallet V1.7.7 está publicada y verificada en Nexus.** Versión de producción `cryptowallet:1.7.7-513d941bb9d7`, código en [PR #63](https://github.com/ratienza/cryptowallet/pull/63), cierre documental en [PR #64](https://github.com/ratienza/cryptowallet/pull/64) y etiqueta [v1.7.7](https://github.com/ratienza/cryptowallet/tree/v1.7.7).
 
