@@ -58,6 +58,10 @@ CI ejecuta el modo `check`, vuelve a renderizar un PDF de control, verifica la h
 
 El pipeline y el runtime estático están implementados y probados localmente. La evidencia del 21/08/2026 comprobó el dossier global y las nueve parejas de fichas individuales existentes entonces, incluida PULA; los ficheros servidos por el entorno de validación coincidieron byte a byte con los artefactos generados. El pipeline actual vuelve a validar todas las parejas registradas tras cada cambio. La publicación en Nexus se valida de nuevo después de integrar el cambio en `main`; esta evidencia corresponde al laboratorio privado y no se extrapola a producción.
 
+## Vigencia documental · CryptoWallet V1.7.8 (13/11/2026)
+
+Las fichas HTML/PDF describen la actualización Wallet + Pro en una pulsación desde botón junto a «Añadir operación» y los modales superpuestos; incluyen auditoría de BTC FIFO de 75.499,98 → 74.058,88 USD/BTC con mismo tipo BCE, sin modificar saldos, y el cierre de 461+461 pruebas. [Ficha](aplicaciones/cryptowallet.md) · [Cambios](cambios/2026-11-13.md). Las entradas de V1.7.7 y anteriores permanecen como histórico.
+
 ## Vigencia documental · CryptoWallet V1.7.7 (13/11/2026)
 
 El HTML y PDF de la ficha CryptoWallet contienen el circuito verificado de ingreso EUR → Wallet/Pro → USDC/EUR, las comisiones, conciliación sin duplicados, confirmación exclusiva del titular y referencias históricas USD correctas. Véase la [ficha vigente](aplicaciones/cryptowallet.md) y el [registro del 13/11](cambios/2026-11-13.md). Las notas V1.7.6 permanecen como histórico.

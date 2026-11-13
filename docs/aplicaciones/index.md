@@ -109,13 +109,17 @@ Gestiona y analiza una cartera personal de inversión. La release v2.1.0 añade 
 
 <article class="app-card" markdown>
 ## CryptoWallet
-<p class="app-type">Cartera cripto privada · V1.7.7 desplegada</p>
-Seguimiento y liquidez con FIFO. El botón único de Bit2Me detecta abonos bancarios EUR, concilia el traspaso Wallet→Pro sin duplicados y muestra compras USDC/EUR y BTC/USDC con sus comisiones reales. La valoración en USD conserva la fuente histórica del par; toda operación requiere revisión/confirmación. Privacidad, Google, PIN y backups activos.</dt><dd>Codex</dd>
+<p class="app-type">Cartera cripto privada · V1.7.8 desplegada</p>
+
+Seguimiento y liquidez con FIFO. «Actualizar operaciones» ejecuta la consulta Bit2Me Wallet + Pro y abre un modal sobre Logbook; añadir, editar y revisar conserva la tabla de fondo. Ingresos EUR y compras USDC/BTC diferenciados de transferencias internas. Precio medio BTC auditado: 75.499,98 → 74.058,88 USD tras compra de 13/11 (FX BCE fijo). Google interno, PIN, privacidad inicial y copias activos.
+
+<dl>
+<dt>Herramienta</dt><dd>Codex</dd>
 <dt>Stack</dt><dd>Python · Streamlit · SQLite</dd>
 <dt>Repositorio</dt><dd><code>ratienza/cryptowallet</code> · privado</dd>
 <dt>Deploy</dt><dd>Docker Compose</dd>
 <dt>Runtime</dt><dd>Nexus · producción privada</dd>
-<dt>Estado</dt><dd>V1.7.7 productiva · previa independiente</dd>
+<dt>Estado</dt><dd>V1.7.8 productiva · previa independiente</dd>
 <dt>URL pública</dt><dd>Cloudflare Access</dd>
 </dl>
 <p class="app-accesses"><a href="../downloads/apps/cryptowallet.html">Ficha técnica</a> · <a href="https://cryptowallet.thereplicantlab.com/" target="_blank" rel="noopener">Entrar</a> · <a href="cryptowallet/">Documentación</a></p>

@@ -107,7 +107,7 @@ Este gráfico separa dos ideas que antes aparecían mezcladas: **dónde se despl
 | Replicant Lab en Nexus | ✅ Runtime Nginx estático validado · `8082` |
 | Reserva-Pistas-UTP | ✅ Validada y observada en Nexus · `8083` |
 | Cartera Estratégica | ✅ [v2.1.1 acreditada en HANDOFF](aplicaciones/cartera-estrategica.md) · Nexus `8085` · OAuth interno + PIN · Indexa API oficial |
-| CryptoWallet | ✅ [V1.7.7 productiva](aplicaciones/cryptowallet.md) · Nexus `8516` · Wallet ingresos fiat + Pro, compra USDC/EUR, traslado sin duplicados; confirmación personal pendiente · Google interno, PIN, privacidad ON · previa independiente `8517` |
+| CryptoWallet | ✅ [V1.7.8 productiva](aplicaciones/cryptowallet.md) · Nexus `8516` · Actualizar operaciones abre modal y consulta Wallet + Pro; precio medio BTC auditado y FIFO correcto · OAuth, PIN y privacidad inicial · previa independiente `8517` |
 | Reserva-Pistas histórico en Nexus | ✅ 18 registros reconciliados bajo demanda · sin conflictos |
 | Consumos Cupra | ✅ Cloud Run · `9f66a368` · revisión `00009-pon` al 100 % |
 | CV | ✅ Firebase Hosting · HTTP `200` · deuda POST-CARTERA |
@@ -135,9 +135,9 @@ Los estados distinguen entre contenido **implementado en Git**, **probado localm
 
 `launch.thereplicantlab.com` y los hostnames de Salones, Docs, Pádel, Red y Cartera publican servicios Nexus mediante un único Cloudflare Tunnel, DNS y HTTPS. Google identifica y Access autoriza por aplicación; Cartera añade Google OIDC interno y PIN; `cloudflared` mantiene la conexión saliente sin abrir puertos en el router. Los accesos LAN por IP y puerto permanecen sin cambios.
 
-## CryptoWallet · estado vigente V1.7.7
+## CryptoWallet · estado vigente V1.7.8
 
-La **V1.7.7** está desplegada en Nexus desde el 13/11/2026. El refresco Bit2Me detecta el ingreso bancario de 1.000 EUR, concilia el traslado Wallet→Pro y presenta la compra USDC/EUR para revisión con costes/comisiones reales. El depósito se confirma antes de la compra y ambos siguen pendientes de aprobación personal; no hay duplicados ni escrituras automáticas. Validación 461+461 pruebas y datos intactos. [Ficha](aplicaciones/cryptowallet.md) · [cierre](cambios/2026-11-13.md). La V1.7.6 sigue archivada.
+La **V1.7.8** se publicó el 13/11/2026 en Nexus. Desde Logbook, «Actualizar operaciones» queda debajo de «Añadir operación» y ejecuta el refresco Wallet→Pro dentro de un modal, igual que la revisión de operaciones. La compra BTC de 0,00797131 BTC netos por 552,369482 USDC está registrada y rebajó la media FIFO de **75.499,98 a 74.058,88 USD/BTC** (mismo FX BCE = 1,1052). Se mantienen 14 operaciones activas y 16 eventos auditables sin variación de huella durante el despliegue. 461+461 pruebas, backup/rollback y Access preservados. [Ficha](aplicaciones/cryptowallet.md) · [cierre](cambios/2026-11-13.md).
 
 [Backups Lab v1.1.3](aplicaciones/backups-lab.md) está publicado y verificado técnicamente en Nexus: contratos versionados toleran evolución normal y bloquean solo la aplicación incompatible. CryptoWallet y Control Red repitieron Drive/descarga/hashes/recuperación aislada; seis horarios ON, tres OFF y retención 7/4/12/3 ON se preservaron. El informe diario, log exportable, agentes externos/cifrado adicional y recuperación integral de host pertenecen a [Backlog V2.0](pendientes/backups-drive.md).
 

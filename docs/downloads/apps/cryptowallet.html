@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="c7aeb02cdfd724b3a6a3f5ce07c573d07985580af4e73b9d7a32780782a0d124">
+<html lang="es" class="app-portable" data-portable="ready" data-source-fingerprint="ef8638e304744c5134acf16a14f6962f4ff088779084b1ea6f412d316dc78fd0">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Replicant documentation pipeline 4">
-  <meta name="source-fingerprint" content="sha256:c7aeb02cdfd724b3a6a3f5ce07c573d07985580af4e73b9d7a32780782a0d124">
-  <title>CryptoWallet · Ficha técnica · c7aeb02cdfd7</title>
+  <meta name="source-fingerprint" content="sha256:ef8638e304744c5134acf16a14f6962f4ff088779084b1ea6f412d316dc78fd0">
+  <title>CryptoWallet · Ficha técnica · ef8638e30474</title>
   <style>:root {
   color-scheme: light;
   --ink: #172b3a;
@@ -161,13 +161,23 @@ tr:nth-child(even) td { background: #fafcfd; }
     <p class="eyebrow">REPLICANT LAB · FICHA TÉCNICA DERIVADA DE MKDOCS</p>
     <h1>CryptoWallet</h1>
     <p class="lead">Arquitectura, despliegue, operación, seguridad y evidencia auditada.</p>
-    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cryptowallet.md</dd><dt>Versión reproducible</dt><dd>sha256:c7aeb02cdfd724b3a6a3f5ce07c573d07985580af4e73b9d7a32780782a0d124</dd></dl>
+    <dl class="build-meta"><dt>Fuente</dt><dd>aplicaciones/cryptowallet.md</dd><dt>Versión reproducible</dt><dd>sha256:ef8638e304744c5134acf16a14f6962f4ff088779084b1ea6f412d316dc78fd0</dd></dl>
   </header>
   <main class="portable-main">
     <section class="doc-page is-active" data-source="aplicaciones/cryptowallet.md">
       <p class="source-path">aplicaciones/cryptowallet.md</p>
       <div class="doc-content"><h1 id="p1-aplicacion-cryptowallet">Aplicación · CryptoWallet</h1>
-<h2 id="p1-estado-vigente-v177-13112026">Estado vigente · V1.7.7 · 13/11/2026</h2>
+<h2 id="p1-estado-vigente-v178-13112026">Estado vigente · V1.7.8 · 13/11/2026</h2>
+<p><strong>CryptoWallet V1.7.8 publicada y verificada en Nexus.</strong> Imagen protegida <code>cryptowallet:1.7.8-f95578fd91d9</code>, código en <a href="https://github.com/ratienza/cryptowallet/pull/65">PR #65</a>, cierre de documentación <a href="https://github.com/ratienza/cryptowallet/pull/66">PR #66</a>, precisión sobre la cadena en <a href="https://github.com/ratienza/cryptowallet/pull/67">PR #67</a> y etiqueta <a href="https://github.com/ratienza/cryptowallet/tree/v1.7.8">v1.7.8</a>.</p>
+<ul>
+<li><strong>Logbook más limpio:</strong> «Actualizar operaciones» aparece justo debajo de «Añadir operación». Una sola pulsación consulta Wallet y Pro en secuencia y presenta candidatos y errores en un <strong>modal</strong> sobre la misma página; permite repetir la consulta. Añadir, editar y revisar (manual o API) también se realiza en modales, manteniendo la tabla y los filtros visibles de fondo.</li>
+<li><strong>Privacidad y control:</strong> en modo cifras ocultas el modal no lanza llamadas privadas ni muestra saldos hasta que el titular habilite su visualización. Toda contabilización sigue requiriendo revisión y confirmación humana. No se realizan trades automáticos.</li>
+<li><strong>FIFO BTC auditado (13/11):</strong> última compra confirmada de <strong>0,00797131 BTC netos</strong> por <strong>552,369482 USDC</strong> y <strong>0,00003985 BTC</strong> de comisión. Con el mismo EUR/USD BCE = <strong>1,1052</strong> en la comparación, el precio medio de los lotes BTC pasó de <strong>75.499,98 a 74.058,88 USD/BTC</strong> (−1.441,10; −1,91 %). El cálculo es correcto: no se han reescrito lotes, comisiones, saldos ni coste histórico. En una cartera con costes en EUR y USD, la media expresada en USD requiere un FX vigente para la vista.</li>
+<li><strong>Validación y trazabilidad:</strong> <strong>461 pruebas locales + 461 en Docker aislado</strong>, servicio saludable, HTTP local 200 y acceso protegido Cloudflare 302. Antes/después del despliegue se mantuvieron <strong>16 eventos de cadena y 14 operaciones activas</strong>, además de la huella financiera. Backup y rollback v1.7.7 conservados. Los movimientos de ingreso EUR y compra USDC/EUR del 13/11 figuran ya contabilizados tras aprobación individual del titular.</li>
+</ul>
+<p><strong>Accesos:</strong> <a href="https://cryptowallet.thereplicantlab.com/">CryptoWallet</a> · <a href="https://github.com/ratienza/cryptowallet/tree/main/docs/v1">manual y código</a> · <a href="https://github.com/ratienza/cryptowallet/blob/main/docs/releases/v1.7.md">release</a> · <a href="https://docs.thereplicantlab.com/cambios/2026-11-13/">registro del 13/11</a>.</p>
+<hr>
+<h2 id="p1-archivo-historico-v177-13112026">Archivo histórico · V1.7.7 · 13/11/2026</h2>
 <p><strong>CryptoWallet V1.7.7 está publicada y verificada en Nexus.</strong> Versión de producción <code>cryptowallet:1.7.7-513d941bb9d7</code>, código en <a href="https://github.com/ratienza/cryptowallet/pull/63">PR #63</a>, cierre documental en <a href="https://github.com/ratienza/cryptowallet/pull/64">PR #64</a> y etiqueta <a href="https://github.com/ratienza/cryptowallet/tree/v1.7.7">v1.7.7</a>.</p>
 <ul>
 <li><strong>Actualización Bit2Me completa:</strong> el botón único consulta compras de Wallet, historial general de Wallet, transferencias Pro y fills de trading. Los ingresos bancarios <code>deposit/funding</code> no aparecían con el antiguo filtro <code>operation=deposit</code>; ya se recuperan por el historial sin filtro.</li>
@@ -342,7 +352,7 @@ tr:nth-child(even) td { background: #fafcfd; }
 <p>Se conserva <strong>V1.6.11</strong>. <a href="https://github.com/ratienza/cryptowallet/blob/main/HANDOFF.md">HANDOFF</a> acredita identidad TRL publicada el 30/10, PR #46, funcional <code>9cf8f17</code>, cierre <code>3162835</code>, 430 pruebas registradas y preservación de módulos financieros/seguridad. Son evidencias del repositorio, no una batería repetida hoy.</p></div>
     </section>
   </main>
-  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:c7aeb02cdfd724b3a6a3f5ce07c573d07985580af4e73b9d7a32780782a0d124</footer>
+  <footer class="document-footer">Generado desde la fuente Markdown canónica · sha256:ef8638e304744c5134acf16a14f6962f4ff088779084b1ea6f412d316dc78fd0</footer>
 
 </body>
 </html>

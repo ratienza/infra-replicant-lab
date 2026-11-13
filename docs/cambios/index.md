@@ -1,6 +1,6 @@
 # Change Log
 
-- [13 de noviembre de 2026 · CryptoWallet V1.7.7](2026-11-13.md)
+- [13 de noviembre de 2026 · CryptoWallet V1.7.7 y V1.7.8](2026-11-13.md)
 
 - [9 de noviembre de 2026 · CryptoWallet V1.7.6](2026-11-09.md)
 

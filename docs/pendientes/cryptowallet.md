@@ -1,6 +1,14 @@
 # Pendientes · CryptoWallet
 
-## Estado actual · 13/11/2026 · V1.7.7
+## Estado actual · 13/11/2026 · V1.7.8
+
+**Corrección de Logbook publicada y auditada:** la actualización de operaciones, su revisión y edición se abren sobre la página en modales; una sola pulsación consulta Wallet y Pro con privacidad y confirmación humana. La compra de BTC con USDC está contabilizada y el **precio medio FIFO sí bajó** (75.499,98 → 74.058,88 USD/BTC con FX fijo 1,1052). El ingreso EUR y la compra USDC/EUR anteriores también están incorporados: no repetirlos. Base de 14 operaciones activas y 16 eventos de cadena conservada al desplegar. No queda una tarea técnica pendiente sobre esos tres movimientos; cualquier operación nueva requiere revisión normal del Logbook.
+
+[Ficha vigente](../aplicaciones/cryptowallet.md) · [Historial del 13/11](../cambios/2026-11-13.md).
+
+---
+
+## Archivo histórico · 13/11/2026 · V1.7.7
 
 **Integración de ingreso EUR y compras Pro USDC/EUR publicada y probada.** El refresco Wallet + Pro identifica 1 ingreso externo EUR pendiente, 1 traslado interno conciliado y 1 compra USDC/EUR pendiente. La confirmación humana del ingreso fiat y de la compra permanece pendiente; **no** son defectos de integración ni se deben importar dos veces. No se han realizado escrituras financieras automáticas. Ver [cierre de noviembre](../cambios/2026-11-13.md) y [ficha vigente](../aplicaciones/cryptowallet.md).
 
