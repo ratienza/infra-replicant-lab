@@ -135,7 +135,7 @@ La guía operativa y de recuperación está en [Cloudflare Tunnel](red/cloudflar
 
 ## Producción privada CryptoWallet
 
-Nexus ejecuta **CryptoWallet V1.7.6** con origen localhost `8516`, datos reales separados de la previa independiente `8517` y sin montaje sintético en producción. El único refresco de Bit2Me consulta Wallet y Pro secuencialmente; el intercambio Pro se mantiene pendiente hasta confirmación personal. La valoración USDC/USD usa mercado histórico directo, no una paridad asumida. La actualización se muestra incluso en modo privacidad, pero no consulta ni revela cifras sin desactivar ese modo para la sesión. Google OIDC interno, PIN y Cloudflare Access continúan activos. Las copias multibase y rollback se conservan. [Ficha vigente](aplicaciones/cryptowallet.md). Esta sincronización documental no redepliega la aplicación ni cambia operaciones.
+Nexus ejecuta **CryptoWallet V1.7.7** con origen `8516`, copia privada y previa independiente `8517`. El botón único Bit2Me consulta Wallet/Pro, detecta ingresos externos de EUR y compras USDC/EUR, y reconcilia los traspasos propios sin sumarlos al patrimonio. El coste USD se referencia a BCE para EUR y Kraken USDC/USD para intercambios de BTC con USDC. La app exige confirmación humana y conserva Google OIDC, PIN, Cloudflare, backups y huella financiera. [Ficha vigente](aplicaciones/cryptowallet.md).
 
 ## Web comercial pública v1.0 · DigitalOcean (20/10/2026)
 

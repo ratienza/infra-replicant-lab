@@ -12,6 +12,6 @@ No hay incidencias críticas abiertas en Salones AV, Consumos Cupra o Reserva-Pi
 | Backups Lab | v1.1.3 publicada y verificada técnicamente; solo propuestas V2 reales | P1/P2 | [Backlog V2.0](backups-drive.md); sin requisitos v1.1.3 pendientes |
 | App Launch | Assets históricos, filtros y workflow de estado | Baja | Mejora opcional |
 | Cloudflare Tunnel + Access | Validación móvil/administrativa por hostname, alertas y recuperación | Alta | Tunnel operativo; catálogo #15 integrado/desplegado, controles transversales pendientes |
-| CryptoWallet | Integración Bit2Me desplegada; revisión del intercambio Pro aún pendiente del titular | Límite aceptado / V2 | V1.7.6 publicada con actualización única Wallet/Pro, referencia USDC/USD directa, privacidad y prueba de no duplicación; no hay tareas técnicas pendientes de esa integración. [Ficha](cryptowallet.md) |
+| CryptoWallet | Finalizada la conciliación bancaria/Pro V1.7.7; quedan dos confirmaciones personales | Manual | Ingreso de 1.000 EUR y compra USDC/EUR listos para revisión; traslado interno sin efecto patrimonial. [Ficha](cryptowallet.md) |
 
 Cada detalle se mantiene una sola vez en su página de este grupo.

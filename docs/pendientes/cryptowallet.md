@@ -1,6 +1,12 @@
 # Pendientes · CryptoWallet
 
-## Estado actual · 09/11/2026 · V1.7.6
+## Estado actual · 13/11/2026 · V1.7.7
+
+**Integración de ingreso EUR y compras Pro USDC/EUR publicada y probada.** El refresco Wallet + Pro identifica 1 ingreso externo EUR pendiente, 1 traslado interno conciliado y 1 compra USDC/EUR pendiente. La confirmación humana del ingreso fiat y de la compra permanece pendiente; **no** son defectos de integración ni se deben importar dos veces. No se han realizado escrituras financieras automáticas. Ver [cierre de noviembre](../cambios/2026-11-13.md) y [ficha vigente](../aplicaciones/cryptowallet.md).
+
+---
+
+## Archivo histórico · 09/11/2026 · V1.7.6
 
 La actualización unificada Bit2Me Wallet + Pro **ya está publicada**; no es un desarrollo pendiente. La compra recurrente de Wallet comprobada está registrada, y el intercambio Pro USDC → BTC **continúa pendiente de revisión y confirmación personal**. El control de actualización siempre aparece en Logbook, incluso en modo privacidad, sin mostrar datos privados hasta que se habilite su visualización. La valoración Pro se apoya en una referencia directa histórica USDC/USD con fuente verificable.
 
