@@ -49,9 +49,17 @@
 | `8083/tcp` | Reserva-Pistas-UTP · Nginx | LAN |
 | `8084/tcp` | Control Red · demo Docker read-only | LAN |
 | `8085/tcp` | Cartera Estratégica · Streamlit | LAN |
+| `8088/tcp` | RELATICK · entorno de pruebas | LAN, loopback y acceso exterior por Tunnel |
+| `8089/tcp` | RELATICK · Mailpit | LAN y loopback |
 | `8516/tcp` | CryptoWallet V1.6.11 · producción privada | localhost; Tunnel |
 | `8517/tcp` | CryptoWallet · previa independiente | localhost; Tunnel |
 | `53` | systemd-resolved | localhost |
+
+## RELATICK · Entorno de pruebas
+
+RELATICK se ejecuta en Nexus mediante Docker Compose. La aplicación se publica por Cloudflare Tunnel con Cloudflare Access. PostgreSQL queda en la red interna de Docker. Los archivos de la aplicación y el buzón de Mailpit tienen volúmenes persistentes.
+
+El informe de ENC-012 del 23/11/2026 registra el despliegue de `main` en `d65dde6`. La etiqueta `v1.0.0-beta.1` identifica la edición de los manuales. [Ficha de RELATICK](../aplicaciones/relatick.md) · [Operación y manuales](../aplicaciones/relatick-operacion.md).
 
 ## Estado observado el 13/08/2026
 

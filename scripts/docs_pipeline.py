@@ -38,7 +38,7 @@ MERMAID_PACKAGE_RUNTIME = ROOT / "node_modules" / "mermaid" / "dist" / "mermaid.
 PORTABLE_CSS = ROOT / "scripts" / "portable.css"
 NODE_RENDERER = ROOT / "scripts" / "render_portables.mjs"
 APP_RENDERER = ROOT / "scripts" / "render_app_portable.mjs"
-EXPECTED_MERMAID = 18
+EXPECTED_MERMAID = 20
 MINIMUM_PDF_PAGES = 35
 PIPELINE_VERSION = "4"
 
@@ -56,6 +56,7 @@ APP_PORTABLES = {
     "web-corporativa-trl": ("Web corporativa TRL", "aplicaciones/web-corporativa-trl.md"),
     "replicant-lab": ("Replicant Lab", "aplicaciones/replicant-lab.md"),
     "erasmushomes-control": ("ErasmusHomes · Control del MVP", "aplicaciones/erasmushomes-control.md"),
+    "relatick": ("RELATICK", "aplicaciones/relatick.md"),
 }
 
 APP_EXPECTED_MARKERS = {
@@ -72,6 +73,7 @@ APP_EXPECTED_MARKERS = {
     "web-corporativa-trl": ("DigitalOcean", "Worker", "Gmail", "rollback", "Business Hub"),
     "replicant-lab": ("MkDocs", "8082", "rollback"),
     "erasmushomes-control": ("Objetivo diciembre", "SHA ErasmusHomes main", "roadmap.yaml"),
+    "relatick": ("Docker Compose", "Cloudflare Access", "PostgreSQL", "Mailpit"),
 }
 
 MERMAID_FENCE = re.compile(r"^```mermaid\s*$\n(.*?)^```\s*$", re.MULTILINE | re.DOTALL)
@@ -569,6 +571,7 @@ def find_node() -> str:
 
 def render_pdf(html_path: Path, pdf_path: Path, report_path: Path, screenshot_dir: Path | None = None) -> None:
     command = [find_node(), str(NODE_RENDERER), "--html", str(html_path), "--pdf", str(pdf_path), "--report", str(report_path)]
+    command.extend(["--expected-diagrams", str(EXPECTED_MERMAID)])
     if screenshot_dir:
         command.extend(["--screenshots", str(screenshot_dir)])
     run(command)

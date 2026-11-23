@@ -147,6 +147,15 @@ Sitio público en DigitalOcean/Nginx y sistema comercial con Cloudflare Worker, 
 
 <p class="app-accesses"><a href="../downloads/apps/web-corporativa-trl.html">Ficha técnica</a> · <a href="https://thereplicantlab.com/">Web pública</a> · <a href="web-corporativa-trl/">Documentación y fuentes privadas</a></p>
 </article>
+<article class="app-card" markdown>
+## RELATICK
+<p class="app-type">Soporte IT · entorno de pruebas</p>
+Portal de incidencias, kanban de técnicos y supervisión por zonas, con configuración de sedes, servicios y permisos.
+
+<dl><dt>Herramienta</dt><dd>Claude Code</dd><dt>Stack</dt><dd>TypeScript, Next.js, React, Prisma, PostgreSQL</dd><dt>Deploy</dt><dd>Docker Compose</dd><dt>Runtime</dt><dd>Nexus · Cloudflare Access</dd><dt>Correo de pruebas</dt><dd>Mailpit persistente</dd></dl>
+
+<p class="app-accesses"><a href="../downloads/apps/relatick.html">Ficha técnica</a> · <a href="../downloads/apps/relatick.pdf">Ficha PDF</a> · <a href="relatick/">Documentación</a> · <a href="relatick-operacion/">Manuales y operación</a> · <a href="https://relatick.thereplicantlab.com/">Entrar</a></p>
+</article>
 </div>
 
 `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.
