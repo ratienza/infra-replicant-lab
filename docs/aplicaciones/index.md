@@ -154,7 +154,7 @@ Portal de incidencias, kanban de técnicos y supervisión por zonas, con configu
 
 <dl><dt>Herramienta</dt><dd>Claude Code</dd><dt>Stack</dt><dd>TypeScript, Next.js, React, Prisma, PostgreSQL</dd><dt>Deploy</dt><dd>Docker Compose</dd><dt>Runtime</dt><dd>Nexus · Cloudflare Access</dd><dt>Correo de pruebas</dt><dd>Mailpit persistente</dd></dl>
 
-[Ficha técnica](relatick.md) · [Ficha PDF](../downloads/apps/relatick.pdf) · [Manuales y operación](relatick-operacion.md) · [Entrar](https://relatick.thereplicantlab.com/)
+<p class="app-accesses"><a href="../downloads/apps/relatick.html">Ficha técnica</a> · <a href="../downloads/apps/relatick.pdf">Ficha PDF</a> · <a href="relatick/">Documentación</a> · <a href="relatick-operacion/">Manuales y operación</a> · <a href="https://relatick.thereplicantlab.com/">Entrar</a></p>
 </article>
 </div>
 

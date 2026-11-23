@@ -151,7 +151,8 @@ for (const item of routes) {
       legacyMarkdownLinks: [...document.querySelectorAll(".app-card a")].filter(link => /aplicaciones\/.+\.md$/.test(link.getAttribute("href") ?? "")).length,
     }));
     if (
-      catalog.cards !== 13 || catalog.types !== 13 || catalog.links.length !== 13 || catalog.legacyMarkdownLinks !== 0
+      catalog.cards !== 14 || catalog.types !== 14 || catalog.links.length !== 14 || catalog.legacyMarkdownLinks !== 0
+      || !catalog.links.some(link => link?.endsWith("/relatick.html"))
       || catalog.descriptions.some(length => length < 250)
       || catalog.links.some(link => !link?.includes("/downloads/apps/") || !link.endsWith(".html"))
     ) {
