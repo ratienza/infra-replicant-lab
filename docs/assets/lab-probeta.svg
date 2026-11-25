@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Replicant Lab · Probeta de laboratorio">
+ <rect width="64" height="64" rx="14" fill="#171a20"/>
+ <g transform="rotate(30 32 32)">
+  <path d="M24 11h16M26 12v34a6 6 0 0 0 12 0V12" fill="none" stroke="#f5f5f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M29 32h6v14a3 3 0 0 1-6 0Z" fill="#c92536"/>
+  <path d="M33 20h4M33 26h4" fill="none" stroke="#a5adb7" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="31" cy="38" r="1.2" fill="#fff"/>
+  <circle cx="33" cy="44" r="1" fill="#fff"/>
+ </g>
+ <circle cx="16" cy="18" r="2.5" fill="#c92536"/>
+ <circle cx="20" cy="10" r="1.5" fill="#a5adb7"/>
+</svg>

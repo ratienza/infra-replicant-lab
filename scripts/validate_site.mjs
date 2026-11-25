@@ -35,6 +35,7 @@ const routes = [
   { route: "/aplicaciones/control-red/", name: "control-red", diagrams: 0 },
   { route: "/aplicaciones/cartera-estrategica/", name: "cartera", diagrams: 2 },
   { route: "/aplicaciones/cryptowallet/", name: "cryptowallet", diagrams: 0 },
+  { route: "/aplicaciones/moon-capital/", name: "moon-capital", diagrams: 0 },
   { route: "/aplicaciones/web-corporativa-trl/", name: "web-corporativa-trl", diagrams: 1 },
   { route: "/aplicaciones/replicant-lab/", name: "replicant-lab", diagrams: 0 },
   { route: "/aplicaciones/erasmushomes-control/", name: "erasmushomes-control", diagrams: 0 },
@@ -404,6 +405,7 @@ for (const slug of [
   "control-red",
   "cartera-estrategica",
   "cryptowallet",
+  "moon-capital",
   "replicant-lab",
   "erasmushomes-control",
 ]) {
