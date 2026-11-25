@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import datetime as dt
 import hashlib
 import json
@@ -162,10 +163,13 @@ def render_standalone(data: dict, sha: str, synced_at: str, sync_state: str, doc
     priorities = [task for task in tasks if task["status"] == "pending"][:3]
     blockers = [task for task in tasks if task["status"] == "blocked"]
     state_label = {"synchronized": "Sincronizado", "stale": "Desactualizado", "error": "Error de sincronización"}[sync_state]
+    icon_path = Path(__file__).resolve().parents[1] / "docs/control/erasmushomes/favicon.svg"
+    favicon = base64.b64encode(icon_path.read_bytes()).decode("ascii")
     content = [
         '<!doctype html><html lang="es"><head><meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width,initial-scale=1">',
         '<title>ErasmusHomes · Control del MVP</title>',
+        f'<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,{favicon}">',
         f'<style>{FINAL_CSS}</style></head><body><main class="shell">',
         f'<header class="topbar"><div class="topbar-left"><span class="mark">EH</span><span>ErasmusHomes<br><small class="brand-small">Control del MVP</small></span></div><span class="sync">{state_label}</span></header>',
         '<section class="hero"><div><p class="eyebrow">Dirección del piloto · diciembre 2026</p>',
