@@ -405,6 +405,7 @@ for (const slug of [
   "control-red",
   "cartera-estrategica",
   "cryptowallet",
+  "moon-capital",
   "replicant-lab",
   "erasmushomes-control",
 ]) {

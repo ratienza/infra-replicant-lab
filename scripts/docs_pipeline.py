@@ -53,6 +53,7 @@ APP_PORTABLES = {
     "control-red": ("Control de Red", "aplicaciones/control-red.md"),
     "cartera-estrategica": ("Cartera Estratégica", "aplicaciones/cartera-estrategica.md"),
     "cryptowallet": ("CryptoWallet", "aplicaciones/cryptowallet.md"),
+    "moon-capital": ("Moon Capital", "aplicaciones/moon-capital.md"),
     "web-corporativa-trl": ("Web corporativa TRL", "aplicaciones/web-corporativa-trl.md"),
     "replicant-lab": ("Replicant Lab", "aplicaciones/replicant-lab.md"),
     "erasmushomes-control": ("ErasmusHomes · Control del MVP", "aplicaciones/erasmushomes-control.md"),
@@ -61,6 +62,7 @@ APP_PORTABLES = {
 
 APP_EXPECTED_MARKERS = {
     "backups-lab": ("v1.1.3", "compatibilidad", "8087", "retención", "rollback", "V2.0"),
+    "moon-capital": ("Moon Capital", "Nexus", "Cloudflare Access", "SQLite"),
     "pula": ("No forma parte de ErasmusHomes", "Cloud Run", "SSRF"),
     "app-launch": ("apps.json", "Tarjeta App Launch", "rollback"),
     "salones-av": ("192.168.18.220:8081", "Nexus", "Compose"),

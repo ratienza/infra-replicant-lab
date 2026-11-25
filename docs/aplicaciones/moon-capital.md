@@ -14,6 +14,12 @@ Aplicación privada de Raúl para seguir y conciliar preventas (CHIRP, LayerZero
 | Copia local verificada | `/opt/backups/moon-capital/activa-20261111T132020Z.db` |
 | Salud | `/api/health` en el origen local de Nexus |
 
+## Accesos
+
+- **Aplicación:** [Moon Capital](https://mooncapital.thereplicantlab.com/).
+- **Ficha técnica:** [HTML autocontenido](/downloads/apps/moon-capital.html) · [PDF](/downloads/apps/moon-capital.pdf).
+- **Navegación:** [App Launch](https://launch.thereplicantlab.com/).
+
 ## Arranque y acceso
 
 Abre Moon Capital desde el Launch privado o desde su URL HTTPS. Cloudflare Access solicita el inicio de sesión con Google. En la pantalla de Moon Capital, activa **Código largo o contraseña** y usa la credencial individual.
