@@ -91,7 +91,7 @@ nav:
 theme:
   name: material
   language: es
-  favicon: assets/favicon.svg
+  favicon: assets/lab-probeta.svg
   features:
     - navigation.tabs
     - navigation.sections
