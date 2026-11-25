@@ -161,3 +161,7 @@ Portal de incidencias, kanban de técnicos y supervisión por zonas, con configu
 `Checkout ≠ Runtime` y `Tarjeta App Launch ≠ Runtime local`.
 
 Backups Lab **v1.1.3**: nueve aptas con compatibilidad operativa, 0 candidatas pendientes y siete carpetas vinculadas fuera de contadores/copias. Las nuevas pruebas de CryptoWallet/Control Red y la evidencia previa de mecanismos no cambiados permanecen trazadas. [Manual vigente](../aplicaciones/backups-lab.md).
+
+## Moon Capital · Preventas y nodos
+
+Auditoría privada de preventas y nodos. Activa en Nexus con Cloudflare Access y credencial propia. [Ficha de la aplicación](moon-capital.md).
