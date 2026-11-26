@@ -1,5 +1,21 @@
 # Aplicación · Cartera Estratégica
 
+## Acceso vigente · 26/11/2026
+
+Cartera Estratégica adopta la tarjeta de acceso común de Moon Capital, con el infinito oficial
+en relieve en escritorio (más de 600 px) y plano en móvil. Se mantienen la
+versión funcional 2.2.1 y las credenciales y datos existentes.
+Imagen de Nexus: `cartera-estrategica-app:access-20261126`.
+
+La puerta de seguridad sigue validando las credenciales en el servidor.
+Se verificaron las interfaces en claro/oscuro y tres anchos, y el desbloqueo
+con estados sintéticos aislados. [Publicación, pruebas y rollback](../cambios/2026-11-26.md).
+
+## Registro anterior
+
+Las versiones, imágenes y comprobaciones anteriores se conservan como historial.
+
+
 Aplicación privada de análisis y seguimiento financiero desarrollada con Python y Streamlit. Su runtime productivo v2.1.0 se ejecuta en Nexus. Los PR #30 y #31 integraron la entrega aprobada en `ratienza/cartera-estrategica`; el tag y la release `v2.1.0` señalan `f520216889d7c1f78551125b66a068fb54df6b99`. El 12/10/2026 se verificó ese SHA en la imagen y el contenedor saludable de Nexus, con HTTP `200` en `:8085`.
 
 ## Accesos

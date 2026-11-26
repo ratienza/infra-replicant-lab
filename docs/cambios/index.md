@@ -1,5 +1,7 @@
 # Change Log
 
+- [26 de noviembre de 2026 · acceso común TRL](2026-11-26.md)
+
 - [13 de noviembre de 2026 · CryptoWallet V1.7.7](2026-11-13.md)
 
 - [9 de noviembre de 2026 · CryptoWallet V1.7.6](2026-11-09.md)
