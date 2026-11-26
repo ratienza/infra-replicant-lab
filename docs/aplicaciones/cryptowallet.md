@@ -1,5 +1,21 @@
 # Aplicación · CryptoWallet
 
+## Acceso vigente · 26/11/2026
+
+CryptoWallet adopta la tarjeta de acceso común de Moon Capital, con el infinito oficial
+en relieve en escritorio (más de 600 px) y plano en móvil. Se mantienen la
+versión funcional 1.7.8 y las credenciales y datos existentes.
+Imagen de Nexus: `cryptowallet:access-20261126`.
+
+La puerta de seguridad sigue validando las credenciales en el servidor.
+Se verificaron las interfaces en claro/oscuro y tres anchos, y el desbloqueo
+con estados sintéticos aislados. [Publicación, pruebas y rollback](../cambios/2026-11-26.md).
+
+## Registro anterior
+
+Las versiones, imágenes y comprobaciones anteriores se conservan como historial.
+
+
 ## Estado vigente · V1.7.7 · 13/11/2026
 
 **CryptoWallet V1.7.7 está publicada y verificada en Nexus.** Versión de producción `cryptowallet:1.7.7-513d941bb9d7`, código en [PR #63](https://github.com/ratienza/cryptowallet/pull/63), cierre documental en [PR #64](https://github.com/ratienza/cryptowallet/pull/64) y etiqueta [v1.7.7](https://github.com/ratienza/cryptowallet/tree/v1.7.7).

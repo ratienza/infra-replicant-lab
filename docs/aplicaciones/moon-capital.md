@@ -1,5 +1,25 @@
 # Moon Capital · Preventas y nodos
 
+## Acceso vigente · 26/11/2026
+
+Moon Capital adopta la tarjeta de acceso común de Moon Capital, con el infinito oficial
+en relieve en escritorio (más de 600 px) y plano en móvil. Se mantienen la
+versión funcional 1.1.0 y las credenciales y datos existentes.
+Imagen de Nexus: `moon-capital:access-20261126`.
+
+La puerta de seguridad sigue validando las credenciales en el servidor.
+Se verificaron las interfaces en claro/oscuro y tres anchos, y el desbloqueo
+con estados sintéticos aislados. [Publicación, pruebas y rollback](../cambios/2026-11-26.md).
+
+El proxy sirve el frontend desde una carpeta estática independiente. La
+publicación también actualiza esa copia, preserva sus recursos anteriores y
+verifica que el índice servido coincide con el candidato probado.
+
+## Registro anterior
+
+Las versiones, imágenes y comprobaciones anteriores se conservan como historial.
+
+
 Aplicación privada de Raúl para seguir y conciliar preventas (CHIRP, LayerZero y Bitfinity) y nodos (0G y Lumoz). Conserva la fuente y la calidad de la evidencia de cada cifra. Las consultas a las redes son de solo lectura.
 
 | Campo | Valor |
