@@ -11,6 +11,10 @@ La puerta de seguridad sigue validando las credenciales en el servidor.
 Se verificaron las interfaces en claro/oscuro y tres anchos, y el desbloqueo
 con estados sintéticos aislados. [Publicación, pruebas y rollback](../cambios/2026-11-26.md).
 
+El proxy sirve el frontend desde una carpeta estática independiente. La
+publicación también actualiza esa copia, preserva sus recursos anteriores y
+verifica que el índice servido coincide con el candidato probado.
+
 ## Registro anterior
 
 Las versiones, imágenes y comprobaciones anteriores se conservan como historial.
